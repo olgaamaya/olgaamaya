@@ -3,7 +3,7 @@
  justify-content: center;
 }
 p.webdesign {
- var(--firstcolor);
+  color: var(--firstcolor);
     text-decoration: none;
 }
 
