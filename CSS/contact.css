@@ -2,15 +2,8 @@
  display: flex;
  justify-content: center;
 }
-
-        /* #webdesign
- {padding-top: 1.5em; text-align: center;padding: 5%;margin: 2rem 0 2rem 0;letter-spacing:.25rem;}
-#webdesign a
- { color: var(--firstcolor);
-    text-decoration: none;
-} */
-p.webdesign
- { var(--firstcolor);
+p.webdesign {
+ var(--firstcolor);
     text-decoration: none;
 }
 
