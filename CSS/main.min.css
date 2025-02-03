@@ -42,12 +42,12 @@ html{--firstcolor:#fff;--secondcolor:pink;-webkit-tap-highlight-color:transparen
 .social-svg_0:hover, .social-svg_1:hover, .social-svg_2:hover, .social-svg_3:hover, .social-svg_4:hover {
  filter: invert(55%) sepia(20%) saturate(1799%) hue-rotate(299deg) brightness(205%) contrast(100%)
 }
-
-#social_elements {
+#social_elements2 {
     position: absolute;
-  top:1rem;
-  right: 1rem; 
-    height: 2rem;
+    z-index: 999999999999;
+    top: 1rem;
+    right: 1rem; 
+    height: 1rem;
     width: auto;
     display: flex;
     flex-wrap: nowrap;
@@ -55,4 +55,9 @@ html{--firstcolor:#fff;--secondcolor:pink;-webkit-tap-highlight-color:transparen
     margin-bottom: 3rem;
     margin-top: 1rem;
     align-self: center;
+}
+    @media (max-width: 1000px) {
+#social_elements2 {
+    display: none;
+  }
 }
