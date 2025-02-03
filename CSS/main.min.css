@@ -1132,7 +1132,7 @@ li.menu-item {
     top: 1rem;
     right: 1rem;
     width: auto;
-    display: block;
+    display: flex;
     flex-wrap: nowrap;
     justify-content: center;
     align-self: center;
