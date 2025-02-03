@@ -55,7 +55,7 @@ html{--firstcolor:#fff;--secondcolor:pink;-webkit-tap-highlight-color:transparen
     margin-top: 1rem;
     align-self: center;
 }
-    @media (max-width: 1000px) {
+    @media (max-width: 950px) {
 #social_elements2 {
     display: none;
   }
