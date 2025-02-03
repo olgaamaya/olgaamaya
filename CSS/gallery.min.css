@@ -198,6 +198,7 @@ img.hover-shadow {
     color: var(--firstcolor);
     text-decoration: none;
     cursor: pointer;
+
     animation: spin .025s cubic-bezier(0.42, 0, 0.38, 0.62);
 }
  @keyframes spin {
