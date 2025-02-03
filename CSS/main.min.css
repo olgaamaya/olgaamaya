@@ -1117,8 +1117,8 @@ li.menu-item {
     .social-svg_0, .social-svg_1, .social-svg_2, .social-svg_3, .social-svg_4 {
         background-size: 1.75rem;
         background-repeat: no-repeat;
-        width: 1.75rem;
-        height: 1.75rem;
+        width: 1.5rem;
+        height: 1.5rem;
         margin: 0 0 0 .25rem;
     }
     .social-svg_0:hover, .social-svg_1:hover, .social-svg_2:hover, .social-svg_3:hover, .social-svg_4:hover {
