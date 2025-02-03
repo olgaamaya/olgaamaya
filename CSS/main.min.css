@@ -44,7 +44,9 @@ html{--firstcolor:#fff;--secondcolor:pink;-webkit-tap-highlight-color:transparen
 }
 
 #social_elements {
-    position: relative;
+    position: absolute;
+  top:1rem;
+  right: 1rem; 
     height: 2rem;
     width: auto;
     display: flex;
