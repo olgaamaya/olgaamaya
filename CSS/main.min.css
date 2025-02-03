@@ -17,7 +17,7 @@ html {
 #social_elements2 {
     display: none;
   }
-        .social-svg_0 .social-svg_1 .social-svg_2 .social-svg_3 .social-svg_4 {
+.social-svg_0, .social-svg_1, .social-svg_2, .social-svg_3, .social-svg_4 {
     display: none;
   }
 }
@@ -1099,49 +1099,31 @@ li.menu-item {
 
     .social-svg_0 {
         background-image: url('/BUTTONS/phone.png');
-        background-repeat: no-repeat;
-        background-size: 2rem;
-        width: 2rem;
-        height: 2rem;
-        margin: 0 0 0 .5rem;
     }
 
     .social-svg_1 {
         background-image: url('/BUTTONS/insta.png');
-        background-repeat: no-repeat;
-        background-size: 2rem;
-        width: 2rem;
-        height: 2rem;
-        margin: 0 0 0 .5rem;
     }
 
     .social-svg_2 {
         background-image: url('/BUTTONS/mail.png');
-        background-repeat: no-repeat;
-        background-size: 2rem;
-        width: 2rem;
-        height: 2rem;
-        margin: 0 0 0 .5rem;
     }
 
     .social-svg_3 {
         background-image: url('/BUTTONS/linkedin.png');
-        background-repeat: no-repeat;
-        background-size: 2rem;
-        width: 2rem;
-        height: 2rem;
-        margin: 0 0 0 .5rem;
     }
 
     .social-svg_4 {
         background-image: url('/BUTTONS/facebook.png');
-        background-repeat: no-repeat;
-        background-size: 2rem;
-        width: 2rem;
-        height: 2rem;
-        margin: 0 0 0 .5rem;
     }
 
+    .social-svg_0, .social-svg_1, .social-svg_2, .social-svg_3, .social-svg_4 {
+        background-size: 1.75rem;
+        background-repeat: no-repeat;
+        width: 1.75rem;
+        height: 1.75rem;
+        margin: 0 0 0 .25rem;
+    }
     .social-svg_0:hover, .social-svg_1:hover, .social-svg_2:hover, .social-svg_3:hover, .social-svg_4:hover {
         filter: invert(55%) sepia(20%) saturate(1799%) hue-rotate(299deg) brightness(205%) contrast(100%);
         transform: translateY(-3px); /* Moves the element 3px up */ 
@@ -1151,15 +1133,16 @@ li.menu-item {
     position: absolute;
     z-index: 999999999999;
     top: 1rem;
-    right: 1rem; 
-    height: 1rem;
+    right: 1rem;
+    /* height: 2rem; */
     width: auto;
     display: flex;
     flex-wrap: nowrap;
     justify-content: center;
-    margin-bottom: 3rem;
-    margin-top: 1rem;
+    /* padding-bottom: 1rem; */
+    /* padding-top: 1rem; */
     align-self: center;
+    margin: 1rem;
 }
 
     
