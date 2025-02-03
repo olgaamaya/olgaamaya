@@ -1144,7 +1144,7 @@ li.menu-item {
 
     .social-svg_0:hover, .social-svg_1:hover, .social-svg_2:hover, .social-svg_3:hover, .social-svg_4:hover {
         filter: invert(55%) sepia(20%) saturate(1799%) hue-rotate(299deg) brightness(205%) contrast(100%);
-        transform: translateY(-5px); /* Moves the element 5px up */ 
+        transform: translateY(-3px); /* Moves the element 3px up */ 
     }
 
     #social_elements2 {
