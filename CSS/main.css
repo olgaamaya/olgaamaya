@@ -1,4 +1,4 @@
-:root{ --firstcolor: white; --secondcolor: pink; --thirdcolor: black; -webkit-tap-highlight-color: transparent;-webkit-user-select: none;-ms-user-select: none;user-select: none; margin: 0%;padding: 0%;box-sizing: border-box;}
+:root{ --firstcolor: white; --secondcolor: pink; --thirdcolor: black; -webkit-tap-highlight-color: transparent;-webkit-user-select: none;-ms-user-select: none;user-select: none; box-sizing: border-box;}
 @charset "UTF-8";@font-face {
     font-family: "VG5000"; 
     font-style: normal;
@@ -6,6 +6,9 @@
     font-display: block;
     src: url("fonts/VG5000-Regular_web.woff2") format("woff2"),
   url("fonts/VG5000-Regular_web.woff") format("woff");
+}
+figure,body {
+    margin: 0%;
 }
 figure, figure img, picture{ display: flex;} 
 picture{height:100%; width:100%;} 
