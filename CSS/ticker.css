@@ -45,3 +45,22 @@
         font-size:160px
     }
 }
+
+
+
+
+:root {
+  
+}
+
+@media (min-width: 768px) {
+    :root {
+       
+    }
+}
+
+@media (min-width: 1023px) {
+    :root {
+        scroll-padding-top:190px
+    }
+}
