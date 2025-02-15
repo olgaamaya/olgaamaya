@@ -1,429 +1,1354 @@
-*,*:before,*:after {
-    box-sizing: border-box
-}
-
-body {
-    align-items: center
-}
-
-.header.show {
-    position: fixed;
-    top: 0
-}
-
-.infogallery {
-    text-decoration: none;
-    letter-spacing: .15rem
-}
-
-.row {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: center;
-    width: 90%;
-    height: auto
-}
-
-.col {
-    flex-wrap: wrap;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    margin-left: .5rem;
-    margin-right: .5rem
-}
-
-.col picture img {
-    width: 100%;
-    height: 100%;
-    max-width: 100%;
-    object-fit: contain
-}
-
-@media screen and (max-width: 750px) {
-    .row {
-        flex-direction:column
-    }
-}
-
-.modal {
-    display: none;
-    position: fixed;
-    justify-content: center;
-    align-items: center;
-    z-index: 101;
-    width: 100%;
-    background-color: #fff;
-    height: 100%
-}
-
-.modal-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    max-width: 100%;
-    height: 100%
-}
-
-div.direction {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center
-}
-
-.slide {
-    position: relative;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    max-width: 90%;
-    height: 100%;
-    max-height: 100%
-}
-
-.image-slide {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    max-width: 100%%;
-    height: 100%;
-    max-height: 100%;
-    -o-object-fit: contain;
-    object-fit: contain
-}
-
-.modal-preview {
-    width: auto
-}
-
-#layer {
-    position: absolute;
-    width: 100%;
-    height: 100%
-}
-
-.directiontext {
-    letter-spacing: .15rem;
-    color: #fff;
-    height: 0;
-    top: 3.5rem;
-    width: 100%;
-    position: absolute;
-    z-index: 999
-}
-
-.prev {
-    touch-action: manipulation;
-    position: fixed;
-    left: 0;
-    top: 4rem;
-    padding: 0 45% 70vh 1rem;
-    text-decoration: none
-}
-
-.nex {
-    touch-action: manipulation;
-    position: fixed;
-    right: 0;
-    top: 4rem;
-    padding: 0 1rem 70vh 45%;
-    text-decoration: none
-}
-
-.directiontext {
-    color: transparent
-}
-
-img.preview,img.modal-preview {
-    opacity: 1
-}
-
-@media screen and (max-width: 440px) {
-    img.preview {
-        width:100%
-    }
-}
-
-.preview:hover,.modal-preview:hover {
-    opacity: .8
-}
-
-img.hover-shadow {
-    transition: 0.3s
-}
-
-.close {
-    color: var(--secondcolor);
-    background: transparent;
-    height: 40px;
-    width: 20px;
-    display: flex;
-    align-items:center;
-    text-align: center;
-    justify-content:center;
-    position: absolute;
-    top: 15px;
-    right: 30px;
-    margin: auto;
-    font-size: 100px;
-    z-index: 505;
-    line-height: 100px;
-    color: transparent;
-    background:black;
-    text-decoration: none;
-    cursor: pointer;
-    width: 0px;
-    margin: auto;
-    background:black;
-    margin:0rem;
-    padding: 4px;
-    padding-top: 8px;
-    transition: width .125s;
-    rotate: 0deg;
-    height: 20px;
-}
-
-.close:hover,.close:focus {
-    color: var(--firstcolor);
-    text-decoration: none;
-    cursor: pointer;
-
-    animation: spin .025s cubic-bezier(0.42, 0, 0.38, 0.62);
-}
- @keyframes spin {
-      from {
-        transform: translateY(0%);
-      }
-      to {
-        transform: translateY(-1.5px);
-      }
-    }
-
-#close-pointer:hover {
-}
-
-.arrow {
-    border: solid #000;
-    border-width: 0 3px 3px 0;
-    display: inline-block;
-    padding: 4px
-}
-
-.right {
-    -webkit-transform: rotate(-45deg);
-    transform: rotate(-45deg)
-}
-
-.left {
-    -webkit-transform: rotate(135deg);
-    transform: rotate(135deg)
-}
-
-.arrows {
-    width: 100%;
-    position: absolute;
-    height: 0;
-    z-index: 999999;
-    touch-action: manipulation;
-    top: 48%
-}
-
-.left {
-    left: .2rem;
-    position: absolute;
-    margin: .5rem;
-    cursor: pointer
-}
-
-.right {
-    right: .2rem;
-    position: absolute;
-    margin: .5rem;
-    cursor: pointer
-}
-
-.image-slide {
-    max-height: 80vh;
-    margin-bottom: auto
-}
-
-.modal-content {
-    position: relative;
-    max-height: 70%
-}
-
-.slide1,.slide2,.slide3,.slide4,.slide5,.slide6,.slide7,.slide8,.slide9,.slide10,.slide11,.slide12,.slide13,.slide14,.slide15 {
-    position: absolute;
-    top: 0;
-    bottom: 0
-}
-
-#videoslide {
-    width: 90%;
-    align-content: center;
-    align-items: center;
-    align-self: center;
-    justify-content: center;
-    position: relative;
-    height: 100%;
-    z-index: 2147483647;
-    margin-bottom: 2em;
-    margin-top: 2em
-}
-
-.videoclass {
-    height: calc(100%);
-    margin-bottom: auto;
-    max-width: 95%!important
-}
-
-.projecttitle {
-    display: none;
-    position: absolute;
-    width: 100%;
-    height: 2rem;
-    color: #000;
-    font-size: 1.5em;
-    z-index: -1;
-    line-height: 1em;
-    text-align: center
-}
-
-.infogallery {
-    margin: 0 1rem 0 1rem;
-    line-height: 1em;
-    color: var(--textcolor)
-}
-
-.creditlinks {
-    height: 6rem;
-    width: 50%;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    display: flex;
-    flex-direction: column
-}
-
-@media and screen(min-width: 1000px) {
-    .infogallery {
-        position:fixed;
-        left: 0
-    }
-}
-
-.infolink_3:hover,.infolink_4:hover {
-    color: var(--firstcolor);
-    margin-left: 1.5rem
-}
-
-@media screen and (max-width: 1000px) {
-    #infolink_2,#infolink_3,#infolink_4 {
-        display:none!important
-    }
-}
-
-@media screen and (min-width: 1000px) {
-    #infolink_2,#infolink_3,#infolink_4 {
-        display:flex!important
-    }
-}
-
-@media screen and (max-width: 1000px) {
-    .infolink_2,.infolink_3,.infolink_4 {
-        display:none!important
-    }
-}
-
-@media screen and (min-width: 1000px) {
-    .infolink_2,.infolink_3,.infolink_4 {
-        display:flex!important
-    }
-}
-
-.nextpointer {
-    position: absolute;
-    z-index: 999999;
-    left: 0;
-    top: 0;
-    font-size: 3rem;
-    height: 3rem;
-    color: black;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    cursor: pointer;
-    font-weight: bolder;
-}
-
-#before-pointer {
-    top: 3rem;
-    color: transparent;
-    z-index: 909090019193997879
-}
-
-.laptop-menu {
-    height: 7rem;
-    top: 0;
-    position: absolute;
-    left: 0;
-    width: 4rem;
-    z-index: 999999987
-}
-
-@media screen and (max-width: 1000px) {
-    .projecttitle {
-        top:2em
-    }
-
-    .laptop-menu {
-        height: 100vh;
-        z-index: -1
-    }
-
-    #before-pointer {
-        position: absolute;
-        bottom: 1rem;
-        margin-top: auto;
-        z-index: 9999999999;
-        cursor: pointer;
-       color: black; 
-    }
-
-    .projecttitle {
-        font-size: .8em
-    }
-
-    .creditlinks {
-        display: none
-    }
-}
-
-@media screen and (min-width: 1000px) {
-    .projecttitle {
-        top:.75em
-    }
-
-    .laptop-menu:hover #before-pointer {
-        color: black !important;
-        display: flex
-    }
-
-    .modal-content {
-        max-height: ''
-    }
-
-    a.projecttitellink {
-        color: #000;
-        text-decoration: none
-    }
+function openLightbox_1() {
+    setkeys_1(),
+      closeLightbox_21(),
+      closeLightbox_2(),
+      (document.getElementById("projecttitle_1").style.display = "block"),
+      (document.getElementById("mouseTarget").style.display = "none"),
+      (document.getElementById("mouseTarget").style.top = "0"),
+      (document.getElementById("mouseTarget").style.zIndex = "100001"),
+      (document.getElementsByTagName("body")[0].style.overflow = "hidden"),
+      (document.getElementById("Lightbox_1").style.display = "flex"),
+      (document.getElementById("rowid").style.display = "none"),
+      (document.getElementById("menu-toggle").style.display = "none"),
+      (document.getElementsByTagName("Footer")[0].style.display = "none"),
+      (document.getElementById("menu-toggle").style.display = "none"),
+      (document.getElementById("social_elements2").style.display = "none");
+  }
+  
+  function closeLightbox_1() {
+    (document.getElementById("mouseTarget").style.display = "flex"),
+      (document.getElementById("projecttitle_1").style.display = "none"),
+      (document.getElementById("mouseTarget").style.top = "0"),
+      (document.getElementById("mouseTarget").style.zIndex = ""),
+      (document.getElementsByTagName("body")[0].style.overflow = ""),
+      (document.getElementById("Lightbox_1").style.display = "none"),
+      (document.getElementById("rowid").style.display = "grid"),
+      (document.getElementById("menu-toggle").style.display = "flex"),
+      (document.getElementById("social_elements2").style.display = "flex"),
+      (document.getElementsByTagName("Footer")[0].style.display = "flex"),
+      window.matchMedia("(max-width: 950px)").matches
+        ? (document.getElementById("menu-toggle").style.display = "flex")
+        : (document.getElementById("menu-toggle").style.display = "none");
+  }
+  
+  function openLightbox_2() {
+    setkeys_2(),
+      closeLightbox_1(),
+      closeLightbox_3(),
+      (document.getElementById("projecttitle_2").style.display = "block"),
+      (document.getElementById("mouseTarget").style.display = "none"),
+      (document.getElementById("mouseTarget").style.top = "0"),
+      (document.getElementById("mouseTarget").style.zIndex = "100001"),
+      (document.getElementsByTagName("body")[0].style.overflow = "hidden"),
+      (document.getElementById("Lightbox_2").style.display = "flex"),
+      (document.getElementById("rowid").style.display = "none"),
+      (document.getElementById("menu-toggle").style.display = "none"),
+      (document.getElementsByTagName("Footer")[0].style.display = "none"),
+      (document.getElementById("menu-toggle").style.display = "none"),
+      (document.getElementById("social_elements2").style.display = "none");
+  }
+  
+  function closeLightbox_2() {
+    (document.getElementById("social_elements2").style.display = "flex"),
+      (document.getElementById("projecttitle_2").style.display = "none"),
+      (document.getElementById("mouseTarget").style.display = "flex"),
+      (document.getElementById("mouseTarget").style.top = "0"),
+      (document.getElementById("mouseTarget").style.zIndex = ""),
+      (document.getElementsByTagName("body")[0].style.overflow = ""),
+      (document.getElementById("Lightbox_2").style.display = "none"),
+      (document.getElementById("rowid").style.display = "grid"),
+      (document.getElementById("menu-toggle").style.display = "flex"),
+      (document.getElementsByTagName("Footer")[0].style.display = "flex"),
+      window.matchMedia("(max-width: 950px)").matches
+        ? (document.getElementById("menu-toggle").style.display = "flex")
+        : (document.getElementById("menu-toggle").style.display = "none");
+  }
+  
+  function openLightbox_3() {
+    setkeys_3(),
+      closeLightbox_2(),
+      closeLightbox_4(),
+      (document.getElementById("projecttitle_3").style.display = "block"),
+      (document.getElementById("mouseTarget").style.display = "none"),
+      (document.getElementsByTagName("body")[0].style.overflow = "hidden"),
+      (document.getElementById("Lightbox_3").style.display = "flex"),
+      (document.getElementById("rowid").style.display = "none"),
+      (document.getElementById("menu-toggle").style.display = "none"),
+      (document.getElementsByTagName("Footer")[0].style.display = "none"),
+      (document.getElementById("social_elements2").style.display = "none");
+  }
+  
+  function closeLightbox_3() {
+    (document.getElementById("social_elements2").style.display = "flex"),
+      pause3(),
+      (document.getElementById("projecttitle_3").style.display = "none"),
+      (document.getElementById("mouseTarget").style.display = "flex"),
+      (document.getElementsByTagName("body")[0].style.overflow = ""),
+      (document.getElementById("Lightbox_3").style.display = "none"),
+      (document.getElementById("rowid").style.display = "grid"),
+      (document.getElementById("menu-toggle").style.display = "flex"),
+      (document.getElementsByTagName("Footer")[0].style.display = "flex"),
+      window.matchMedia("(max-width: 950px)").matches
+        ? (document.getElementById("menu-toggle").style.display = "flex")
+        : (document.getElementById("menu-toggle").style.display = "none");
+  }
+  
+  function openLightbox_4() {
+    setkeys_4(),
+      closeLightbox_3(),
+      closeLightbox_5(),
+      (document.getElementById("projecttitle_4").style.display = "block"),
+      (document.getElementById("mouseTarget").style.display = "none"),
+      (document.getElementsByTagName("body")[0].style.overflow = "hidden"),
+      (document.getElementById("Lightbox_4").style.display = "flex"),
+      (document.getElementById("rowid").style.display = "none"),
+      (document.getElementById("menu-toggle").style.display = "none"),
+      (document.getElementsByTagName("Footer")[0].style.display = "none"),
+      (document.getElementById("social_elements2").style.display = "none");
+  }
+  
+  function closeLightbox_4() {
+    (document.getElementById("social_elements2").style.display = "flex"),
+      pause4(),
+      (document.getElementById("projecttitle_4").style.display = "none"),
+      (document.getElementById("mouseTarget").style.display = "flex"),
+      (document.getElementsByTagName("body")[0].style.overflow = ""),
+      (document.getElementById("Lightbox_4").style.display = "none"),
+      (document.getElementById("rowid").style.display = "grid"),
+      (document.getElementById("menu-toggle").style.display = "flex"),
+      (document.getElementsByTagName("Footer")[0].style.display = "flex"),
+      window.matchMedia("(max-width: 950px)").matches
+        ? (document.getElementById("menu-toggle").style.display = "flex")
+        : (document.getElementById("menu-toggle").style.display = "none");
+  }
+  
+  function openLightbox_5() {
+    setkeys_5(),
+      closeLightbox_4(),
+      closeLightbox_6(),
+      (document.getElementById("projecttitle_5").style.display = "block"),
+      (document.getElementById("mouseTarget").style.display = "none"),
+      (document.getElementsByTagName("body")[0].style.overflow = "hidden"),
+      (document.getElementById("Lightbox_5").style.display = "flex"),
+      (document.getElementById("rowid").style.display = "none"),
+      (document.getElementById("menu-toggle").style.display = "none"),
+      (document.getElementsByTagName("Footer")[0].style.display = "none"),
+      (document.getElementById("social_elements2").style.display = "none");
+  }
+  
+  function closeLightbox_5() {
+    (document.getElementById("social_elements2").style.display = "flex"),
+      (document.getElementById("projecttitle_5").style.display = "none"),
+      (document.getElementById("mouseTarget").style.display = "flex"),
+      (document.getElementsByTagName("body")[0].style.overflow = ""),
+      (document.getElementById("Lightbox_5").style.display = "none"),
+      (document.getElementById("rowid").style.display = "grid"),
+      (document.getElementsByTagName("Footer")[0].style.display = "flex"),
+      window.matchMedia("(max-width: 950px)").matches
+        ? (document.getElementById("menu-toggle").style.display = "flex")
+        : (document.getElementById("menu-toggle").style.display = "none");
+  }
+  
+  function openLightbox_6() {
+    setkeys_6(),
+      closeLightbox_5(),
+      closeLightbox_7(),
+      (document.getElementById("projecttitle_6").style.display = "block"),
+      (document.getElementById("mouseTarget").style.display = "none"),
+      (document.getElementsByTagName("body")[0].style.overflow = "hidden"),
+      (document.getElementById("Lightbox_6").style.display = "flex"),
+      (document.getElementById("rowid").style.display = "none"),
+      (document.getElementById("menu-toggle").style.display = "none"),
+      (document.getElementsByTagName("Footer")[0].style.display = "none"),
+      (document.getElementById("social_elements2").style.display = "none");
+  }
+  
+  function closeLightbox_6() {
+    (document.getElementById("social_elements2").style.display = "flex"),
+      (document.getElementById("projecttitle_6").style.display = "none"),
+      (document.getElementById("mouseTarget").style.display = "flex"),
+      (document.getElementsByTagName("body")[0].style.overflow = ""),
+      (document.getElementById("Lightbox_6").style.display = "none"),
+      (document.getElementById("rowid").style.display = "grid"),
+      (document.getElementsByTagName("Footer")[0].style.display = "flex"),
+      window.matchMedia("(max-width: 950px)").matches
+        ? (document.getElementById("menu-toggle").style.display = "flex")
+        : (document.getElementById("menu-toggle").style.display = "none");
+  }
+  
+  function openLightbox_7() {
+    setkeys_7(),
+      closeLightbox_6(),
+      closeLightbox_8(),
+      (document.getElementById("projecttitle_7").style.display = "block"),
+      (document.getElementById("mouseTarget").style.display = "none"),
+      (document.getElementsByTagName("body")[0].style.overflow = "hidden"),
+      (document.getElementById("Lightbox_7").style.display = "flex"),
+      (document.getElementById("rowid").style.display = "none"),
+      (document.getElementById("menu-toggle").style.display = "none"),
+      (document.getElementsByTagName("Footer")[0].style.display = "none"),
+      (document.getElementById("social_elements2").style.display = "none");
+  }
+  
+  function closeLightbox_7() {
+    (document.getElementById("social_elements2").style.display = "flex"),
+      pause7(),
+      (document.getElementById("projecttitle_7").style.display = "none"),
+      (document.getElementById("mouseTarget").style.display = "flex"),
+      (document.getElementsByTagName("body")[0].style.overflow = ""),
+      (document.getElementById("Lightbox_7").style.display = "none"),
+      (document.getElementById("rowid").style.display = "grid"),
+      (document.getElementById("menu-toggle").style.display = "flex"),
+      (document.getElementsByTagName("Footer")[0].style.display = "flex"),
+      window.matchMedia("(max-width: 950px)").matches
+        ? (document.getElementById("menu-toggle").style.display = "flex")
+        : (document.getElementById("menu-toggle").style.display = "none");
+  }
+  
+  function openLightbox_8() {
+    setkeys_8(),
+      closeLightbox_7(),
+      closeLightbox_9(),
+      (document.getElementById("projecttitle_8").style.display = "block"),
+      (document.getElementById("mouseTarget").style.display = "none"),
+      (document.getElementsByTagName("body")[0].style.overflow = "hidden"),
+      (document.getElementById("Lightbox_8").style.display = "flex"),
+      (document.getElementById("rowid").style.display = "none"),
+      (document.getElementById("menu-toggle").style.display = "none"),
+      (document.getElementsByTagName("Footer")[0].style.display = "none"),
+      (document.getElementById("social_elements2").style.display = "none");
+  }
+  
+  function closeLightbox_8() {
+    (document.getElementById("social_elements2").style.display = "flex"),
+      pause8(),
+      (document.getElementById("projecttitle_8").style.display = "none"),
+      (document.getElementById("mouseTarget").style.display = "flex"),
+      (document.getElementsByTagName("body")[0].style.overflow = ""),
+      (document.getElementById("Lightbox_8").style.display = "none"),
+      (document.getElementById("rowid").style.display = "grid"),
+      (document.getElementsByTagName("Footer")[0].style.display = "flex"),
+      window.matchMedia("(max-width: 950px)").matches
+        ? (document.getElementById("menu-toggle").style.display = "flex")
+        : (document.getElementById("menu-toggle").style.display = "none");
+  }
+  
+  function openLightbox_9() {
+    setkeys_9(),
+      closeLightbox_8(),
+      closeLightbox_10(),
+      (document.getElementById("projecttitle_9").style.display = "block"),
+      (document.getElementById("mouseTarget").style.display = "none"),
+      (document.getElementsByTagName("body")[0].style.overflow = "hidden"),
+      (document.getElementById("Lightbox_9").style.display = "flex"),
+      (document.getElementById("rowid").style.display = "none"),
+      (document.getElementById("menu-toggle").style.display = "none"),
+      (document.getElementsByTagName("Footer")[0].style.display = "none"),
+      (document.getElementById("social_elements2").style.display = "none");
+  }
+  
+  function closeLightbox_9() {
+    (document.getElementById("social_elements2").style.display = "flex"),
+      pause9(),
+      (document.getElementById("projecttitle_9").style.display = "none"),
+      (document.getElementById("mouseTarget").style.display = "flex"),
+      (document.getElementsByTagName("body")[0].style.overflow = ""),
+      (document.getElementById("Lightbox_9").style.display = "none"),
+      (document.getElementById("rowid").style.display = "grid"),
+      (document.getElementsByTagName("Footer")[0].style.display = "flex"),
+      window.matchMedia("(max-width: 950px)").matches
+        ? (document.getElementById("menu-toggle").style.display = "flex")
+        : (document.getElementById("menu-toggle").style.display = "none");
+  }
+  
+  function openLightbox_10() {
+    setkeys_10(),
+      closeLightbox_9(),
+      closeLightbox_11(),
+      (document.getElementById("projecttitle_10").style.display = "block"),
+      (document.getElementById("mouseTarget").style.display = "none"),
+      (document.getElementsByTagName("body")[0].style.overflow = "hidden"),
+      (document.getElementById("Lightbox_10").style.display = "flex"),
+      (document.getElementById("rowid").style.display = "none"),
+      (document.getElementById("menu-toggle").style.display = "none"),
+      (document.getElementsByTagName("Footer")[0].style.display = "none"),
+      (document.getElementById("social_elements2").style.display = "none");
+  }
+  
+  function closeLightbox_10() {
+    (document.getElementById("social_elements2").style.display = "flex"),
+      pause10(),
+      (document.getElementById("projecttitle_10").style.display = "none"),
+      (document.getElementById("mouseTarget").style.display = "flex"),
+      (document.getElementsByTagName("body")[0].style.overflow = ""),
+      (document.getElementById("Lightbox_10").style.display = "none"),
+      (document.getElementById("rowid").style.display = "grid"),
+      (document.getElementsByTagName("Footer")[0].style.display = "flex"),
+      window.matchMedia("(max-width: 950px)").matches
+        ? (document.getElementById("menu-toggle").style.display = "flex")
+        : (document.getElementById("menu-toggle").style.display = "none");
+  }
+  
+  function openLightbox_11() {
+    setkeys_11(),
+      closeLightbox_10(),
+      closeLightbox_12(),
+      (document.getElementById("projecttitle_11").style.display = "block"),
+      (document.getElementById("mouseTarget").style.display = "none"),
+      (document.getElementsByTagName("body")[0].style.overflow = "hidden"),
+      (document.getElementById("Lightbox_11").style.display = "flex"),
+      (document.getElementById("rowid").style.display = "none"),
+      (document.getElementById("menu-toggle").style.display = "none"),
+      (document.getElementsByTagName("Footer")[0].style.display = "none"),
+      (document.getElementById("social_elements2").style.display = "none");
+  }
+  
+  function closeLightbox_11() {
+    (document.getElementById("social_elements2").style.display = "flex"),
+      (document.getElementById("projecttitle_11").style.display = "none"),
+      (document.getElementById("mouseTarget").style.display = "flex"),
+      (document.getElementsByTagName("body")[0].style.overflow = ""),
+      (document.getElementById("Lightbox_11").style.display = "none"),
+      (document.getElementById("rowid").style.display = "grid"),
+      (document.getElementById("menu-toggle").style.display = "flex"),
+      (document.getElementsByTagName("Footer")[0].style.display = "flex"),
+      window.matchMedia("(max-width: 950px)").matches
+        ? (document.getElementById("menu-toggle").style.display = "flex")
+        : (document.getElementById("menu-toggle").style.display = "none");
+  }
+  
+  function openLightbox_12() {
+    setkeys_12(),
+      closeLightbox_11(),
+      closeLightbox_13(),
+      (document.getElementById("projecttitle_12").style.display = "block"),
+      (document.getElementById("mouseTarget").style.display = "none"),
+      (document.getElementsByTagName("body")[0].style.overflow = "hidden"),
+      (document.getElementById("Lightbox_12").style.display = "flex"),
+      (document.getElementById("rowid").style.display = "none"),
+      (document.getElementById("menu-toggle").style.display = "none"),
+      (document.getElementsByTagName("Footer")[0].style.display = "none"),
+      (document.getElementById("social_elements2").style.display = "none");
+  }
+  
+  function closeLightbox_12() {
+    (document.getElementById("social_elements2").style.display = "flex"),
+      (document.getElementById("projecttitle_12").style.display = "none"),
+      (document.getElementById("mouseTarget").style.display = "flex"),
+      (document.getElementsByTagName("body")[0].style.overflow = ""),
+      (document.getElementById("Lightbox_12").style.display = "none"),
+      (document.getElementById("rowid").style.display = "grid"),
+      (document.getElementById("menu-toggle").style.display = "flex"),
+      (document.getElementsByTagName("Footer")[0].style.display = "flex"),
+      window.matchMedia("(max-width: 950px)").matches
+        ? (document.getElementById("menu-toggle").style.display = "flex")
+        : (document.getElementById("menu-toggle").style.display = "none");
+  }
+  
+  function openLightbox_13() {
+    setkeys_13(),
+      closeLightbox_12(),
+      closeLightbox_14(),
+      (document.getElementById("projecttitle_13").style.display = "block"),
+      (document.getElementById("mouseTarget").style.display = "none"),
+      (document.getElementsByTagName("body")[0].style.overflow = "hidden"),
+      (document.getElementById("Lightbox_13").style.display = "flex"),
+      (document.getElementById("rowid").style.display = "none"),
+      (document.getElementById("menu-toggle").style.display = "none"),
+      (document.getElementsByTagName("Footer")[0].style.display = "none"),
+      (document.getElementById("social_elements2").style.display = "none");
+  }
+  
+  function closeLightbox_13() {
+    (document.getElementById("social_elements2").style.display = "flex"),
+      (document.getElementById("projecttitle_13").style.display = "none"),
+      (document.getElementById("mouseTarget").style.display = "flex"),
+      (document.getElementsByTagName("body")[0].style.overflow = ""),
+      (document.getElementById("Lightbox_13").style.display = "none"),
+      (document.getElementById("rowid").style.display = "grid"),
+      (document.getElementById("menu-toggle").style.display = "flex"),
+      (document.getElementsByTagName("Footer")[0].style.display = "flex"),
+      window.matchMedia("(max-width: 950px)").matches
+        ? (document.getElementById("menu-toggle").style.display = "flex")
+        : (document.getElementById("menu-toggle").style.display = "none");
+  }
+  
+  function openLightbox_14() {
+    setkeys_14(),
+      closeLightbox_13(),
+      closeLightbox_15(),
+      (document.getElementById("projecttitle_14").style.display = "block"),
+      (document.getElementById("mouseTarget").style.display = "none"),
+      (document.getElementsByTagName("body")[0].style.overflow = "hidden"),
+      (document.getElementById("Lightbox_14").style.display = "flex"),
+      (document.getElementById("rowid").style.display = "none"),
+      (document.getElementById("menu-toggle").style.display = "none"),
+      (document.getElementsByTagName("Footer")[0].style.display = "none"),
+      (document.getElementById("social_elements2").style.display = "none");
+  }
+  
+  function closeLightbox_14() {
+    (document.getElementById("social_elements2").style.display = "flex"),
+      (document.getElementById("projecttitle_14").style.display = "none"),
+      (document.getElementById("mouseTarget").style.display = "flex"),
+      (document.getElementsByTagName("body")[0].style.overflow = ""),
+      (document.getElementById("Lightbox_14").style.display = "none"),
+      (document.getElementById("rowid").style.display = "grid"),
+      (document.getElementById("menu-toggle").style.display = "flex"),
+      (document.getElementsByTagName("Footer")[0].style.display = "flex"),
+      window.matchMedia("(max-width: 950px)").matches
+        ? (document.getElementById("menu-toggle").style.display = "flex")
+        : (document.getElementById("menu-toggle").style.display = "none");
+  }
+  
+  function openLightbox_15() {
+    setkeys_15(),
+      closeLightbox_14(),
+      closeLightbox_16(),
+      (document.getElementById("projecttitle_15").style.display = "block"),
+      (document.getElementById("mouseTarget").style.display = "none"),
+      (document.getElementsByTagName("body")[0].style.overflow = "hidden"),
+      (document.getElementById("Lightbox_15").style.display = "flex"),
+      (document.getElementById("rowid").style.display = "none"),
+      (document.getElementById("menu-toggle").style.display = "none"),
+      (document.getElementsByTagName("Footer")[0].style.display = "none"),
+      (document.getElementById("social_elements2").style.display = "none");
+  }
+  
+  function closeLightbox_15() {
+    (document.getElementById("social_elements2").style.display = "flex"),
+      (document.getElementById("projecttitle_15").style.display = "none"),
+      (document.getElementById("mouseTarget").style.display = "flex"),
+      (document.getElementsByTagName("body")[0].style.overflow = ""),
+      (document.getElementById("Lightbox_15").style.display = "none"),
+      (document.getElementById("rowid").style.display = "grid"),
+      (document.getElementById("menu-toggle").style.display = "flex"),
+      (document.getElementsByTagName("Footer")[0].style.display = "flex"),
+      window.matchMedia("(max-width: 950px)").matches
+        ? (document.getElementById("menu-toggle").style.display = "flex")
+        : (document.getElementById("menu-toggle").style.display = "none");
+  }
+  
+  function openLightbox_16() {
+    setkeys_16(),
+      closeLightbox_15(),
+      closeLightbox_17(),
+      (document.getElementById("projecttitle_16").style.display = "block"),
+      (document.getElementById("mouseTarget").style.display = "none"),
+      (document.getElementsByTagName("body")[0].style.overflow = "hidden"),
+      (document.getElementById("Lightbox_16").style.display = "flex"),
+      (document.getElementById("rowid").style.display = "none"),
+      (document.getElementById("menu-toggle").style.display = "none"),
+      (document.getElementsByTagName("Footer")[0].style.display = "none"),
+      (document.getElementById("social_elements2").style.display = "none");
+  }
+  
+  function closeLightbox_16() {
+    (document.getElementById("social_elements2").style.display = "flex"),
+      (document.getElementById("projecttitle_16").style.display = "none"),
+      (document.getElementById("mouseTarget").style.display = "flex"),
+      (document.getElementsByTagName("body")[0].style.overflow = ""),
+      (document.getElementById("Lightbox_16").style.display = "none"),
+      (document.getElementById("rowid").style.display = "grid"),
+      (document.getElementById("menu-toggle").style.display = "flex"),
+      (document.getElementsByTagName("Footer")[0].style.display = "flex"),
+      window.matchMedia("(max-width: 950px)").matches
+        ? (document.getElementById("menu-toggle").style.display = "flex")
+        : (document.getElementById("menu-toggle").style.display = "none");
+  }
+  
+  function openLightbox_17() {
+    setkeys_17(),
+      closeLightbox_16(),
+      closeLightbox_18(),
+      (document.getElementById("projecttitle_17").style.display = "block"),
+      (document.getElementById("mouseTarget").style.display = "none"),
+      (document.getElementsByTagName("body")[0].style.overflow = "hidden"),
+      (document.getElementById("Lightbox_17").style.display = "flex"),
+      (document.getElementById("rowid").style.display = "none"),
+      (document.getElementById("menu-toggle").style.display = "none"),
+      (document.getElementsByTagName("Footer")[0].style.display = "none"),
+      (document.getElementById("social_elements2").style.display = "none");
+  }
+  
+  function closeLightbox_17() {
+    (document.getElementById("social_elements2").style.display = "flex"),
+      (document.getElementById("projecttitle_17").style.display = "none"),
+      (document.getElementById("mouseTarget").style.display = "flex"),
+      (document.getElementsByTagName("body")[0].style.overflow = ""),
+      (document.getElementById("Lightbox_17").style.display = "none"),
+      (document.getElementById("rowid").style.display = "grid"),
+      (document.getElementById("menu-toggle").style.display = "flex"),
+      (document.getElementsByTagName("Footer")[0].style.display = "flex"),
+      window.matchMedia("(max-width: 950px)").matches
+        ? (document.getElementById("menu-toggle").style.display = "flex")
+        : (document.getElementById("menu-toggle").style.display = "none");
+  }
+  
+  function openLightbox_18() {
+    setkeys_18(),
+      closeLightbox_17(),
+      closeLightbox_19(),
+      (document.getElementById("projecttitle_18").style.display = "block"),
+      (document.getElementById("mouseTarget").style.display = "none"),
+      (document.getElementsByTagName("body")[0].style.overflow = "hidden"),
+      (document.getElementById("Lightbox_18").style.display = "flex"),
+      (document.getElementById("rowid").style.display = "none"),
+      (document.getElementById("menu-toggle").style.display = "none"),
+      (document.getElementsByTagName("Footer")[0].style.display = "none"),
+      (document.getElementById("social_elements2").style.display = "none");
+  }
+  
+  function closeLightbox_18() {
+    (document.getElementById("social_elements2").style.display = "flex"),
+      (document.getElementById("projecttitle_18").style.display = "none"),
+      (document.getElementById("mouseTarget").style.display = "flex"),
+      (document.getElementsByTagName("body")[0].style.overflow = ""),
+      (document.getElementById("Lightbox_18").style.display = "none"),
+      (document.getElementById("rowid").style.display = "grid"),
+      (document.getElementById("menu-toggle").style.display = "flex"),
+      (document.getElementsByTagName("Footer")[0].style.display = "flex"),
+      window.matchMedia("(max-width: 950px)").matches
+        ? (document.getElementById("menu-toggle").style.display = "flex")
+        : (document.getElementById("menu-toggle").style.display = "none");
+  }
+  
+  function openLightbox_19() {
+    setkeys_19(),
+      closeLightbox_18(),
+      closeLightbox_20(),
+      (document.getElementById("projecttitle_19").style.display = "block"),
+      (document.getElementById("mouseTarget").style.display = "none"),
+      (document.getElementsByTagName("body")[0].style.overflow = "hidden"),
+      (document.getElementById("Lightbox_19").style.display = "flex"),
+      (document.getElementById("rowid").style.display = "none"),
+      (document.getElementById("menu-toggle").style.display = "none"),
+      (document.getElementsByTagName("Footer")[0].style.display = "none"),
+      (document.getElementById("social_elements2").style.display = "none");
+  }
+  
+  function closeLightbox_19() {
+    closeLightbox_20(),
+      (document.getElementById("social_elements2").style.display = "flex"),
+      (document.getElementById("projecttitle_19").style.display = "none"),
+      (document.getElementById("mouseTarget").style.display = "flex"),
+      (document.getElementsByTagName("body")[0].style.overflow = ""),
+      (document.getElementById("Lightbox_19").style.display = "none"),
+      (document.getElementById("rowid").style.display = "grid"),
+      (document.getElementById("menu-toggle").style.display = "flex"),
+      (document.getElementsByTagName("Footer")[0].style.display = "flex"),
+      window.matchMedia("(max-width: 950px)").matches
+        ? (document.getElementById("menu-toggle").style.display = "flex")
+        : (document.getElementById("menu-toggle").style.display = "none");
+  }
+  
+  function openLightbox_20() {
+    setkeys_20(),
+      closeLightbox_19(),
+      closeLightbox_21(),
+      (document.getElementById("projecttitle_20").style.display = "block"),
+      (document.getElementById("mouseTarget").style.display = "none"),
+      (document.getElementsByTagName("body")[0].style.overflow = "hidden"),
+      (document.getElementById("Lightbox_20").style.display = "flex"),
+      (document.getElementById("rowid").style.display = "none"),
+      (document.getElementById("menu-toggle").style.display = "none"),
+      (document.getElementsByTagName("Footer")[0].style.display = "none"),
+      (document.getElementById("social_elements2").style.display = "none");
+  }
+  
+  function closeLightbox_20() {
+    closeLightbox_21(),
+      (document.getElementById("social_elements2").style.display = "flex"),
+      (document.getElementById("projecttitle_20").style.display = "none"),
+      (document.getElementById("mouseTarget").style.display = "flex"),
+      (document.getElementsByTagName("body")[0].style.overflow = ""),
+      (document.getElementById("Lightbox_20").style.display = "none"),
+      (document.getElementById("rowid").style.display = "grid"),
+      (document.getElementById("menu-toggle").style.display = "flex"),
+      (document.getElementsByTagName("Footer")[0].style.display = "flex"),
+      window.matchMedia("(max-width: 950px)").matches
+        ? (document.getElementById("menu-toggle").style.display = "flex")
+        : (document.getElementById("menu-toggle").style.display = "none");
+  }
+  
+  function openLightbox_21() {
+    setkeys_21(),
+      closeLightbox_20(),
+      closeLightbox_22(),
+      (document.getElementById("projecttitle_21").style.display = "block"),
+      (document.getElementById("mouseTarget").style.display = "none"),
+      (document.getElementsByTagName("body")[0].style.overflow = "hidden"),
+      (document.getElementById("Lightbox_21").style.display = "flex"),
+      (document.getElementById("rowid").style.display = "none"),
+      (document.getElementById("menu-toggle").style.display = "none"),
+      (document.getElementsByTagName("Footer")[0].style.display = "none"),
+      (document.getElementById("social_elements2").style.display = "none");
+  }
+  
+  function closeLightbox_21() {
+    (document.getElementById("social_elements2").style.display = "flex"),
+      (document.getElementById("projecttitle_21").style.display = "none"),
+      (document.getElementById("mouseTarget").style.display = "flex"),
+      (document.getElementsByTagName("body")[0].style.overflow = ""),
+      (document.getElementById("Lightbox_21").style.display = "none"),
+      (document.getElementById("rowid").style.display = "grid"),
+      (document.getElementById("menu-toggle").style.display = "flex"),
+      (document.getElementsByTagName("Footer")[0].style.display = "flex"),
+      window.matchMedia("(max-width: 950px)").matches
+        ? (document.getElementById("menu-toggle").style.display = "flex")
+        : (document.getElementById("menu-toggle").style.display = "none");
+  }
+  
+  function openLightbox_22() {
+    setkeys_22(),
+      closeLightbox_21(),
+      closeLightbox_23(),
+      (document.getElementById("projecttitle_22").style.display = "block"),
+      (document.getElementById("mouseTarget").style.display = "none"),
+      (document.getElementById("mouseTarget").style.top = "0"),
+      (document.getElementById("mouseTarget").style.zIndex = "100001"),
+      (document.getElementsByTagName("body")[0].style.overflow = "hidden"),
+      (document.getElementById("Lightbox_22").style.display = "flex"),
+      (document.getElementById("rowid").style.display = "none"),
+      (document.getElementById("menu-toggle").style.display = "none"),
+      (document.getElementsByTagName("Footer")[0].style.display = "none"),
+      (document.getElementById("menu-toggle").style.display = "none"),
+      (document.getElementById("social_elements2").style.display = "none");
+  }
+  
+  function closeLightbox_22() {
+    (document.getElementById("social_elements2").style.display = "flex"),
+      (document.getElementById("projecttitle_22").style.display = "none"),
+      (document.getElementById("mouseTarget").style.display = "flex"),
+      (document.getElementById("mouseTarget").style.top = "0"),
+      (document.getElementById("mouseTarget").style.zIndex = ""),
+      (document.getElementsByTagName("body")[0].style.overflow = ""),
+      (document.getElementById("Lightbox_22").style.display = "none"),
+      (document.getElementById("rowid").style.display = "grid"),
+      (document.getElementById("menu-toggle").style.display = "flex"),
+      (document.getElementsByTagName("Footer")[0].style.display = "flex"),
+      window.matchMedia("(max-width: 950px)").matches
+        ? (document.getElementById("menu-toggle").style.display = "flex")
+        : (document.getElementById("menu-toggle").style.display = "none");
+  }
+  
+  function openLightbox_23() {
+    setkeys_23(),
+      closeLightbox_22(),
+      closeLightbox_24(),
+      (document.getElementById("projecttitle_23").style.display = "block"),
+      (document.getElementById("mouseTarget").style.display = "none"),
+      (document.getElementById("mouseTarget").style.top = "0"),
+      (document.getElementById("mouseTarget").style.zIndex = "100001"),
+      (document.getElementsByTagName("body")[0].style.overflow = "hidden"),
+      (document.getElementById("Lightbox_23").style.display = "flex"),
+      (document.getElementById("rowid").style.display = "none"),
+      (document.getElementById("menu-toggle").style.display = "none"),
+      (document.getElementsByTagName("Footer")[0].style.display = "none"),
+      (document.getElementById("menu-toggle").style.display = "none"),
+      (document.getElementById("social_elements2").style.display = "none");
+  }
+  
+  function closeLightbox_23() {
+    (document.getElementById("social_elements2").style.display = "flex"),
+      (document.getElementById("projecttitle_23").style.display = "none"),
+      (document.getElementById("mouseTarget").style.display = "flex"),
+      (document.getElementById("mouseTarget").style.top = "0"),
+      (document.getElementById("mouseTarget").style.zIndex = ""),
+      (document.getElementsByTagName("body")[0].style.overflow = ""),
+      (document.getElementById("Lightbox_23").style.display = "none"),
+      (document.getElementById("rowid").style.display = "grid"),
+      (document.getElementById("menu-toggle").style.display = "flex"),
+      (document.getElementsByTagName("Footer")[0].style.display = "flex"),
+      window.matchMedia("(max-width: 950px)").matches
+        ? (document.getElementById("menu-toggle").style.display = "flex")
+        : (document.getElementById("menu-toggle").style.display = "none");
+  }
+  
+  function openLightbox_24() {
+    setkeys_24(),
+      closeLightbox_1(),
+      closeLightbox_23(),
+      (document.getElementById("projecttitle_24").style.display = "block"),
+      (document.getElementById("mouseTarget").style.display = "none"),
+      (document.getElementById("mouseTarget").style.top = "0"),
+      (document.getElementById("mouseTarget").style.zIndex = "100001"),
+      (document.getElementsByTagName("body")[0].style.overflow = "hidden"),
+      (document.getElementById("Lightbox_24").style.display = "flex"),
+      (document.getElementById("rowid").style.display = "none"),
+      (document.getElementById("menu-toggle").style.display = "none"),
+      (document.getElementsByTagName("Footer")[0].style.display = "none"),
+      (document.getElementById("menu-toggle").style.display = "none"),
+      (document.getElementById("social_elements2").style.display = "none");
+  }
+  
+  function closeLightbox_24() {
+    (document.getElementById("social_elements2").style.display = "flex"),
+      (document.getElementById("projecttitle_24").style.display = "none"),
+      (document.getElementById("mouseTarget").style.display = "flex"),
+      (document.getElementById("mouseTarget").style.top = "0"),
+      (document.getElementById("mouseTarget").style.zIndex = ""),
+      (document.getElementsByTagName("body")[0].style.overflow = ""),
+      (document.getElementById("Lightbox_24").style.display = "none"),
+      (document.getElementById("rowid").style.display = "grid"),
+      (document.getElementById("menu-toggle").style.display = "flex"),
+      (document.getElementsByTagName("Footer")[0].style.display = "flex"),
+      window.matchMedia("(max-width: 950px)").matches
+        ? (document.getElementById("menu-toggle").style.display = "flex")
+        : (document.getElementById("menu-toggle").style.display = "none");
+  }
+  
+  function changeSlide1(e) {
+    showSlide1((slideIndex += e));
+  }
+  
+  function setkeys_1() {
+    window.onkeydown = function (e) {
+      37 == e.keyCode && changeSlide1(-1), 39 == e.keyCode && changeSlide1(1);
+    };
+  }
+  
+  function changeSlide2(e) {
+    showSlide2((slideIndex += e));
+  }
+  
+  function setkeys_2() {
+    window.onkeydown = function (e) {
+      37 == e.keyCode && changeSlide2(-1), 39 == e.keyCode && changeSlide2(1);
+    };
+  }
+  
+  function changeSlide3(e) {
+    pause3(), showSlide3((slideIndex += e));
+  }
+  
+  function setkeys_3() {
+    window.onkeydown = function (e) {
+      37 == e.keyCode && changeSlide3(-1), 39 == e.keyCode && changeSlide3(1);
+    };
+  }
+  
+  function changeSlide4(e) {
+    pause4(), showSlide4((slideIndex += e));
+  }
+  
+  function setkeys_4() {
+    window.onkeydown = function (e) {
+      37 == e.keyCode && changeSlide4(-1), 39 == e.keyCode && changeSlide4(1);
+    };
+  }
+  
+  function changeSlide5(e) {
+    showSlide5((slideIndex += e));
+  }
+  
+  function setkeys_5() {
+    window.onkeydown = function (e) {
+      37 == e.keyCode && changeSlide5(-1), 39 == e.keyCode && changeSlide5(1);
+    };
+  }
+  
+  function changeSlide6(e) {
+    showSlide6((slideIndex += e));
+  }
+  
+  function setkeys_6() {
+    window.onkeydown = function (e) {
+      37 == e.keyCode && changeSlide6(-1), 39 == e.keyCode && changeSlide6(1);
+    };
+  }
+  
+  function changeSlide7(e) {
+    showSlide7((slideIndex += e)), pause7();
+  }
+  
+  function setkeys_7() {
+    window.onkeydown = function (e) {
+      37 == e.keyCode && changeSlide7(-1), 39 == e.keyCode && changeSlide7(1);
+    };
+  }
+  
+  function changeSlide8(e) {
+    showSlide8((slideIndex += e)), pause8();
+  }
+  
+  function setkeys_8() {
+    window.onkeydown = function (e) {
+      37 == e.keyCode && changeSlide8(-1), 39 == e.keyCode && changeSlide8(1);
+    };
+  }
+  
+  function changeSlide9(e) {
+    showSlide9((slideIndex += e)), pause9();
+  }
+  
+  function setkeys_9() {
+    window.onkeydown = function (e) {
+      37 == e.keyCode && changeSlide9(-1), 39 == e.keyCode && changeSlide9(1);
+    };
+  }
+  
+  function changeSlide10(e) {
+    showSlide10((slideIndex += e)), pause10();
+  }
+  
+  function setkeys_10() {
+    window.onkeydown = function (e) {
+      37 == e.keyCode && changeSlide10(-1), 39 == e.keyCode && changeSlide10(1);
+    };
+  }
+  
+  function changeSlide11(e) {
+    showSlide11((slideIndex += e));
+  }
+  
+  function setkeys_11() {
+    window.onkeydown = function (e) {
+      37 == e.keyCode && changeSlide11(-1), 39 == e.keyCode && changeSlide11(1);
+    };
+  }
+  
+  function changeSlide12(e) {
+    showSlide12((slideIndex += e));
+  }
+  
+  function setkeys_12() {
+    window.onkeydown = function (e) {
+      37 == e.keyCode && changeSlide12(-1), 39 == e.keyCode && changeSlide12(1);
+    };
+  }
+  
+  function changeSlide13(e) {
+    showSlide13((slideIndex += e));
+  }
+  
+  function setkeys_13() {
+    window.onkeydown = function (e) {
+      37 == e.keyCode && changeSlide13(-1), 39 == e.keyCode && changeSlide13(1);
+    };
+  }
+  
+  function changeSlide14(e) {
+    showSlide14((slideIndex += e));
+  }
+  
+  function setkeys_14() {
+    window.onkeydown = function (e) {
+      37 == e.keyCode && changeSlide14(-1), 39 == e.keyCode && changeSlide14(1);
+    };
+  }
+  
+  function changeSlide15(e) {
+    showSlide15((slideIndex += e));
+  }
+  
+  function setkeys_15() {
+    window.onkeydown = function (e) {
+      37 == e.keyCode && changeSlide15(-1), 39 == e.keyCode && changeSlide15(1);
+    };
+  }
+  
+  function changeSlide16(e) {
+    showSlide16((slideIndex += e));
+  }
+  
+  function setkeys_16() {
+    window.onkeydown = function (e) {
+      37 == e.keyCode && changeSlide16(-1), 39 == e.keyCode && changeSlide16(1);
+    };
+  }
+  
+  function changeSlide17(e) {
+    showSlide17((slideIndex += e));
+  }
+  
+  function setkeys_17() {
+    window.onkeydown = function (e) {
+      37 == e.keyCode && changeSlide17(-1), 39 == e.keyCode && changeSlide17(1);
+    };
+  }
+  
+  function changeSlide18(e) {
+    showSlide18((slideIndex += e));
+  }
+  
+  function setkeys_18() {
+    window.onkeydown = function (e) {
+      37 == e.keyCode && changeSlide18(-1), 39 == e.keyCode && changeSlide18(1);
+    };
+  }
+  
+  function changeSlide19(e) {
+    showSlide19((slideIndex += e));
+  }
+  
+  function setkeys_19() {
+    window.onkeydown = function (e) {
+      37 == e.keyCode && changeSlide19(-1), 39 == e.keyCode && changeSlide19(1);
+    };
+  }
+  
+  function changeSlide20(e) {
+    showSlide20((slideIndex += e));
+  }
+  
+  function setkeys_20() {
+    window.onkeydown = function (e) {
+      37 == e.keyCode && changeSlide20(-1), 39 == e.keyCode && changeSlide20(1);
+    };
+  }
+  
+  function changeSlide21(e) {
+    showSlide21((slideIndex += e));
+  }
+  
+  function setkeys_21() {
+    window.onkeydown = function (e) {
+      37 == e.keyCode && changeSlide21(-1), 39 == e.keyCode && changeSlide21(1);
+    };
+  }
+  
+  function changeSlide22(e) {
+    showSlide22((slideIndex += e));
+  }
+  
+  function setkeys_22() {
+    window.onkeydown = function (e) {
+      37 == e.keyCode && changeSlide22(-1), 39 == e.keyCode && changeSlide22(1);
+    };
+  }
+  
+  function changeSlide23(e) {
+    showSlide23((slideIndex += e));
+  }
+  
+  function setkeys_23() {
+    window.onkeydown = function (e) {
+      37 == e.keyCode && changeSlide23(-1), 39 == e.keyCode && changeSlide23(1);
+    };
+  }
+  
+  function changeSlide24(e) {
+    showSlide24((slideIndex += e));
+  }
+  
+  function setkeys_24() {
+    window.onkeydown = function (e) {
+      37 == e.keyCode && changeSlide24(-1), 39 == e.keyCode && changeSlide24(1);
+    };
+  }
+  
+  function toSlide1(e) {
+    showSlide1((slideIndex = e));
+  }
+  
+  function toSlide2(e) {
+    showSlide2((slideIndex = e));
+  }
+  
+  function toSlide3(e) {
+    showSlide3((slideIndex = e));
+  }
+  
+  function toSlide4(e) {
+    showSlide4((slideIndex = e));
+  }
+  
+  function toSlide5(e) {
+    showSlide5((slideIndex = e));
+  }
+  
+  function toSlide6(e) {
+    showSlide6((slideIndex = e));
+  }
+  
+  function toSlide7(e) {
+    showSlide7((slideIndex = e));
+  }
+  
+  function toSlide8(e) {
+    showSlide8((slideIndex = e));
+  }
+  
+  function toSlide9(e) {
+    showSlide9((slideIndex = e));
+  }
+  
+  function toSlide10(e) {
+    showSlide10((slideIndex = e));
+  }
+  
+  function toSlide11(e) {
+    showSlide11((slideIndex = e));
+  }
+  
+  function toSlide12(e) {
+    showSlide12((slideIndex = e));
+  }
+  
+  function toSlide13(e) {
+    showSlide13((slideIndex = e));
+  }
+  
+  function toSlide14(e) {
+    showSlide14((slideIndex = e));
+  }
+  
+  function toSlide15(e) {
+    showSlide15((slideIndex = e));
+  }
+  
+  function toSlide16(e) {
+    showSlide16((slideIndex = e));
+  }
+  
+  function toSlide17(e) {
+    showSlide17((slideIndex = e));
+  }
+  
+  function toSlide18(e) {
+    showSlide18((slideIndex = e));
+  }
+  
+  function toSlide19(e) {
+    showSlide19((slideIndex = e));
+  }
+  
+  function toSlide20(e) {
+    showSlide20((slideIndex = e));
+  }
+  
+  function toSlide21(e) {
+    showSlide21((slideIndex = e));
+  }
+  
+  function toSlide22(e) {
+    showSlide22((slideIndex = e));
+  }
+  
+  function toSlide23(e) {
+    showSlide23((slideIndex = e));
+  }
+  
+  function toSlide24(e) {
+    showSlide24((slideIndex = e));
+  }
+  
+  function showSlide1(e) {
+    let t = document.getElementsByClassName("slide1"),
+      l = document.getElementsByClassName("modal-preview");
+    e > t.length && (slideIndex = 1), e < 1 && (slideIndex = t.length);
+    for (let n = 0; n < t.length; n++) t[n].style.display = "none";
+    for (let s = 0; s < l.length; s++)
+      l[s].className = l[s].className.replace(" active", "");
+    t[slideIndex - 1].style.display = "flex";
+  }
+  
+  function showSlide2(e) {
+    let t = document.getElementsByClassName("slide2"),
+      l = document.getElementsByClassName("modal-preview");
+    e > t.length && (slideIndex = 1), e < 1 && (slideIndex = t.length);
+    for (let n = 0; n < t.length; n++) t[n].style.display = "none";
+    for (let s = 0; s < l.length; s++)
+      l[s].className = l[s].className.replace(" active", "");
+    t[slideIndex - 1].style.display = "flex";
+  }
+  
+  function showSlide3(e) {
+    let t = document.getElementsByClassName("slide3"),
+      l = document.getElementsByClassName("modal-preview");
+    e > t.length && (slideIndex = 1), e < 1 && (slideIndex = t.length);
+    for (let n = 0; n < t.length; n++) t[n].style.display = "none";
+    for (let s = 0; s < l.length; s++)
+      l[s].className = l[s].className.replace(" active", "");
+    t[slideIndex - 1].style.display = "flex";
+  }
+  
+  function showSlide4(e) {
+    let t = document.getElementsByClassName("slide4"),
+      l = document.getElementsByClassName("modal-preview");
+    e > t.length && (slideIndex = 1), e < 1 && (slideIndex = t.length);
+    for (let n = 0; n < t.length; n++) t[n].style.display = "none";
+    for (let s = 0; s < l.length; s++)
+      l[s].className = l[s].className.replace(" active", "");
+    t[slideIndex - 1].style.display = "flex";
+  }
+  
+  function showSlide5(e) {
+    let t = document.getElementsByClassName("slide5"),
+      l = document.getElementsByClassName("modal-preview");
+    e > t.length && (slideIndex = 1), e < 1 && (slideIndex = t.length);
+    for (let n = 0; n < t.length; n++) t[n].style.display = "none";
+    for (let s = 0; s < l.length; s++)
+      l[s].className = l[s].className.replace(" active", "");
+    t[slideIndex - 1].style.display = "flex";
+  }
+  
+  function showSlide6(e) {
+    let t = document.getElementsByClassName("slide6"),
+      l = document.getElementsByClassName("modal-preview");
+    e > t.length && (slideIndex = 1), e < 1 && (slideIndex = t.length);
+    for (let n = 0; n < t.length; n++) t[n].style.display = "none";
+    for (let s = 0; s < l.length; s++)
+      l[s].className = l[s].className.replace(" active", "");
+    t[slideIndex - 1].style.display = "flex";
+  }
+  
+  function showSlide7(e) {
+    let t = document.getElementsByClassName("slide7"),
+      l = document.getElementsByClassName("modal-preview");
+    e > t.length && (slideIndex = 1), e < 1 && (slideIndex = t.length);
+    for (let n = 0; n < t.length; n++) t[n].style.display = "none";
+    for (let s = 0; s < l.length; s++)
+      l[s].className = l[s].className.replace(" active", "");
+    t[slideIndex - 1].style.display = "flex";
+  }
+  
+  function showSlide8(e) {
+    let t = document.getElementsByClassName("slide8"),
+      l = document.getElementsByClassName("modal-preview");
+    e > t.length && (slideIndex = 1), e < 1 && (slideIndex = t.length);
+    for (let n = 0; n < t.length; n++) t[n].style.display = "none";
+    for (let s = 0; s < l.length; s++)
+      l[s].className = l[s].className.replace(" active", "");
+    t[slideIndex - 1].style.display = "flex";
+  }
+  
+  function showSlide9(e) {
+    let t = document.getElementsByClassName("slide9"),
+      l = document.getElementsByClassName("modal-preview");
+    e > t.length && (slideIndex = 1), e < 1 && (slideIndex = t.length);
+    for (let n = 0; n < t.length; n++) t[n].style.display = "none";
+    for (let s = 0; s < l.length; s++)
+      l[s].className = l[s].className.replace(" active", "");
+    t[slideIndex - 1].style.display = "flex";
+  }
+  
+  function showSlide10(e) {
+    let t = document.getElementsByClassName("slide10"),
+      l = document.getElementsByClassName("modal-preview");
+    e > t.length && (slideIndex = 1), e < 1 && (slideIndex = t.length);
+    for (let n = 0; n < t.length; n++) t[n].style.display = "none";
+    for (let s = 0; s < l.length; s++)
+      l[s].className = l[s].className.replace(" active", "");
+    t[slideIndex - 1].style.display = "flex";
+  }
+  
+  function showSlide11(e) {
+    let t = document.getElementsByClassName("slide11"),
+      l = document.getElementsByClassName("modal-preview");
+    e > t.length && (slideIndex = 1), e < 1 && (slideIndex = t.length);
+    for (let n = 0; n < t.length; n++) t[n].style.display = "none";
+    for (let s = 0; s < l.length; s++)
+      l[s].className = l[s].className.replace(" active", "");
+    t[slideIndex - 1].style.display = "flex";
+  }
+  
+  function showSlide12(e) {
+    let t = document.getElementsByClassName("slide12"),
+      l = document.getElementsByClassName("modal-preview");
+    e > t.length && (slideIndex = 1), e < 1 && (slideIndex = t.length);
+    for (let n = 0; n < t.length; n++) t[n].style.display = "none";
+    for (let s = 0; s < l.length; s++)
+      l[s].className = l[s].className.replace(" active", "");
+    t[slideIndex - 1].style.display = "flex";
+  }
+  
+  function showSlide13(e) {
+    let t = document.getElementsByClassName("slide13"),
+      l = document.getElementsByClassName("modal-preview");
+    e > t.length && (slideIndex = 1), e < 1 && (slideIndex = t.length);
+    for (let n = 0; n < t.length; n++) t[n].style.display = "none";
+    for (let s = 0; s < l.length; s++)
+      l[s].className = l[s].className.replace(" active", "");
+    t[slideIndex - 1].style.display = "flex";
+  }
+  
+  function showSlide14(e) {
+    let t = document.getElementsByClassName("slide14"),
+      l = document.getElementsByClassName("modal-preview");
+    e > t.length && (slideIndex = 1), e < 1 && (slideIndex = t.length);
+    for (let n = 0; n < t.length; n++) t[n].style.display = "none";
+    for (let s = 0; s < l.length; s++)
+      l[s].className = l[s].className.replace(" active", "");
+    t[slideIndex - 1].style.display = "flex";
+  }
+  
+  function showSlide15(e) {
+    let t = document.getElementsByClassName("slide15"),
+      l = document.getElementsByClassName("modal-preview");
+    e > t.length && (slideIndex = 1), e < 1 && (slideIndex = t.length);
+    for (let n = 0; n < t.length; n++) t[n].style.display = "none";
+    for (let s = 0; s < l.length; s++)
+      l[s].className = l[s].className.replace(" active", "");
+    t[slideIndex - 1].style.display = "flex";
+  }
+  
+  function showSlide16(e) {
+    let t = document.getElementsByClassName("slide16"),
+      l = document.getElementsByClassName("modal-preview");
+    e > t.length && (slideIndex = 1), e < 1 && (slideIndex = t.length);
+    for (let n = 0; n < t.length; n++) t[n].style.display = "none";
+    for (let s = 0; s < l.length; s++)
+      l[s].className = l[s].className.replace(" active", "");
+    t[slideIndex - 1].style.display = "flex";
+  }
+  
+  function showSlide17(e) {
+    let t = document.getElementsByClassName("slide17"),
+      l = document.getElementsByClassName("modal-preview");
+    e > t.length && (slideIndex = 1), e < 1 && (slideIndex = t.length);
+    for (let n = 0; n < t.length; n++) t[n].style.display = "none";
+    for (let s = 0; s < l.length; s++)
+      l[s].className = l[s].className.replace(" active", "");
+    t[slideIndex - 1].style.display = "flex";
+  }
+  
+  function showSlide18(e) {
+    let t = document.getElementsByClassName("slide18"),
+      l = document.getElementsByClassName("modal-preview");
+    e > t.length && (slideIndex = 1), e < 1 && (slideIndex = t.length);
+    for (let n = 0; n < t.length; n++) t[n].style.display = "none";
+    for (let s = 0; s < l.length; s++)
+      l[s].className = l[s].className.replace(" active", "");
+    t[slideIndex - 1].style.display = "flex";
+  }
+  
+  function showSlide19(e) {
+    let t = document.getElementsByClassName("slide19"),
+      l = document.getElementsByClassName("modal-preview");
+    e > t.length && (slideIndex = 1), e < 1 && (slideIndex = t.length);
+    for (let n = 0; n < t.length; n++) t[n].style.display = "none";
+    for (let s = 0; s < l.length; s++)
+      l[s].className = l[s].className.replace(" active", "");
+    t[slideIndex - 1].style.display = "flex";
+  }
+  
+  function showSlide20(e) {
+    let t = document.getElementsByClassName("slide20"),
+      l = document.getElementsByClassName("modal-preview");
+    e > t.length && (slideIndex = 1), e < 1 && (slideIndex = t.length);
+    for (let n = 0; n < t.length; n++) t[n].style.display = "none";
+    for (let s = 0; s < l.length; s++)
+      l[s].className = l[s].className.replace(" active", "");
+    t[slideIndex - 1].style.display = "flex";
+  }
+  
+  function showSlide21(e) {
+    let t = document.getElementsByClassName("slide21"),
+      l = document.getElementsByClassName("modal-preview");
+    e > t.length && (slideIndex = 1), e < 1 && (slideIndex = t.length);
+    for (let n = 0; n < t.length; n++) t[n].style.display = "none";
+    for (let s = 0; s < l.length; s++)
+      l[s].className = l[s].className.replace(" active", "");
+    t[slideIndex - 1].style.display = "flex";
+  }
+  
+  function showSlide22(e) {
+    let t = document.getElementsByClassName("slide22"),
+      l = document.getElementsByClassName("modal-preview");
+    e > t.length && (slideIndex = 1), e < 1 && (slideIndex = t.length);
+    for (let n = 0; n < t.length; n++) t[n].style.display = "none";
+    for (let s = 0; s < l.length; s++)
+      l[s].className = l[s].className.replace(" active", "");
+    t[slideIndex - 1].style.display = "flex";
+  }
+  
+  function showSlide23(e) {
+    let t = document.getElementsByClassName("slide23"),
+      l = document.getElementsByClassName("modal-preview");
+    e > t.length && (slideIndex = 1), e < 1 && (slideIndex = t.length);
+    for (let n = 0; n < t.length; n++) t[n].style.display = "none";
+    for (let s = 0; s < l.length; s++)
+      l[s].className = l[s].className.replace(" active", "");
+    t[slideIndex - 1].style.display = "flex";
+  }
+  
+  function showSlide24(e) {
+    let t = document.getElementsByClassName("slide24"),
+      l = document.getElementsByClassName("modal-preview");
+    e > t.length && (slideIndex = 1), e < 1 && (slideIndex = t.length);
+    for (let n = 0; n < t.length; n++) t[n].style.display = "none";
+    for (let s = 0; s < l.length; s++)
+      l[s].className = l[s].className.replace(" active", "");
+    t[slideIndex - 1].style.display = "flex";
+  }
+  
+  function showOverlay() {
+    (overlayShown = !0),
+      overlay.addClass("overlay-shown"),
+      (overlaySavedScrollTop = body.scrollTop()),
+      (overlaySavedScrollLeft = body.scrollLeft()),
+      (overlayScrollListener = body.scroll(function () {
+        body.scrollTop(overlaySavedScrollTop),
+          body.scrollLeft(overlaySavedScrollLeft);
+      }));
+  }
+  (overlayShown = !1),
+    (overlayScrollListener = null),
+    (overlaySavedScrollTop = 0),
+    (overlaySavedScrollLeft = 0);
+  var leftKey = 37,
+    upKey = 38,
+    rightKey = 39,
+    downKey = 40,
+    keystate = [""];
+  
+  function pause3() {
+    let e = document.getElementById("videoId_3");
+    var t = e.src;
+    e.src = t;
+  }
+  
+  function pause4() {
+    let e = document.getElementById("videoId_4");
+    var t = e.src;
+    e.src = t;
+  }
+  
+  function pause7() {
+    let e = document.getElementById("videoId_7");
+    var t = e.src;
+    e.src = t;
+  }
+  
+  function pause8() {
+    let e = document.getElementById("videoId_8");
+    var t = e.src;
+    e.src = t;
+  }
+  
+  function pause9() {
+    let e = document.getElementById("videoId_9");
+    var t = e.src;
+    e.src = t;
+  }
+  
+  function pause10() {
+    let e = document.getElementById("videoId_10");
+    var t = e.src;
+    e.src = t;
+  }
+  document.addEventListener("keydown", function (e) {
+    keystate[e.keyCode] = !0;
+  }),
+    document.addEventListener("keyup", function (e) {
+      delete keystate[e.keyCode];
+    }),
+    keystate[leftKey] &&
+      (changeSlide1(-1),
+      changeSlide2(-1),
+      changeSlide3(-1),
+      changeSlide4(-1),
+      changeSlide5(-1),
+      changeSlide6(-1),
+      changeSlide7(-1)),
+    keystate[rightKey] &&
+      (changeSlide1(1),
+      changeSlide2(1),
+      changeSlide3(1),
+      changeSlide4(1),
+      changeSlide5(1),
+      changeSlide6(1),
+      changeSlide7(1));
+  
