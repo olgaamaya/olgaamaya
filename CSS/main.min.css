@@ -795,6 +795,17 @@ figcaption.project-info-index {
     }
 }
 
+@media screen and (min-width:950px) {
+#social_elements2 {
+       display: flex
+    }
+}
+@media screen and (max-width:950px) {
+#social_elements2 {
+       display: none
+    }
+}
+
 @media (min-width:640px) {
     footer {
         flex-wrap: nowrap
@@ -1012,8 +1023,7 @@ li.menu-item {
     top: 1rem;
     right: 1rem;
     width: auto;
-    display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: nowrap; 
     justify-content: center;
     align-self: center;
     margin: 1rem;
