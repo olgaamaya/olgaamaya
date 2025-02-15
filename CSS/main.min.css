@@ -21,6 +21,11 @@ figure {
     position: relative
 }
 
+  @media screen and (max-width: 950px){
+ #social_elements2{ 
+ display:none;
+ }
+
 body#bodyid.bodyclass.show {
     overflow: hidden
 }
