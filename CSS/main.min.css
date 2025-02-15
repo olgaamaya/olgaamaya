@@ -892,9 +892,9 @@
     }
 
     @media screen and (min-width:640px) {
-        .jobtitle {
-            font-size: 2em
-        }
+        /* .jobtitle {
+            font-size: ;
+        } */
 
         .jobsub {
             font-size: 1.5rem
