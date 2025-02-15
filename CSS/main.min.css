@@ -976,26 +976,6 @@ li.menu-item {
     display: none;
 }
 
-.social-svg_0 {
-    background-image: url('/BUTTONS/phone.png');
-}
-
-.social-svg_1 {
-    background-image: url('/BUTTONS/insta.png');
-}
-
-.social-svg_2 {
-    background-image: url('/BUTTONS/mail.png');
-}
-
-.social-svg_3 {
-    background-image: url('/BUTTONS/linkedin.png');
-}
-
-.social-svg_4 {
-    background-image: url('/BUTTONS/facebook.png');
-}
-
 .social-svg_0,
 .social-svg_1,
 .social-svg_2,
