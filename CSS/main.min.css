@@ -81,11 +81,6 @@ figure {
     position: relative
 }
 
-  @media screen and (max-width: 950px){
- #social_elements2{ 
- display:none;
- }
-
 body#bodyid.bodyclass.show {
     overflow: hidden
 }
@@ -516,6 +511,12 @@ footer p a {
         border-bottom:1rem solid var(--firstcolor)
     }
 }
+
+  @media screen and (max-width: 950px){
+ #social_elements2{ 
+ display:none;
+ }
+
 
 .wrapper {
     margin-top: 2rem;
