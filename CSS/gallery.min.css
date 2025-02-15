@@ -907,27 +907,22 @@ function setkeys_21() {
         37 == e.keyCode && changeSlide21(-1), 39 == e.keyCode && changeSlide21(1);
     };
 }
-
 function changeSlide22(e) {
     showSlide22((slideIndex += e));
 }
-
 function setkeys_22() {
     window.onkeydown = function(e) {
         37 == e.keyCode && changeSlide22(-1), 39 == e.keyCode && changeSlide22(1);
     };
 }
-
 function changeSlide23(e) {
     showSlide23((slideIndex += e));
 }
-
 function setkeys_23() {
     window.onkeydown = function(e) {
         37 == e.keyCode && changeSlide23(-1), 39 == e.keyCode && changeSlide23(1);
     };
 }
-
 function changeSlide24(e) {
     showSlide24((slideIndex += e));
 }
