@@ -28,7 +28,6 @@ figcaption.project-info-index {
         gap: 0!important;
         --num-cols: 10!important
     }
-}
 
 figure.project-index:nth-child(1) {
     grid-column: 1/8;
@@ -153,4 +152,4 @@ figure.project-index:nth-child(24) {
 figure.project-index:nth-child(25) {
     grid-column: 8/11;
     grid-row: 30/33
-}
+}}
