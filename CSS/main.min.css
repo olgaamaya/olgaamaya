@@ -499,7 +499,29 @@ footer p a {
     cursor: pointer
 }
 
-@media screen and (min-width:950px) {
+@media screen and (max-width: 950px) {
+    #social_elements2 {
+        display: none
+    }
+    .more {
+        display: flex;
+        padding: 2rem
+    }
+    .morecontact {
+        display: flex;
+        padding: 2rem
+    }
+    .less,
+    .lesscontact {
+        display: none
+    }
+}
+
+@media screen and (min-width: 950px) {
+    .more,
+    .morecontact {
+        display: none
+    }
     #myBtn:hover {
         border-bottom: 1rem solid var(--firstcolor)
     }
@@ -796,13 +818,14 @@ figcaption.project-info-index {
 }
 
 @media screen and (min-width:950px) {
-#social_elements2 {
-       display: flex
+    #social_elements2 {
+        display: flex
     }
 }
+
 @media screen and (max-width:950px) {
-#social_elements2 {
-       display: none
+    #social_elements2 {
+        display: none
     }
 }
 
@@ -951,25 +974,8 @@ li.menu-item {
 
 @media screen and (max-width: 950px) {
     #social_elements2 {
-        display: none;
+        display: none
     }
-}
-
-.more {
-    display: none
-}
-
-.morecontact {
-    display: flex;
-    padding: 2rem
-}
-
-.lesscontact {
-    display: none
-}
-
-#detach-button-host {
-    display: none;
 }
 
 #detach-button-host {
@@ -1004,7 +1010,7 @@ li.menu-item {
     top: 1rem;
     right: 1rem;
     width: auto;
-    flex-wrap: nowrap; 
+    flex-wrap: nowrap;
     justify-content: center;
     align-self: center;
     margin: 1rem;
