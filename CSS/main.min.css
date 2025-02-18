@@ -338,18 +338,19 @@ address div p a {
 }
 
 #nav-ul.show {
-    transform: translateY(40%);
+    /* transform: translateY(40%); */
     display: flex;
     flex-direction: column;
     align-items: center;
     flex-wrap: nowrap;
     width: 100%;
     height: auto;
-    margin-top: auto
+    margin-top: auto;
+    padding-top: 6rem;
 }
 
 #nav-ul.show li {
-    margin-top: 1.5rem;
+    /* margin-top: 1.5rem; */
     position: initial
 }
 
@@ -385,8 +386,8 @@ address div p a {
     text-decoration: none;
     height: auto;
     width: 55%;
-    margin-top: auto;
-    margin-bottom: 80%
+    /* margin-top: 35vh; */
+    margin-bottom: 50vh;
 }
 
 #address.show li a {
@@ -945,7 +946,7 @@ li.menu-item {
 }
 
 .menu-item {
-    padding-left: 2.5rem
+    /* padding-left: 2.5rem; */
 }
 
 .menu-item.contact {
@@ -1014,4 +1015,11 @@ li.menu-item {
     justify-content: center;
     align-self: center;
     margin: 1rem;
+}
+
+#social_elements2.show {
+    position: fixed;
+    top: 35vh;
+    left: 0;
+    display: flex;
 }

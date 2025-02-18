@@ -20,7 +20,11 @@ const contact = document.getElementById("item-contact");
 const morecontact = document.getElementById("more");
 const lesscontact = document.getElementById("less");
 
+const sociale2 = document.getElementById("social_elements2");
+
 menu.addEventListener('click', () => {
+    sociale2.classList.toggle('show');
+
     navMenu.classList.toggle('show');
     navUL.classList.toggle('show');
     address.classList.toggle('show');
