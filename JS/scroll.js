@@ -2,7 +2,7 @@ function scrollpage() {
     function f() {
         window.scrollTo(0, i);
         if (status == 0) {
-            i = i + 1.75;
+            i = i + 2.15;
             if (i >= Height) { status = 1; }
         }
 
