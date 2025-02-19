@@ -182,6 +182,7 @@ p.aboutlist {
     -o-animation: fadeIn 20s;
     -ms-animation: fadeIn 20s;
     font-size: 15vw;
+    margin-top: 15vh;
 }
 
 @keyframes fadeIn {
