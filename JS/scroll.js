@@ -23,7 +23,7 @@ function myFunction(x) {
     if (x.matches) { // If media query matches
         scrollpage();
         document.getElementsByTagName("body")[0].style.overflow = "hidden";
-        document.getElementById("headline").style.margin = "50vh 0 0 0";
+        document.getElementById("headline").style.margin = "1000px 0 0 0";
 
         //  document.getElementById("social_elements").style.margin = "0";
         //  document.getElementById("social_elements").style.height = "15vh";
