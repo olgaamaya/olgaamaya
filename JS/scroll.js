@@ -32,7 +32,7 @@ function myFunction(x) {
         document.getElementById("headline").style.margin = "50vh 0 0 0";
         document.getElementById("headline2").style.height = "5vh";
         document.getElementById("social_elements").style.margin = "0";
-        document.getElementById("social_elements").style.height = "5vh";
+        document.getElementById("social_elements").style.height = "20vh";
         document.getElementsByTagName("footer")[0].style.height = "20vh";
         document.getElementById("wrap_info_id").style.height = "55vh";
 
