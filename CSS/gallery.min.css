@@ -425,6 +425,7 @@ img.hover-shadow {
     .arrows {
         color: transparent;
         stroke: transparent;
+        opacity: 0;
     }
 }
 
