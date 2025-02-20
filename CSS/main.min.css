@@ -309,11 +309,33 @@ address div p a {
 }
 
 #menupointid.show {
-    background: url(black-cross.png) no-repeat;
-    background-size: 100%;
-    background-color: transparent;
     height: 2rem;
-    width: 2rem
+    width: 2rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border: 1.6px solid #000;
+}
+
+#menupointid.show:before,
+#menupointid.show:after {
+    position: absolute;
+    content: '';
+    width: 80%;
+    height: 4px;
+    /* cross thickness */
+    background-color: black;
+}
+
+#menupointid.show:before {
+    transform: rotate(45deg);
+}
+
+#menupointid.show:after {
+    transform: rotate(-45deg);
 }
 
 #menu.show {
