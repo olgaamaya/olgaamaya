@@ -197,7 +197,7 @@ p.menupoint {
     border-radius: 20px;
     cursor: pointer;
     z-index: 1000;
-    background-color: var(--secondcolor)
+    background-color: var(--firstcolor)
 }
 
 .menu-toggle {
