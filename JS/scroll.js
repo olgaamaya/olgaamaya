@@ -1,3 +1,9 @@
+var meinIntervall = setInterval(function() {
+    document.getElementById("headline2").innerHTML = "Let's get in contact!";
+}, 20000);
+
+
+
 function scrollpage() {
     function f() {
         window.scrollTo(0, i);
@@ -23,12 +29,12 @@ function myFunction(x) {
     if (x.matches) { // If media query matches
         scrollpage();
         document.getElementsByTagName("body")[0].style.overflow = "hidden";
-        document.getElementById("headline").style.margin = "1000px 0 0 0";
-
-        //  document.getElementById("social_elements").style.margin = "0";
-        //  document.getElementById("social_elements").style.height = "15vh";
-        //  document.getElementsByTagName("footer")[0].style.height = "15vh";
-        //  document.getElementById("wrap_info_id").style.height = "70vh";
+        document.getElementById("headline").style.margin = "25vh 0 0 0";
+        document.getElementById("headline2").style.height = "5vh";
+        document.getElementById("social_elements").style.margin = "0";
+        document.getElementById("social_elements").style.height = "5vh";
+        document.getElementsByTagName("footer")[0].style.height = "20vh";
+        document.getElementById("wrap_info_id").style.height = "55vh";
 
     }
 }
