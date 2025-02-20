@@ -422,6 +422,10 @@ img.hover-shadow {
     .creditlinks {
         display: none
     }
+    .arrows {
+        color: transparent;
+        stroke: transparent;
+    }
 }
 
 @media screen and (min-width: 1000px) {
