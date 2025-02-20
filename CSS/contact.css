@@ -1,3 +1,47 @@
+#backhome {
+    top: 2rem;
+    right: 4rem;
+    height: 2rem;
+    width: 2rem;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    /* border: 1.6px solid #000; */
+    border: 1.5px solid transparent;
+}
+
+@media screen and (max-width:1500px) {
+    #backhome {
+        display: none;
+    }
+}
+
+#abackhome {
+    width: 100%;
+    height: 100%;
+}
+
+#abackhome:before,
+#abackhome:after {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 2px;
+    /* cross thickness */
+    background-color: white;
+}
+
+#abackhome:before {
+    transform: rotate(45deg);
+}
+
+#abackhome:after {
+    transform: rotate(-45deg);
+}
+
 .wrap_info {
     display: flex;
     justify-content: center;
