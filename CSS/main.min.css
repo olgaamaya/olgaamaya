@@ -324,7 +324,7 @@ address div p a {
 #menupointid.show:after {
     position: absolute;
     content: '';
-    width: 80%;
+    width: 170%;
     height: 4px;
     /* cross thickness */
     background-color: black;
