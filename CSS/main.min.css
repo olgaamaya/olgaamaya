@@ -84,7 +84,7 @@ body {
     color: #fff;
     display: flex;
     flex-direction: column;
-    font-family: happy-times, futura, Trebuchet MS, Arial, sans-serif;
+    font-family: VG5000, happy-times, futura, Trebuchet MS, Arial, sans-serif;
     font-size: 1rem
 }
 
@@ -317,17 +317,18 @@ address div p a {
     justify-content: center;
     align-items: center;
     background-color: transparent;
-    border: 1.6px solid #000;
+    /* border: 1.6px solid #000; */
+    border: 1.5px solid white;
 }
 
 #menupointid.show:before,
 #menupointid.show:after {
     position: absolute;
     content: '';
-    width: 170%;
-    height: 4px;
+    width: 85%;
+    height: 2px;
     /* cross thickness */
-    background-color: black;
+    background-color: white;
 }
 
 #menupointid.show:before {
