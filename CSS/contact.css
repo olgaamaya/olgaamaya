@@ -59,18 +59,17 @@ p.webdesign {
 #social_elements {
     position: relative;
     height: 2rem;
-    width: auto;
+    width: 100%;
     display: flex;
     flex-wrap: nowrap;
     justify-content: center;
-    margin-bottom: 3rem;
-    margin-top: 1rem;
     align-self: center;
+    margin: 2rem;
 }
 
 @media screen and (max-width: 750px) {
     #social_elements {
-        padding-top: 2em;
+        margin: 2rem;
     }
 }
 
@@ -88,6 +87,7 @@ p.webdesign {
     margin-bottom: auto;
     margin-left: 2.5rem;
     margin-right: 2.5rem;
+    padding-bottom: 5vw;
 }
 
 .aboutcontainer {
@@ -182,7 +182,7 @@ p.aboutlist {
     -o-animation: fadeIn 20s;
     -ms-animation: fadeIn 20s;
     font-size: 15vw;
-    margin-top: 15vh;
+    margin: 2rem 0 0 0;
 }
 
 @keyframes fadeIn {

@@ -2,7 +2,7 @@ function scrollpage() {
     function f() {
         window.scrollTo(0, i);
         if (status == 0) {
-            i = i + 2.15;
+            i = i + 2.5;
             if (i >= Height) { status = 1; }
         }
 
@@ -23,6 +23,7 @@ function myFunction(x) {
     if (x.matches) { // If media query matches
         scrollpage();
         document.getElementsByTagName("body")[0].style.overflow = "hidden";
+        document.getElementById("headline").style.margin = "90vh 0 0 0";
     }
 }
 
