@@ -340,6 +340,20 @@ img.hover-shadow {
     background: rgba(0, 0, 0, .7)
 }
 
+#project-info1:hover,
+#project-info2:hover,
+#project-info3:hover,
+#project-info4:hover,
+#project-info5:hover,
+#project-info6:hover,
+#project-info7:hover,
+#project-info8:hover,
+#project-info9:hover,
+#project-info10:hover {
+    color: var(--randomcolor);
+    background: rgba(0, 0, 0, .7)
+}
+
 .nextpointer {
     position: absolute;
     z-index: 999999;
