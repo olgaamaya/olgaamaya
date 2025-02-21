@@ -333,42 +333,11 @@ img.hover-shadow {
     }
 }
 
-.infolink_3:hover,
-.infolink_4:hover {
-    color: var(--firstcolor);
-    margin-left: 1.5rem
-}
-
-@media screen and (max-width: 1000px) {
-    #infolink_2,
-    #infolink_3,
-    #infolink_4 {
-        display: none !important
-    }
-}
-
-@media screen and (min-width: 1000px) {
-    #infolink_2,
-    #infolink_3,
-    #infolink_4 {
-        display: flex !important
-    }
-}
-
-@media screen and (max-width: 1000px) {
-    .infolink_2,
-    .infolink_3,
-    .infolink_4 {
-        display: none !important
-    }
-}
-
-@media screen and (min-width: 1000px) {
-    .infolink_2,
-    .infolink_3,
-    .infolink_4 {
-        display: flex !important
-    }
+#project-info22:hover,
+#project-info23:hover,
+#project-info24:hover {
+    color: pink;
+    background: rgba(0, 0, 0, .8)
 }
 
 .nextpointer {
