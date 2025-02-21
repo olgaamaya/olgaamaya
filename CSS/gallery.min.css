@@ -336,8 +336,8 @@ img.hover-shadow {
 #project-info22:hover,
 #project-info23:hover,
 #project-info24:hover {
-    color: pink;
-    background: rgba(0, 0, 0, .8)
+    color: var(--secondcolor);
+    background: rgba(0, 0, 0, .7)
 }
 
 .nextpointer {
