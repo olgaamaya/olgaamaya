@@ -1,3 +1,7 @@
+// From http://stackoverflow.com/a/5365036/2065702
+const randomColor = "#" + ((1 << 24) * Math.random() | 0).toString(16);
+document.documentElement.style.setProperty('--main-bg-color', randomColor);
+
 function generateRandomColor() {
     var randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
     if (randomColor.length != 7) { // In any case, the color code is invalid
@@ -7,7 +11,7 @@ function generateRandomColor() {
     // The random color will be freshly served
 }
 document.body.style.backgroundColor = generateRandomColor() // -> #E1AC94
-document.documentElement.style.setProperty('--main-bg-color', randomColor);
+
 
 
 var sizer = window.matchMedia("(min-width: 950px)");
