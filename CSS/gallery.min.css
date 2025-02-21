@@ -254,7 +254,7 @@ img.hover-shadow {
 
 .modal-content {
     position: relative;
-    max-height: 70%
+    max-height: 85vh;
 }
 
 
@@ -280,7 +280,7 @@ img.hover-shadow {
 } */
 
 #videoslide {
-    width: 90%;
+    /* width: 90%; */
     align-content: center;
     align-items: center;
     align-self: center;
@@ -288,8 +288,8 @@ img.hover-shadow {
     position: relative;
     height: 100%;
     z-index: 2147483647;
-    margin-bottom: 2em;
-    margin-top: 2em
+    /* margin-bottom: 2em; */
+    /* margin-top: 2em; */
 }
 
 .videoclass {
