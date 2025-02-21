@@ -2,6 +2,7 @@ html {
     --firstcolor: #fff;
     --secondcolor: pink;
     --randomcolor: yellow;
+    --randomcolor2: blue;
     -webkit-tap-highlight-color: transparent;
     -webkit-user-select: none;
     -ms-user-select: none;
