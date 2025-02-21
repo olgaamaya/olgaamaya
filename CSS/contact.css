@@ -15,7 +15,7 @@
     z-index: 9999999;
 }
 
-@media screen and (max-width:1500px) {
+@media screen and (max-width:1250px) {
     #backhome {
         display: none;
     }
