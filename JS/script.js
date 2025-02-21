@@ -15,7 +15,6 @@ const navUL = document.getElementById('nav-ul');
 const navMenu = document.getElementById('navMenu');
 const address = document.getElementById('address');
 const body = document.getElementById('bodyid');
-const h_index = document.getElementById('headerindex');
 const contact = document.getElementById("item-contact");
 const morecontact = document.getElementById("more");
 const lesscontact = document.getElementById("less");
@@ -31,7 +30,6 @@ menu.addEventListener('click', () => {
     body.classList.toggle('show');
     menu.classList.toggle('show');
     menupoint.classList.toggle('show');
-    h_index.classList.toggle('h_index');
     contact.classList.toggle('contact');
     morecontact.classList.toggle('morecontact');
     lesscontact.classList.toggle('lesscontact');
