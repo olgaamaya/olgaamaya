@@ -23,7 +23,7 @@
 
 #abackhome {
     width: 100%;
-    /*   height: 100%; */
+    height: 100%;
     z-index: 9999999;
 }
 
@@ -36,6 +36,7 @@
     height: 2px;
     /* cross thickness */
     background-color: white;
+    top: 50%;
 }
 
 #abackhome:before {
