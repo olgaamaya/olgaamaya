@@ -1,6 +1,25 @@
-// From http://stackoverflow.com/a/5365036/2065702
-const randomColor = "#" + ((1 << 24) * Math.random() | 0).toString(16);
-document.documentElement.style.setProperty('--main-bg-color', randomColor);
+function changeColor() {
+    const colors = ["yellow", "blue"]; // Allowed colors
+    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+    document.documentElement.style.setProperty("--randomcolor", randomColor);
+}
+
+// Change color immediately and then every 15 seconds
+changeColor();
+setInterval(changeColor, 5000);
+
+function changeColor2() {
+    const colors2 = ["pink", "red"]; // Allowed colors
+    const randomColor2 = colors2[Math.floor(Math.random() * colors2.length)];
+    document.documentElement.style.setProperty("--randomcolor2", randomColor2);
+}
+
+// Change color immediately and then every 15 seconds
+changeColor2();
+setInterval(changeColor2, 5000);
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function generateRandomColor() {
     var randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
