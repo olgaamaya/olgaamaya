@@ -434,7 +434,8 @@ img.hover-shadow {
 
 @media screen and (max-width: 1000px) {
     a.projecttitellink {
-        color: transparent
+        color: transparent;
+        opacity: 0;
     }
 }
 
