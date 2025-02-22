@@ -136,13 +136,16 @@ nav .menu {
 }
 
 #mailback {
-    height: auto;
+    height: 20vh;
     width: 2rem;
     position: fixed;
-    top: 35vh;
+    top: 40vh;
     z-index: 99999999999;
     font-size: 1.6rem;
     line-height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center
 }
 
 .header-title a {
