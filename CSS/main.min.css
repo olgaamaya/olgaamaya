@@ -238,7 +238,7 @@ li.menu-item a {
 }
 
 li.menu-item a:hover {
-    color: var(--secondcolor)
+    color: var(--randomcolor2)
 }
 
 nav.menu ul {
