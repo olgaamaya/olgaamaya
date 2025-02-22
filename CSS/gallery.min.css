@@ -442,6 +442,6 @@ a.projecttitellink {
     text-decoration: none;
     position: absolute;
     right: 1rem;
-    bottom: -85vh;
+    bottom: 15vh;
     z-index: 999999999;
 }
