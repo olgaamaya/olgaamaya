@@ -13,6 +13,10 @@ body {
     top: 0
 }
 
+#logosvg.show {
+    stroke: black;
+}
+
 .infogallery {
     text-decoration: none;
     letter-spacing: .15rem

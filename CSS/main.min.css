@@ -1051,5 +1051,6 @@ li.menu-item {
     position: fixed;
     top: 35vh;
     left: 0;
+    right: 0;
     display: flex;
 }

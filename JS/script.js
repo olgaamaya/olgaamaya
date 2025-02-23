@@ -21,6 +21,7 @@ const lesscontact = document.getElementById("less");
 
 const sociale2 = document.getElementById("social_elements2");
 
+
 menu.addEventListener('click', () => {
     sociale2.classList.toggle('show');
 
