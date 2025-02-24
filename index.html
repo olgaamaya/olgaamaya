@@ -11,14 +11,57 @@
     <link rel="stylesheet" href="CSS/main.min.css" fetchpriority="high" />
     <link rel="stylesheet" href="CSS/index_layout.css" fetchpriority="high" />
     <link rel="stylesheet" href="CSS/gallery.min.css" fetchpriority="low" />
-    <link rel="stylesheet" href="CSS/banner2.min.css" fetchpriority="high" />
+    <link rel="stylesheet" href="CSS/banner2.min.css" fetchpriority="low" />
     <link rel="preload" href="fonts/VG5000-Regular_web.woff2" as="style" />
-    <script src="JS/gallery_1.min.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            const imageSlides = document.querySelectorAll('img.image-slide');
-            imageSlides.forEach(img => {
-                img.setAttribute('loading', 'lazy');
+            const allImageSlides = document.querySelectorAll("img.image-slide");
+            const allVideos = document.querySelectorAll("video.videofront");
+
+            // Preload the first 4 `.image-slide` elements globally (as defined in indexlayout.css)
+            allImageSlides.forEach((img, index) => {
+                if (index < 4) {
+                    img.loading = "eager"; // Preload first 4 images globally
+                } else {
+                    img.loading = "lazy"; // Lazy load the rest
+                }
+            });
+
+            // Preload images in active, next, and previous slides
+            const extraPreloadedImages = document.querySelectorAll(
+                ".active-slide img.image-slide, .next-slide img.image-slide, .previous-slide img.image-slide"
+            );
+
+            extraPreloadedImages.forEach(img => img.loading = "eager");
+
+            // Preload all images inside the "IMG/img-cover" folder
+            allImageSlides.forEach(img => {
+                if (img.src.includes("IMG/img-cover/")) {
+                    img.loading = "eager"; // Preload all images in IMG/img-cover
+                }
+            });
+
+            // Preload the first 4 videos in the document order (not per lightbox)
+            allVideos.forEach((video, index) => {
+                if (index < 4) {
+                    video.preload = "auto"; // Preload first 4 videos globally
+                } else {
+                    video.preload = "none"; // Lazy load the rest
+                }
+            });
+
+            // Ensure all other images are lazy-loaded
+            allImageSlides.forEach(img => {
+                if (!img.loading) {
+                    img.loading = "lazy";
+                }
+            });
+
+            // Ensure all other videos are lazy-loaded
+            allVideos.forEach(video => {
+                if (video.preload !== "auto") {
+                    video.preload = "none";
+                }
             });
         });
     </script>
@@ -1358,12 +1401,12 @@
                 <p class="project-image">
                     <!-- SIZES PICTURES ADJUST -->
                     <picture id="pictureId22">
-                        <video id="background-video" poster="IMG/img_cover/thinkingmu_poster.jpg" style="width: 100%" autoplay="autoplay" loop="loop" muted defaultMuted playsinline oncontextmenu="return false;" preload="auto">
+                        <video id="background-video" class="videofront" poster="IMG/img_cover/thinkingmu_poster.jpg" style="width: 100%" autoplay="autoplay" loop="loop" muted defaultMuted playsinline oncontextmenu="return false;" preload="auto">
               <source src="IMG/thinkingmu/thinkingmu_video.mp4" type="video/mp4" />
             </video>
                     </picture>
                 </p>
-                <figcaption class="project-info-index" id="project-info22" onclick="openLightbox_22();toSlide22(1)">
+                <figcaption class="project-info-index" id="project-info22" onclick="openLightbox_22();toSlide(22, 1)">
                     <section class="layersmallview"></section>
                     <p class="jobtitle">
                         AW24 RE-GEN <br /> CITY SHADES<br /> THINKING MU
@@ -1397,11 +1440,11 @@
             <a class="link-to-project">
                 <p class="project-image">
                     <picture id="pictureid23">
-                        <source srcset="IMG/img_cover/matyfall_cover.jpg" />
+                        <source srcset="IMG/img_cover/matyfall_cover.jpg" alt="Fashion Front Cover Picture" />
                         <!-- IMAGE FALLBACK in case picture element is not supported --><img src="IMG/img_cover/matyfall_cover.jpg" class="hover-shadow preview" alt="" />
                     </picture>
                 </p>
-                <figcaption class="project-info-index" id="project-info23" onclick="openLightbox_23();toSlide23(1)">
+                <figcaption class="project-info-index" id="project-info23" onclick="openLightbox_23();toSlide(23, 1)">
                     <section class="layersmallview"></section>
                     <p class="jobtitle">
                         Maty Fall<br /> x MANGO
@@ -1433,11 +1476,11 @@
             <a class="link-to-project">
                 <p class="project-image">
                     <picture id="pictureid1">
-                        <source srcset="IMG/img_cover/mango_teen_special_2_cover.jpg" />
+                        <source srcset="IMG/img_cover/mango_teen_special_2_cover.jpg" alt="Fashion Front Cover Picture" />
                         <!-- IMAGE FALLBACK in case picture element is not supported --><img src="IMG/img_cover/mango_teen_special_2_cover.jpg" class="hover-shadow preview" alt="" />
                     </picture>
                 </p>
-                <figcaption class="project-info-index" id="project-info24" onclick="openLightbox_24();toSlide24(1)">
+                <figcaption class="project-info-index" id="project-info24" onclick="openLightbox_24();toSlide(24, 1)">
                     <section class="layersmallview"></section>
                     <p class="jobtitle">
                         Denim seams <br /> x @mangoteen
@@ -1464,12 +1507,12 @@
                 <p class="project-image">
                     <!-- SIZES PICTURES ADJUST -->
                     <picture id="pictureId1">
-                        <video id="background-video" poster="IMG/julia_brezgina/julia_cover.jpg" style="width: 100%" autoplay="autoplay" loop="loop" muted defaultMuted playsinline oncontextmenu="return false;" preload="auto" disablePictureInPicture fetchpriority="high">
+                        <video id="background-video" class="videofront" poster="IMG/julia_brezgina/julia_cover.jpg" style="width: 100%" autoplay="autoplay" loop="loop" muted defaultMuted playsinline oncontextmenu="return false;" preload="auto" disablePictureInPicture fetchpriority="high">
               <source src="IMG/julia_brezgina/video_julia.mp4" type="video/mp4" />
             </video>
                     </picture>
                 </p>
-                <figcaption class="project-info-index" id="project-info21" onclick="openLightbox_21();toSlide21(1)">
+                <figcaption class="project-info-index" id="project-info21" onclick="openLightbox_21();toSlide(21, 1)">
                     <section class="layersmallview"></section>
                     <p class="jobtitle">julia brezgina</p>
                     <br />
@@ -1499,12 +1542,13 @@
                 <p class="project-image">
                     <!-- SIZES PICTURES ADJUST -->
                     <picture id="pictureId1">
-                        <video id="background-video" poster="IMG/mango_teen_special_1/mango_teen_special_1_9_16_2.jpg" style="width: 100%" autoplay="autoplay" loop="loop" muted defaultMuted playsinline oncontextmenu="return false;" preload="auto" disablePictureInPicture fetchpriority="high">
+                        <video id="background-video" class="videofront" poster="IMG/mango_teen_special_1/mango_teen_special_1_9_16_2.jpg" style="width: 100%" autoplay="autoplay" loop="loop" muted defaultMuted playsinline oncontextmenu="return false;" preload="auto" disablePictureInPicture
+                            fetchpriority="high">
               <source src="IMG/mango_teen_special_1/mango_teen_video_new.mp4" type="video/mp4" />
             </video>
                     </picture>
                 </p>
-                <figcaption class="project-info-index" id="project-info20" onclick="openLightbox_20();toSlide20(17)">
+                <figcaption class="project-info-index" id="project-info20" onclick="openLightbox_20();toSlide(20, 17)">
                     <section class="layersmallview"></section>
                     <p class="jobtitle">PARISIAN FALL/ Teen x MANGO</p>
                     <br />
@@ -1534,12 +1578,12 @@
                 <p class="project-image">
                     <!-- SIZES PICTURES ADJUST -->
                     <picture id="pictureId1">
-                        <video id="background-video" poster="IMG/Vilet_olga/Vilet_olga_9_16_1.jpg" style="width: 100%" autoplay="autoplay" loop="loop" muted defaultMuted playsinline oncontextmenu="return false;" preload="auto" disablePictureInPicture fetchpriority="high">
+                        <video id="background-video" class="videofront" poster="IMG/Vilet_olga/Vilet_olga_9_16_1.jpg" style="width: 100%" autoplay="autoplay" loop="loop" muted defaultMuted playsinline oncontextmenu="return false;" preload="auto" disablePictureInPicture fetchpriority="high">
               <source src="IMG/Vilet_olga/Vilet_Video_1.mp4" type="video/mp4" />
             </video>
                     </picture>
                 </p>
-                <figcaption class="project-info-index" id="project-info19" onclick="openLightbox_19();toSlide19(5)">
+                <figcaption class="project-info-index" id="project-info19" onclick="openLightbox_19();toSlide(19, 5)">
                     <section class="layersmallview"></section>
                     <p class="jobtitle">vilet</p>
                     <br />
@@ -1566,11 +1610,11 @@
             <a class="link-to-project">
                 <p class="project-image">
                     <picture id="pictureid1">
-                        <source srcset="IMG/img_cover/summer_post_isolation_cover.jpg" />
+                        <source srcset="IMG/img_cover/summer_post_isolation_cover.jpg" alt="Fashion Front Cover Picture" />
                         <!-- IMAGE FALLBACK in case picture element is not supported --><img src="IMG/img_cover/summer_post_isolation_cover.jpg" class="hover-shadow preview" alt="" />
                     </picture>
                 </p>
-                <figcaption class="project-info-index" id="project-info1" onclick="openLightbox_1();toSlide1(1)">
+                <figcaption class="project-info-index" id="project-info1" onclick="openLightbox_1();toSlide(1, 1)">
                     <section class="layersmallview"></section>
                     <p class="jobtitle">
                         sUmMeR pOstIsOlAtIoN/<br /> fuckingyoung magazine
@@ -1599,11 +1643,11 @@
             <a class="link-to-project">
                 <p class="project-image">
                     <picture id="pictureid4">
-                        <source srcset="IMG/img_cover/te_quiero_un_poco_cover.jpg" />
+                        <source srcset="IMG/img_cover/te_quiero_un_poco_cover.jpg" alt="Fashion Front Cover Picture" />
                         <!-- IMAGE FALLBACK in case picture element is not supported --><img src="IMG/img_cover/te_quiero_un_poco_cover.jpg" class="hover-shadow preview" alt="" />
                     </picture>
                 </p>
-                <figcaption class="project-info-index" id="project-info4" onclick="openLightbox_4();toSlide4(8)">
+                <figcaption class="project-info-index" id="project-info4" onclick="openLightbox_4();toSlide(4, 8)">
                     <section class="layersmallview"></section>
                     <p class="jobtitle">tE QuIEro UN pOCo/ <br />carlos sadness</p>
                     <br />
@@ -1635,12 +1679,12 @@
                 <p class="project-image">
                     <!-- SIZES PICTURES ADJUST -->
                     <picture id="pictureId1">
-                        <video id="background-video" poster="IMG/mango_teen/mango_teen_cover_1.jpg" style="width: 100%" autoplay="autoplay" loop="loop" muted defaultMuted playsinline oncontextmenu="return false;" preload="auto">
+                        <video id="background-video" class="videofront" poster="IMG/mango_teen/mango_teen_cover_1.jpg" style="width: 100%" autoplay="autoplay" loop="loop" muted defaultMuted playsinline oncontextmenu="return false;" preload="auto">
               <source src="IMG/mango_teen/mango_teen_video.mp4" type="video/mp4" />
             </video>
                     </picture>
                 </p>
-                <figcaption class="project-info-index" id="project-info11" onclick="openLightbox_11();toSlide11(1)">
+                <figcaption class="project-info-index" id="project-info11" onclick="openLightbox_11();toSlide(11, 1)">
                     <section class="layersmallview"></section>
                     <p class="jobtitle">
                         Back To School<br /> Teen x MANGO
@@ -1669,11 +1713,11 @@
             <a class="link-to-project">
                 <p class="project-image">
                     <picture id="pictureid3">
-                        <source srcset="IMG/img_cover/me_demanaste_cover.jpg" />
-                        <!-- IMAGE FALLBACK in case picture element is not supported --><img src="IMG/img_cover/me_demanaste_cover.jpg" class="hover-shadow preview" loading="lazy" alt="" />
+                        <source srcset="IMG/img_cover/me_demanaste_cover.jpg" alt="Fashion Front Cover Picture" />
+                        <!-- IMAGE FALLBACK in case picture element is not supported --><img src="IMG/img_cover/me_demanaste_cover.jpg" class="hover-shadow preview" />
                     </picture>
                 </p>
-                <figcaption class="project-info-index" id="project-info3" onclick="openLightbox_3();toSlide3(1)">
+                <figcaption class="project-info-index" id="project-info3" onclick="openLightbox_3();toSlide(3, 1)">
                     <section class="layersmallview"></section>
                     <p class="jobtitle">ME dESamAsTE/ <br />carlos sadness</p>
                     <br />
@@ -1700,11 +1744,11 @@
             <a class="link-to-project">
                 <p class="project-image">
                     <picture id="pictureid2">
-                        <source srcset="IMG/img_cover/winterboy_cover.jpg" />
-                        <!-- IMAGE FALLBACK in case picture element is not supported --><img src="IMG/img_cover/winterboy_cover.jpg" class="hover-shadow preview" loading="lazy" alt="" />
+                        <source srcset="IMG/img_cover/winterboy_cover.jpg" alt="Fashion Front Cover Picture" />
+                        <!-- IMAGE FALLBACK in case picture element is not supported --><img src="IMG/img_cover/winterboy_cover.jpg" class="hover-shadow preview" />
                     </picture>
                 </p>
-                <figcaption class="project-info-index" id="project-info2" onClick="openLightbox_2();toSlide2(1)">
+                <figcaption class="project-info-index" id="project-info2" onclick="openLightbox_2();toSlide(2, 1)">
                     <section class="layersmallview"></section>
                     <p class="jobtitle">
                         WinTeRBoY/<br /> client magazine
@@ -1733,11 +1777,11 @@
             <a class="link-to-project">
                 <p class="project-image">
                     <picture id="pictureid5">
-                        <source srcset="IMG/img_cover/seungri_cover.jpg" />
-                        <!-- IMAGE FALLBACK in case picture element is not supported --><img src="IMG/img_cover/seungri_cover.jpg" class="hover-shadow preview" loading="lazy" alt="" />
+                        <source srcset="IMG/img_cover/seungri_cover.jpg" alt="Fashion Front Cover Picture" />
+                        <!-- IMAGE FALLBACK in case picture element is not supported --><img src="IMG/img_cover/seungri_cover.jpg" class="hover-shadow preview" />
                     </picture>
                 </p>
-                <figcaption class="project-info-index" id="project-info5" onclick="openLightbox_5();toSlide5(1)">
+                <figcaption class="project-info-index" id="project-info5" onclick="openLightbox_5();toSlide(5, 1)">
                     <section class="layersmallview"></section>
                     <p class="jobtitle">sEUnGrI/ <br /></p>
                     <br />
@@ -1764,11 +1808,11 @@
             <a class="link-to-project">
                 <p class="project-image">
                     <picture id="pictureid1">
-                        <source srcset="IMG/img_cover/ecom_cover_2.jpg" />
-                        <!-- IMAGE FALLBACK in case picture element is not supported --><img src="IMG/img_cover/ecom_cover_2.jpg" class="hover-shadow preview" loading="lazy" alt="" />
+                        <source srcset="IMG/img_cover/ecom_cover_2.jpg" alt="Fashion Front Cover Picture" />
+                        <!-- IMAGE FALLBACK in case picture element is not supported --><img src="IMG/img_cover/ecom_cover_2.jpg" class="hover-shadow preview" />
                     </picture>
                 </p>
-                <figcaption class="project-info-index" id="project-info15" onclick="openLightbox_15();toSlide15(1)">
+                <figcaption class="project-info-index" id="project-info15" onclick="openLightbox_15();toSlide(15, 1)">
                     <section class="layersmallview"></section>
                     <p class="jobtitle">E-Commerce</p>
                     <br />
@@ -1795,11 +1839,11 @@
             <a class="link-to-project">
                 <p class="project-image">
                     <picture id="pictureid3">
-                        <source srcset="IMG/img_cover/marc_salvador_cover.jpg" />
-                        <!-- IMAGE FALLBACK in case picture element is not supported --><img src="IMG/img_cover/marc_salvador_cover.jpg" class="hover-shadow preview" loading="lazy" alt="" />
+                        <source srcset="IMG/img_cover/marc_salvador_cover.jpg" alt="Fashion Front Cover Picture" />
+                        <!-- IMAGE FALLBACK in case picture element is not supported --><img src="IMG/img_cover/marc_salvador_cover.jpg" class="hover-shadow preview" />
                     </picture>
                 </p>
-                <figcaption class="project-info-index" id="project-info3" onclick="openLightbox_7();toSlide7(1)">
+                <figcaption class="project-info-index" id="project-info3" onclick="openLightbox_7();toSlide(7, 1)">
                     <section class="layersmallview"></section>
                     <p class="jobtitle">ShAdOW/ <br />marc salvador</p>
                     <br />
@@ -1826,11 +1870,11 @@
             <a class="link-to-project">
                 <p class="project-image">
                     <picture id="pictureid1">
-                        <source srcset="IMG/img_cover/model_mango_cover.jpg" />
-                        <!-- IMAGE FALLBACK in case picture element is not supported --><img src="IMG/img_cover/model_mango_cover.jpg" class="hover-shadow preview" loading="lazy" alt="" />
+                        <source srcset="IMG/img_cover/model_mango_cover.jpg" alt="Fashion Front Cover Picture" />
+                        <!-- IMAGE FALLBACK in case picture element is not supported --><img src="IMG/img_cover/model_mango_cover.jpg" class="hover-shadow preview" />
                     </picture>
                 </p>
-                <figcaption class="project-info-index" id="project-info14" onclick="openLightbox_14();toSlide14(1)">
+                <figcaption class="project-info-index" id="project-info14" onclick="openLightbox_14();toSlide(4, 1)">
                     <section class="layersmallview"></section>
                     <p class="jobtitle">
                         Chiharu Okungi <br /> x Mango
@@ -1859,11 +1903,11 @@
             <a class="link-to-project">
                 <p class="project-image">
                     <picture id="pictureid3">
-                        <source srcset="IMG/img_cover/chicasobresalto_cover.jpg" />
-                        <!-- IMAGE FALLBACK in case picture element is not supported --><img src="IMG/img_cover/chicasobresalto_cover.jpg" class="hover-shadow preview" loading="lazy" alt="" />
+                        <source srcset="IMG/img_cover/chicasobresalto_cover.jpg" alt="Fashion Front Cover Picture" />
+                        <!-- IMAGE FALLBACK in case picture element is not supported --><img src="IMG/img_cover/chicasobresalto_cover.jpg" class="hover-shadow preview" />
                     </picture>
                 </p>
-                <figcaption class="project-info-index" id="project-info3" onclick="openLightbox_9();toSlide9(1)">
+                <figcaption class="project-info-index" id="project-info3" onclick="openLightbox_9();toSlide(9, 1)">
                     <section class="layersmallview"></section>
                     <p class="jobtitle">fusión del núcleo/ <br />chica sobresalto</p>
                     <br />
@@ -1890,11 +1934,11 @@
             <a class="link-to-project">
                 <p class="project-image">
                     <picture id="pictureid3">
-                        <source srcset="IMG/img_cover/pilma_cover.jpg" />
-                        <!-- IMAGE FALLBACK in case picture element is not supported --><img src="IMG/img_cover/pilma_cover.jpg" class="hover-shadow preview" loading="lazy" alt="" />
+                        <source srcset="IMG/img_cover/pilma_cover.jpg" alt="Fashion Front Cover Picture" />
+                        <!-- IMAGE FALLBACK in case picture element is not supported --><img src="IMG/img_cover/pilma_cover.jpg" class="hover-shadow preview" />
                     </picture>
                 </p>
-                <figcaption class="project-info-index" id="project-info3" onclick="openLightbox_10();toSlide10(1)">
+                <figcaption class="project-info-index" id="project-info3" onclick="openLightbox_10();toSlide(10, 1)">
                     <section class="layersmallview"></section>
                     <p class="jobtitle">
                         What happens in PILMA stays in PILMA /Edició PRIDE!
@@ -1923,11 +1967,11 @@
             <a class="link-to-project">
                 <p class="project-image">
                     <picture id="pictureid4_2">
-                        <source srcset="IMG/img_cover/te_quiero_un_poco_cover_2.jpg" />
-                        <!-- IMAGE FALLBACK in case picture element is not supported --><img src="IMG/img_cover/te_quiero_un_poco_cover_2.jpg" class="hover-shadow preview" loading="lazy" alt="" />
+                        <source srcset="IMG/img_cover/te_quiero_un_poco_cover_2.jpg" alt="Fashion Front Cover Picture" />
+                        <!-- IMAGE FALLBACK in case picture element is not supported --><img src="IMG/img_cover/te_quiero_un_poco_cover_2.jpg" class="hover-shadow preview" />
                     </picture>
                 </p>
-                <figcaption class="project-info-index" id="project-info4" onclick="openLightbox_4();toSlide4(4)">
+                <figcaption class="project-info-index" id="project-info4" onclick="openLightbox_4();toSlide(4, 4)">
                     <section class="layersmallview"></section>
                     <p class="jobtitle">tE QuIEro UN pOCo/ <br />carlos sadness</p>
                     <br />
@@ -1958,11 +2002,11 @@
             <a class="link-to-project">
                 <p class="project-image">
                     <picture id="pictureid3">
-                        <source srcset="IMG/img_cover/adrenalina_cover.jpg" />
-                        <!-- IMAGE FALLBACK in case picture element is not supported --><img src="IMG/img_cover/adrenalina_cover.jpg" class="hover-shadow preview" loading="lazy" alt="" />
+                        <source srcset="IMG/img_cover/adrenalina_cover.jpg" alt="Fashion Front Cover Picture" />
+                        <!-- IMAGE FALLBACK in case picture element is not supported --><img src="IMG/img_cover/adrenalina_cover.jpg" class="hover-shadow preview" />
                     </picture>
                 </p>
-                <figcaption class="project-info-index" id="project-info3" onclick="openLightbox_8();toSlide8(1)">
+                <figcaption class="project-info-index" id="project-info3" onclick="openLightbox_8();toSlide(8, 1)">
                     <section class="layersmallview"></section>
                     <p class="jobtitle">
                         Adrenalina/ <br />Chica Sobresalto con Zahara
@@ -1990,10 +2034,10 @@
         <figure class="project-index">
             <a class="link-to-project">
                 <p class="project-image">
-                    <source srcset="IMG/img_cover/teen_mango_cover.jpg" />
-                    <!-- IMAGE FALLBACK in case picture element is not supported --><img src="IMG/img_cover/teen_mango_cover.jpg" class="hover-shadow preview" loading="lazy" alt="" />
+                    <source srcset="IMG/img_cover/teen_mango_cover.jpg" alt="Fashion Front Cover Picture" />
+                    <!-- IMAGE FALLBACK in case picture element is not supported --><img src="IMG/img_cover/teen_mango_cover.jpg" class="hover-shadow preview" />
                 </p>
-                <figcaption class="project-info-index" id="project-info17" onclick="openLightbox_17();toSlide17(1)">
+                <figcaption class="project-info-index" id="project-info17" onclick="openLightbox_17();toSlide(7, 1)">
                     <section class="layersmallview"></section>
                     <p class="jobtitle">
                         Teen <br /> x Mango
@@ -2024,11 +2068,11 @@
             <a class="link-to-project">
                 <p class="project-image">
                     <picture id="pictureid6">
-                        <source srcset="IMG/img_cover/matea_brakus_cover.jpg" />
-                        <!-- IMAGE FALLBACK in case picture element is not supported --><img src="IMG/img_cover/matea_brakus_cover.jpg" class="hover-shadow preview" loading="lazy" alt="" />
+                        <source srcset="IMG/img_cover/matea_brakus_cover.jpg" alt="Fashion Front Cover Picture" />
+                        <!-- IMAGE FALLBACK in case picture element is not supported --><img src="IMG/img_cover/matea_brakus_cover.jpg" class="hover-shadow preview" />
                     </picture>
                 </p>
-                <figcaption class="project-info-index" id="project-info6" onclick="openLightbox_6();toSlide6(1)">
+                <figcaption class="project-info-index" id="project-info6" onclick="openLightbox_6();toSlide(6, 1)">
                     <section class="layersmallview"></section>
                     <p class="jobtitle">matea brakus x MANGO <br /></p>
                     <br />
@@ -2058,7 +2102,7 @@
                 <p class="project-image">
                     <!-- SIZES PICTURES ADJUST -->
                     <picture id="pictureId1">
-                        <video id="background-video" style="
+                        <video id="background-video" class="videofront" style="
                   max-width: 100%;
                   max-height: 100%;
                   width: 100%;
@@ -2068,7 +2112,7 @@
             </video>
                     </picture>
                 </p>
-                <figcaption class="project-info-index" id="project-info16" onclick="openLightbox_16();toSlide16(1)">
+                <figcaption class="project-info-index" id="project-info16" onclick="openLightbox_16();toSlide(6, 1)">
                     <section class="layersmallview"></section>
                     <p class="jobtitle">clara infante x MANGO home</p>
                     <br />
@@ -2099,10 +2143,10 @@
                     <picture id="pictureid1">
                         <!-- SIZES PICTURES ADJUST -->
                         <source srcset="IMG/kids_mango/kids_mango_cover.jpg" />
-                        <!-- IMAGE FALLBACK in case picture element is not supported --><img src="IMG/kids_mango/kids_mango_cover.jpg" class="hover-shadow preview" loading="lazy" alt="" />
+                        <!-- IMAGE FALLBACK in case picture element is not supported --><img src="IMG/kids_mango/kids_mango_cover.jpg" class="hover-shadow preview" />
                     </picture>
                 </p>
-                <figcaption class="project-info-index" id="project-info13" onclick="openLightbox_13();toSlide13(1)">
+                <figcaption class="project-info-index" id="project-info13" onclick="openLightbox_13();toSlide(3, 1)">
                     <section class="layersmallview"></section>
                     <p class="jobtitle">
                         Kids <br /> x Mango
@@ -2133,11 +2177,11 @@
             <a class="link-to-project">
                 <p class="project-image">
                     <picture id="pictureid1">
-                        <source srcset="IMG/img_cover/lydia_cover.jpg" />
-                        <!-- IMAGE FALLBACK in case picture element is not supported --><img src="IMG/img_cover/lydia_cover.jpg" class="hover-shadow preview" loading="lazy" alt="" />
+                        <source srcset="IMG/img_cover/lydia_cover.jpg" alt="Fashion Front Cover Picture" />
+                        <!-- IMAGE FALLBACK in case picture element is not supported --><img src="IMG/img_cover/lydia_cover.jpg" class="hover-shadow preview" />
                     </picture>
                 </p>
-                <figcaption class="project-info-index" id="project-info18" onclick="openLightbox_18();toSlide18(1)">
+                <figcaption class="project-info-index" id="project-info18" onclick="openLightbox_18();toSlide(8, 2)">
                     <section class="layersmallview"></section>
                     <p class="jobtitle">
                         mikaela oldenburg/ <br /> cake magazine
@@ -2169,10 +2213,10 @@
                 <p class="project-image">
                     <picture id="pictureid1">
                         <source srcset="IMG/naguisa/naguisa_cover.jpg" />
-                        <!-- IMAGE FALLBACK in case picture element is not supported --><img src="IMG/naguisa/naguisa_cover.jpg" class="hover-shadow preview" loading="lazy" alt="" />
+                        <!-- IMAGE FALLBACK in case picture element is not supported --><img src="IMG/naguisa/naguisa_cover.jpg" class="hover-shadow preview" />
                     </picture>
                 </p>
-                <figcaption class="project-info-index" id="project-info12" onclick="openLightbox_12();toSlide12(1)">
+                <figcaption class="project-info-index" id="project-info12" onclick="openLightbox_12();toSlide(2, 1)">
                     <section class="layersmallview"></section>
                     <p class="jobtitle">Naguisa<br /></p>
                     <br />
@@ -2202,16 +2246,13 @@
 
     <!-- LIGHTBOXES - ALL PROJECTS -->
 
-
     <!-- LIGHTBOX 1.Project sUmMeR pOstIsOlAtIoN-->
     <div id="Lightbox_1" class="modal">
         <div id="projecttitle_1" class="projecttitle">
             sUmMeR pOstIsOlAtIoN <br />
-            <a class="projecttitellink" href="http://fuckingyoung.es/summer-post-isolation/" target="_blank" style="color: black; text-decoration: none">Fuckingyoung Magazine
-      </a>
         </div>
-        <span id="close-pointer" class="close pointer" onClick="closeLightbox_1()">&times;</span>
-        <span id="next-pointer" class="nextpointer" onClick="openLightbox_2();toSlide2(1)">
+        <span id="close-pointer" class="close pointer" onclick="closeLightbox_1()">&times;</span>
+        <span id="next-pointer" class="nextpointer" onclick="openLightbox_2();toSlide(2, 1)">
       >
     </span>
         <div class="modal-content">
@@ -2266,78 +2307,7 @@
             <section id="layer"></section>
         </div>
         <div class="arrows" style="z-index: 9999999999999">
-            <i class="arrow left" onclick="changeSlide1(-1)"></i>
-            <i class="arrow right" onclick="changeSlide1(1)"></i>
-        </div>
-        <section class="banner2">
-            <div class="scroll2">
-                <div>
-                    <span>photographer and retoucher mar docavo/ Model Roland E/ agency
-            trend model/ make up Andrea Trenado/ stylist Olga Amaya/</span>
-                </div>
-                <div>
-                    <span>photographer and retoucher mar docavo/ Model Roland E/ agency
-            trend model/ make up Andrea Trenado/ stylist Olga Amaya/</span>
-                </div>
-            </div>
-        </section>
-    </div>
-    <!-- LIGHTBOX 2.Project WINTERBOY -->
-
-
-    <div id="Lightbox_2" class="modal">
-        <div id="projecttitle_2" class="projecttitle">
-            WinTeRBoY <br />
-        </div>
-        <span id="close-pointer" class="close pointer" onclick="closeLightbox_2()">&times;</span>
-        <section class="laptop-menu">
-            <span id="next-pointer" class="nextpointer" onClick="openLightbox_3();toSlide3(1)">
-        >
-      </span>
-            <span id="before-pointer" class="nextpointer" onClick="openLightbox_1();toSlide1(1)">
-        < </span>
-        </section>
-        <div class="modal-content">
-            <div class="slide2">
-                <img src="IMG/winterboy/winterboy_01.jpg" class="image-slide" alt="professional fashion picture" loading="lazy" alt="" />
-            </div>
-            <div class="slide2">
-                <img src="IMG/winterboy/winterboy_02.jpg" class="image-slide" alt="professional fashion picture" loading="lazy" alt="" />
-            </div>
-            <div class="slide2">
-                <img src="IMG/winterboy/winterboy_03.jpg" class="image-slide" alt="professional fashion picture" loading="lazy" alt="" />
-            </div>
-            <div class="slide2">
-                <img src="IMG/winterboy/winterboy_04.jpg" class="image-slide" alt="professional fashion picture" loading="lazy" alt="" />
-            </div>
-            <div class="slide2">
-                <img src="IMG/winterboy/winterboy_05.jpg" class="image-slide" alt="professional fashion picture" loading="lazy" alt="" />
-            </div>
-            <div class="slide2">
-                <img src="IMG/winterboy/winterboy_06.jpg" class="image-slide" alt="professional fashion picture" loading="lazy" alt="" />
-            </div>
-            <div class="slide2">
-                <img src="IMG/winterboy/winterboy_07.jpg" class="image-slide" alt="professional fashion picture" loading="lazy" alt="" />
-            </div>
-            <div class="slide2">
-                <img src="IMG/winterboy/winterboy_gif1.gif" class="image-slide" alt="professional fashion picture" loading="lazy" alt="" />
-            </div>
-            <div class="slide2">
-                <img src="IMG/winterboy/winterboy_gif1.gif" class="image-slide" alt="professional fashion picture" loading="lazy" alt="" />
-            </div>
-            <div class="slide2">
-                <img src="IMG/winterboy/winterboy_gif3.gif" class="image-slide" alt="professional fashion picture" loading="lazy" alt="" />
-            </div>
-            <div class="slide2">
-                <img src="IMG/winterboy/winterboy_magazine_layout_1.jpg" class="image-slide" alt="professional fashion picture" loading="lazy" alt="" />
-            </div>
-            <div class="slide2">
-                <img src="IMG/winterboy/winterboy_magazine_layout_2.jpg" class="image-slide" alt="professional fashion picture" />
-            </div>
-            <section id="layer"></section>
-        </div>
-        <div class="arrows">
-            <i class="arrow left" onclick="changeSlide2(-1)">
+            <i class="arrow left" onclick="changeSlide(1, -1)">
                 <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 24 24">
 
                     <title/>
@@ -2360,7 +2330,122 @@
                     
                     </svg>
             </i>
-            <i class="arrow right" onclick="changeSlide2(1)">
+            <i class="arrow right" onclick="changeSlide(1, 1)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 24 24">
+
+                    <title/>
+                    
+                    <g id="Complete">
+                    
+                    <g id="arrow-right">
+                    
+                    <g>
+                    
+                    <polyline data-name="Right" fill="none" id="Right-2" points="16.4 7 21.5 12 16.4 17" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                    
+                    <line fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="2.5" x2="19.2" y1="12" y2="12"/>
+                    
+                    </g>
+                    
+                    </g>
+                    
+                    </g>
+                    
+                    </svg></i>
+        </div>
+        <section class="banner2">
+            <div class="scroll2">
+                <div>
+                    <span>photographer and retoucher mar docavo/ Model Roland E/ agency
+            trend model/ make up Andrea Trenado/ stylist Olga Amaya/</span>
+                </div>
+                <div>
+                    <span>photographer and retoucher mar docavo/ Model Roland E/ agency
+            trend model/ make up Andrea Trenado/ stylist Olga Amaya/</span>
+                </div>
+            </div>
+        </section>
+        <a class="projecttitellink" href="http://fuckingyoung.es/summer-post-isolation/" target="_blank" style="color: black; text-decoration: none">
+            <h2>Fuckingyoung Magazine</h2>
+        </a>
+    </div>
+    <!-- LIGHTBOX 2.Project WINTERBOY -->
+    <div id="Lightbox_2" class="modal">
+        <div id="projecttitle_2" class="projecttitle">
+            WinTeRBoY <br />
+        </div>
+        <span id="close-pointer" class="close pointer" onclick="closeLightbox_2()">&times;</span>
+        <section class="laptop-menu">
+            <span id="next-pointer" class="nextpointer" onclick="openLightbox_3();toSlide(3, 1)">
+        >
+      </span>
+            <span id="before-pointer" class="nextpointer" onclick="openLightbox_1();toSlide(1, 1)">
+        < </span>
+        </section>
+        <div class="modal-content">
+            <div class="slide2">
+                <img src="IMG/winterboy/winterboy_01.jpg" class="image-slide" alt="professional fashion picture" />
+            </div>
+            <div class="slide2">
+                <img src="IMG/winterboy/winterboy_02.jpg" class="image-slide" alt="professional fashion picture" />
+            </div>
+            <div class="slide2">
+                <img src="IMG/winterboy/winterboy_03.jpg" class="image-slide" alt="professional fashion picture" />
+            </div>
+            <div class="slide2">
+                <img src="IMG/winterboy/winterboy_04.jpg" class="image-slide" alt="professional fashion picture" />
+            </div>
+            <div class="slide2">
+                <img src="IMG/winterboy/winterboy_05.jpg" class="image-slide" alt="professional fashion picture" />
+            </div>
+            <div class="slide2">
+                <img src="IMG/winterboy/winterboy_06.jpg" class="image-slide" alt="professional fashion picture" />
+            </div>
+            <div class="slide2">
+                <img src="IMG/winterboy/winterboy_07.jpg" class="image-slide" alt="professional fashion picture" />
+            </div>
+            <div class="slide2">
+                <img src="IMG/winterboy/winterboy_gif1.gif" class="image-slide" alt="professional fashion picture" />
+            </div>
+            <div class="slide2">
+                <img src="IMG/winterboy/winterboy_gif1.gif" class="image-slide" alt="professional fashion picture" />
+            </div>
+            <div class="slide2">
+                <img src="IMG/winterboy/winterboy_gif3.gif" class="image-slide" alt="professional fashion picture" />
+            </div>
+            <div class="slide2">
+                <img src="IMG/winterboy/winterboy_magazine_layout_1.jpg" class="image-slide" alt="professional fashion picture" />
+            </div>
+            <div class="slide2">
+                <img src="IMG/winterboy/winterboy_magazine_layout_2.jpg" class="image-slide" alt="professional fashion picture" />
+            </div>
+            <section id="layer"></section>
+        </div>
+        <div class="arrows">
+            <i class="arrow left" onclick="changeSlide(2, -1)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 24 24">
+
+                    <title/>
+                    
+                    <g id="Complete">
+                    
+                    <g id="arrow-left">
+                    
+                    <g>
+                    
+                    <polyline data-name="Right" fill="none" id="Right-2" points="7.6 7 2.5 12 7.6 17" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                    
+                    <line fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="21.5" x2="4.8" y1="12" y2="12"/>
+                    
+                    </g>
+                    
+                    </g>
+                    
+                    </g>
+                    
+                    </svg>
+            </i>
+            <i class="arrow right" onclick="changeSlide(2, 1)">
                 <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 24 24">
 
                     <title/>
@@ -2408,10 +2493,10 @@
         </div>
         <span id="close-pointer" class="close pointer" onclick="closeLightbox_3()">&times;</span>
         <section class="laptop-menu">
-            <span id="next-pointer" class="nextpointer" onClick="openLightbox_4();toSlide4(1)">
+            <span id="next-pointer" class="nextpointer" onclick="openLightbox_4();toSlide(4, 1)">
         >
       </span>
-            <span id="before-pointer" class="nextpointer" onClick="openLightbox_2();toSlide2(1)">
+            <span id="before-pointer" class="nextpointer" onclick="openLightbox_2();toSlide(2, 1)">
         < </span>
         </section>
         <div class="modal-content">
@@ -2443,10 +2528,10 @@
         </div>
         <span id="close-pointer" class="close pointer" onclick="closeLightbox_4()">&times;</span>
         <section class="laptop-menu">
-            <span id="next-pointer" class="nextpointer" onClick="openLightbox_5();toSlide5(1)">
+            <span id="next-pointer" class="nextpointer" onclick="openLightbox_5();toSlide(5, 1)">
         >
       </span>
-            <span id="before-pointer" class="nextpointer" onClick="openLightbox_3();toSlide3(1)">
+            <span id="before-pointer" class="nextpointer" onclick="openLightbox_3();toSlide(3, 1)">
         < </span>
         </section>
         <div class="modal-content">
@@ -2477,14 +2562,14 @@
             <div class="slide4">
                 <img src="IMG/te_quiero_un_poco/te_quiero_un_poco_08.jpg" class="image-slide" alt="professional fashion picture" />
             </div>
-            <div id="videoslide" class="slide4" style="z-index: 999999999999999">
+            <div id="videoslide" class="slide4" style="z-index: 101">
                 <iframe id="videoId_4" class="videoclass" width="1920px" height="1080px" alt="" src="https://www.youtube-nocookie.com/embed/Y04tBGUpFgc" loading="lazy" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowfullscreen></iframe>
             </div>
             <section id="layer" style="z-index: 99"></section>
         </div>
         <div class="arrows" style="z-index: 99999999">
-            <i class="arrow left" onclick="changeSlide4(-1); stop;">
+            <i class="arrow left" onclick="changeSlide(4, -1); stop;">
                 <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 24 24">
 
                     <title/>
@@ -2507,7 +2592,7 @@
                     
                     </svg>
             </i>
-            <i class="arrow right" onclick="changeSlide4(1); stop;">
+            <i class="arrow right" onclick="changeSlide(4, 1); stop;">
                 <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 24 24">
 
                     <title/>
@@ -2552,10 +2637,10 @@
         <div id="projecttitle_5" class="projecttitle">sEUnGrI</div>
         <span id="close-pointer" class="close pointer" onclick="closeLightbox_5()">&times;</span>
         <section class="laptop-menu">
-            <span id="next-pointer" class="nextpointer" onClick="openLightbox_6();toSlide6(1)">
+            <span id="next-pointer" class="nextpointer" onclick="openLightbox_6();toSlide(6, 1)">
         >
       </span>
-            <span id="before-pointer" class="nextpointer" onClick="openLightbox_4();toSlide4(1)">
+            <span id="before-pointer" class="nextpointer" onclick="openLightbox_4();toSlide(4, 1)">
         < </span>
         </section>
         <div class="modal-content">
@@ -2586,7 +2671,7 @@
             <section id="layer"></section>
         </div>
         <div class="arrows">
-            <i class="arrow left" onclick="changeSlide5(-1)">
+            <i class="arrow left" onclick="changeSlide(5, -1)">
                 <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 24 24">
 
                     <title/>
@@ -2609,7 +2694,7 @@
                     
                     </svg>
             </i>
-            <i class="arrow right" onclick="changeSlide5(1)">
+            <i class="arrow right" onclick="changeSlide(5, 1)">
                 <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 24 24">
 
                     <title/>
@@ -2652,119 +2737,119 @@
         <div id="projecttitle_6" class="projecttitle">matea brakus x MANGO</div>
         <span id="close-pointer" class="close pointer" onclick="closeLightbox_6()">&times;</span>
         <section class="laptop-menu">
-            <span id="next-pointer" class="nextpointer" onClick="openLightbox_7();toSlide7(1)">
+            <span id="next-pointer" class="nextpointer" onclick="openLightbox_7();toSlide(7, 1)">
         >
       </span>
-            <span id="before-pointer" class="nextpointer" onClick="openLightbox_5();toSlide5(1)">
+            <span id="before-pointer" class="nextpointer" onclick="openLightbox_5();toSlide(5, 1)">
         < </span>
         </section>
         <div class="modal-content">
             <div class="slide6">
-                <img src="IMG/matea_brakus/matea_mango_5.jpg" class="image-slide" alt="professional fashion picture" loading="lazy" alt="" />
+                <img src="IMG/matea_brakus/matea_mango_5.jpg" class="image-slide" alt="professional fashion picture" />
             </div>
             <div class="slide6">
-                <img src="IMG/matea_brakus/matea_mango_6.jpg" class="image-slide" alt="professional fashion picture" loading="lazy" alt="" />
+                <img src="IMG/matea_brakus/matea_mango_6.jpg" class="image-slide" alt="professional fashion picture" />
             </div>
             <div class="slide6">
-                <img src="IMG/matea_brakus/matea_mango_7.jpg" class="image-slide" alt="professional fashion picture" loading="lazy" alt="" />
+                <img src="IMG/matea_brakus/matea_mango_7.jpg" class="image-slide" alt="professional fashion picture" />
             </div>
             <div class="slide6">
-                <img src="IMG/matea_brakus/matea_mango_8.jpg" class="image-slide" alt="professional fashion picture" loading="lazy" alt="" />
+                <img src="IMG/matea_brakus/matea_mango_8.jpg" class="image-slide" alt="professional fashion picture" />
             </div>
             <div class="slide6">
-                <img src="IMG/matea_brakus/matea_mango_9.jpg" class="image-slide" alt="professional fashion picture" loading="lazy" alt="" />
+                <img src="IMG/matea_brakus/matea_mango_9.jpg" class="image-slide" alt="professional fashion picture" />
             </div>
             <div class="slide6">
-                <img src="IMG/matea_brakus/matea_mango_10.jpg" class="image-slide" alt="professional fashion picture" loading="lazy" alt="" />
+                <img src="IMG/matea_brakus/matea_mango_10.jpg" class="image-slide" alt="professional fashion picture" />
             </div>
             <div class="slide6">
-                <img src="IMG/matea_brakus/matea_mango_11.jpg" class="image-slide" alt="professional fashion picture" loading="lazy" alt="" />
+                <img src="IMG/matea_brakus/matea_mango_11.jpg" class="image-slide" alt="professional fashion picture" />
             </div>
             <div class="slide6">
-                <img src="IMG/matea_brakus/matea_mango_12.jpg" class="image-slide" alt="professional fashion picture" loading="lazy" alt="" />
+                <img src="IMG/matea_brakus/matea_mango_12.jpg" class="image-slide" alt="professional fashion picture" />
             </div>
             <div class="slide6">
-                <img src="IMG/matea_brakus/matea_mango_13.jpg" class="image-slide" alt="professional fashion picture" loading="lazy" alt="" />
+                <img src="IMG/matea_brakus/matea_mango_13.jpg" class="image-slide" alt="professional fashion picture" />
             </div>
             <div class="slide6">
-                <img src="IMG/matea_brakus/matea_mango_14.jpg" class="image-slide" alt="professional fashion picture" loading="lazy" alt="" />
+                <img src="IMG/matea_brakus/matea_mango_14.jpg" class="image-slide" alt="professional fashion picture" />
             </div>
             <div class="slide6">
-                <img src="IMG/matea_brakus/matea_mango_15.jpg" class="image-slide" alt="professional fashion picture" loading="lazy" alt="" />
+                <img src="IMG/matea_brakus/matea_mango_15.jpg" class="image-slide" alt="professional fashion picture" />
             </div>
             <div class="slide6">
-                <img src="IMG/matea_brakus/matea_mango_16.jpg" class="image-slide" alt="professional fashion picture" loading="lazy" alt="" />
+                <img src="IMG/matea_brakus/matea_mango_16.jpg" class="image-slide" alt="professional fashion picture" />
             </div>
             <div class="slide6">
-                <img src="IMG/matea_brakus/matea_mango_17.jpg" class="image-slide" alt="professional fashion picture" loading="lazy" alt="" />
+                <img src="IMG/matea_brakus/matea_mango_17.jpg" class="image-slide" alt="professional fashion picture" />
             </div>
             <div class="slide6">
-                <img src="IMG/matea_brakus/matea_mango_18.jpg" class="image-slide" alt="professional fashion picture" loading="lazy" alt="" />
+                <img src="IMG/matea_brakus/matea_mango_18.jpg" class="image-slide" alt="professional fashion picture" />
             </div>
             <div class="slide6">
-                <img src="IMG/matea_brakus/matea_mango_19.jpg" class="image-slide" alt="professional fashion picture" loading="lazy" alt="" />
+                <img src="IMG/matea_brakus/matea_mango_19.jpg" class="image-slide" alt="professional fashion picture" />
             </div>
             <div class="slide6">
-                <img src="IMG/matea_brakus/matea_mango_20.jpg" class="image-slide" alt="professional fashion picture" loading="lazy" alt="" />
+                <img src="IMG/matea_brakus/matea_mango_20.jpg" class="image-slide" alt="professional fashion picture" />
             </div>
             <div class="slide6">
-                <img src="IMG/matea_brakus/matea_mango_21.jpg" class="image-slide" alt="professional fashion picture" loading="lazy" alt="" />
+                <img src="IMG/matea_brakus/matea_mango_21.jpg" class="image-slide" alt="professional fashion picture" />
             </div>
             <div class="slide6">
-                <img src="IMG/matea_brakus/matea_mango_22.jpg" class="image-slide" alt="professional fashion picture" loading="lazy" alt="" />
+                <img src="IMG/matea_brakus/matea_mango_22.jpg" class="image-slide" alt="professional fashion picture" />
             </div>
             <div class="slide6">
-                <img src="IMG/matea_brakus/matea_mango_23.jpg" class="image-slide" alt="professional fashion picture" loading="lazy" alt="" />
+                <img src="IMG/matea_brakus/matea_mango_23.jpg" class="image-slide" alt="professional fashion picture" />
             </div>
             <div class="slide6">
-                <img src="IMG/matea_brakus/matea_mango_24.jpg" class="image-slide" alt="professional fashion picture" loading="lazy" alt="" />
+                <img src="IMG/matea_brakus/matea_mango_24.jpg" class="image-slide" alt="professional fashion picture" />
             </div>
             <div class="slide6">
-                <img src="IMG/matea_brakus/matea_mango_25.jpg" class="image-slide" alt="professional fashion picture" loading="lazy" alt="" />
+                <img src="IMG/matea_brakus/matea_mango_25.jpg" class="image-slide" alt="professional fashion picture" />
             </div>
             <div class="slide6">
-                <img src="IMG/matea_brakus/matea_mango_26.jpg" class="image-slide" alt="professional fashion picture" loading="lazy" alt="" />
+                <img src="IMG/matea_brakus/matea_mango_26.jpg" class="image-slide" alt="professional fashion picture" />
             </div>
             <div class="slide6">
-                <img src="IMG/matea_brakus/matea_mango_27.jpg" class="image-slide" alt="professional fashion picture" loading="lazy" alt="" />
+                <img src="IMG/matea_brakus/matea_mango_27.jpg" class="image-slide" alt="professional fashion picture" />
             </div>
             <div class="slide6">
-                <img src="IMG/matea_brakus/matea_mango_28.jpg" class="image-slide" alt="professional fashion picture" loading="lazy" alt="" />
+                <img src="IMG/matea_brakus/matea_mango_28.jpg" class="image-slide" alt="professional fashion picture" />
             </div>
             <div class="slide6">
-                <img src="IMG/matea_brakus/matea_mango_29.jpg" class="image-slide" alt="professional fashion picture" loading="lazy" alt="" />
+                <img src="IMG/matea_brakus/matea_mango_29.jpg" class="image-slide" alt="professional fashion picture" />
             </div>
             <div class="slide6">
-                <img src="IMG/matea_brakus/matea_mango_30.jpg" class="image-slide" alt="professional fashion picture" loading="lazy" alt="" />
+                <img src="IMG/matea_brakus/matea_mango_30.jpg" class="image-slide" alt="professional fashion picture" />
             </div>
             <div class="slide6">
-                <img src="IMG/matea_brakus/matea_mango_31.jpg" class="image-slide" alt="professional fashion picture" loading="lazy" alt="" />
+                <img src="IMG/matea_brakus/matea_mango_31.jpg" class="image-slide" alt="professional fashion picture" />
             </div>
             <div class="slide6">
-                <img src="IMG/matea_brakus/matea_mango_32.jpg" class="image-slide" alt="professional fashion picture" loading="lazy" alt="" />
+                <img src="IMG/matea_brakus/matea_mango_32.jpg" class="image-slide" alt="professional fashion picture" />
             </div>
             <div class="slide6">
-                <img src="IMG/matea_brakus/matea_mango_33.jpg" class="image-slide" alt="professional fashion picture" loading="lazy" alt="" />
+                <img src="IMG/matea_brakus/matea_mango_33.jpg" class="image-slide" alt="professional fashion picture" />
             </div>
             <div class="slide6">
-                <img src="IMG/matea_brakus/matea_mango_34.jpg" class="image-slide" alt="professional fashion picture" loading="lazy" alt="" />
+                <img src="IMG/matea_brakus/matea_mango_34.jpg" class="image-slide" alt="professional fashion picture" />
             </div>
             <div class="slide6">
-                <img src="IMG/matea_brakus/matea_mango_35.jpg" class="image-slide" alt="professional fashion picture" loading="lazy" alt="" />
+                <img src="IMG/matea_brakus/matea_mango_35.jpg" class="image-slide" alt="professional fashion picture" />
             </div>
             <div class="slide6">
-                <img src="IMG/matea_brakus/matea_mango_36.jpg" class="image-slide" alt="professional fashion picture" loading="lazy" alt="" />
+                <img src="IMG/matea_brakus/matea_mango_36.jpg" class="image-slide" alt="professional fashion picture" />
             </div>
             <div class="slide6">
-                <img src="IMG/matea_brakus/matea_mango_37.jpg" class="image-slide" alt="professional fashion picture" loading="lazy" alt="" />
+                <img src="IMG/matea_brakus/matea_mango_37.jpg" class="image-slide" alt="professional fashion picture" />
             </div>
             <div class="slide6">
-                <img src="IMG/matea_brakus/matea_mango_38.jpg" class="image-slide" alt="professional fashion picture" loading="lazy" alt="" />
+                <img src="IMG/matea_brakus/matea_mango_38.jpg" class="image-slide" alt="professional fashion picture" />
             </div>
             <section id="layer"></section>
         </div>
         <div class="arrows">
-            <i class="arrow left" onclick="changeSlide6(-1)">
+            <i class="arrow left" onclick="changeSlide(6, -1)">
                 <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 24 24">
 
                     <title/>
@@ -2787,7 +2872,7 @@
                     
                     </svg>
             </i>
-            <i class="arrow right" onclick="changeSlide6(1)">
+            <i class="arrow right" onclick="changeSlide(6, 1)">
                 <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 24 24">
 
                     <title/>
@@ -2832,10 +2917,10 @@
         </div>
         <span id="close-pointer" class="close pointer" onclick="closeLightbox_7()">&times;</span>
         <section class="laptop-menu">
-            <span id="next-pointer" class="nextpointer" onClick="openLightbox_8();toSlide8(1)">
+            <span id="next-pointer" class="nextpointer" onclick="openLightbox_8();toSlide(8, 1)">
         >
       </span>
-            <span id="before-pointer" class="nextpointer" onClick="openLightbox_6();toSlide6(1)">
+            <span id="before-pointer" class="nextpointer" onclick="openLightbox_6();toSlide(6, 1)">
         < </span>
         </section>
         <div class="modal-content">
@@ -2849,7 +2934,7 @@
             <section id="layer" style="z-index: 99"></section>
         </div>
         <div class="arrows">
-            <i class="arrow left" onclick="changeSlide7(-1)">
+            <i class="arrow left" onclick="changeSlide(7,-1)">
 
                 <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 24 24">
 
@@ -2873,7 +2958,7 @@
                     
                     </svg>
             </i>
-            <i class="arrow right" onclick="changeSlide7(1)">
+            <i class="arrow right" onclick="changeSlide(7, 1)">
                 <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 24 24">
 
                     <title/>
@@ -2918,10 +3003,10 @@
         </div>
         <span id="close-pointer" class="close pointer" onclick="closeLightbox_8()">&times;</span>
         <section class="laptop-menu">
-            <span id="next-pointer" class="nextpointer" onClick="openLightbox_9();toSlide9(1)">
+            <span id="next-pointer" class="nextpointer" onclick="openLightbox_9();toSlide(9, 1)">
         >
       </span>
-            <span id="before-pointer" class="nextpointer" onClick="openLightbox_7();toSlide7(1)">
+            <span id="before-pointer" class="nextpointer" onclick="openLightbox_7();toSlide(7, 1)">
         < </span>
         </section>
         <div class="modal-content">
@@ -2953,10 +3038,10 @@
         </div>
         <span id="close-pointer" class="close pointer" onclick="closeLightbox_9()">&times;</span>
         <section class="laptop-menu">
-            <span id="next-pointer" class="nextpointer" data-func="pauseVideo" onClick="openLightbox_10();toSlide10(1)">
+            <span id="next-pointer" class="nextpointer" data-func="pauseVideo" onclick="openLightbox_10();toSlide(10, 1)">
         >
       </span>
-            <span id="before-pointer" class="nextpointer" onClick="openLightbox_8();toSlide8(1)">
+            <span id="before-pointer" class="nextpointer" onclick="openLightbox_8();toSlide(8, 1)">
         < </span>
         </section>
         <div class="modal-content">
@@ -2988,10 +3073,10 @@
         </div>
         <span id="close-pointer" class="close pointer" onclick="closeLightbox_10()">&times;</span>
         <section class="laptop-menu">
-            <span id="next-pointer" class="nextpointer" onClick="openLightbox_11();toSlide11(1)">
+            <span id="next-pointer" class="nextpointer" onclick="openLightbox_11();toSlide(11, 1)">
         >
       </span>
-            <span id="before-pointer" class="nextpointer" onClick="openLightbox_9();toSlide9(1)">
+            <span id="before-pointer" class="nextpointer" onclick="openLightbox_9();toSlide(9, 1)">
         < </span>
         </section>
         <div class="modal-content">
@@ -3023,10 +3108,10 @@
         </div>
         <span id="close-pointer" class="close pointer" onclick="closeLightbox_11()">&times;</span>
         <section class="laptop-menu">
-            <span id="next-pointer" class="nextpointer" onClick="openLightbox_12();toSlide12(1)">
+            <span id="next-pointer" class="nextpointer" onclick="openLightbox_12();toSlide(12, 1)">
         >
       </span>
-            <span id="before-pointer" class="nextpointer" onClick="openLightbox_10();toSlide10(1)">
+            <span id="before-pointer" class="nextpointer" onclick="openLightbox_10();toSlide(10, 1)">
         < </span>
         </section>
         <div class="modal-content">
@@ -3082,14 +3167,14 @@
                 <img src="IMG/mango_teen/mango_teen_17.jpg" class="image-slide" alt="professional fashion picture" />
             </div>
             <div class="slide11">
-                <video id="background-video" style="width: 100%; height: 100%" autoplay loop muted poster="">
+                <video id="background-video" class="videofront" style="width: 100%; height: 100%" autoplay loop muted poster="">
           <source src="IMG/mango_teen/mango_teen_video.mp4" type="video/mp4" />
         </video>
             </div>
             <section id="layer"></section>
         </div>
         <div class="arrows">
-            <i class="arrow left" onclick="changeSlide11(-1)">
+            <i class="arrow left" onclick="changeSlide(11, -1)">
                 <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 24 24">
 
                     <title/>
@@ -3112,7 +3197,7 @@
                     
                     </svg>
             </i>
-            <i class="arrow right" onclick="changeSlide11(1)">
+            <i class="arrow right" onclick="changeSlide(11, 1)">
                 <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 24 24">
 
                     <title/>
@@ -3141,10 +3226,10 @@
         <div id="projecttitle_12" class="projecttitle">Naguisa</div>
         <span id="close-pointer" class="close pointer" onclick="closeLightbox_12()">&times;</span>
         <section class="laptop-menu">
-            <span id="next-pointer" class="nextpointer" onClick="openLightbox_13();toSlide13(1)">
+            <span id="next-pointer" class="nextpointer" onclick="openLightbox_13();toSlide(13, 1)">
         >
       </span>
-            <span id="before-pointer" class="nextpointer" onClick="openLightbox_11();toSlide11(1)">
+            <span id="before-pointer" class="nextpointer" onclick="openLightbox_11();toSlide(10, 1)">
         < </span>
         </section>
         <div class="modal-content">
@@ -3175,7 +3260,7 @@
             <section id="layer"></section>
         </div>
         <div class="arrows">
-            <i class="arrow left" onclick="changeSlide12(-1)">
+            <i class="arrow left" onclick="changeSlide(12, -1)">
                 <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 24 24">
 
                     <title/>
@@ -3198,7 +3283,7 @@
                     
                     </svg>
             </i>
-            <i class="arrow right" onclick="changeSlide12(1)">
+            <i class="arrow right" onclick="changeSlide(12, 1)">
                 <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 24 24">
 
                     <title/>
@@ -3245,10 +3330,10 @@
         <div id="projecttitle_13" class="projecttitle">Kids x MANGO</div>
         <span id="close-pointer" class="close pointer" onclick="closeLightbox_13()">&times;</span>
         <section class="laptop-menu">
-            <span id="next-pointer" class="nextpointer" onClick="openLightbox_14();toSlide14(1)">
+            <span id="next-pointer" class="nextpointer" onclick="openLightbox_14();toSlide(14, 1)">
         >
       </span>
-            <span id="before-pointer" class="nextpointer" onClick="openLightbox_12();toSlide12(1)">
+            <span id="before-pointer" class="nextpointer" onclick="openLightbox_12();toSlide(12, 1)">
         < </span>
         </section>
         <div class="modal-content">
@@ -3456,7 +3541,7 @@
             <section id="layer"></section>
         </div>
         <div class="arrows">
-            <i class="arrow left" onclick="changeSlide13(-1)">
+            <i class="arrow left" onclick="changeSlide(13, -1)">
                 <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 24 24">
 
                     <title/>
@@ -3479,7 +3564,7 @@
                     
                     </svg>
             </i>
-            <i class="arrow right" onclick="changeSlide13(1)">
+            <i class="arrow right" onclick="changeSlide(13, 1)">
                 <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 24 24">
 
                     <title/>
@@ -3510,10 +3595,10 @@
         </div>
         <span id="close-pointer" class="close pointer" onclick="closeLightbox_14()">&times;</span>
         <section class="laptop-menu">
-            <span id="next-pointer" class="nextpointer" onClick="openLightbox_15();toSlide15(1)">
+            <span id="next-pointer" class="nextpointer" onclick="openLightbox_15();toSlide(15, 1)">
         >
       </span>
-            <span id="before-pointer" class="nextpointer" onClick="openLightbox_13();toSlide13(1)">
+            <span id="before-pointer" class="nextpointer" onclick="openLightbox_13();toSlide(13, 1)">
         < </span>
         </section>
         <div class="modal-content">
@@ -3577,7 +3662,7 @@
             <section id="layer"></section>
         </div>
         <div class="arrows">
-            <i class="arrow left" onclick="changeSlide14(-1)">
+            <i class="arrow left" onclick="changeSlide(14, -1)">
                 <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 24 24">
 
                     <title/>
@@ -3600,7 +3685,7 @@
                     
                     </svg>
             </i>
-            <i class="arrow right" onclick="changeSlide14(1)">
+            <i class="arrow right" onclick="changeSlide(14, 1)">
                 <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 24 24">
 
                     <title/>
@@ -3643,10 +3728,10 @@
         <div id="projecttitle_15" class="projecttitle">E-COMMERCE</div>
         <span id="close-pointer" class="close pointer" onclick="closeLightbox_15()">&times;</span>
         <section class="laptop-menu">
-            <span id="next-pointer" class="nextpointer" onClick="openLightbox_16();toSlide16(1)">
+            <span id="next-pointer" class="nextpointer" onclick="openLightbox_16();toSlide(16, 1)">
         >
       </span>
-            <span id="before-pointer" class="nextpointer" onClick="openLightbox_14();toSlide14(1)">
+            <span id="before-pointer" class="nextpointer" onclick="openLightbox_14();toSlide(14, 1)">
         < </span>
         </section>
         <div class="modal-content">
@@ -4184,7 +4269,7 @@
             <section id="layer"></section>
         </div>
         <div class="arrows">
-            <i class="arrow left" onclick="changeSlide15(-1)">
+            <i class="arrow left" onclick="changeSlide(15, -1)">
                 <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 24 24">
 
                     <title/>
@@ -4207,7 +4292,7 @@
                     
                     </svg>
             </i>
-            <i class="arrow right" onclick="changeSlide15(1)">
+            <i class="arrow right" onclick="changeSlide(15, 1)">
                 <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 24 24">
 
                     <title/>
@@ -4238,10 +4323,10 @@
         </div>
         <span id="close-pointer" class="close pointer" onclick="closeLightbox_16()">&times;</span>
         <section class="laptop-menu">
-            <span id="next-pointer" class="nextpointer" onClick="openLightbox_17();toSlide17(1)">
+            <span id="next-pointer" class="nextpointer" onclick="openLightbox_17();toSlide(17, 1)">
         >
       </span>
-            <span id="before-pointer" class="nextpointer" onClick="openLightbox_15();toSlide15(1)">
+            <span id="before-pointer" class="nextpointer" onclick="openLightbox_15();toSlide(15, 1)">
         < </span>
         </section>
         <div class="modal-content">
@@ -4261,14 +4346,15 @@
                 <img src="IMG/clarainfante/clarainfante5.jpg" class="image-slide" alt="professional fashion picture" load="lazy" />
             </div>
             <div class="slide16">
-                <video class="image-slide" alt="professional fashion picture" id="background-video" style="max-width: 100%; max-height: 100%; width: 100%; height: 100%" autoplay="autoplay" loop="loop" muted defaultMuted playsinline oncontextmenu="return false;" preload="auto">
+                <video class="image-slide" alt="professional fashion picture" id="background-video" class="videofront" style="max-width: 100%; max-height: 100%; width: 100%; height: 100%" autoplay="autoplay" loop="loop" muted defaultMuted playsinline oncontextmenu="return false;"
+                    preload="auto">
           <source src="IMG/mango_video/mango_video.mp4" type="video/mp4" />
         </video>
             </div>
             <section id="layer"></section>
         </div>
         <div class="arrows">
-            <i class="arrow left" onclick="changeSlide16(-1)"><svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 24 24">
+            <i class="arrow left" onclick="changeSlide(16, -1)"><svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 24 24">
 
                 <title/>
                 
@@ -4289,7 +4375,7 @@
                 </g>
                 
                 </svg></i>
-            <i class="arrow right" onclick="changeSlide16(1)">
+            <i class="arrow right" onclick="changeSlide(16, 1)">
                 <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 24 24">
 
                     <title/>
@@ -4318,10 +4404,10 @@
         <div id="projecttitle_17" class="projecttitle">TEEN MANGO</div>
         <span id="close-pointer" class="close pointer" onclick="closeLightbox_17()">&times;</span>
         <section class="laptop-menu">
-            <span id="next-pointer" class="nextpointer" onClick="openLightbox_18();toSlide18(1)">
+            <span id="next-pointer" class="nextpointer" onclick="openLightbox_18();toSlide(18, 1)">
         >
       </span>
-            <span id="before-pointer" class="nextpointer" onClick="openLightbox_16();toSlide16(1)">
+            <span id="before-pointer" class="nextpointer" onclick="openLightbox_16();toSlide(16, 1)">
         < </span>
         </section>
         <div class="modal-content">
@@ -4541,7 +4627,7 @@
             <section id="layer"></section>
         </div>
         <div class="arrows">
-            <i class="arrow left" onclick="changeSlide17(-1)"><svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 24 24">
+            <i class="arrow left" onclick="changeSlide(17, -1)"><svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 24 24">
 
                 <title/>
                 
@@ -4562,7 +4648,7 @@
                 </g>
                 
                 </svg></i>
-            <i class="arrow right" onclick="changeSlide17(1)">
+            <i class="arrow right" onclick="changeSlide(17, 1)">
                 <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 24 24">
 
                     <title/>
@@ -4593,10 +4679,10 @@
         </div>
         <span id="close-pointer" class="close pointer" onclick="closeLightbox_18()">&times;</span>
         <section class="laptop-menu">
-            <span id="next-pointer" class="nextpointer" onClick="openLightbox_19();toSlide19(1)">
+            <span id="next-pointer" class="nextpointer" onclick="openLightbox_19();toSlide(19, 1)">
         >
       </span>
-            <span id="before-pointer" class="nextpointer" onClick="openLightbox_17();toSlide18(17)">
+            <span id="before-pointer" class="nextpointer" onclick="openLightbox_17();toSlide(18, 17)">
         < </span>
         </section>
         <div class="modal-content">
@@ -4687,7 +4773,7 @@
             <section id="layer"></section>
         </div>
         <div class="arrows">
-            <i class="arrow left" onclick="changeSlide18(-1)"><svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 24 24">
+            <i class="arrow left" onclick="changeSlide(18, -1)"><svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 24 24">
 
                 <title/>
                 
@@ -4708,7 +4794,7 @@
                 </g>
                 
                 </svg></i>
-            <i class="arrow right" onclick="changeSlide18(1)">
+            <i class="arrow right" onclick="changeSlide(18, 1)">
                 <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 24 24">
 
                     <title/>
@@ -4754,10 +4840,10 @@
         <div id="projecttitle_19" class="projecttitle">vilet</div>
         <span id="close-pointer" class="close pointer" onclick="closeLightbox_19()">&times;</span>
         <section class="laptop-menu">
-            <span id="next-pointer" class="nextpointer" onClick="openLightbox_20();toSlide20(1)">
+            <span id="next-pointer" class="nextpointer" onclick="openLightbox_20();toSlide(20, 1)">
         >
       </span>
-            <span id="before-pointer" class="nextpointer" onClick="openLightbox_18();toSlide18(1)">
+            <span id="before-pointer" class="nextpointer" onclick="openLightbox_18();toSlide(18, 1)">
         < </span>
         </section>
         <div class="modal-content">
@@ -4774,7 +4860,7 @@
                 <img src="IMG/Vilet_olga/Vilet_olga_4.jpg" class="image-slide" alt="professional fashion picture" />
             </div>
             <div class="slide19" style="display: flex; align-items: center; justify-content: center">
-                <video id="background-video" style="
+                <video id="background-video" class="videofront" style="
               height: 40%;
               display: flex;
               align-items: center;
@@ -4784,7 +4870,7 @@
         </video>
             </div>
             <div class="slide19" style="display: flex; align-items: center; justify-content: center">
-                <video id="background-video" style="
+                <video id="background-video" class="videofront" style="
               height: 40%;
               display: flex;
               align-items: center;
@@ -4796,7 +4882,7 @@
             <section id="layer"></section>
         </div>
         <div class="arrows">
-            <i class="arrow left" onclick="changeSlide19(-1)"><svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 24 24">
+            <i class="arrow left" onclick="changeSlide(19, -1)"><svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 24 24">
 
                 <title/>
                 
@@ -4817,7 +4903,7 @@
                 </g>
                 
                 </svg></i>
-            <i class="arrow right" onclick="changeSlide19(1)">
+            <i class="arrow right" onclick="changeSlide(19, 1)">
                 <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 24 24">
 
                     <title/>
@@ -4848,10 +4934,10 @@
         </div>
         <span id="close-pointer" class="close pointer" onclick="closeLightbox_20()">&times;</span>
         <section class="laptop-menu">
-            <span id="next-pointer" class="nextpointer" onClick="openLightbox_21();toSlide21(1)">
+            <span id="next-pointer" class="nextpointer" onclick="openLightbox_21();toSlide(21, 1)">
         >
       </span>
-            <span id="before-pointer" class="nextpointer" onClick="openLightbox_19();toSlide19(1)"><</span>
+            <span id="before-pointer" class="nextpointer" onclick="openLightbox_19();toSlide(19, 1)"><</span>
         </section>
         <div class="modal-content">
             <div class="slide20">
@@ -4904,13 +4990,13 @@
             </div>
             <section id="layer"></section>
             <div class="slide20" style="height: 100%">
-                <video id="background-video" style="width: 100%; height: 100%" autoplay loop muted poster="">
+                <video id="background-video" class="videofront" style="width: 100%; height: 100%" autoplay loop muted poster="">
           <source src="IMG/mango_teen_special_1/mango_teen_video_new.mp4" type="video/mp4" />
         </video>
             </div>
         </div>
         <div class="arrows">
-            <i class="arrow left" onclick="changeSlide20(-1)"><svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 24 24">
+            <i class="arrow left" onclick="changeSlide(20, -1)"><svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 24 24">
 
                 <title/>
                 
@@ -4931,7 +5017,7 @@
                 </g>
                 
                 </svg></i>
-            <i class="arrow right" onclick="changeSlide20(1)">
+            <i class="arrow right" onclick="changeSlide(20, 1)">
                 <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 24 24">
 
                     <title/>
@@ -4960,10 +5046,10 @@
         <div id="projecttitle_21" class="projecttitle">julia brezgina</div>
         <span id="close-pointer" class="close pointer" onclick="closeLightbox_21()">&times;</span>
         <section class="laptop-menu">
-            <span id="next-pointer" class="nextpointer" onClick="openLightbox_22();toSlide22(1)">
+            <span id="next-pointer" class="nextpointer" onclick="openLightbox_22();toSlide(22, 1)">
         >
       </span>
-            <span id="before-pointer" class="nextpointer" onClick="openLightbox_20();toSlide20(1)">
+            <span id="before-pointer" class="nextpointer" onclick="openLightbox_20();toSlide(20, 1)">
         < </span>
         </section>1
         <div class="modal-content">
@@ -5018,7 +5104,7 @@
             <section id="layer"></section>
         </div>
         <div class="arrows">
-            <i class="arrow left" onclick="changeSlide21(-1)"><svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 24 24">
+            <i class="arrow left" onclick="changeSlide(21, -1)"><svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 24 24">
 
                 <title/>
                 
@@ -5039,7 +5125,7 @@
                 </g>
                 
                 </svg></i>
-            <i class="arrow right" onclick="changeSlide21(1)">
+            <i class="arrow right" onclick="changeSlide(21, 1)">
                 <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 24 24">
 
                     <title/>
@@ -5071,10 +5157,10 @@
         <span id="close-pointer" class="close pointer" onclick="closeLightbox_22()">&times;</span>
 
         <section class="laptop-menu">
-            <span id="next-pointer" class="nextpointer" onClick="openLightbox_23();toSlide23(1)">
+            <span id="next-pointer" class="nextpointer" onclick="openLightbox_23();toSlide(23, 1)">
         >
       </span>
-            <span id="before-pointer" class="nextpointer" onClick="openLightbox_21();toSlide21(1)">
+            <span id="before-pointer" class="nextpointer" onclick="openLightbox_21();toSlide(21, 1)">
         < </span>
         </section>
 
@@ -5210,10 +5296,10 @@
         <span id="close-pointer" class="close pointer" onclick="closeLightbox_23()">&times;</span>
 
         <section class="laptop-menu">
-            <span id="next-pointer" class="nextpointer" onClick="openLightbox_24();toSlide24(1)">
+            <span id="next-pointer" class="nextpointer" onclick="openLightbox_24();toSlide(24, 1)">
         >
       </span>
-            <span id="before-pointer" class="nextpointer" onClick="openLightbox_22();toSlide22(1)"><</span>
+            <span id="before-pointer" class="nextpointer" onclick="openLightbox_22();toSlide(22, 1)"><</span>
         </section>
 
 
@@ -5402,7 +5488,7 @@
             <section id="layer"></section>
         </div>
         <div class="arrows">
-            <i class="arrow left" onclick="changeSlide23(-1)">
+            <i class="arrow left" onclick="changeSlide(23, -1)">
                 <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 24 24">
 
                     <title/>
@@ -5426,7 +5512,7 @@
                     </svg>
 
             </i>
-            <i class="arrow right" onclick="changeSlide23(1)">
+            <i class="arrow right" onclick="changeSlide(23, 1)">
 
                 <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 24 24">
 
@@ -5461,10 +5547,10 @@
         <span id="close-pointer" class="close pointer" onclick="closeLightbox_24()">&times;</span>
 
         <section class="laptop-menu">
-            <span id="next-pointer" class="nextpointer" onClick="openLightbox_1();toSlide1(1)">
+            <span id="next-pointer" class="nextpointer" onclick="openLightbox_1();toSlide(1, 1)">
         >
       </span>
-            <span id="before-pointer" class="nextpointer" onClick="openLightbox_23();toSlide23(1)">
+            <span id="before-pointer" class="nextpointer" onclick="openLightbox_23();toSlide(23, 1)">
         < </span>
         </section>
 
@@ -5525,7 +5611,7 @@
         </div>
 
         <div class="arrows">
-            <i class="arrow left" onclick="changeSlide24(-1)"><svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 24 24">
+            <i class="arrow left" onclick="changeSlide(24, -1)"><svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 24 24">
 
                 <title/>
                 
@@ -5546,7 +5632,7 @@
                 </g>
                 
                 </svg></i>
-            <i class="arrow right" onclick="changeSlide24(1)">
+            <i class="arrow right" onclick="changeSlide(24, 1)">
                 <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 24 24">
 
                     <title/>
