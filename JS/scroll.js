@@ -16,7 +16,7 @@ function scrollpage() {
         // Set a small delay to create the effect of continuous scrolling
         setTimeout(f, 0.01);
     }
-    setTimeout(f, 1000); // Start scrolling after 1000ms (1 second delay)
+    setTimeout(f, 500); // Start scrolling after 1000ms (1 second delay)
 }
 
 var Height = document.documentElement.scrollHeight;
@@ -55,15 +55,12 @@ function myFunction(x) {
 
         // After resizing, allow scrolling back up and down freely
         // Stop the custom scroll behavior if it is still active
-        if (status === 0) {
-            status = 1; // End the custom scrolling
-        }
+        //if (status === 0) {
+        //    status = 1; // End the custom scrolling
+        //}
 
         // Ensure that the scroll position matches the user's current scroll position
-        i = window.scrollY; // Set the scroll position `i` to the current scroll position
-
-        // Delete the scrollpage function to stop future custom scroll behavior
-        delete scrollpage;
+        // i = window.scrollY; // Set the scroll position `i` to the current scroll position
     }
 }
 
