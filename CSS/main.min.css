@@ -408,7 +408,7 @@ address div p a {
 #address.show {
     transform: translateY(100%);
     color: #000;
-    background-color: rgb(255, 200, 255);
+    background-color: var(--randomcolor2);
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
