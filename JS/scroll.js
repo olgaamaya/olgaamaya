@@ -45,6 +45,11 @@ function myFunction(x) {
         // Hide headline and headline2 for small screens
         document.getElementById("headline").style.display = "none";
         document.getElementById("headline2").style.display = "none";
+        document.getElementsByTagName("body")[0].style.overflow = "";
+        document.getElementById("headline2").style.height = "";
+        document.getElementById("social_elements").style.height = "";
+        document.getElementsByTagName("footer")[0].style.height = "";
+        document.getElementById("wrap_info_id").style.height = "";
     }
 }
 
