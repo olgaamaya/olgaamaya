@@ -496,6 +496,7 @@ a.projecttitellink {
     opacity: 1;
     /* Bring the active slide to full size */
     z-index: 2;
+    min-height: 100vh;
 }
 
 
