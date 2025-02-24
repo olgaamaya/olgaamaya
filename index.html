@@ -16,49 +16,42 @@
     <script src="JS/gallery_1.min.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            const slides = document.querySelectorAll('[class^="slide"]'); // Select slides dynamically
             const allImageSlides = document.querySelectorAll("img.image-slide");
             const allVideos = document.querySelectorAll("video.videofront");
 
-            // Select the first 4 images per slide
-            slides.forEach(slide => {
-                const slideImages = slide.querySelectorAll("img.image-slide");
-                slideImages.forEach((img, index) => {
-                    if (index < 4) {
-                        img.loading = "eager"; // Preload first 4 images of each slide
-                    } else {
-                        img.loading = "lazy"; // Lazy load the rest
-                    }
-                });
+            // Preload the first 4 `.image-slide` elements in the document order
+            allImageSlides.forEach((img, index) => {
+                if (index < 4) {
+                    img.loading = "eager"; // Preload first 4 images globally
+                } else {
+                    img.loading = "lazy"; // Lazy load the rest
+                }
             });
 
-            // Select images from active, next, and previous slides
+            // Preload images in active, next, and previous slides
             const extraPreloadedImages = document.querySelectorAll(
                 ".active-slide img.image-slide, .next-slide img.image-slide, .previous-slide img.image-slide"
             );
 
-            extraPreloadedImages.forEach(img => img.loading = "eager"); // Ensure they're preloaded
+            extraPreloadedImages.forEach(img => img.loading = "eager");
 
-            // Select videos inside the first 4 slides and preload them
-            slides.forEach((slide, index) => {
-                const video = slide.querySelector("video.videofront");
-                if (video) {
-                    if (index < 8) {
-                        video.preload = "auto"; // Preload videos in the first 4 slides
-                    } else {
-                        video.preload = "none"; // Lazy load other videos
-                    }
+            // Preload the first 4 videos in the document order (not per lightbox)
+            allVideos.forEach((video, index) => {
+                if (index < 4) {
+                    video.preload = "auto"; // Preload first 4 videos globally
+                } else {
+                    video.preload = "none"; // Lazy load the rest
                 }
             });
 
-            // Lazy load all other images
+            // Ensure all other images are lazy-loaded
             allImageSlides.forEach(img => {
                 if (!img.loading) {
                     img.loading = "lazy";
                 }
             });
 
-            // Lazy load all other videos
+            // Ensure all other videos are lazy-loaded
             allVideos.forEach(video => {
                 if (video.preload !== "auto") {
                     video.preload = "none";
