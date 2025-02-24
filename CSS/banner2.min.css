@@ -1,3 +1,21 @@
+@media screen and (min-width:1000px) {
+    .banner {
+        display: none
+    }
+    .banner2 {
+        display: flex;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .banner {
+        display: flex;
+    }
+    .banner2 {
+        display: none;
+    }
+}
+
 .banner {
     position: relative;
     height: 1.5rem;
@@ -108,16 +126,4 @@
     animation-delay: -30s;
     width: calc(100% +400px);
     left: -400px
-}
-
-@media screen and (min-width:1000px) {
-    .banner2 {
-        display: flex
-    }
-}
-
-@media screen and (max-width:1000px) {
-    .banner2 {
-        display: none
-    }
 }

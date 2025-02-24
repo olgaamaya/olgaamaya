@@ -294,7 +294,9 @@ img.hover-shadow {
 }
 
 .videoclass {
-    height: calc(100%);
+    height: 80vh;
+    top: 10vh;
+    position: fixed;
     margin-bottom: auto;
     max-width: 95% !important
 }
@@ -465,27 +467,30 @@ a.projecttitellink {
 }
 
 .active-slide {
-    position: absolute;
-    top: -10vh;
+    position: fixed;
+    top: 0;
     opacity: 1;
+    height: 100vh;
     /* Bring the active slide into view */
 }
 
 .previous-slide {
-    top: -10vh;
-    position: absolute;
+    top: 0;
+    position: fixed;
     animation: fadeoutAnimation .1s forwards;
     animation-iteration-count: 1;
-    transform: translateX(-500px);
+    transform: translateX(-50vw);
+    height: 100vh;
     /* Previous slide, move it to the left */
 }
 
 .next-slide {
-    top: -10vh;
-    position: absolute;
+    top: 0;
+    position: fixed;
     animation: fadeinAnimation .1s forwards;
     animation-iteration-count: 1;
-    transform: translateX(500px);
+    transform: translateX(50vw);
+    height: 100vh;
     /* Next slide, move it to the right */
 }
 
