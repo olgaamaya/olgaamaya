@@ -43,7 +43,7 @@
             slides.forEach((slide, index) => {
                 const video = slide.querySelector("video.videofront");
                 if (video) {
-                    if (index < 4) {
+                    if (index < 8) {
                         video.preload = "auto"; // Preload videos in the first 4 slides
                     } else {
                         video.preload = "none"; // Lazy load other videos
