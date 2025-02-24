@@ -16,9 +16,30 @@
     <script src="JS/gallery_1.min.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            const imageSlides = document.querySelectorAll('img.image-slide');
-            imageSlides.forEach(img => {
-                img.setAttribute('loading', 'lazy');
+            const allImageSlides = document.querySelectorAll('img.image-slide');
+            const allVideos = document.querySelectorAll('video');
+
+            const preloadedItems = document.querySelectorAll("figure.project-index:nth-child(-n+4) img.image-slide");
+            const preloadedVideos = document.querySelectorAll("figure.project-index:nth-child(-n+4) video");
+
+            // Convert preloaded images & videos into Sets for fast lookup
+            const preloadedSet = new Set([...preloadedItems]);
+            const preloadedVideoSet = new Set([...preloadedVideos]);
+
+            // Apply lazy loading to images not preloaded
+            allImageSlides.forEach(img => {
+                if (!preloadedSet.has(img)) {
+                    img.setAttribute('loading', 'lazy');
+                }
+            });
+
+            // Preload videos in the first 4 project-index elements, lazy load others
+            allVideos.forEach(video => {
+                if (preloadedVideoSet.has(video)) {
+                    video.load(); // Preload videos inside the first 4 .project-index elements
+                } else {
+                    video.setAttribute('preload', 'none'); // Lazy load other videos
+                }
             });
         });
     </script>
