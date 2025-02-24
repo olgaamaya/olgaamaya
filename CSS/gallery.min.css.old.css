@@ -280,7 +280,6 @@ img.hover-shadow {
 } */
 
 #videoslide {
-    top: 0;
     max-width: 90%;
     align-content: center;
     align-items: center;
@@ -361,7 +360,7 @@ img.hover-shadow {
 
 .nextpointer {
     position: absolute;
-    z-index: 999999999999999999;
+    z-index: 999999;
     left: 0;
     top: 0;
     font-size: 3rem;
@@ -448,6 +447,25 @@ a.projecttitellink {
     z-index: 99999999999999999;
 }
 
+
+/* [class$="active-slide2"] {
+    opacity: 1;
+} */
+
+[class$="active-slide"] {
+    transition: opacity .3s ease-in-out;
+}
+
+
+/* Initial opacity set to 0 to make the image invisible */
+
+.image-slide {
+    transition: opacity .3s ease-in-out;
+}
+
+
+/* When the image is given the "active-slide2" class, it will fade in */
+
 .image-slide.active-slide2 {
     animation: fadeAnimation .2s forwards;
     animation-iteration-count: 1;
@@ -455,7 +473,7 @@ a.projecttitellink {
 
 @keyframes fadeAnimation {
     0% {
-        opacity: 0.8;
+        opacity: 1;
         transform: translate3d(0, 0, 0);
     }
     100% {
@@ -466,13 +484,12 @@ a.projecttitellink {
 
 .active-slide {
     position: absolute;
-    top: -10vh;
     opacity: 1;
+    transform: translateX(0);
     /* Bring the active slide into view */
 }
 
 .previous-slide {
-    top: -10vh;
     position: absolute;
     animation: fadeoutAnimation .1s forwards;
     animation-iteration-count: 1;
@@ -481,7 +498,6 @@ a.projecttitellink {
 }
 
 .next-slide {
-    top: -10vh;
     position: absolute;
     animation: fadeinAnimation .1s forwards;
     animation-iteration-count: 1;
@@ -494,6 +510,7 @@ a.projecttitellink {
 
 .active-slide {
     opacity: 1;
+    transform: scale(1);
     /* Bring the active slide to full size */
     z-index: 2;
 }
@@ -503,7 +520,8 @@ a.projecttitellink {
 
 .previous-slide {
     display: flex !important;
-    opacity: 0;
+    opacity: 0.5;
+    transform: translateX(-20%) scale(0.9);
     /* Shift it slightly left */
     z-index: 1;
 }
@@ -513,76 +531,8 @@ a.projecttitellink {
 
 .next-slide {
     display: flex !important;
-    opacity: 0;
+    opacity: 0.5;
+    transform: translateX(20%) scale(0.9);
     /* Shift it slightly right */
     z-index: 1;
-}
-
-
-/* Common transition for smooth effect */
-
-.slide1,
-.slide2,
-.slide3,
-.slide4,
-.slide5,
-.slide6,
-.slide7,
-.slide8,
-.slide9,
-.slide10,
-.slide11,
-.slide12,
-.slide13,
-.slide14,
-.slide15,
-.slide16,
-.slide17,
-.slide18,
-.slide19,
-.slide20,
-.slide21,
-.slide22,
-.slide23,
-.slide24 {
-    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
-}
-
-
-/* Slide left animation */
-
-.slide-left-animation {
-    animation: slideLeft 0.5s ease-in-out forwards;
-}
-
-
-/* Slide right animation */
-
-.slide-right-animation {
-    animation: slideRight 0.5s ease-in-out forwards;
-}
-
-
-/* Keyframe animations */
-
-@keyframes slideLeft {
-    from {
-        transform: translateX(0);
-        opacity: 1;
-    }
-    to {
-        transform: translateX(-100%);
-        opacity: 0;
-    }
-}
-
-@keyframes slideRight {
-    from {
-        transform: translateX(0);
-        opacity: 1;
-    }
-    to {
-        transform: translateX(100%);
-        opacity: 0;
-    }
 }
