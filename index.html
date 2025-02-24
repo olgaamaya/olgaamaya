@@ -16,48 +16,52 @@
     <script src="JS/gallery_1.min.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // Select slides dynamically using a wildcard selector
-            const allSlides = document.querySelectorAll('[class^="slide"]');
-            const allImageSlides = document.querySelectorAll('img.image-slide');
-            const allVideos = document.querySelectorAll('video.videofront');
+            const slides = document.querySelectorAll('[class^="slide"]'); // Select slides dynamically
+            const allImageSlides = document.querySelectorAll("img.image-slide");
+            const allVideos = document.querySelectorAll("video.videofront");
 
-            const preloadedImages = new Set();
-            const preloadedVideos = new Set();
-
-            // Preload first 4 images per slide
-            allSlides.forEach(slide => {
-                const imagesInSlide = slide.querySelectorAll('img.image-slide');
-                imagesInSlide.forEach((img, index) => {
+            // Select the first 4 images per slide
+            slides.forEach(slide => {
+                const slideImages = slide.querySelectorAll("img.image-slide");
+                slideImages.forEach((img, index) => {
                     if (index < 4) {
-                        preloadedImages.add(img);
+                        img.loading = "eager"; // Preload first 4 images of each slide
+                    } else {
+                        img.loading = "lazy"; // Lazy load the rest
                     }
                 });
             });
 
-            // Also preload images in .active-slide, .next-slide, .previous-slide
-            ['.active-slide', '.next-slide', '.previous-slide'].forEach(selector => {
-                document.querySelectorAll(`${selector} img.image-slide`).forEach(img => {
-                    preloadedImages.add(img);
-                });
-            });
+            // Select images from active, next, and previous slides
+            const extraPreloadedImages = document.querySelectorAll(
+                ".active-slide img.image-slide, .next-slide img.image-slide, .previous-slide img.image-slide"
+            );
 
-            // Apply lazy loading to images not preloaded
-            allImageSlides.forEach(img => {
-                if (!preloadedImages.has(img)) {
-                    img.setAttribute('loading', 'lazy');
+            extraPreloadedImages.forEach(img => img.loading = "eager"); // Ensure they're preloaded
+
+            // Select videos inside the first 4 slides and preload them
+            slides.forEach((slide, index) => {
+                const video = slide.querySelector("video.videofront");
+                if (video) {
+                    if (index < 4) {
+                        video.preload = "auto"; // Preload videos in the first 4 slides
+                    } else {
+                        video.preload = "none"; // Lazy load other videos
+                    }
                 }
             });
 
-            // Preload videos in the first 4 .project-index elements, lazy load others
-            document.querySelectorAll("figure.project-index:nth-child(-n+4) video.videofront").forEach(video => {
-                preloadedVideos.add(video);
-                video.load(); // Preload
+            // Lazy load all other images
+            allImageSlides.forEach(img => {
+                if (!img.loading) {
+                    img.loading = "lazy";
+                }
             });
 
-            // Apply lazy loading to videos not preloaded
+            // Lazy load all other videos
             allVideos.forEach(video => {
-                if (!preloadedVideos.has(video)) {
-                    video.setAttribute('preload', 'none'); // Lazy load
+                if (video.preload !== "auto") {
+                    video.preload = "none";
                 }
             });
         });
