@@ -16,29 +16,48 @@
     <script src="JS/gallery_1.min.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
+            // Select slides dynamically using a wildcard selector
+            const allSlides = document.querySelectorAll('[class^="slide"]');
             const allImageSlides = document.querySelectorAll('img.image-slide');
             const allVideos = document.querySelectorAll('video.videofront');
 
-            const preloadedImages = document.querySelectorAll("figure.project-index:nth-child(-n+8) img.image-slide");
-            const preloadedVideos = document.querySelectorAll("figure.project-index:nth-child(-n+6) video.videofront");
+            const preloadedImages = new Set();
+            const preloadedVideos = new Set();
 
-            // Convert preloaded images & videos into Sets for fast lookup
-            const preloadedImageSet = new Set([...preloadedImages]);
-            const preloadedVideoSet = new Set([...preloadedVideos]);
+            // Preload first 4 images per slide
+            allSlides.forEach(slide => {
+                const imagesInSlide = slide.querySelectorAll('img.image-slide');
+                imagesInSlide.forEach((img, index) => {
+                    if (index < 4) {
+                        preloadedImages.add(img);
+                    }
+                });
+            });
+
+            // Also preload images in .active-slide, .next-slide, .previous-slide
+            ['.active-slide', '.next-slide', '.previous-slide'].forEach(selector => {
+                document.querySelectorAll(`${selector} img.image-slide`).forEach(img => {
+                    preloadedImages.add(img);
+                });
+            });
 
             // Apply lazy loading to images not preloaded
             allImageSlides.forEach(img => {
-                if (!preloadedImageSet.has(img)) {
+                if (!preloadedImages.has(img)) {
                     img.setAttribute('loading', 'lazy');
                 }
             });
 
-            // Preload videos in the first 4 project-index elements, lazy load others
+            // Preload videos in the first 4 .project-index elements, lazy load others
+            document.querySelectorAll("figure.project-index:nth-child(-n+4) video.videofront").forEach(video => {
+                preloadedVideos.add(video);
+                video.load(); // Preload
+            });
+
+            // Apply lazy loading to videos not preloaded
             allVideos.forEach(video => {
-                if (preloadedVideoSet.has(video)) {
-                    video.load(); // Preload videos inside the first 4 .project-index elements
-                } else {
-                    video.setAttribute('preload', 'none'); // Lazy load other videos
+                if (!preloadedVideos.has(video)) {
+                    video.setAttribute('preload', 'none'); // Lazy load
                 }
             });
         });
