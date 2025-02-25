@@ -113,6 +113,11 @@ div.direction {
     width: auto
 }
 
+.videofront {
+    max-height: 100vh;
+    max-width: 95vw;
+}
+
 #layer {
     position: absolute;
     width: 100%;
