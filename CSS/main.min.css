@@ -114,7 +114,7 @@ header {
 }
 
 .header-title {
-    height: 6rem
+    height: 6rem;
 }
 
 .header-title a span {
@@ -284,9 +284,10 @@ address {
     text-decoration-style: none;
     color: #000;
     letter-spacing: .3rem;
-    width: 100ch;
-    height: auto;
-    width: 100%
+    /* width: 100ch; */
+    height: 100%;
+    width: 100%;
+    text-align: center;
 }
 
 address div p a {
@@ -377,7 +378,7 @@ address div p a {
     width: 100%;
     height: auto;
     margin-top: auto;
-    padding-top: 6rem;
+    padding-top: 18rem;
 }
 
 #nav-ul.show li {
@@ -405,7 +406,7 @@ address div p a {
 }
 
 #address.show {
-    transform: translateY(100%);
+    /* transform: translateY(100%); */
     color: #000;
     background-color: var(--randomcolor2);
     display: flex;
@@ -413,12 +414,12 @@ address div p a {
     flex-wrap: nowrap;
     align-items: center;
     justify-content: center;
-    align-content: center;
+    /* align-content: center; */
     text-decoration: none;
-    height: auto;
-    width: 55%;
+    text: auto;
+    /* width: 55%; */
     /* margin-top: 35dvh; */
-    margin-bottom: 50dvh;
+    /* margin-bottom: 50dvh; */
 }
 
 #address.show li a {
@@ -1043,9 +1044,21 @@ li.menu-item {
 }
 
 #social_elements2.show {
-    position: fixed;
-    top: 35dvh;
-    left: 0;
-    right: 0;
+    height: 10rem;
+    width: 10rem;
     display: flex;
+    right: 0;
+    /* bottom: 0; */
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    /* top: 0; */
+    /* left: 0; */
+    bottom: 0;
+    /* position: absolute; */
+    left: cal "(50%-5rem)";
+    left: calc(50% - 5rem);
+    justify-content: center;
+    /* top: -6rem; */
+    position: relative;
 }

@@ -5,7 +5,7 @@ function scale(x) {
         document.getElementById('menu-toggle').style.display = 'none';
     }
 }
-var x = window.matchMedia("(max-width: 950px)")
+var x = window.matchMedia("(max-width: 1000px)")
 scale(x) // Call listener function at run time
 x.addListener(scale) // Attach listener function on state changes 
 
@@ -18,13 +18,10 @@ const body = document.getElementById('bodyid');
 const contact = document.getElementById("item-contact");
 const morecontact = document.getElementById("more");
 const lesscontact = document.getElementById("less");
-
 const sociale2 = document.getElementById("social_elements2");
-
+const logo = document.getElementById("mouseTarget");
 
 menu.addEventListener('click', () => {
-    sociale2.classList.toggle('show');
-
     navMenu.classList.toggle('show');
     navUL.classList.toggle('show');
     address.classList.toggle('show');
@@ -34,8 +31,35 @@ menu.addEventListener('click', () => {
     contact.classList.toggle('contact');
     morecontact.classList.toggle('morecontact');
     lesscontact.classList.toggle('lesscontact');
+    sociale2.classList.toggle('show');
 
+    // Toggle logo display
+    if (logo.style.display === 'none') {
+        logo.style.display = ''; // Restore default display
+    } else {
+        logo.style.display = 'none'; // Hide it
+    }
+
+    // Select all grandchildren (child of child of child) of social_elements2
+    const grandchildren = [...sociale2.children]
+        .flatMap(child => [...child.children])
+        .flatMap(child => [...child.children]); // Now targeting grandchild elements
+
+    // Apply styles to each grandchild
+    grandchildren.forEach((grandchild, index) => {
+        grandchild.style.height = '4rem';
+        grandchild.style.width = '4rem';
+        grandchild.style.display = 'flex';
+        grandchild.style.flexWrap = 'wrap';
+        grandchild.style.justifyContent = 'center';
+        grandchild.style.alignItems = 'center';
+        grandchild.style.flex = '0 1 50%'; // Apply flex: 0 1 50%;
+        grandchild.style.margin = '0.5rem';
+    });
 });
+
+
+
 
 //TO TOP BUTTON
 mybutton = document.getElementById("myBtn");
