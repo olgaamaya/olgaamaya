@@ -98,11 +98,11 @@ div.direction {
     justify-content: center;
     align-items: center;
     width: 100%;
-    max-width: 95vw;
-    /* min-width: 95vw; */
+    max-width: 95dvw;
+    /* min-width: 95dvw; */
     height: 100%;
-    max-height: 100vh;
-    min-height: 100vh;
+    max-height: 100dvh;
+    min-height: 100dvh;
     z-index: -10;
     margin-bottom: auto;
     -o-object-fit: contain;
@@ -116,8 +116,8 @@ div.direction {
 .slidevideo {
     height: 100%;
     width: 100%;
-    max-height: 100vh;
-    max-width: 95vw;
+    max-height: 100dvh;
+    max-width: 95dvw;
 }
 
 #videoslide {
@@ -135,8 +135,8 @@ div.direction {
 }
 
 .videoclass {
-    height: 80vh;
-    top: 10vh;
+    height: 80dvh;
+    top: 10dvh;
     position: fixed;
     margin-bottom: auto;
     max-width: 95% !important
@@ -163,7 +163,7 @@ div.direction {
     position: fixed;
     left: 0;
     top: 4rem;
-    padding: 0 45% 70vh 1rem;
+    padding: 0 45% 70dvh 1rem;
     text-decoration: none
 }
 
@@ -172,7 +172,7 @@ div.direction {
     position: fixed;
     right: 0;
     top: 4rem;
-    padding: 0 1rem 70vh 45%;
+    padding: 0 1rem 70dvh 45%;
     text-decoration: none
 }
 
@@ -253,16 +253,16 @@ img.hover-shadow {
     height: 100%;
     display: flex;
     align-items: center;
-    width: 45vw;
+    width: 45dvw;
 }
 
 .arrows {
     width: 100%;
     position: absolute;
-    height: 70vh;
+    height: 70dvh;
     z-index: 999999;
     touch-action: manipulation;
-    top: 15vh
+    top: 15dvh
 }
 
 .left {
@@ -283,7 +283,7 @@ img.hover-shadow {
 
 .modal-content {
     position: relative;
-    max-height: 85vh;
+    max-height: 85dvh;
 }
 
 .projecttitle {
@@ -380,7 +380,7 @@ img.hover-shadow {
         top: 2em
     }
     .laptop-menu {
-        height: 100vh;
+        height: 100dvh;
         z-index: 99999;
     }
     #before-pointer {
@@ -431,7 +431,7 @@ a.projecttitellink {
     text-decoration: none;
     position: absolute;
     right: 1rem;
-    bottom: 10vh;
+    bottom: 10dvh;
     z-index: 99999999999999999;
 }
 
@@ -455,7 +455,7 @@ a.projecttitellink {
     position: fixed;
     top: 0;
     opacity: 1;
-    height: 100vh;
+    height: 100dvh;
     /* Bring the active slide into view */
 }
 
@@ -464,8 +464,8 @@ a.projecttitellink {
     position: fixed;
     animation: fadeoutAnimation .1s forwards;
     animation-iteration-count: 1;
-    transform: translateX(-50vw);
-    height: 100vh;
+    transform: translateX(-50dvw);
+    height: 100dvh;
     /* Previous slide, move it to the left */
 }
 
@@ -474,8 +474,8 @@ a.projecttitellink {
     position: fixed;
     animation: fadeinAnimation .1s forwards;
     animation-iteration-count: 1;
-    transform: translateX(50vw);
-    height: 100vh;
+    transform: translateX(50dvw);
+    height: 100dvh;
     /* Next slide, move it to the right */
 }
 
@@ -486,7 +486,7 @@ a.projecttitellink {
     opacity: 1;
     /* Bring the active slide to full size */
     z-index: 2;
-    min-height: 100vh;
+    min-height: 100dvh;
 }
 
 
