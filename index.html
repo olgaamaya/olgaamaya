@@ -21,15 +21,6 @@
             const totalImages = allImageSlides.length;
             const totalVideos = allVideos.length;
 
-            // Preload the last 4 `.image-slide` elements globally
-            allImageSlides.forEach((img, index) => {
-                if (index >= totalImages - 4) {
-                    img.loading = "eager"; // Preload last 4 images globally
-                } else {
-                    img.loading = "lazy"; // Lazy load the rest
-                }
-            });
-
             // Preload images in active, next, and previous slides
             const extraPreloadedImages = document.querySelectorAll(
                 ".active-slide img.image-slide, .next-slide img.image-slide, .previous-slide img.image-slide"
@@ -39,17 +30,13 @@
 
             // Preload all images inside the "IMG/img-cover" folder
             allImageSlides.forEach(img => {
-                if (img.src.includes("IMG/img-cover/")) {
-                    img.loading = "eager"; // Preload all images in IMG/img-cover
-                }
-            });
-
-            // Preload the last 4 videos in the document order (not per lightbox)
-            allVideos.forEach((video, index) => {
-                if (index >= totalVideos - 4) {
-                    video.preload = "auto"; // Preload last 4 videos globally
-                } else {
-                    video.preload = "none"; // Lazy load the rest
+                if (
+                    img.src.includes("IMG/img-cover/") ||
+                    img.src.includes("IMG/thinkingmu/") ||
+                    img.src.includes("IMG/matyfall/") ||
+                    img.src.includes("IMG/mango_teen_special_2/")
+                ) {
+                    img.loading = "eager"; // Preload images in specified folders
                 }
             });
 
