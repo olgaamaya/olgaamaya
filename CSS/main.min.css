@@ -82,7 +82,7 @@ body {
     touch-action: manipulate;
     width: 100%;
     height: 100%;
-    min-height: 100vh;
+    min-height: 100dvh;
     background: #000;
     color: #fff;
     display: flex;
@@ -137,10 +137,10 @@ nav .menu {
 }
 
 #mailback {
-    height: 20vh;
+    height: 20dvh;
     width: 2rem;
     position: fixed;
-    top: 40vh;
+    top: 40dvh;
     z-index: 99999999999;
     font-size: 1.6rem;
     line-height: 2rem;
@@ -359,7 +359,7 @@ address div p a {
     letter-spacing: .6rem;
     min-width: 100vw;
     width: 100%;
-    min-height: 100vh;
+    min-height: 100dvh;
     display: flex;
     flex-direction: column;
     align-content: center;
@@ -417,8 +417,8 @@ address div p a {
     text-decoration: none;
     height: auto;
     width: 55%;
-    /* margin-top: 35vh; */
-    margin-bottom: 50vh;
+    /* margin-top: 35dvh; */
+    margin-bottom: 50dvh;
 }
 
 #address.show li a {
@@ -465,7 +465,7 @@ main ul li:hover {
 
 .footer-wrapper {
     height: auto;
-    min-height: 20vh;
+    min-height: 20dvh;
     display: flex;
     align-content: flex-end
 }
@@ -1044,7 +1044,7 @@ li.menu-item {
 
 #social_elements2.show {
     position: fixed;
-    top: 35vh;
+    top: 35dvh;
     left: 0;
     right: 0;
     display: flex;
