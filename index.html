@@ -13,48 +13,7 @@
     <link rel="stylesheet" href="CSS/gallery.min.css" fetchpriority="low" />
     <link rel="stylesheet" href="CSS/banner2.min.css" fetchpriority="low" />
     <link rel="preload" href="fonts/VG5000-Regular_web.woff2" as="style" />
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const allImageSlides = document.querySelectorAll("img.image-slide");
-            const allVideos = document.querySelectorAll("video.videofront");
 
-            const totalImages = allImageSlides.length;
-            const totalVideos = allVideos.length;
-
-            // Preload images in active, next, and previous slides
-            const extraPreloadedImages = document.querySelectorAll(
-                ".active-slide img.image-slide, .next-slide img.image-slide, .previous-slide img.image-slide"
-            );
-
-            extraPreloadedImages.forEach(img => img.loading = "eager");
-
-            // Preload all images inside the "IMG/img_cover" folder
-            allImageSlides.forEach(img => {
-                if (
-                    img.src.includes("IMG/img_cover/") ||
-                    img.src.includes("IMG/thinkingmu/") ||
-                    img.src.includes("IMG/matyfall/") ||
-                    img.src.includes("IMG/mango_teen_special_2/")
-                ) {
-                    img.loading = "eager"; // Preload images in specified folders
-                }
-            });
-
-            // Ensure all other images are lazy-loaded
-            allImageSlides.forEach(img => {
-                if (!img.loading) {
-                    img.loading = "lazy";
-                }
-            });
-
-            // Ensure all other videos are lazy-loaded
-            allVideos.forEach(video => {
-                if (video.preload !== "auto") {
-                    video.preload = "none";
-                }
-            });
-        });
-    </script>
 </head>
 
 <body class="bodyclass" id="bodyid">
