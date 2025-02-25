@@ -18,10 +18,13 @@
             const allImageSlides = document.querySelectorAll("img.image-slide");
             const allVideos = document.querySelectorAll("video.videofront");
 
-            // Preload the first 4 `.image-slide` elements globally (as defined in indexlayout.css)
+            const totalImages = allImageSlides.length;
+            const totalVideos = allVideos.length;
+
+            // Preload the last 4 `.image-slide` elements globally
             allImageSlides.forEach((img, index) => {
-                if (index < 4) {
-                    img.loading = "eager"; // Preload first 4 images globally
+                if (index >= totalImages - 4) {
+                    img.loading = "eager"; // Preload last 4 images globally
                 } else {
                     img.loading = "lazy"; // Lazy load the rest
                 }
@@ -41,10 +44,10 @@
                 }
             });
 
-            // Preload the first 4 videos in the document order (not per lightbox)
+            // Preload the last 4 videos in the document order (not per lightbox)
             allVideos.forEach((video, index) => {
-                if (index < 4) {
-                    video.preload = "auto"; // Preload first 4 videos globally
+                if (index >= totalVideos - 4) {
+                    video.preload = "auto"; // Preload last 4 videos globally
                 } else {
                     video.preload = "none"; // Lazy load the rest
                 }
