@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Grid Rows from External CSS</title>
+</head>
+
+<body>
+    <h1>Automatic Grid Row Updater from External CSS</h1>
+    <pre id="output"></pre>
+
+    <script>
+        // Define the number to add to grid-row (you can change this value)
+        const rowIncrement = -2; // 1,2,3,4,5,6,7,8,9,...
+
+        // Function to fetch the external CSS file from the URL
+        function fetchCSS() {
+            fetch('https://olgaamaya.com/CSS/index_layout.css')
+                .then(response => response.text())
+                .then(css => {
+                    // Update the grid-row values by adding the rowIncrement value
+                    const updatedCSS = updateGridRow(css, rowIncrement); // Use rowIncrement variable
+
+                    // Output the updated CSS to the page
+                    document.getElementById('output').textContent = updatedCSS;
+                })
+                .catch(error => {
+                    console.error('Error loading CSS file:', error);
+                });
+        }
+
+        // Function to add a number to grid-row in CSS content
+        function updateGridRow(cssContent, addNumber) {
+            // Regular expression to match grid-row and capture numbers
+            const regex = /grid-row:\s*(\d+)\/(\d+)/g;
+
+            // Replace grid-row with updated values (add `addNumber` to both start and end)
+            return cssContent.replace(regex, (match, start, end) => {
+                const updatedStart = parseInt(start, 10) + addNumber;
+                const updatedEnd = parseInt(end, 10) + addNumber;
+                return `grid-row: ${updatedStart}/${updatedEnd}`;
+            });
+        }
+
+        // Call fetchCSS to load and update the CSS when the page loads
+        window.onload = fetchCSS;
+    </script>
+</body>
+
+</html>
