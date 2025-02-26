@@ -131,6 +131,32 @@ header {
     list-style-type: none
 }
 
+p.menupoint {
+    height: 12px;
+    position: absolute;
+    text-indent: -100rem;
+    width: 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    z-index: 1000;
+    background-color: var(--randomcolor2)
+}
+
+.menu-toggle {
+    display: none;
+    position: absolute;
+    text-indent: -100rem;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    align-items: center;
+    justify-content: center;
+    width: 3.5rem;
+    top: 0;
+    left: 0;
+    height: 6rem;
+    z-index: 999
+}
+
 nav .menu {
     display: flex;
     flex: 1
@@ -194,32 +220,6 @@ nav .menu {
     bottom: 0;
     background: rgba(0, 0, 0, .75);
     z-index: -1
-}
-
-p.menupoint {
-    height: 12px;
-    position: absolute;
-    text-indent: -100rem;
-    width: 12px;
-    border-radius: 20px;
-    cursor: pointer;
-    z-index: 1000;
-    background-color: var(--randomcolor2)
-}
-
-.menu-toggle {
-    display: none;
-    position: absolute;
-    text-indent: -100rem;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    align-items: center;
-    justify-content: center;
-    width: 3.5rem;
-    top: 0;
-    left: 0;
-    height: 6rem;
-    z-index: 999
 }
 
 nav.menu li {
@@ -1019,12 +1019,13 @@ li.menu-item {
 .social-svg_2,
 .social-svg_3,
 .social-svg_4 {
-    background-size: 1.75rem;
+    background-size: 2rem;
     background-repeat: no-repeat;
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 2rem;
+    height: 2rem;
     margin: 0 0 0 .25rem;
     color: white;
+    /* top: 2rem; */
 }
 
 .social-svg_0:hover,
@@ -1045,6 +1046,7 @@ li.menu-item {
     flex-wrap: nowrap;
     justify-content: center;
     align-self: center;
+    top: 2rem;
 }
 
 #social_elements2.show {

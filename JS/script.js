@@ -45,16 +45,29 @@ menu.addEventListener('click', () => {
         .flatMap(child => [...child.children])
         .flatMap(child => [...child.children]); // Now targeting grandchild elements
 
-    // Apply styles to each grandchild
-    grandchildren.forEach((grandchild, index) => {
-        grandchild.style.height = '4rem';
-        grandchild.style.width = '4rem';
-        grandchild.style.display = 'flex';
-        grandchild.style.flexWrap = 'wrap';
-        grandchild.style.justifyContent = 'center';
-        grandchild.style.alignItems = 'center';
-        grandchild.style.flex = '0 1 50%'; // Apply flex: 0 1 50%;
-        grandchild.style.margin = '0.5rem';
+    // Toggle styles for each grandchild
+    grandchildren.forEach((grandchild) => {
+        if (grandchild.style.height === '4rem') {
+            // Reset styles
+            grandchild.style.height = '';
+            grandchild.style.width = '';
+            grandchild.style.display = '';
+            grandchild.style.flexWrap = '';
+            grandchild.style.justifyContent = '';
+            grandchild.style.alignItems = '';
+            grandchild.style.flex = '';
+            grandchild.style.margin = '';
+        } else {
+            // Apply new styles
+            grandchild.style.height = '4rem';
+            grandchild.style.width = '4rem';
+            grandchild.style.display = 'flex';
+            grandchild.style.flexWrap = 'wrap';
+            grandchild.style.justifyContent = 'center';
+            grandchild.style.alignItems = 'center';
+            grandchild.style.flex = '0 1 50%';
+            grandchild.style.margin = '0.5rem';
+        }
     });
 });
 
