@@ -1,3 +1,39 @@
+// Function to find the highest lightbox number
+function getHighestLightboxNumber() {
+    // Get all elements that might be lightboxes (e.g., those with an id starting with 'Lightbox_')
+    const lightboxes = document.querySelectorAll('[id^="Lightbox_"]'); // Adjusted selector to match your IDs
+    let highest = 0;
+
+    lightboxes.forEach(function(lightbox) {
+        // Assuming the ID is something like 'Lightbox_1', 'Lightbox_2', etc.
+        const id = lightbox.id;
+        const number = parseInt(id.replace('Lightbox_', '')); // Extract the number after 'Lightbox_'
+        if (number > highest) {
+            highest = number; // Update the highest number
+        }
+    });
+
+    return highest; // Return the highest number
+}
+
+// Function to initialize and assign the highest lightbox number to X
+function setupPointer() {
+    const X = getHighestLightboxNumber(); // Get the highest lightbox number
+
+    // Now use X in your onclick event
+    const pointerElement = document.getElementById("before-pointer");
+
+    pointerElement.onclick = function() {
+        openLightbox(X);
+        toSlide(X, 1);
+    };
+}
+
+// Call setupPointer to initialize when the page loads
+window.onload = setupPointer;
+
+
+
 // DUPLICATION IN HTML FOR SCROLL BANNERdocument.addEventListener("DOMContentLoaded", () => {
 document.querySelectorAll(".scroll, .scroll2").forEach((container) => {
     let childDiv = container.querySelector("div"); // Select the direct child div inside .scroll or .scroll2
