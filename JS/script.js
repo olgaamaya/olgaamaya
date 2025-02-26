@@ -1,3 +1,13 @@
+// DUPLICATION IN HTML FOR SCROLL BANNERdocument.addEventListener("DOMContentLoaded", () => {
+document.querySelectorAll(".scroll, .scroll2").forEach((container) => {
+    let childDiv = container.querySelector("div"); // Select the direct child div inside .scroll or .scroll2
+    if (childDiv) {
+        let clone = childDiv.cloneNode(true); // Clone the div (with span inside)
+        container.appendChild(clone); // Append the cloned div inside the same container
+    }
+});
+
+
 function scale(x) {
     if (x.matches) { // If media query matches
         document.getElementById('menu-toggle').style.display = 'flex';
