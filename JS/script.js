@@ -7,18 +7,6 @@ document.querySelectorAll(".scroll, .scroll2").forEach((container) => {
     }
 });
 
-
-function scale(x) {
-    if (x.matches) { // If media query matches
-        document.getElementById('menu-toggle').style.display = 'flex';
-    } else {
-        document.getElementById('menu-toggle').style.display = 'none';
-    }
-}
-var x = window.matchMedia("(max-width: 1000px)")
-scale(x) // Call listener function at run time
-x.addListener(scale) // Attach listener function on state changes 
-
 const menu = document.getElementById('menu-toggle');
 const menupoint = document.getElementById('menupointid');
 const navUL = document.getElementById('nav-ul');
