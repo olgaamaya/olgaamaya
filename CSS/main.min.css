@@ -1045,26 +1045,19 @@ li.menu-item {
     flex-wrap: nowrap;
     justify-content: center;
     align-self: center;
-    /* margin: 1rem; */
 }
 
 #social_elements2.show {
-    height: 33.3dvh;
+    height: 10rem;
     width: 10rem;
     display: flex;
     right: 0;
-    /* bottom: 0; */
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    /* top: 0; */
-    /* left: 0; */
     bottom: 0;
-    /* position: absolute; */
-    left: cal "(50%-5rem)";
     left: calc(50% - 5rem);
     justify-content: center;
-    top: 0;
     position: relative;
-    /* max-height: 10rem; */
+    top: calc(15.15dvh - 5rem);
 }
