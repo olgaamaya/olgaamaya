@@ -176,6 +176,10 @@ nav .menu {
     color: var(--randomcolor2)
 }
 
+#mailback:hover {
+    color: var(--randomcolor)
+}
+
 .header-title a {
     text-decoration: none;
     list-style-type: none;
@@ -1010,10 +1014,6 @@ li.menu-item {
     }
 }
 
-#detach-button-host {
-    display: none;
-}
-
 .social-svg_0,
 .social-svg_1,
 .social-svg_2,
@@ -1035,6 +1035,17 @@ li.menu-item {
 .social-svg_4:hover {
     filter: invert(55%) sepia(20%) saturate(1799%) hue-rotate(299deg) brightness(205%) contrast(100%);
     transform: translateY(-3px);
+}
+
+@media (max-width: 999px) {
+    .social-svg_0:hover,
+    .social-svg_1:hover,
+    .social-svg_2:hover,
+    .social-svg_3:hover,
+    .social-svg_4:hover {
+        filter: none;
+        transform: none;
+    }
 }
 
 #social_elements2 {
@@ -1063,3 +1074,6 @@ li.menu-item {
     position: relative;
     top: calc(15.15dvh - 5rem);
 }
+
+
+/* Disable hover effects for small screens */
