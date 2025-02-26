@@ -72,7 +72,9 @@ menu.addEventListener('click', () => {
 });
 
 
-
+document.querySelectorAll('img').forEach(img => {
+    img.setAttribute('draggable', 'false');
+});
 
 //TO TOP BUTTON
 mybutton = document.getElementById("myBtn");
