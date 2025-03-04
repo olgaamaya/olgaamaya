@@ -1,0 +1,151 @@
+@font-face{font-family: "happy-times";src: url("Font/happy-times-NG_regular_master_web.woff2") format("woff2"),url("Font/happy-times-NG_regular_master_web.woff") format("woff");}
+
+*{
+margin:0;
+padding:0;
+}
+
+body{
+margin:0;
+font-family: Happy-times, Arial;
+font-size: 1rem;
+color: white;
+line-height:1.6;
+}
+
+#showcase{
+background-image:url('../IMG/landing.jpg');
+  background-size:cover;
+  background-position:center;
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:0 2rem;
+}
+#showcase h1{
+font-size: 2.5rem;
+line-height: 1.25;
+font-weight: lighter;
+padding: 1rem;
+}
+
+#showcase p{
+font-size:1.25rem;
+line-height: 1;
+font-weight: lighter;
+padding: .25rem;
+}
+
+#showcase .button{
+font-size: 2.75rem;
+line-height: 1.35;
+font-weight: bold;
+  text-decoration:none;
+  color: white;
+  border: transparent 1px solid;
+  padding: 1rem 2rem;
+  margin-top:1rem;
+  margin-bottom:1rem;
+}
+
+#showcase .button:hover{
+  background: transparent;
+  color: white;
+  border: white 1px solid;
+  transform: rotate(-0.025turn);transition-timing-function: ease;
+}
+
+#section-a{
+padding: 1rem;
+  background:yellow;
+  color: black;
+  text-align:center;
+}
+
+#section-b{
+padding: 1rem;
+  background:blue;
+  color: black;
+  text-align:center;
+}
+#section-c{display:flex;
+}
+#section-a, #section-b, #section-c {display:none;
+}
+
+.button {
+  animation: fadeIn 4s;
+  -webkit-animation: fadeIn 5s;
+  -moz-animation: fadeIn 5s;
+  -o-animation: fadeIn 5s;
+  -ms-animation: fadeIn 5s;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-moz-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-webkit-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-o-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-ms-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+
+
+
+#showcase h1 {
+  animation: fadeIn 2.5s;
+  -webkit-animation: fadeIn 2.5s;
+  -moz-animation: fadeIn 2.5s;
+  -o-animation: fadeIn 2.5s;
+  -ms-animation: fadeIn 2.5s;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-moz-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-webkit-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-o-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-ms-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@media screen and (min-width: 1245px){#showcase h1 {font-size: 8rem !important;
+}
+  #showcase .button{font-size: 4rem !important;}
+}
