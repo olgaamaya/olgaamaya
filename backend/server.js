@@ -22,7 +22,7 @@ const corsOptions = {
         // Uncomment the line below to allow all origins temporarily for debugging
         // callback(null, true);
 
-        if (!origin || origin === 'https://olgaamaya.github.io') {
+        if (!origin || origin === 'https://olgaamaya.com') {
             callback(null, true);
         } else {
             callback(new Error('CORS policy: Not allowed by CORS policy'), false);
