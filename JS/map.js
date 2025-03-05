@@ -19,6 +19,207 @@
 // Fusión del Núcleo/Chica Sobresalto - Lightbox 16
 // What happens in PILMA stays in PILMA - Lightbox 17
 // Create a map of project data
+
+// Lightbox_1: {
+//     TITEL: 'AW24 RE-GEN CITY SHADES',
+//     ROLE: 'Fashion Stylist Olga Lucia Amaya',
+//     MODEL: '',
+//     AGENCY: '',
+//     MAKEUP: '',
+//     PHOTOGRAPH_RETOUCH: ''
+// },
+// Lightbox_2: {
+//     TITEL: 'Maty Fall x MANGO',
+//     ROLE: 'Fashion Stylist Olga Lucia Amaya',
+//     MODEL: '',
+//     AGENCY: '',
+//     MAKEUP: '',
+//     PHOTOGRAPH_RETOUCH: ''
+// },
+// Lightbox_3: {
+//     TITEL: 'Denim Seams x @mangoteen',
+//     ROLE: 'Fashion Stylist Olga Lucia Amaya',
+//     MODEL: '',
+//     AGENCY: '',
+//     MAKEUP: '',
+//     PHOTOGRAPH_RETOUCH: ''
+// },
+// Lightbox_4: {
+//     TITEL: 'Julia Brezgina',
+//     ROLE: 'Fashion Stylist Olga Lucia Amaya',
+//     MODEL: '',
+//     AGENCY: '',
+//     MAKEUP: '',
+//     PHOTOGRAPH_RETOUCH: ''
+// },
+// Lightbox_5: {
+//     TITEL: 'PARISIAN FALL/ Teen x MANGO',
+//     ROLE: 'Fashion Stylist Olga Lucia Amaya',
+//     MODEL: '',
+//     AGENCY: '',
+//     MAKEUP: '',
+//     PHOTOGRAPH_RETOUCH: ''
+// },
+// Lightbox_6: {
+//     TITEL: 'Vilet',
+//     ROLE: 'Fashion Stylist Olga Lucia Amaya',
+//     MODEL: '',
+//     AGENCY: '',
+//     MAKEUP: '',
+//     PHOTOGRAPH_RETOUCH: ''
+// },
+// Lightbox_7: {
+//     TITEL: 'sUmMeR pOstIsOlAtIoN',
+//     ROLE: 'Art Direction, Fashion Stylist Olga Lucia Amaya',
+//     MODEL: 'Roland E',
+//     AGENCY: 'Trend Model',
+//     MAKEUP: 'Andrea Trenado',
+//     PHOTOGRAPH_RETOUCH: 'Mar Docavo'
+// },
+// Lightbox_8: {
+//     TITEL: 'tE QuIEro UN pOCo',
+//     ROLE: 'Costume Designer',
+//     MODEL: 'Ida Domènech, Koko Ishizuka, Sophie Petterin, Irene Noren',
+//     AGENCY: '',
+//     MAKEUP: '',
+//     PHOTOGRAPH_RETOUCH: 'Lyona'
+// },
+// Lightbox_9: {
+//     TITEL: 'Back To School',
+//     ROLE: 'Fashion Stylist Olga Lucia Amaya',
+//     MODEL: '',
+//     AGENCY: '',
+//     MAKEUP: '',
+//     PHOTOGRAPH_RETOUCH: ''
+// },
+// Lightbox_10: {
+//     TITEL: 'ME dESamAsTE',
+//     ROLE: 'Costume Designer',
+//     MODEL: 'Claire Romain',
+//     AGENCY: '',
+//     MAKEUP: '',
+//     PHOTOGRAPH_RETOUCH: 'Lyona'
+// },
+// Lightbox_11: {
+//     TITEL: 'WinTeRBoY',
+//     ROLE: 'Art Direction, Fashion Stylist Olga Lucia Amaya',
+//     MODEL: 'Yonathan Exss',
+//     AGENCY: '2M Models',
+//     MAKEUP: 'Andrea Trenado',
+//     PHOTOGRAPH_RETOUCH: 'Mar Docavo'
+// },
+// Lightbox_12: {
+//     TITEL: 'sEUnGrI',
+//     ROLE: 'Art Direction, Fashion Stylist Olga Lucia Amaya',
+//     MODEL: 'Seung',
+//     AGENCY: 'Two Management',
+//     MAKEUP: '',
+//     PHOTOGRAPH_RETOUCH: 'Mar Docavo'
+// },
+// Lightbox_13: {
+//     TITEL: 'E-Commerce',
+//     ROLE: 'Fashion Stylist Olga Lucia Amaya',
+//     MODEL: '',
+//     AGENCY: '',
+//     MAKEUP: '',
+//     PHOTOGRAPH_RETOUCH: ''
+// },
+// Lightbox_14: {
+//     TITEL: 'ShAdOW',
+//     ROLE: 'Costume Designer',
+//     MODEL: 'Laia Manzanares',
+//     AGENCY: '',
+//     MAKEUP: '',
+//     PHOTOGRAPH_RETOUCH: 'Lyona'
+// },
+// Lightbox_15: {
+//     TITEL: 'Chiharu Okungi x Mango',
+//     ROLE: 'Fashion Stylist Olga Lucia Amaya',
+//     MODEL: 'Chiharu Okungi',
+//     AGENCY: 'Society Management',
+//     MAKEUP: 'Paco Garrigues',
+//     PHOTOGRAPH_RETOUCH: 'Ector Tre'
+// },
+// Lightbox_16: {
+//     TITEL: 'Fusión del Núcleo',
+//     ROLE: 'Costume Designer',
+//     MODEL: '',
+//     AGENCY: '',
+//     MAKEUP: '',
+//     PHOTOGRAPH_RETOUCH: 'Lyona'
+// },
+// Lightbox_17: {
+//     TITEL: 'What Happens in PILMA Stays in PILMA / Edició PRIDE!',
+//     ROLE: 'Costume Designer',
+//     MODEL: '',
+//     AGENCY: '',
+//     MAKEUP: '',
+//     PHOTOGRAPH_RETOUCH: 'Lyona'
+// },
+// Lightbox_18: {
+//     TITEL: 'Adrenalina',
+//     ROLE: 'Costume Designer',
+//     MODEL: '',
+//     AGENCY: '',
+//     MAKEUP: '',
+//     PHOTOGRAPH_RETOUCH: 'Lyona'
+// },
+// Lightbox_19: {
+//     TITEL: 'Teen x Mango',
+//     ROLE: 'Fashion Stylist Olga Lucia Amaya',
+//     MODEL: '',
+//     AGENCY: '',
+//     MAKEUP: '',
+//     PHOTOGRAPH_RETOUCH: ''
+// },
+// Lightbox_20: {
+//     TITEL: 'Matea Brakus x Mango',
+//     ROLE: 'Fashion Stylist Olga Lucia Amaya',
+//     MODEL: 'Matea Brakus',
+//     AGENCY: 'Society Management',
+//     MAKEUP: 'Alizia Moreno',
+//     PHOTOGRAPH_RETOUCH: 'Alberto Polo Iañez'
+// },
+// Lightbox_21: {
+//     TITEL: 'Clara Infante x Mango Home',
+//     ROLE: 'Fashion Stylist Olga Lucia Amaya',
+//     MODEL: '',
+//     AGENCY: '',
+//     MAKEUP: '',
+//     PHOTOGRAPH_RETOUCH: ''
+// },
+// Lightbox_22: {
+//     TITEL: 'Clara Infante x Mango',
+//     ROLE: 'Fashion Stylist Olga Lucia Amaya',
+//     MODEL: '',
+//     AGENCY: '',
+//     MAKEUP: '',
+//     PHOTOGRAPH_RETOUCH: ''
+// },
+// Lightbox_23: {
+//     TITEL: 'Clara Infante x Mango',
+//     ROLE: 'Fashion Stylist Olga Lucia Amaya',
+//     MODEL: '',
+//     AGENCY: '',
+//     MAKEUP: '',
+//     PHOTOGRAPH_RETOUCH: ''
+// },
+// Lightbox_24: {
+//     TITEL: 'Clara Infante x Mango',
+//     ROLE: 'Fashion Stylist Olga Lucia Amaya',
+//     MODEL: '',
+//     AGENCY: '',
+//     MAKEUP: '',
+//     PHOTOGRAPH_RETOUCH: ''
+// }
+
+
+
+
+
+
+
+
 const projectData = {
     Lightbox_1: {
         TITEL: 'AW24 RE-GEN CITY SHADES',
@@ -236,3 +437,142 @@ window.onload = function() {
 window.onresize = function() {
     populateLightboxes();
 };
+
+
+// //AW24 RE-GEN CITY SHADES x THINKING MU
+// Role: Fashion Stylist
+
+// Maty Fall x MANGO
+// Role: Fashion Stylist
+
+// Denim Seams x @mangoteen
+// Role: Fashion Stylist
+
+// Julia Brezgina
+// Role: Fashion Stylist
+
+// PARISIAN FALL/ Teen x MANGO
+// Role: Fashion Stylist
+
+// Vilet
+// Role: Fashion Stylist
+
+// sUmMeR pOstIsOlAtIoN
+
+// Role: Art Direction, Fashion Stylist
+// Photographer: Mar Docavo
+// Model: Roland E (Trend Model)
+// Make-up: Andrea Trenado
+// Publication: Fuckingyoung Magazine
+// tE QuIEro UN pOCo
+
+// Role: Costume Designer
+// Artist: Carlos Sadness
+// Direction: Lyona
+// Production: Astrolabi Films
+// Starring: Ida Domènech (Dulceida), Koko Ishizuka, Sophie Petterin, Irene Noren
+// Year: 2018
+// Back To School
+// Role: Fashion Stylist
+
+// ME dESamAsTE
+
+// Role: Costume Designer
+// Artist: Carlos Sadness
+// Direction: Lyona
+// Production: Astrolabi Films
+// Starring: Claire Romain
+// Year: 2020
+
+
+// WinTeRBoY
+
+// Role: Art Direction, Fashion Stylist
+// Photographer & Retoucher: Mar Docavo
+// Model: Yonathan Exss (2M Models)
+// Make-up Artist: Andrea Trenado
+// Publication: Client Magazine
+// sEUnGrI
+
+// Role: Art Direction, Fashion Stylist
+// Photographer & Retoucher: Mar Docavo
+// Model: Seung (Two Management)
+// Agency: Two Management
+// E-Commerce
+
+// Role: Fashion Stylist
+// Details: Various e-commerce projects
+// ShAdOW
+
+// Role: Costume Designer
+// Artist: Marc Salvador
+// Direction: Lyona
+// Production: Complot Productions
+// Starring: Laia Manzanares
+// Year: 2018
+// Chiharu Okungi x Mango
+
+// Role: Fashion Stylist
+// Photographer: Ector Tre
+// Model: Chiharu Okungi (Society Management)
+// Make-up Artist: Paco Garrigues
+// Fusión del Núcleo
+
+// Role: Costume Designer
+// Artist: Chica Sobresalto
+// Direction: Lyona
+// Production: Astrolabi Films
+// Music Label: El Dromedario Records
+// Year: 2020
+// What Happens in PILMA Stays in PILMA / Edició PRIDE!
+
+// Role: Costume Designer
+// Direction: Lyona
+// Production: Astrolabi Films
+// Year: 2019
+// Adrenalina
+
+// Role: Costume Designer
+// Artist: Chica Sobresalto feat. Zahara
+// Direction: Lyona
+// Production: Astrolabi Films
+// Music Label: El Dromedario Records
+// Year: 2021
+// Teen x Mango
+
+// Role: Fashion Stylist
+// Details: Various projects for Mango
+// Matea Brakus x Mango
+
+// Role: Fashion Stylist
+// Photographer: Alberto Polo Iañez
+// Model: Matea Brakus (Society Management)
+// Make-up Artist: Alizia Moreno
+
+// Matea Brakus x Mango
+
+// Role: Fashion Stylist
+// Photographer: Alberto Polo Iañez
+// Model: Matea Brakus (Society Management)
+// Make-up Artist: Alizia Moreno
+// Link: Matea Brakus x Mango
+// Clara Infante x Mango Home
+
+// Role: Fashion Stylist
+// Details: Styled Clara Infante's collection for Mango Home.
+// Link: Clara Infante x Mango Home
+// Clara Infante x Mango
+
+// Role: Fashion Stylist
+// Details: Styled Clara Infante's collection for Mango.
+// Link: Clara Infante x Mango
+// Clara Infante x Mango
+
+// Role: Fashion Stylist
+// Details: Styled Clara Infante's collection for Mango.
+// Link: Clara Infante x Mango
+// Clara Infante x Mango
+
+// Role: Fashion Stylist
+// Details: Styled Clara Infante's collection for Mango.
+// Link: Clara Infante x Mango

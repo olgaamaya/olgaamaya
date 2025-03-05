@@ -52,7 +52,7 @@ app.get("/api/get-cloudinary-media", async(req, res) => {
         const sanitizedFolder = folder.replace(/[^\w\s]/gi, '');
 
         // Default max_results is 20, but use 'limit' if provided
-        const maxResults = limit ? parseInt(limit, 10) : 20;
+        const maxResults = limit ? parseInt(limit, 10) : 100;
 
         // Fetch media from Cloudinary
         const result = await cloudinary.api.resources({
