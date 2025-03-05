@@ -48,7 +48,7 @@ app.get("/api/get-cloudinary-media", async(req, res) => {
 
         console.log(`Fetching media for folder: ${folder}`);
 
-        // Sanitize folder name
+        // Sanitize folder name to avoid any special characters
         const sanitizedFolder = folder.replace(/[^\w\s]/gi, '');
 
         // Default max_results is 20, but use 'limit' if provided
@@ -61,8 +61,9 @@ app.get("/api/get-cloudinary-media", async(req, res) => {
             max_results: maxResults,
         });
 
+        // If no resources are found, return an empty array instead of a 404
         if (!result.resources || result.resources.length === 0) {
-            return res.status(404).json({ error: `No media found in the folder: ${sanitizedFolder}` });
+            return res.json([]); // Return an empty array instead of 404
         }
 
         // Map the Cloudinary response to a structured list
