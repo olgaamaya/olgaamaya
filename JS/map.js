@@ -18,7 +18,6 @@
 // Chiharu Okungi x Mango - Lightbox 15
 // Fusión del Núcleo/Chica Sobresalto - Lightbox 16
 // What happens in PILMA stays in PILMA - Lightbox 17
-
 // Create a map of project data
 const projectData = {
     Lightbox_1: {
@@ -176,15 +175,13 @@ function populateLightboxes() {
                 const scrollDiv = document.createElement('div');
                 scrollDiv.classList.add('scroll2');
 
-                // Create an array to hold the data for the spans
+                // Create an array to hold the data for the spans (only values, not category names)
                 let projectInfo = [];
 
-                // Add the categories with data to the projectInfo array
+                // Add the categories with data to the projectInfo array (excluding categories with no data)
                 for (let category in project) {
                     if (project[category]) {
-                        const categoryName = category.charAt(0).toUpperCase() + category.slice(1);
-                        const categoryValue = project[category];
-                        projectInfo.push(`${categoryName}: ${categoryValue}`);
+                        projectInfo.push(project[category]);
                     }
                 }
 
@@ -194,13 +191,23 @@ function populateLightboxes() {
 
                 chunkedData.forEach(group => {
                     const div = document.createElement('div');
+                    div.style.display = 'inline'; // Make spans inline
+
                     group.forEach(info => {
                         const span = document.createElement('span');
                         span.textContent = info;
+                        span.style.marginBottom = '4rem'; // Add bottom margin of 4rem
+                        span.style.fontSize = '10dvh'; // Set font size to 10dvh
                         div.appendChild(span);
                     });
+
                     scrollDiv.appendChild(div);
                 });
+
+                // Set position of the scroll2 div to fixed
+                scrollDiv.style.position = 'fixed';
+                scrollDiv.style.bottom = '0';
+                scrollDiv.style.left = '0';
 
                 // Append the scroll2 div to the lightbox
                 lightbox.appendChild(scrollDiv);
