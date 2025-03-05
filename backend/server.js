@@ -63,7 +63,7 @@ app.get("/api/get-cloudinary-media", async(req, res) => {
 
         // If no resources are found, return an empty array instead of a 404
         if (!result.resources || result.resources.length === 0) {
-            return res.json([]); // Return an empty array instead of 404
+            return res.json([]); // Return empty array instead of 404 error
         }
 
         // Map the Cloudinary response to a structured list
