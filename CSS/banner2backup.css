@@ -1,0 +1,127 @@
+/* Default visibility */
+
+.banner {
+    display: flex;
+}
+
+.banner2 {
+    display: none;
+}
+
+
+/* Media query: Switch visibility for screens wider than 1000px */
+
+@media (min-width: 1000px) {
+    .banner {
+        display: none;
+    }
+    .banner2 {
+        display: flex;
+    }
+}
+
+
+/* Shared banner styles */
+
+.banner,
+.banner2 {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin-top: auto;
+}
+
+
+/* Banner specific styles */
+
+.banner {
+    height: 1.5rem;
+}
+
+.banner2 {
+    position: fixed;
+    height: 3rem;
+    top: 95vh;
+    z-index: 3;
+    color: #000;
+}
+
+
+/* Overlay effect */
+
+.banner::before,
+.banner2::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: transparent;
+    z-index: 10000;
+    pointer-events: none;
+}
+
+
+/* Scrolling text container */
+
+.scroll,
+.scroll2 {
+    width: calc(100% + 400px);
+    left: -400px;
+    display: flex;
+}
+
+
+/* Scrolling text */
+
+.scroll div,
+.scroll2 div {
+    background: transparent;
+    white-space: nowrap;
+    animation: animate_one 60s linear infinite;
+}
+
+
+/* Font size and color */
+
+.scroll div {
+    font-size: 1.5rem;
+    letter-spacing: 0.1em;
+    color: #fff;
+}
+
+.scroll2 div {
+    font-size: 1rem;
+    letter-spacing: 0.2em;
+    color: var(--randomcolor2);
+}
+
+
+/* Second scrolling animation */
+
+.scroll div:nth-child(2),
+.scroll2 div:nth-child(2) {
+    animation: animate_two 60s linear infinite;
+    animation-delay: -30s;
+}
+
+
+/* Keyframe animations */
+
+@keyframes animate_one {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes animate_two {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(-200%);
+    }
+}

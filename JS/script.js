@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".scroll, .scroll2").forEach((container) => {
         let childDiv = container.querySelector("div"); // Select the direct child div inside .scroll or .scroll2
         if (childDiv) {
-            for (let i = 0; i < 3; i++) { // Clone and append three times
+            for (let i = 0; i < 1; i++) { // Clone and append one time
                 let clone = childDiv.cloneNode(true);
                 container.appendChild(clone);
             }
