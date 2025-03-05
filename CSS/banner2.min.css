@@ -47,7 +47,7 @@
 .scroll div {
     background: transparent;
     color: #fff;
-    font-size: 1rem;
+    font-size: 7dvh;
     letter-spacing: .1em;
     white-space: nowrap;
     animation: animate_one 60s linear infinite;
