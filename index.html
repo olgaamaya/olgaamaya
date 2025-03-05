@@ -1374,14 +1374,27 @@
                 <p class="project-image">
                     <!-- SIZES PICTURES ADJUST -->
                     <picture>
+                        <!-- Responsive poster images -->
                         <source srcset="https://res.cloudinary.com/doggr8zar/image/upload/f_auto,c_scale,w_600/v1741089156/IMG/coverimg/thinkingmu_poster.jpg 600w, 
-                                            https://res.cloudinary.com/doggr8zar/image/upload/f_auto,c_scale,w_1000/v1741089156/IMG/coverimg/thinkingmu_poster.jpg 1000w, 
-                                            https://res.cloudinary.com/doggr8zar/image/upload/f_auto,c_scale,w_1800/v1741089156/IMG/coverimg/thinkingmu_poster.jpg 1800w" sizes="(max-width: 600px) 600px, (max-width: 1000px) 1000px, 1800px">
-                        <video class="videofront" poster="https://res.cloudinary.com/doggr8zar/image/upload/f_auto,c_scale,w_1800/v1741089156/IMG/coverimg/thinkingmu_poster.jpg" style="width: 100%" autoplay loop muted playsinline oncontextmenu="return false;" preload="auto">
-                                <source src="IMG/thinkingmu/thinkingmu_video.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
+                                        https://res.cloudinary.com/doggr8zar/image/upload/f_auto,c_scale,w_1000/v1741089156/IMG/coverimg/thinkingmu_poster.jpg 1000w, 
+                                        https://res.cloudinary.com/doggr8zar/image/upload/f_auto,c_scale,w_1800/v1741089156/IMG/coverimg/thinkingmu_poster.jpg 1800w" sizes="(max-width: 600px) 600px, (max-width: 1000px) 1000px, 1800px">
+
+                        <!-- Responsive video -->
+                        <video class="videofront" poster="https://res.cloudinary.com/doggr8zar/image/upload/f_auto,c_scale,w_1800/v1741089156/IMG/coverimg/thinkingmu_poster.jpg" autoplay loop muted playsinline oncontextmenu="return false;" preload="auto" style="width: 100%; max-width: 1250px;">
+                            <!-- Desktop video source (1250px width) -->
+                            <source src="https://res.cloudinary.com/doggr8zar/video/upload/f_auto,c_scale,w_1250/v1741180249/thinkingmu_video_kl9rgb.mp4" 
+                                    type="video/mp4" 
+                                    media="(min-width: 900px)">
+                            
+                            <!-- Mobile video source (600px width) -->
+                            <source src="https://res.cloudinary.com/doggr8zar/video/upload/f_auto,c_scale,w_600/v1741180249/thinkingmu_video_kl9rgb.mp4" 
+                                    type="video/mp4" 
+                                    media="(max-width: 899px)">
+                            
+                            Your browser does not support the video tag.
+                        </video>
                     </picture>
+
                 </p>
                 <figcaption class="project-info-index" id="project-info22" onclick="openLightbox(22)">
                     <section class="layersmallview"></section>
