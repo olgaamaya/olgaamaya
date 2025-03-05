@@ -1,129 +1,114 @@
-@media screen and (min-width:1000px) {
+/* Default: Show .banner, hide .banner2 */
+
+.banner {
+    display: flex;
+}
+
+.banner2 {
+    display: none;
+}
+
+
+/* For screens wider than 1000px: Show .banner2, hide .banner */
+
+@media (min-width: 1000px) {
     .banner {
-        display: none
+        display: none;
     }
     .banner2 {
         display: flex;
     }
 }
 
-@media screen and (max-width: 1000px) {
-    .banner {
-        display: flex;
-    }
-    .banner2 {
-        display: none;
-    }
+
+/* Banner styling */
+
+.banner,
+.banner2 {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin-top: auto;
 }
 
 .banner {
-    position: relative;
     height: 1.5rem;
-    overflow: hidden;
-    width: 100%;
-    margin-top: auto
-}
-
-.banner::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 1.5rem;
-    background: transparent;
-    z-index: 10000;
-    pointer-events: none
-}
-
-.scroll {
-    width: calc(100% +400px);
-    left: -400px;
-    display: flex;
-    color: #fff;
-    /*! overflow: hidden; */
-}
-
-.scroll div {
-    background: transparent;
-    color: #fff;
-    font-size: 1.5rem;
-    letter-spacing: .1em;
-    white-space: nowrap;
-    animation: animate_one 60s linear infinite;
-    animation-delay: -60s;
-    /*! overflow: hidden; */
-}
-
-.scroll div:rth-child(2) {
-    animation: animate_two 60s linear infinite;
-    animation-delay: -30s;
-    width: calc(100% +400px);
-    left: -400px
-}
-
-@keyframes animate_one {
-    0% {
-        transform: translateX(0)
-    }
-    100% {
-        transform: translateX(-100%)
-    }
-}
-
-@keyframes animate_two {
-    0% {
-        transform: translateX(-100%)
-    }
-    100% {
-        transform: translateX(-200%)
-    }
 }
 
 .banner2 {
     position: fixed;
     height: 3rem;
-    overflow: hidden;
-    width: 100%;
-    margin-top: auto;
     top: 95vh;
-    color: #000;
     z-index: 3;
+    color: #000;
 }
 
+
+/* Banner overlay */
+
+.banner::before,
 .banner2::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    /*! height: 1.5rem; */
     background: transparent;
     z-index: 10000;
-    pointer-events: none
+    pointer-events: none;
 }
 
+
+/* Scroll animation */
+
+.scroll,
 .scroll2 {
-    width: calc(100% +400px);
+    width: calc(100% + 400px);
     left: -400px;
     display: flex;
-    /*! overflow: hidden; */
+}
+
+.scroll div,
+.scroll2 div {
+    background: transparent;
+    font-size: 1.5rem;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+    animation: animate_one 60s linear infinite;
 }
 
 .scroll2 div {
-    background: transparent;
-    color: var(--randomcolor2);
     font-size: 1rem;
-    letter-spacing: .2em;
-    white-space: nowrap;
-    animation: animate_one 60s linear infinite;
-    animation-delay: -60s;
-    /*! overflow: hidden; */
+    letter-spacing: 0.2em;
+    color: var(--randomcolor2);
 }
 
-.scroll2 div:rth-child(2) {
+
+/* Second child animation */
+
+.scroll div:nth-child(2),
+.scroll2 div:nth-child(2) {
     animation: animate_two 60s linear infinite;
     animation-delay: -30s;
-    width: calc(100% +400px);
-    left: -400px
+}
+
+
+/* Keyframe animations */
+
+@keyframes animate_one {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes animate_two {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(-200%);
+    }
 }
