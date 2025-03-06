@@ -29,6 +29,7 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
+
 app.get("/api/get-cloudinary-media", async(req, res) => {
     try {
         let { folders, folder, limit } = req.query;
@@ -66,11 +67,7 @@ app.get("/api/get-cloudinary-media", async(req, res) => {
                 // Add the folder name to each media item in the result
                 const folderMedia = result.resources.map((file) => ({
                     type: file.resource_type,
-                    // Ensure the URL is HTTPS using secure: true
-                    src: cloudinary.url(file.public_id, {
-                        quality: 'auto',
-                        secure: true // Force HTTPS for the Cloudinary URLs
-                    }),
+                    src: cloudinary.url(file.public_id, { quality: 'auto' }), // URL for the image
                     alt: file.public_id,
                     folder: folder, // Include the folder name here
                 }));
