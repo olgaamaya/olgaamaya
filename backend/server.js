@@ -79,15 +79,18 @@ app.get("/api/get-cloudinary-media", async(req, res) => {
             }
         }
 
+        // ✅ Explicitly set CORS headers before responding
+        res.header("Access-Control-Allow-Origin", "https://olgaamaya.com");
+        res.header("Access-Control-Allow-Methods", "GET, POST");
+        res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+
         // Respond with the media files (including the folder name)
         res.json(mediaFiles);
+
     } catch (error) {
         console.error("Error fetching Cloudinary media:", error);
+
+        res.header("Access-Control-Allow-Origin", "https://olgaamaya.com"); // Also set CORS headers on errors
         res.status(500).json({ error: "Failed to fetch media", details: error.message });
     }
-});
-
-const port = process.env.PORT || 10000;
-app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
 });
