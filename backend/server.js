@@ -51,7 +51,7 @@ app.use(cors(corsOptions));
 
 // Handle Preflight Requests (OPTIONS)
 app.options('*', (req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', 'https://olgaamaya.com');
+    res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     res.setHeader('Access-Control-Allow-Credentials', 'true');
