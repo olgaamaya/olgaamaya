@@ -14,39 +14,33 @@ cloudinary.config({
 
 const app = express();
 
-// Middleware to force HTTPS for all HTTP requests except preflight
+// Force HTTPS for all HTTP requests
 app.use((req, res, next) => {
-    // Only redirect if it's an HTTP request and not a preflight OPTIONS request
-    if (req.protocol === 'http' && req.method !== 'OPTIONS') {
-        res.redirect(301, 'https://' + req.headers.host + req.url);
-    } else {
-        next();
+    if (req.protocol === 'http') {
+        return res.redirect(301, 'https://' + req.headers.host + req.url); // Redirect HTTP to HTTPS
     }
+    next();
 });
 
 // CORS Configuration
 const corsOptions = {
-    origin: function(origin, callback) {
-        // Allow requests from the specific domain or allow any origin
-        if (!origin || origin === 'https://olgaamaya.com') {
-            callback(null, true); // Allow
-        } else {
-            callback(new Error('CORS policy: Not allowed by CORS policy'), false); // Block
-        }
-    },
-    methods: ['GET', 'POST', 'OPTIONS'], // Allow OPTIONS for preflight requests
+    origin: 'https://olgaamaya.com', // Explicitly allowing the olgaamaya.com domain
+    methods: ['GET', 'POST', 'OPTIONS'], // Ensure OPTIONS are allowed for preflight
     allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true,
+    credentials: true, // Allows cookies or authorization headers to be sent
+    preflightContinue: false, // Don't automatically send a response to preflight requests
 };
 
+// Apply CORS configuration globally
 app.use(cors(corsOptions));
 
-// Handle preflight OPTIONS requests to ensure CORS headers are included
+// Handle Preflight Requests (OPTIONS)
 app.options('*', (req, res) => {
-    res.header('Access-Control-Allow-Origin', 'https://olgaamaya.com');
-    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    res.sendStatus(200);
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
+    res.status(200).end();
 });
 
 // Route to fetch media from Cloudinary
