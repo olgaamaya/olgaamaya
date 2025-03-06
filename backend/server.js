@@ -15,7 +15,9 @@ const app = express();
 
 const corsOptions = {
     origin: function(origin, callback) {
-        // Allow requests from the specific domain or allow any origin
+        // Log incoming origin for debugging purposes
+        console.log('Request Origin:', origin);
+        // Allow the specific domain or allow all origins
         if (!origin || origin === 'https://olgaamaya.com') {
             callback(null, true); // Allow
         } else {
@@ -24,11 +26,16 @@ const corsOptions = {
     },
     methods: ['GET', 'POST'],
     allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true,
+    credentials: true, // This allows cookies and authentication data to be sent
+    preflightContinue: false, // Ensure preflight (OPTIONS) requests are handled
+    optionsSuccessStatus: 204, // Use 204 for OPTIONS requests (preflight)
 };
 
+// Apply CORS middleware globally
 app.use(cors(corsOptions));
 
+// Handle OPTIONS preflight requests explicitly
+app.options('*', cors(corsOptions));
 
 app.get("/api/get-cloudinary-media", async(req, res) => {
     try {
@@ -79,18 +86,16 @@ app.get("/api/get-cloudinary-media", async(req, res) => {
             }
         }
 
-        // ✅ Explicitly set CORS headers before responding
-        res.header("Access-Control-Allow-Origin", "https://olgaamaya.com");
-        res.header("Access-Control-Allow-Methods", "GET, POST");
-        res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
-
         // Respond with the media files (including the folder name)
         res.json(mediaFiles);
-
     } catch (error) {
         console.error("Error fetching Cloudinary media:", error);
-
-        res.header("Access-Control-Allow-Origin", "https://olgaamaya.com"); // Also set CORS headers on errors
         res.status(500).json({ error: "Failed to fetch media", details: error.message });
     }
+});
+
+// Start the server
+const port = process.env.PORT || 10000;
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
 });
