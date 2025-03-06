@@ -28,20 +28,11 @@ const corsOptions = {
     methods: ['GET', 'POST', 'OPTIONS'], // Ensure OPTIONS are allowed for preflight
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true, // Allows cookies or authorization headers to be sent
-    preflightContinue: false, // Don't automatically send a response to preflight requests
+    preflightContinue: false, // Let the middleware handle preflight requests
 };
 
 // Apply CORS configuration globally
 app.use(cors(corsOptions));
-
-// Handle Preflight Requests (OPTIONS)
-app.options('*', (req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    res.setHeader('Access-Control-Allow-Credentials', 'true');
-    res.status(200).end();
-});
 
 // Route to fetch media from Cloudinary
 app.get("/api/get-cloudinary-media", async(req, res) => {
@@ -75,6 +66,9 @@ app.get("/api/get-cloudinary-media", async(req, res) => {
                 type: "upload",
                 prefix: `IMG/${folder}/`, // Adjusting the prefix based on folder name
                 max_results: maxResults,
+            }).catch((error) => {
+                console.error("Error fetching from Cloudinary:", error);
+                return { resources: [] }; // Return an empty array in case of error
             });
 
             if (result.resources && result.resources.length > 0) {
