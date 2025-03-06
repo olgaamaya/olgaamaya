@@ -9,24 +9,12 @@ cloudinary.config({
     cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
     api_key: process.env.CLOUDINARY_API_KEY,
     api_secret: process.env.CLOUDINARY_API_SECRET,
-    secure: true, // Enforces HTTPS URLs for Cloudinary resources
+    secure: true,
 });
 
 const app = express();
 
-// Force HTTPS for all HTTP requests, but allow OPTIONS preflight requests to pass
-app.use((req, res, next) => {
-    if (req.method === 'OPTIONS') {
-        return next(); // Allow OPTIONS requests to proceed without redirect
-    }
-
-    if (req.protocol === 'http' && !req.secure && process.env.NODE_ENV !== 'development') {
-        return res.redirect(301, 'https://' + req.headers.host + req.url); // Redirect HTTP to HTTPS
-    }
-    next();
-});
-
-// CORS Configuration: Allow both domains
+// CORS Configuration - Allow both domains
 const allowedOrigins = [
     'https://olgaamaya.com', // olgaamaya.com domain
     'https://olgaamaya.github.io/olgaamaya/', // GitHub Pages domain
@@ -49,13 +37,16 @@ const corsOptions = {
 // Apply CORS configuration globally
 app.use(cors(corsOptions));
 
-// Handle Preflight Requests (OPTIONS)
-app.options('*', (req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    res.setHeader('Access-Control-Allow-Credentials', 'true');
-    res.status(200).end();
+// Force HTTPS for all HTTP requests, but allow OPTIONS preflight requests to pass
+app.use((req, res, next) => {
+    if (req.method === 'OPTIONS') {
+        return next(); // Allow OPTIONS requests to proceed without redirect
+    }
+
+    if (req.protocol === 'http' && !req.secure && process.env.NODE_ENV !== 'development') {
+        return res.redirect(301, 'https://' + req.headers.host + req.url); // Redirect HTTP to HTTPS
+    }
+    next();
 });
 
 // Route to fetch media from Cloudinary
