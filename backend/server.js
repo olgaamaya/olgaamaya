@@ -19,9 +19,7 @@ const app = express();
 // CORS configuration
 const corsOptions = {
     origin: function(origin, callback) {
-        // Uncomment the line below to allow all origins temporarily for debugging
-        // callback(null, true);
-
+        // Ensure the correct origin is allowed
         if (!origin || origin === 'https://olgaamaya.com') {
             callback(null, true);
         } else {
@@ -30,7 +28,7 @@ const corsOptions = {
     },
     methods: ['GET', 'POST'],
     allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true,
+    credentials: true, // Include credentials if needed
 };
 
 // Middleware to handle CORS
