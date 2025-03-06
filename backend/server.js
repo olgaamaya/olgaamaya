@@ -44,33 +44,40 @@ app.get("/api/get-cloudinary-media", async(req, res) => {
 
         console.log(`Fetching media for folders: ${folders}`);
 
+        // Split folder names by commas and trim any spaces
         const folderList = folders.split(',').map(f => f.trim());
         const maxResults = limit ? parseInt(limit, 10) : 100;
 
         let mediaFiles = [];
 
+        // Loop through each folder and fetch media items
         for (const folder of folderList) {
             console.log(`Requesting Cloudinary media from folder: ${folder}`);
 
+            // Fetch media items from Cloudinary for the given folder
             const result = await cloudinary.api.resources({
                 type: "upload",
-                prefix: `IMG/${folder}/`,
+                prefix: `IMG/${folder}/`, // Adjusting the prefix based on folder name
                 max_results: maxResults,
             });
 
             if (result.resources && result.resources.length > 0) {
+                // Add the folder name to each media item in the result
                 const folderMedia = result.resources.map((file) => ({
                     type: file.resource_type,
-                    src: cloudinary.url(file.public_id, { quality: 'auto' }),
+                    src: cloudinary.url(file.public_id, { quality: 'auto' }), // URL for the image
                     alt: file.public_id,
+                    folder: folder, // Include the folder name here
                 }));
 
+                // Concatenate the folder media with the existing media array
                 mediaFiles = [...mediaFiles, ...folderMedia];
             } else {
                 console.log(`No media found for folder: ${folder}`);
             }
         }
 
+        // Respond with the media files (including the folder name)
         res.json(mediaFiles);
     } catch (error) {
         console.error("Error fetching Cloudinary media:", error);
