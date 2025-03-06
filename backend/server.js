@@ -24,15 +24,24 @@ const corsOptions = {
             callback(new Error('CORS policy: Not allowed by CORS policy'), false); // Block
         }
     },
-    methods: ['GET', 'POST'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true, // This allows cookies and authentication data to be sent
+    credentials: true, // Allows cookies and authentication data to be sent
     preflightContinue: false, // Ensure preflight (OPTIONS) requests are handled
     optionsSuccessStatus: 204, // Use 204 for OPTIONS requests (preflight)
 };
 
 // Apply CORS middleware globally
 app.use(cors(corsOptions));
+
+// Apply custom headers for CORS (for every route)
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', 'https://olgaamaya.com'); // Allow only your domain
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE'); // Allow required HTTP methods
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization'); // Allow required headers
+    res.header('Access-Control-Allow-Credentials', 'true'); // Allow credentials (cookies, etc.)
+    next(); // Pass control to the next middleware
+});
 
 // Handle OPTIONS preflight requests explicitly
 app.options('*', cors(corsOptions));
