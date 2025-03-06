@@ -19,7 +19,9 @@ const app = express();
 // CORS configuration
 const corsOptions = {
     origin: function(origin, callback) {
-        // Ensure the correct origin is allowed
+        // Uncomment the line below to allow all origins temporarily for debugging
+        // callback(null, true);
+
         if (!origin || origin === 'https://olgaamaya.com') {
             callback(null, true);
         } else {
@@ -28,7 +30,7 @@ const corsOptions = {
     },
     methods: ['GET', 'POST'],
     allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true, // Include credentials if needed
+    credentials: true,
 };
 
 // Middleware to handle CORS
@@ -51,7 +53,6 @@ app.get("/api/get-cloudinary-media", async(req, res) => {
 
         // Default max_results is 20, but use 'limit' if provided
         const maxResults = limit ? parseInt(limit, 10) : 100;
-        console.log('Max results:', maxResults);
 
         // Fetch media from Cloudinary
         const result = await cloudinary.api.resources({
@@ -60,12 +61,9 @@ app.get("/api/get-cloudinary-media", async(req, res) => {
             max_results: maxResults,
         });
 
-        // Log the response for debugging
-        console.log('Cloudinary API response:', result);
-
         // If no resources are found, return an empty array instead of a 404
         if (!result.resources || result.resources.length === 0) {
-            return res.json([]); // Return empty array instead of 404 error
+            return res.json([]); // Return an empty array instead of 404
         }
 
         // Map the Cloudinary response to a structured list
