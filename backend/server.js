@@ -66,6 +66,7 @@ app.get("/api/get-cloudinary-media", async(req, res) => {
             return res.json([]); // Return an empty array instead of 404
         }
 
+
         // Map the Cloudinary response to a structured list
         const mediaFiles = result.resources.map((file) => ({
             type: file.resource_type,
