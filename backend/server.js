@@ -14,21 +14,21 @@ cloudinary.config({
 
 const app = express();
 
-// Force HTTPS for all HTTP requests
+// Force HTTPS for all HTTP requests (skip during development)
 app.use((req, res, next) => {
-    if (req.protocol === 'http') {
+    // Check if request is HTTP, not already secure (HTTPS), and not running in development
+    if (req.protocol === 'http' && !req.secure && process.env.NODE_ENV !== 'development') {
         return res.redirect(301, 'https://' + req.headers.host + req.url); // Redirect HTTP to HTTPS
     }
     next();
 });
 
-// CORS Configuration
+// Simplified and Adjusted CORS Configuration
 const corsOptions = {
-    origin: 'https://olgaamaya.com', // Explicitly allowing the olgaamaya.com domain
-    methods: ['GET', 'POST', 'OPTIONS'], // Ensure OPTIONS are allowed for preflight
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true, // Allows cookies or authorization headers to be sent
-    preflightContinue: false, // Let the middleware handle preflight requests
+    origin: 'https://olgaamaya.com', // Allow only the specified domain
+    methods: ['GET', 'POST', 'OPTIONS'], // Allow GET, POST, and OPTIONS methods
+    allowedHeaders: ['Content-Type', 'Authorization'], // Allow specific headers
+    credentials: true, // Allow credentials (cookies, authorization headers)
 };
 
 // Apply CORS configuration globally
@@ -45,7 +45,6 @@ app.get("/api/get-cloudinary-media", async(req, res) => {
         }
 
         if (!folders) {
-            console.error('Folders parameter is missing');
             return res.status(400).json({ error: "Folders parameter is required" });
         }
 
