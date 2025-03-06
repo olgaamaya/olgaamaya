@@ -96,6 +96,22 @@ function topFunction() {
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 };
 
+// Function to scale menu on window resize
+function scale(x) {
+    const menuToggle = document.getElementById('menu-toggle');
+    const anyLightboxOpen = document.querySelector("[id^='Lightbox_'][style*='display: flex']");
+
+    if (x.matches && !anyLightboxOpen) { // Only show menu-toggle if no lightbox is open
+        menuToggle.style.display = 'flex';
+    } else {
+        menuToggle.style.display = 'none';
+    }
+}
+
+var x = window.matchMedia("(max-width: 1000px)");
+scale(x); // Call listener function at runtime
+x.addListener(scale); // Attach listener function on state changes 
+
 
 
 document.addEventListener('DOMContentLoaded', function() {
