@@ -1,3 +1,4 @@
+// Import required modules
 const express = require('express');
 const cloudinary = require('cloudinary').v2;
 const cors = require('cors');
@@ -36,50 +37,59 @@ const corsOptions = {
 // Middleware to handle CORS
 app.use(cors(corsOptions));
 
-// API Endpoint to fetch Cloudinary media based on the folder
+// API Endpoint to fetch Cloudinary media based on folder(s)
 app.get("/api/get-cloudinary-media", async(req, res) => {
     try {
-        const { folder, limit } = req.query;
+        const { folders, limit } = req.query;
 
-        if (!folder) {
-            console.error('Folder parameter is missing');
-            return res.status(400).json({ error: "Folder parameter is required" });
+        if (!folders) {
+            console.error('Folders parameter is missing');
+            return res.status(400).json({ error: "Folders parameter is required" });
         }
 
-        console.log(`Fetching media for folder: ${folder}`);
+        console.log(`Fetching media for folders: ${folders}`);
 
-        const sanitizedFolder = folder.replace(/[^\w\s]/gi, ''); // Sanitize folder name
+        // Handle single or multiple folders
+        const folderList = folders.includes(',') ? folders.split(',').map(folder => folder.trim()) : [folders.trim()];
         const maxResults = limit ? parseInt(limit, 10) : 100;
 
         // Log before fetching from Cloudinary
         console.log('Making request to Cloudinary...');
-        const result = await cloudinary.api.resources({
-            type: "upload",
-            prefix: `IMG/${sanitizedFolder}/`,
-            max_results: maxResults,
-        });
+        let allMediaFiles = [];
 
-        // Log the result from Cloudinary
-        console.log('Cloudinary Response:', result);
+        for (const folder of folderList) {
+            const sanitizedFolder = folder.replace(/[^\w\s]/gi, ''); // Sanitize folder name
 
-        if (!result.resources || result.resources.length === 0) {
-            console.log(`No resources found for folder: ${folder}`);
-            return res.json([]); // Return empty array if no resources found
+            // Make the request to Cloudinary API to fetch media resources
+            const result = await cloudinary.api.resources({
+                type: "upload",
+                prefix: `IMG/${sanitizedFolder}/`,
+                max_results: maxResults,
+            });
+
+            // Log the result from Cloudinary for each folder
+            console.log(`Cloudinary Response for ${folder}:`, result);
+
+            if (result.resources && result.resources.length > 0) {
+                const mediaFiles = result.resources.map((file) => ({
+                    type: file.resource_type,
+                    src: cloudinary.url(file.public_id, { quality: 'auto' }),
+                    alt: file.public_id,
+                }));
+                allMediaFiles = [...allMediaFiles, ...mediaFiles];
+            }
         }
 
-        const mediaFiles = result.resources.map((file) => ({
-            type: file.resource_type,
-            src: cloudinary.url(file.public_id, { quality: 'auto' }),
-            alt: file.public_id,
-        }));
+        // Return all the media files from all folders
+        res.json(allMediaFiles);
 
-        res.json(mediaFiles);
     } catch (error) {
         console.error("Error fetching Cloudinary media:", error);
         res.status(500).json({ error: "Failed to fetch media", details: error.message });
     }
 });
-// Start the server
+
+// Start the server on the defined port
 const port = process.env.PORT || 10000;
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
