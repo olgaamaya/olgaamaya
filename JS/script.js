@@ -95,3 +95,82 @@ function topFunction() {
     document.body.scrollTop = 0; // For Safari
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 };
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Create an intersection observer to detect when an element comes into view
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            const figure = entry.target;
+
+            // If the figure is in the viewport (in view)
+            if (entry.isIntersecting) {
+                const video = figure.querySelector('video');
+                const img = figure.querySelector('img');
+                const sources = figure.querySelectorAll('source');
+
+                // Lazy load video if it exists
+                if (video && video.dataset.src) {
+                    video.src = video.dataset.src; // Set the actual video source
+                    video.load();
+                    video.play(); // Start playing the video if required
+                }
+
+                // Lazy load images (srcset for <picture> elements)
+                if (img && img.dataset.src) {
+                    img.src = img.dataset.src; // Set the actual image source
+                }
+
+                // Lazy load <source> elements (for responsive images in <picture>)
+                sources.forEach(source => {
+                    if (source.dataset.srcset) {
+                        source.srcset = source.dataset.srcset; // Set the responsive srcset
+                    }
+                });
+
+                // Stop observing this figure since the media is now loaded
+                observer.unobserve(figure);
+            }
+        });
+    }, {
+        threshold: 0.1, // Trigger when 10% of the element is in the viewport
+    });
+
+    // Select all figures that contain media
+    const figures = document.querySelectorAll('figure.project-index');
+
+    figures.forEach(figure => {
+        const video = figure.querySelector('video');
+        const img = figure.querySelector('img');
+        const sources = figure.querySelectorAll('source');
+
+        // Eager load media for figures already in view
+        if (isElementInViewport(figure)) {
+            if (video && video.dataset.src) {
+                video.src = video.dataset.src; // Eagerly load the video source
+                video.load();
+                video.play(); // Start playing the video if required
+            }
+
+            if (img && img.dataset.src) {
+                img.src = img.dataset.src; // Eagerly load the image source
+            }
+
+            sources.forEach(source => {
+                if (source.dataset.srcset) {
+                    source.srcset = source.dataset.srcset; // Eagerly load the responsive srcset
+                }
+            });
+        } else {
+            // If the figure is not in view, start observing it for lazy loading
+            observer.observe(figure);
+        }
+    });
+
+    // Helper function to check if an element is currently in the viewport
+    function isElementInViewport(el) {
+        const rect = el.getBoundingClientRect();
+        return rect.top >= 0 && rect.left >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && rect.right <= (window.innerWidth || document.documentElement.clientWidth);
+    }
+});
