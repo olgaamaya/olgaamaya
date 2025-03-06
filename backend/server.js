@@ -37,18 +37,6 @@ const corsOptions = {
 // Apply CORS configuration globally
 app.use(cors(corsOptions));
 
-// Force HTTPS for all HTTP requests, but allow OPTIONS preflight requests to pass
-app.use((req, res, next) => {
-    if (req.method === 'OPTIONS') {
-        return next(); // Allow OPTIONS requests to proceed without redirect
-    }
-
-    if (req.protocol === 'http' && !req.secure && process.env.NODE_ENV !== 'development') {
-        return res.redirect(301, 'https://' + req.headers.host + req.url); // Redirect HTTP to HTTPS
-    }
-    next();
-});
-
 // Route to fetch media from Cloudinary
 app.get("/api/get-cloudinary-media", async(req, res) => {
     try {
