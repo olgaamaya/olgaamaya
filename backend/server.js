@@ -51,6 +51,7 @@ app.get("/api/get-cloudinary-media", async(req, res) => {
 
         // Default max_results is 20, but use 'limit' if provided
         const maxResults = limit ? parseInt(limit, 10) : 100;
+        console.log('Max results:', maxResults);
 
         // Fetch media from Cloudinary
         const result = await cloudinary.api.resources({
@@ -58,6 +59,9 @@ app.get("/api/get-cloudinary-media", async(req, res) => {
             prefix: `IMG/${sanitizedFolder}/`,
             max_results: maxResults,
         });
+
+        // Log the response for debugging
+        console.log('Cloudinary API response:', result);
 
         // If no resources are found, return an empty array instead of a 404
         if (!result.resources || result.resources.length === 0) {
