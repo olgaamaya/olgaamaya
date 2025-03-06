@@ -54,8 +54,6 @@ app.get("/api/get-cloudinary-media", async(req, res) => {
         // Default max_results is 20, but use 'limit' if provided
         const maxResults = limit ? parseInt(limit, 10) : 100;
 
-        console.log(`Using folder: ${sanitizedFolder}, maxResults: ${maxResults}`);
-
         // Fetch media from Cloudinary
         const result = await cloudinary.api.resources({
             type: "upload",
@@ -79,16 +77,9 @@ app.get("/api/get-cloudinary-media", async(req, res) => {
         res.json(mediaFiles);
     } catch (error) {
         console.error("Error fetching Cloudinary media:", error);
-
-        // Send the error message from Cloudinary if available
-        if (error.response && error.response.body) {
-            console.error("Cloudinary Error Details: ", error.response.body);
-        }
-
         res.status(500).json({ error: "Failed to fetch media" });
     }
 });
-
 
 // Start the server
 const port = process.env.PORT || 10000;
