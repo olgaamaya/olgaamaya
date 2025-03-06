@@ -80,7 +80,6 @@ app.get("/api/get-cloudinary-media", async(req, res) => {
         res.status(500).json({ error: "Failed to fetch media" });
     }
 });
-
 // Start the server
 const port = process.env.PORT || 10000;
 app.listen(port, () => {
