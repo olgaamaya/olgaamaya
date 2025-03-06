@@ -41,43 +41,42 @@ app.get("/api/get-cloudinary-media", async(req, res) => {
     try {
         const { folder, limit } = req.query;
 
-        // Validate folder parameter
         if (!folder) {
+            console.error('Folder parameter is missing');
             return res.status(400).json({ error: "Folder parameter is required" });
         }
 
         console.log(`Fetching media for folder: ${folder}`);
 
-        // Sanitize folder name to avoid any special characters
-        const sanitizedFolder = folder.replace(/[^\w\s]/gi, '');
-
-        // Default max_results is 20, but use 'limit' if provided
+        const sanitizedFolder = folder.replace(/[^\w\s]/gi, ''); // Sanitize folder name
         const maxResults = limit ? parseInt(limit, 10) : 100;
 
-        // Fetch media from Cloudinary
+        // Log before fetching from Cloudinary
+        console.log('Making request to Cloudinary...');
         const result = await cloudinary.api.resources({
             type: "upload",
             prefix: `IMG/${sanitizedFolder}/`,
             max_results: maxResults,
         });
 
-        // If no resources are found, return an empty array instead of a 404
+        // Log the result from Cloudinary
+        console.log('Cloudinary Response:', result);
+
         if (!result.resources || result.resources.length === 0) {
-            return res.json([]); // Return an empty array instead of 404
+            console.log(`No resources found for folder: ${folder}`);
+            return res.json([]); // Return empty array if no resources found
         }
 
-        // Map the Cloudinary response to a structured list
         const mediaFiles = result.resources.map((file) => ({
             type: file.resource_type,
             src: cloudinary.url(file.public_id, { quality: 'auto' }),
             alt: file.public_id,
         }));
 
-        console.log('Fetched media files: ', mediaFiles);
         res.json(mediaFiles);
     } catch (error) {
         console.error("Error fetching Cloudinary media:", error);
-        res.status(500).json({ error: "Failed to fetch media" });
+        res.status(500).json({ error: "Failed to fetch media", details: error.message });
     }
 });
 // Start the server
