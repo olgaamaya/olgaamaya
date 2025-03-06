@@ -9,10 +9,21 @@ cloudinary.config({
     cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
     api_key: process.env.CLOUDINARY_API_KEY,
     api_secret: process.env.CLOUDINARY_API_SECRET,
+    secure: true, // Enforces HTTPS URLs for Cloudinary resources
 });
 
 const app = express();
 
+// Force HTTPS for all HTTP requests
+app.use((req, res, next) => {
+    if (req.protocol === 'http') {
+        res.redirect(301, 'https://' + req.headers.host + req.url); // Redirect HTTP to HTTPS
+    } else {
+        next();
+    }
+});
+
+// CORS Configuration
 const corsOptions = {
     origin: function(origin, callback) {
         // Allow requests from the specific domain or allow any origin
@@ -29,7 +40,7 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-
+// Route to fetch media from Cloudinary
 app.get("/api/get-cloudinary-media", async(req, res) => {
     try {
         let { folders, folder, limit } = req.query;
@@ -67,7 +78,7 @@ app.get("/api/get-cloudinary-media", async(req, res) => {
                 // Add the folder name to each media item in the result
                 const folderMedia = result.resources.map((file) => ({
                     type: file.resource_type,
-                    src: cloudinary.url(file.public_id, { quality: 'auto' }), // URL for the image
+                    src: cloudinary.url(file.public_id, { quality: 'auto', secure: true }), // Ensures HTTPS
                     alt: file.public_id,
                     folder: folder, // Include the folder name here
                 }));
@@ -87,6 +98,7 @@ app.get("/api/get-cloudinary-media", async(req, res) => {
     }
 });
 
+// Define the server port
 const port = process.env.PORT || 10000;
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
