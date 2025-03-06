@@ -15,10 +15,11 @@ const app = express();
 
 const corsOptions = {
     origin: function(origin, callback) {
+        // Allow requests from the specific domain or allow any origin
         if (!origin || origin === 'https://olgaamaya.com') {
-            callback(null, true);
+            callback(null, true); // Allow
         } else {
-            callback(new Error('CORS policy: Not allowed by CORS policy'), false);
+            callback(new Error('CORS policy: Not allowed by CORS policy'), false); // Block
         }
     },
     methods: ['GET', 'POST'],
@@ -27,6 +28,7 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
+
 
 app.get("/api/get-cloudinary-media", async(req, res) => {
     try {
