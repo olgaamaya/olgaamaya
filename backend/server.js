@@ -55,7 +55,7 @@ app.get("/api/get-cloudinary-media", async(req, res) => {
 
         // Split folder names by commas and trim any spaces
         const folderList = folders.split(',').map(f => f.trim());
-        const maxResults = limit ? parseInt(limit, 10) : 100;
+        const maxResults = limit ? parseInt(limit, 10) : 1000;
 
         let mediaFiles = [];
 
