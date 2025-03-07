@@ -15,33 +15,28 @@ const app = express();
 
 const corsOptions = {
     origin: function(origin, callback) {
-        // Log incoming origin for debugging purposes
-        console.log('Request Origin:', origin);
-        // Allow the specific domain or allow all origins
-        if (!origin || origin === 'https://olgaamaya.com') {
-            callback(null, true); // Allow
+        console.log('Request Origin:', origin); // Debugging origin
+        if (!origin || origin === 'https://olgaamaya.com' || origin === 'http://localhost:3000') {
+            callback(null, true); // Allow specific origins
         } else {
-            callback(new Error('CORS policy: Not allowed by CORS policy'), false); // Block
+            callback(new Error('CORS policy: Not allowed by CORS policy'), false);
         }
     },
     methods: ['GET', 'POST'],
     allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true, // This allows cookies and authentication data to be sent
-    preflightContinue: false, // Ensure preflight (OPTIONS) requests are handled
-    optionsSuccessStatus: 204, // Use 204 for OPTIONS requests (preflight)
+    credentials: true,
+    preflightContinue: false,
+    optionsSuccessStatus: 204,
 };
 
-// Apply CORS middleware globally
 app.use(cors(corsOptions));
-
-// Handle OPTIONS preflight requests explicitly
 app.options('*', cors(corsOptions));
 
 app.get("/api/get-cloudinary-media", async(req, res) => {
     try {
         let { folders, folder, limit } = req.query;
 
-        // Support both 'folders' (comma-separated) and 'folder' (single)
+        // Use 'folder' if 'folders' is not provided
         if (!folders && folder) {
             folders = folder;
         }
@@ -51,11 +46,8 @@ app.get("/api/get-cloudinary-media", async(req, res) => {
             return res.status(400).json({ error: "Folders parameter is required" });
         }
 
-        console.log(`Fetching media for folders: ${folders}`);
-
-        // Split folder names by commas and trim any spaces
         const folderList = folders.split(',').map(f => f.trim());
-        const maxResults = limit ? parseInt(limit, 10) : 1000;
+        const maxResults = limit ? parseInt(limit, 10) : 500;
 
         let mediaFiles = [];
 
@@ -63,34 +55,39 @@ app.get("/api/get-cloudinary-media", async(req, res) => {
         for (const folder of folderList) {
             console.log(`Requesting Cloudinary media from folder: ${folder}`);
 
-            // Fetch media items from Cloudinary for the given folder
             const result = await cloudinary.api.resources({
                 type: "upload",
-                prefix: `IMG/${folder}/`, // Adjusting the prefix based on folder name
+                prefix: `IMG/${folder}/`,
                 max_results: maxResults,
             });
 
             if (result.resources && result.resources.length > 0) {
-                // Add the folder name to each media item in the result
+                // Map Cloudinary media to the required format
                 const folderMedia = result.resources.map((file) => ({
                     type: file.resource_type,
                     src: cloudinary.url(file.public_id, { quality: 'auto', secure: true }),
                     alt: file.public_id,
-                    folder: folder, // Include the folder name here
+                    folder: folder,
                 }));
-
-                // Concatenate the folder media with the existing media array
                 mediaFiles = [...mediaFiles, ...folderMedia];
             } else {
+                // If no media found, add an empty array for the folder
                 console.log(`No media found for folder: ${folder}`);
+                mediaFiles.push({
+                    folder: folder,
+                    media: [] // Empty array for folders with no media
+                });
             }
         }
 
-        // Respond with the media files (including the folder name)
-        res.json(mediaFiles);
+        res.json(mediaFiles); // Respond with the media files for all folders
     } catch (error) {
         console.error("Error fetching Cloudinary media:", error);
-        res.status(500).json({ error: "Failed to fetch media", details: error.message });
+        res.status(500).json({
+            error: "Failed to fetch media",
+            details: error.message,
+            stack: error.stack, // Include stack trace in dev for debugging
+        });
     }
 });
 
