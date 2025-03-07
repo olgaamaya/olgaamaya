@@ -819,6 +819,10 @@ figcaption.project-info-index {
 
 /* Medium Screen (Max Width: 1000px) */
 
+footer {
+    flex-wrap: nowrap;
+}
+
 @media screen and (max-width: 1000px) {
     #nav-ul {
         display: none;
@@ -860,9 +864,6 @@ figcaption.project-info-index {
     #social_elements2 {
         display: none;
     }
-    footer {
-        flex-wrap: nowrap;
-    }
     .copyright {
         margin-left: auto;
     }
@@ -880,10 +881,6 @@ figcaption.project-info-index {
 /* Small Screen (Max Width: 640px) */
 
 @media (max-width: 640px) {
-    footer {
-        flex-wrap: wrap;
-        flex-direction: column;
-    }
     .instagram {
         margin-left: 0;
         padding-bottom: .5rem;
