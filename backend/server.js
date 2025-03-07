@@ -13,16 +13,9 @@ cloudinary.config({
 
 const app = express();
 
-// CORS Configuration
+// CORS Configuration (Allow all origins)
 const corsOptions = {
-    origin: function(origin, callback) {
-        console.log('Request Origin:', origin); // Debugging origin
-        if (!origin || origin === 'https://olgaamaya.com' || origin === 'http://localhost:3000') {
-            callback(null, true); // Allow specific origins
-        } else {
-            callback(new Error('CORS policy: Not allowed by CORS policy'), false);
-        }
-    },
+    origin: '*', // This will allow all origins without restriction
     methods: ['GET', 'POST'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
