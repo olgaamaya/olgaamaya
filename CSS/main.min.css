@@ -819,10 +819,6 @@ figcaption.project-info-index {
 
 /* Medium Screen (Max Width: 1000px) */
 
-footer {
-    flex-wrap: nowrap;
-}
-
 @media screen and (max-width: 1000px) {
     #nav-ul {
         display: none;
@@ -864,6 +860,9 @@ footer {
     #social_elements2 {
         display: none;
     }
+    footer {
+        flex-wrap: nowrap;
+    }
     .copyright {
         margin-left: auto;
     }
@@ -881,6 +880,10 @@ footer {
 /* Small Screen (Max Width: 640px) */
 
 @media (max-width: 640px) {
+    footer {
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
     .instagram {
         margin-left: 0;
         padding-bottom: .5rem;
@@ -1079,6 +1082,3 @@ footer {
     position: relative;
     top: calc(15.15dvh - 5rem);
 }
-
-
-/* Disable hover effects for small screens */

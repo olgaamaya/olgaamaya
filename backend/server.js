@@ -13,6 +13,7 @@ cloudinary.config({
 
 const app = express();
 
+// CORS Configuration
 const corsOptions = {
     origin: function(origin, callback) {
         console.log('Request Origin:', origin); // Debugging origin
@@ -29,6 +30,7 @@ const corsOptions = {
     optionsSuccessStatus: 204,
 };
 
+// Middleware for CORS
 app.use(cors(corsOptions));
 app.options('*', cors(corsOptions));
 
@@ -36,18 +38,18 @@ app.get("/api/get-cloudinary-media", async(req, res) => {
     try {
         let { folders, folder, limit } = req.query;
 
+        // Check if at least 'folder' or 'folders' is provided
+        if (!folders && !folder) {
+            return res.status(400).json({ error: "At least one of 'folders' or 'folder' is required" });
+        }
+
         // Use 'folder' if 'folders' is not provided
         if (!folders && folder) {
             folders = folder;
         }
 
-        if (!folders) {
-            console.error('Folders parameter is missing');
-            return res.status(400).json({ error: "Folders parameter is required" });
-        }
-
         const folderList = folders.split(',').map(f => f.trim());
-        const maxResults = limit ? parseInt(limit, 10) : 500;
+        const maxResults = limit && !isNaN(limit) ? parseInt(limit, 10) : 500;
 
         let mediaFiles = [];
 
@@ -55,11 +57,22 @@ app.get("/api/get-cloudinary-media", async(req, res) => {
         for (const folder of folderList) {
             console.log(`Requesting Cloudinary media from folder: ${folder}`);
 
-            const result = await cloudinary.api.resources({
+            let result = await cloudinary.api.resources({
                 type: "upload",
                 prefix: `IMG/${folder}/`,
                 max_results: maxResults,
             });
+
+            // Handle pagination for Cloudinary API results
+            while (result.next_cursor) {
+                const nextResult = await cloudinary.api.resources({
+                    type: "upload",
+                    prefix: `IMG/${folder}/`,
+                    max_results: maxResults,
+                    next_cursor: result.next_cursor,
+                });
+                result.resources.push(...nextResult.resources);
+            }
 
             if (result.resources && result.resources.length > 0) {
                 // Map Cloudinary media to the required format
@@ -85,8 +98,7 @@ app.get("/api/get-cloudinary-media", async(req, res) => {
         console.error("Error fetching Cloudinary media:", error);
         res.status(500).json({
             error: "Failed to fetch media",
-            details: error.message,
-            stack: error.stack, // Include stack trace in dev for debugging
+            details: error.message, // Omit stack in production
         });
     }
 });
