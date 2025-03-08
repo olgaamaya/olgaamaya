@@ -705,12 +705,35 @@ a.studiolist {
     flex-wrap: nowrap
 }
 
+@media screen and (min-width:1000px) {
+    .project-info-index:hover {
+        background-color: rgba(0, 0, 0, .85);
+        transition: all ease 0.5s
+    }
+    footer p.instagram a:hover,
+    footer p.privacy a:hover {
+        transform: translateY(-.4em);
+        transition: all 0.3s ease;
+        color: pink
+    }
+}
 
-/* General Styles */
+figure.project-index:hover {
+    transform: translateY(0)
+}
+
+figure.project-index:hover:before {
+    opacity: 1
+}
+
+figure.project-index:hover .project-info-index:hover {
+    opacity: 1;
+    transform: translateY(0)
+}
 
 figure.project-index {
     position: relative;
-    width: 100vw;
+    width: 100vw
 }
 
 figure.project-index:before {
@@ -722,7 +745,7 @@ figure.project-index:before {
     background: transparent;
     z-index: 2;
     transition: 0.3s;
-    opacity: 0;
+    opacity: 0
 }
 
 figcaption.project-info-index {
@@ -733,7 +756,9 @@ figcaption.project-info-index {
     height: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    align-content: center;
+    align-self: center;
+    justify-content: center
 }
 
 .project-index .project-info-index {
@@ -748,38 +773,127 @@ figcaption.project-info-index {
     flex-wrap: wrap;
     flex-direction: column;
     gap: 0;
-    text-align: center;
+    text-align: center
 }
 
 .project-info-index p {
     margin: 0;
-    letter-spacing: .1rem;
+    letter-spacing: .1rem
 }
 
+@media screen and (max-width:350px) {
+    .header-title a span {
+        font-size: .9rem;
+        letter-spacing: .5rem
+    }
+}
 
-/* Hover Effects */
+@media (max-width:1000px) {
+    #nav-ul {
+        display: none
+    }
+}
 
-@media screen and (min-width: 1000px) {
-    figure.project-index:hover {
-        transform: translateY(0);
+@media screen and (max-width:1000px) {
+    .holdingcontainer {
+        flex-direction: column
     }
-    figure.project-index:hover:before {
-        opacity: 1;
+}
+
+@media screen and (min-width:1000px) {
+    .layersmallview {
+        display: none
     }
-    figure.project-index:hover .project-info-index:hover {
-        opacity: 1;
-        transform: translateY(0);
+}
+
+@media screen and (max-width:1000px) {
+    .layersmallview {
+        display: ''
     }
-    .project-info-index:hover {
-        background-color: rgba(0, 0, 0, .85);
-        transition: all ease 0.5s;
+}
+
+@media screen and (min-width:1000px) {
+    .jobsub {
+        display: flex
     }
-    footer p.instagram a:hover,
-    footer p.privacy a:hover {
-        transform: translateY(-.4em);
-        transition: all 0.3s ease;
-        color: pink;
+}
+
+@media screen and (max-width:1000px) {
+    .jobsub {
+        display: none
     }
+}
+
+@media (max-width:640px) {
+    footer {
+        flex-wrap: wrap;
+        flex-direction: column
+    }
+    .instagram {
+        margin-left: 0;
+        padding-bottom: .5rem
+    }
+    .copyright {
+        margin-left: 0
+    }
+    .privacy {
+        margin-left: 0
+    }
+    #myBtn {
+        margin-left: auto;
+        margin-right: 6%
+    }
+    figure.project-index {
+        width: 100vw;
+        padding: 0
+    }
+    .social_elements {
+        margin: 0 0 1.5rem 0
+    }
+}
+
+@media (min-width:640px) {
+    figure.project-index {
+        height: auto;
+        position: relative
+    }
+}
+
+@media screen and (min-width:1000px) {
+    #social_elements2 {
+        display: flex
+    }
+}
+
+@media screen and (max-width:1000px) {
+    #social_elements2 {
+        display: none
+    }
+}
+
+@media (min-width:640px) {
+    footer {
+        flex-wrap: nowrap
+    }
+    .copyright {
+        margin-left: auto
+    }
+    #myBtn {
+        margin-left: 3.5%;
+        margin-right: 3.5%
+    }
+    .privacy {
+        margin-left: 3.5%;
+        margin-right: 3.5%
+    }
+}
+
+li.menu-item {
+    font-size: 1.2125rem;
+    letter-spacing: 0
+}
+
+@media (min-width:1000px) {
     .project-list-index {
         --num-cols: 3;
         align-self: center;
@@ -790,135 +904,13 @@ figcaption.project-info-index {
         display: grid;
         grid-template-columns: repeat(var(--num-cols), 1fr);
         grid-auto-rows: var(--row-height);
-        gap: var(--gap);
+        gap: var(--gap)
     }
     figure.project-index {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        margin: 0;
-    }
-    #social_elements2 {
-        display: flex;
-    }
-}
-
-
-/* Media Queries */
-
-
-/* Small Screen (Max Width: 350px) */
-
-@media screen and (max-width: 350px) {
-    .header-title a span {
-        font-size: .9rem;
-        letter-spacing: .5rem;
-    }
-}
-
-
-/* Medium Screen (Max Width: 1000px) */
-
-@media screen and (max-width: 1000px) {
-    #nav-ul {
-        display: none;
-    }
-    .holdingcontainer {
-        flex-direction: column;
-    }
-    .layersmallview {
-        display: '';
-    }
-    .jobsub {
-        display: none;
-    }
-    footer {
-        flex-wrap: wrap;
-        flex-direction: column;
-    }
-    .instagram {
-        margin-left: 0;
-        padding-bottom: .5rem;
-    }
-    .copyright {
-        margin-left: 0;
-    }
-    .privacy {
-        margin-left: 0;
-    }
-    #myBtn {
-        margin-left: auto;
-        margin-right: 6%;
-    }
-    figure.project-index {
-        width: 100vw;
-        padding: 0;
-    }
-    .social_elements {
-        margin: 0 0 1.5rem 0;
-    }
-    #social_elements2 {
-        display: none;
-    }
-    footer {
-        flex-wrap: nowrap;
-    }
-    .copyright {
-        margin-left: auto;
-    }
-    #myBtn {
-        margin-left: 3.5%;
-        margin-right: 3.5%;
-    }
-    .privacy {
-        margin-left: 3.5%;
-        margin-right: 3.5%;
-    }
-}
-
-
-/* Small Screen (Max Width: 640px) */
-
-@media (max-width: 640px) {
-    footer {
-        flex-wrap: wrap;
-        flex-direction: column;
-    }
-    .instagram {
-        margin-left: 0;
-        padding-bottom: .5rem;
-    }
-    .copyright {
-        margin-left: 0;
-    }
-    .privacy {
-        margin-left: 0;
-    }
-    #myBtn {
-        margin-left: auto;
-        margin-right: 6%;
-    }
-    figure.project-index {
-        width: 100vw;
-        padding: 0;
-    }
-    .social_elements {
-        margin: 0 0 1.5rem 0;
-    }
-}
-
-
-/* Large Screen (Min Width: 1000px) */
-
-@media (min-width: 1000px) {
-    .layersmallview {
-        display: none;
-    }
-    .jobsub {
-        display: flex;
-    }
-    #social_elements2 {
-        display: flex;
+        margin: 0
     }
 }
 
@@ -1082,3 +1074,6 @@ figcaption.project-info-index {
     position: relative;
     top: calc(15.15dvh - 5rem);
 }
+
+
+/* Disable hover effects for small screens */
