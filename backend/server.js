@@ -3,8 +3,10 @@ const cloudinary = require('cloudinary').v2;
 const cors = require('cors');
 const dotenv = require('dotenv');
 
+// Load environment variables from the .env file
 dotenv.config();
 
+// Configure Cloudinary with credentials from .env file
 cloudinary.config({
     cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
     api_key: process.env.CLOUDINARY_API_KEY,
@@ -13,7 +15,7 @@ cloudinary.config({
 
 const app = express();
 
-// CORS configuration to allow cross-origin requests from specific domain
+// CORS configuration to allow cross-origin requests from a specific domain
 const corsOptions = {
     origin: function(origin, callback) {
         // Log incoming origin for debugging purposes

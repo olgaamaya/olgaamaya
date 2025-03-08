@@ -1,1 +1,17 @@
+# Node.js dependencies
+node_modules/
+
+# Environment variables file
 .env
+
+# Logs
+logs/
+*.log
+
+# Cache files
+.cache/
+
+# Ignore helpers, backup, and example_xyz folders located in the root directory
+/helpers/
+/backup/
+/IMG/
