@@ -13,6 +13,7 @@ cloudinary.config({
 
 const app = express();
 
+// CORS configuration to allow cross-origin requests from specific domain
 const corsOptions = {
     origin: function(origin, callback) {
         // Log incoming origin for debugging purposes
@@ -37,6 +38,7 @@ app.use(cors(corsOptions));
 // Handle OPTIONS preflight requests explicitly
 app.options('*', cors(corsOptions));
 
+// Endpoint to fetch Cloudinary media with pagination support
 app.get("/api/get-cloudinary-media", async(req, res) => {
     try {
         let { folders, folder, limit } = req.query;
@@ -63,27 +65,40 @@ app.get("/api/get-cloudinary-media", async(req, res) => {
         for (const folder of folderList) {
             console.log(`Requesting Cloudinary media from folder: ${folder}`);
 
-            // Fetch media items from Cloudinary for the given folder
-            const result = await cloudinary.api.resources({
-                type: "upload",
-                prefix: `IMG/${folder}/`, // Adjusting the prefix based on folder name
-                max_results: maxResults,
-            });
+            // Initialize a variable to keep track of pagination
+            let nextCursor = null;
 
-            if (result.resources && result.resources.length > 0) {
-                // Add the folder name to each media item in the result
-                const folderMedia = result.resources.map((file) => ({
-                    type: file.resource_type,
-                    src: cloudinary.url(file.public_id, { quality: 'auto', secure: true }),
-                    alt: file.public_id,
-                    folder: folder, // Include the folder name here
-                }));
+            // Keep fetching media until no more pages are available
+            do {
+                const result = await cloudinary.api.resources({
+                    type: "upload",
+                    prefix: `IMG/${folder}/`, // Adjusting the prefix based on folder name
+                    max_results: maxResults,
+                    next_cursor: nextCursor // Use the next_cursor for pagination
+                });
 
-                // Concatenate the folder media with the existing media array
-                mediaFiles = [...mediaFiles, ...folderMedia];
-            } else {
-                console.log(`No media found for folder: ${folder}`);
-            }
+                if (result.resources && result.resources.length > 0) {
+                    // Add the folder name to each media item in the result
+                    const folderMedia = result.resources.map((file) => ({
+                        type: file.resource_type,
+                        src: cloudinary.url(file.public_id, { quality: 'auto', secure: true }),
+                        alt: file.public_id,
+                        folder: folder, // Include the folder name here
+                    }));
+
+                    // Concatenate the folder media with the existing media array
+                    mediaFiles = [...mediaFiles, ...folderMedia];
+                } else {
+                    console.log(`No media found for folder: ${folder}`);
+                }
+
+                // Check if there's another page of results
+                nextCursor = result.next_cursor;
+
+                // Log pagination details (optional, for debugging)
+                console.log("Next cursor:", nextCursor);
+
+            } while (nextCursor); // Keep fetching until no next_cursor is returned
         }
 
         // Respond with the media files (including the folder name)
