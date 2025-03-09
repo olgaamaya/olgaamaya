@@ -123,15 +123,10 @@ div.direction {
 #videoslide {
     top: 0;
     max-width: 90%;
-    align-content: center;
-    align-items: center;
-    align-self: center;
     justify-content: center;
     position: relative;
-    height: 100%;
     z-index: 2147483647;
-    /* margin-bottom: 2em; */
-    /* margin-top: 2em; */
+    display: flex;
 }
 
 .videoclass {
