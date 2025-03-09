@@ -68,7 +68,6 @@ app.get("/api/get-cloudinary-media", async(req, res) => {
                 type: "upload",
                 prefix: `IMG/${folder}/`, // Adjusting the prefix based on folder name
                 max_results: maxResults,
-                resource_type: 'auto', // This ensures both images and videos are fetched
             });
 
             if (result.resources && result.resources.length > 0) {
