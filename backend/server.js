@@ -37,6 +37,7 @@ app.use(cors(corsOptions));
 // Handle OPTIONS preflight requests explicitly
 app.options('*', cors(corsOptions));
 
+
 app.get("/api/get-cloudinary-media", async(req, res) => {
     try {
         let { folders, folder, limit } = req.query;
@@ -68,6 +69,7 @@ app.get("/api/get-cloudinary-media", async(req, res) => {
                 type: "upload",
                 prefix: `IMG/${folder}/`, // Adjusting the prefix based on folder name
                 max_results: maxResults,
+                resource_type: 'all', // Include all types: images, videos, raw files
             });
 
             if (result.resources && result.resources.length > 0) {
