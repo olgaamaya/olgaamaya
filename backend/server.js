@@ -110,7 +110,7 @@ const wakeUpServer = async() => {
 
     try {
         // Send a ping to the server to keep it awake
-        const response = await axios.get('https://new-vhym.onrender.com/ping');
+        const response = await axios.get('https://olgaamaya-y53u.onrender.com/ping');
         console.log('Ping sent to the server successfully.');
     } catch (error) {
         console.error('Error sending ping request:', error.message);
