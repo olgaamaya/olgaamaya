@@ -51,8 +51,6 @@ menu.addEventListener('click', () => {
     grandchildren.forEach((grandchild) => {
         if (grandchild.style.height === '4rem') {
             // Reset styles
-            grandchild.style.height = '';
-            grandchild.style.width = '';
             grandchild.style.display = '';
             grandchild.style.flexWrap = '';
             grandchild.style.justifyContent = '';
@@ -61,8 +59,6 @@ menu.addEventListener('click', () => {
             grandchild.style.margin = '';
         } else {
             // Apply new styles
-            grandchild.style.height = '4rem';
-            grandchild.style.width = '4rem';
             grandchild.style.display = 'flex';
             grandchild.style.flexWrap = 'wrap';
             grandchild.style.justifyContent = 'center';
