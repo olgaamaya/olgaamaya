@@ -37,6 +37,11 @@ app.use(cors(corsOptions));
 // Handle OPTIONS preflight requests explicitly
 app.options('*', cors(corsOptions));
 
+// Add a simple /ping route to respond with "Server is awake"
+app.get('/ping', (req, res) => {
+    res.status(200).send('Server is awake');
+});
+
 app.get("/api/get-cloudinary-media", async(req, res) => {
     try {
         let { folders, folder, limit } = req.query;
