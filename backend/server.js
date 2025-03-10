@@ -159,7 +159,7 @@ const sendUptimeRobotPing = async() => {
 
 // Send the first UptimeRobot ping right after 05:01 or when server starts
 sendFirstPingAfterFive();
-setInterval(sendUptimeRobotPing, 14 * 60 * 1000); // Ping every 15 minutes (you can adjust this interval)
+setInterval(sendUptimeRobotPing, 10 * 60 * 1000); // Ping every 15 minutes (you can adjust this interval)
 
 // Start the server on a specific port (from .env or default to 10000)
 const port = process.env.PORT || 10000;
