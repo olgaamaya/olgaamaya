@@ -59,35 +59,30 @@ app.get("/api/get-cloudinary-media", async(req, res) => {
 
         let mediaFiles = [];
 
-        const resourceTypes = ['image', 'video']; // Only fetching images and videos (no raw files)
-
         // Loop through each folder and fetch media items
         for (const folder of folderList) {
             console.log(`Requesting Cloudinary media from folder: ${folder}`);
 
-            // Fetch media for each resource type
-            for (const resourceType of resourceTypes) {
-                console.log(`Fetching ${resourceType} resources...`);
+            // Fetch media items from Cloudinary for the given folder
+            const result = await cloudinary.api.resources({
+                type: "upload",
+                prefix: `IMG/${folder}/`, // Adjusting the prefix based on folder name
+                max_results: maxResults,
+            });
 
-                const result = await cloudinary.api.resources({
-                    type: "upload",
-                    prefix: `IMG/${folder}/`, // Adjusting the prefix based on folder name
-                    max_results: maxResults,
-                    resource_type: resourceType, // Fetching only images and videos
-                });
+            if (result.resources && result.resources.length > 0) {
+                // Add the folder name to each media item in the result
+                const folderMedia = result.resources.map((file) => ({
+                    type: file.resource_type,
+                    src: cloudinary.url(file.public_id, { quality: 'auto', secure: true }),
+                    alt: file.public_id,
+                    folder: folder, // Include the folder name here
+                }));
 
-                if (result.resources && result.resources.length > 0) {
-                    const folderMedia = result.resources.map((file) => ({
-                        type: file.resource_type,
-                        src: cloudinary.url(file.public_id, { quality: 'auto', secure: true }),
-                        alt: file.public_id,
-                        folder: folder, // Include the folder name here
-                    }));
-
-                    mediaFiles = [...mediaFiles, ...folderMedia];
-                } else {
-                    console.log(`No ${resourceType} media found for folder: ${folder}`);
-                }
+                // Concatenate the folder media with the existing media array
+                mediaFiles = [...mediaFiles, ...folderMedia];
+            } else {
+                console.log(`No media found for folder: ${folder}`);
             }
         }
 
