@@ -106,11 +106,11 @@ const sendUptimeRobotPing = async() => {
     try {
         console.log('Sending UptimeRobot Ping with payload:', {
             api_key: process.env.UPTIMEROBOT_API_KEY,
-            monitor_identifier: process.env.UPTIMEROBOT_MONITOR_ID
+            monitors: process.env.UPTIMEROBOT_MONITOR_ID
         });
 
         // UptimeRobot API URL to send the ping to your monitor
-        const pingApiUrl = 'https://api.uptimerobot.com/v2/getMonitors';
+        const pingApiUrl = 'https://api.uptimerobot.com/v2/push';
 
         // Send a POST request with your API key and monitor identifier
         const response = await axios.post(pingApiUrl, {
