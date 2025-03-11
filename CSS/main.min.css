@@ -389,7 +389,7 @@ address div p a {
     /* margin-top: 1.5rem; */
     position: absolute;
     width: 100%;
-    top: 33.3dvh;
+    top: 43.3dvh;
     height: 33.3vh;
 }
 
@@ -427,7 +427,11 @@ address div p a {
     /* width: 55%; */
     /* margin-top: 35dvh; */
     /* margin-bottom: 50dvh; */
-    margin-bottom: 5dvh;
+    /* margin-bottom: 5dvh; */
+    bottom: top;
+    position: absolute;
+    top: 10dvh;
+    height: 33.33dvh;
 }
 
 #address.show li a {
@@ -1061,18 +1065,22 @@ li.menu-item {
 }
 
 #social_elements2.show {
-    height: 10rem;
-    width: 10rem;
+    height: 2rem;
+    width: 100%;
+    /* display: flex; */
+    /* right: 0; */
     display: flex;
-    right: 0;
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    bottom: 0;
-    left: calc(50% - 5rem);
+    /* align-items: center; */
+    flex-wrap: nowrap;
+    /* bottom: 0; */
+    /* left: calc(50% - 5rem); */
     justify-content: center;
-    position: relative;
-    top: calc(15.15dvh - 5rem);
+    /* position: relative; */
+    /* top: calc(15.15dvh - 5rem); */
+    left: 0;
+    right: 0;
+    position: absolute;
+    top: 90dvh;
 }
 
 
