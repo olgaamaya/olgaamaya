@@ -176,8 +176,10 @@ nav .menu {
     color: var(--randomcolor2)
 }
 
-#mailback:hover {
-    color: var(--randomcolor)
+@media screen and (min-width: 1000px) {
+    #mailback:hover {
+        color: var(--randomcolor)
+    }
 }
 
 .header-title a {
@@ -244,8 +246,10 @@ li.menu-item a {
     margin-right: 1.25rem;
 }
 
-li.menu-item a:hover {
-    color: var(--randomcolor2)
+@media screen and (min-width: 1000px) {
+    li.menu-item a:hover {
+        color: var(--randomcolor2)
+    }
 }
 
 nav.menu ul {
@@ -401,18 +405,22 @@ address div p a {
     z-index: 101
 }
 
-#nav-ul.show li.activePage a:hover {
-    color: var(--firstcolor);
-    z-index: 102
+@media screen and (min-width: 1000px) {
+    #nav-ul.show li.activePage a:hover {
+        color: var(--firstcolor);
+        z-index: 102
+    }
 }
 
 #nav-ul.show li.menu-item a {
     color: #000
 }
 
-#nav-ul.show li.menu-item a:hover,
-#address.show li.menu-item a:hover {
-    color: var(--firstcolor)
+@media screen and (min-width: 1000px) {
+    #nav-ul.show li.menu-item a:hover,
+    #address.show li.menu-item a:hover {
+        color: var(--firstcolor)
+    }
 }
 
 #address.show {
@@ -474,9 +482,11 @@ main ul li {
     list-style-type: none
 }
 
-main ul li:hover {
-    list-style-type: circle;
-    text-decoration-color: var(--firstcolor)
+@media screen and (min-width: 1000px) {
+    main ul li:hover {
+        list-style-type: circle;
+        text-decoration-color: var(--firstcolor)
+    }
 }
 
 .footer-wrapper {
@@ -726,17 +736,17 @@ a.studiolist {
     }
 }
 
-figure.project-index:hover {
-    transform: translateY(0)
-}
-
-figure.project-index:hover:before {
-    opacity: 1
-}
-
-figure.project-index:hover .project-info-index:hover {
-    opacity: 1;
-    transform: translateY(0)
+@media screen and (min-width: 1000px) {
+    figure.project-index:hover {
+        transform: translateY(0)
+    }
+    figure.project-index:hover:before {
+        opacity: 1
+    }
+    figure.project-index:hover .project-info-index:hover {
+        opacity: 1;
+        transform: translateY(0)
+    }
 }
 
 figure.project-index {
@@ -941,10 +951,12 @@ li.menu-item {
     border: 3px solid #000
 }
 
-*::-webkit-scrollbar-thumb:hover {
-    background-color: var(--secondcolor);
-    border-radius: 20px;
-    border: 3px solid var(--secondcolor)
+@media screen and (min-width: 1000px) {
+    *::-webkit-scrollbar-thumb:hover {
+        background-color: var(--secondcolor);
+        border-radius: 20px;
+        border: 3px solid var(--secondcolor)
+    }
 }
 
 .link-to-project {
@@ -1036,23 +1048,14 @@ li.menu-item {
     /* top: 2rem; */
 }
 
-.social-svg_0:hover,
-.social-svg_1:hover,
-.social-svg_2:hover,
-.social-svg_3:hover,
-.social-svg_4:hover {
-    filter: invert(55%) sepia(20%) saturate(1799%) hue-rotate(299deg) brightness(205%) contrast(100%);
-    transform: translateY(-3px);
-}
-
-@media (max-width: 999px) {
+@media screen and (min-width: 1000px) {
     .social-svg_0:hover,
     .social-svg_1:hover,
     .social-svg_2:hover,
     .social-svg_3:hover,
     .social-svg_4:hover {
-        filter: none;
-        transform: none;
+        filter: invert(55%) sepia(20%) saturate(1799%) hue-rotate(299deg) brightness(205%) contrast(100%);
+        transform: translateY(-3px);
     }
 }
 
