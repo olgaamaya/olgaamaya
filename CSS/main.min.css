@@ -240,7 +240,8 @@ li.menu-item a {
     text-decoration: none;
     list-style-type: none;
     white-space: nowrap;
-    margin-left: 1.5rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
 }
 
 li.menu-item a:hover {
@@ -1081,6 +1082,10 @@ li.menu-item {
     right: 0;
     position: absolute;
     top: 90dvh;
+}
+
+.infoolga {
+    font-family: VG5000, Arial, Helvetica, sans-serif;
 }
 
 
