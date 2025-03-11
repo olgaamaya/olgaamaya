@@ -71,7 +71,8 @@ p4,
 p5,
 p6,
 a.projecttitellink {
-    font-family: VG5000, Arial, sans-serif
+    font-family: VG5000, Arial, sans-serif;
+    /* font-family: futura bt; */
 }
 
 body#bodyid.bodyclass.show {
@@ -240,11 +241,8 @@ li.menu-item a {
     text-decoration: none;
     list-style-type: none;
     white-space: nowrap;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    width: auto;
-    /* left: 0; */
-    /* position: absolute; */
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
 }
 
 li.menu-item a:hover {
@@ -393,8 +391,10 @@ address div p a {
     /* margin-top: 1.5rem; */
     position: absolute;
     width: 100%;
-    top: 5dvh;
+    top: 10dvh;
     height: 33.3vh;
+    text-family: inherit;
+    font-family: Helvetica, sans-serif;
 }
 
 #nav-ul.show li.activePage a {
@@ -434,7 +434,7 @@ address div p a {
     /* margin-bottom: 5dvh; */
     bottom: top;
     position: absolute;
-    top: 42.5dvh;
+    top: 45dvh;
     height: 33.33dvh;
 }
 
@@ -560,6 +560,7 @@ footer p a {
         display: flex;
         padding: 2rem;
         width: 100%;
+        font-family: Helvetica, sans-serif;
     }
     .less,
     .lesscontact {
@@ -1069,7 +1070,7 @@ li.menu-item {
 }
 
 #social_elements2.show {
-    height: 3rem;
+    height: 2rem;
     width: 100%;
     /* display: flex; */
     /* right: 0; */
@@ -1084,19 +1085,11 @@ li.menu-item {
     left: 0;
     right: 0;
     position: absolute;
-    top: 80dvh;
+    top: 85dvh;
 }
 
 .infoolga {
     font-family: VG5000, Arial, Helvetica, sans-serif;
-    /* width: 100%; */
-    /* left: 0; */
-    /* position: absolute; */
-    /* min-width: 100dvw; */
-    /* left: 0; */
-    /* justify-content: center; */
-    /* align-items: center; */
-    /* align-self: center; */
 }
 
 
