@@ -3,7 +3,6 @@ const cloudinary = require('cloudinary').v2;
 const cors = require('cors');
 const dotenv = require('dotenv');
 const axios = require('axios');
-const moment = require('moment-timezone');
 
 // Load environment variables from the .env file
 dotenv.config();
@@ -20,15 +19,10 @@ const app = express();
 // CORS configuration to allow only requests from specific domain (e.g., olgaamaya.com)
 const corsOptions = {
     origin: function(origin, callback) {
-        if (origin === undefined) {
-            // Log the ping request with a special message
-            console.log('Ping request received with undefined origin');
-            callback(null, true); // Allow ping requests with no origin
-        } else if (origin === 'https://olgaamaya.com') {
-            console.log('Request Origin:', origin);
-            callback(null, true); // Allow requests from your domain
+        console.log('Request Origin:', origin);
+        if (!origin || origin === 'https://olgaamaya.com') {
+            callback(null, true);
         } else {
-            console.log('Blocked request with origin:', origin);
             callback(new Error('CORS policy: Not allowed by CORS policy'), false);
         }
     },
@@ -103,16 +97,8 @@ app.get("/api/get-cloudinary-media", async(req, res) => {
     }
 });
 
-// Function to ping the server to keep it awake, avoiding pinging between 01:00 - 05:00
+// Function to ping the server to keep it awake, no time check, just ping every 5 minutes
 const wakeUpServer = async() => {
-    const currentTimeInMadrid = moment.tz("Europe/Madrid");
-
-    // Check if it's between 01:00 and 05:00, and skip the ping request
-    if (currentTimeInMadrid.hour() >= 1 && currentTimeInMadrid.hour() < 5) {
-        console.log('It is night time (01:00 - 05:00), skipping the ping request.');
-        return;
-    }
-
     try {
         // Send a ping to the server to keep it awake
         const response = await axios.get('https://olgaamaya-y53u.onrender.com/ping');
@@ -122,37 +108,20 @@ const wakeUpServer = async() => {
     }
 };
 
-// Function to handle the first ping after 05:00 (05:01 or after)
-const sendFirstPingAfterFive = async() => {
-    const currentTimeInMadrid = moment.tz("Europe/Madrid");
-
-    // If the time is after 05:00 and the server was likely sleeping, send a first ping after 5
-    if (currentTimeInMadrid.hour() === 5 && currentTimeInMadrid.minute() >= 1) {
-        console.log('It is 05:01 or later. Sending first wake-up ping after 5:00.');
-        await wakeUpServer();
-    }
-};
-
-// First ping right after 05:01 (not exactly at 05:00, but just after)
-sendFirstPingAfterFive();
-
-// Ping the server every 15 minutes (900,000 ms) unless it's between 01:00 - 05:00
-setInterval(wakeUpServer, 15 * 60 * 1000); // Every 15 minutes
+// Ping the server every 5 minutes (300,000 ms) day and night
+setInterval(wakeUpServer, 5 * 60 * 1000); // Every 5 minutes
 
 // UptimeRobot API Ping Logic
 const sendUptimeRobotPing = async() => {
     try {
-        const payload = {
-            api_key: process.env.UPTIME_API_KEY, // API Key for UptimeRobot
-            monitor_identifier: process.env.UPTIME_MONITOR_ID // Monitor ID from UptimeRobot
-        };
-
-        console.log("Sending UptimeRobot Ping with payload:", payload); // Log the payload
-
         // UptimeRobot API URL to send the ping to your monitor
         const pingApiUrl = `https://api.uptimerobot.com/v2/push`;
 
-        const response = await axios.post(pingApiUrl, payload, {
+        // Send a POST request with your API key and monitor identifier
+        const response = await axios.post(pingApiUrl, {
+            api_key: process.env.UPTIME_API_KEY, // API Key for UptimeRobot
+            monitor_identifier: process.env.UPTIME_MONITOR_ID // Monitor ID from UptimeRobot
+        }, {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${process.env.UPTIME_API_KEY}` // Use API key in header
@@ -162,17 +131,11 @@ const sendUptimeRobotPing = async() => {
         console.log('UptimeRobot ping sent successfully:', response.data);
     } catch (error) {
         console.error('Error sending UptimeRobot ping:', error.message);
-        if (error.response) {
-            // If the error response is available, log the response for further debugging
-            console.error('Response from UptimeRobot:', error.response.data);
-        }
     }
 };
 
-
-// Send the first UptimeRobot ping right after 05:01 or when server starts
-sendFirstPingAfterFive();
-setInterval(sendUptimeRobotPing, 10 * 60 * 1000); // Ping every 15 minutes (you can adjust this interval)
+// Ping UptimeRobot every 10 minutes
+setInterval(sendUptimeRobotPing, 10 * 60 * 1000); // Ping every 10 minutes
 
 // Start the server on a specific port (from .env or default to 10000)
 const port = process.env.PORT || 10000;
