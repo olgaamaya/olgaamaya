@@ -97,45 +97,36 @@ app.get("/api/get-cloudinary-media", async(req, res) => {
     }
 });
 
-// Function to ping the server to keep it awake, no time check, just ping every 5 minutes
-const wakeUpServer = async() => {
-    try {
-        // Send a ping to the server to keep it awake
-        const response = await axios.get('https://olgaamaya-y53u.onrender.com/ping');
-        console.log('Ping sent to the server successfully.');
-    } catch (error) {
-        console.error('Error sending ping request:', error.message);
-    }
-};
-
-// Ping the server every 5 minutes (300,000 ms) day and night
-setInterval(wakeUpServer, 5 * 60 * 1000); // Every 5 minutes
-
 // UptimeRobot API Ping Logic
 const sendUptimeRobotPing = async() => {
     try {
+        console.log('Sending UptimeRobot Ping with payload:', {
+            api_key: process.env.UPTIME_API_KEY,
+            monitor_identifier: process.env.UPTIME_MONITOR_ID
+        });
+
         // UptimeRobot API URL to send the ping to your monitor
-        const pingApiUrl = `https://api.uptimerobot.com/v2/push`;
+        const pingApiUrl = 'https://api.uptimerobot.com/v2/getMonitors';
 
         // Send a POST request with your API key and monitor identifier
         const response = await axios.post(pingApiUrl, {
-            api_key: process.env.UPTIME_API_KEY, // API Key for UptimeRobot
-            monitor_identifier: process.env.UPTIME_MONITOR_ID // Monitor ID from UptimeRobot
+            api_key: process.env.UPTIME_API_KEY, // Uptime API Key
         }, {
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${process.env.UPTIME_API_KEY}` // Use API key in header
+                'Authorization': `Bearer ${process.env.UPTIME_API_KEY}`, // Use API key in header
             }
         });
 
-        console.log('UptimeRobot ping sent successfully:', response.data);
+        console.log('UptimeRobot monitor info:', response.data);
     } catch (error) {
         console.error('Error sending UptimeRobot ping:', error.message);
+        console.error('Response from UptimeRobot:', error.response ? error.response.data : 'No response data');
     }
 };
 
-// Ping UptimeRobot every 10 minutes
-setInterval(sendUptimeRobotPing, 10 * 60 * 1000); // Ping every 10 minutes
+// Ping the UptimeRobot monitor every 5 minutes
+setInterval(sendUptimeRobotPing, 5 * 60 * 1000); // Every 5 minutes (24/7)
 
 // Start the server on a specific port (from .env or default to 10000)
 const port = process.env.PORT || 10000;
