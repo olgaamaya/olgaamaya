@@ -20,10 +20,15 @@ const app = express();
 // CORS configuration to allow only requests from specific domain (e.g., olgaamaya.com)
 const corsOptions = {
     origin: function(origin, callback) {
-        console.log('Request Origin:', origin);
-        if (!origin || origin === 'https://olgaamaya.com') {
-            callback(null, true);
+        if (origin === undefined) {
+            // Log the ping request with a special message
+            console.log('Ping request received with undefined origin');
+            callback(null, true); // Allow ping requests with no origin
+        } else if (origin === 'https://olgaamaya.com') {
+            console.log('Request Origin:', origin);
+            callback(null, true); // Allow requests from your domain
         } else {
+            console.log('Blocked request with origin:', origin);
             callback(new Error('CORS policy: Not allowed by CORS policy'), false);
         }
     },
