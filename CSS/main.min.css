@@ -144,7 +144,6 @@ p.menupoint {
 }
 
 .menu-toggle {
-    display: none;
     position: absolute;
     text-indent: -100rem;
     padding-top: 1em;
