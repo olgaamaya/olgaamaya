@@ -241,8 +241,8 @@ li.menu-item a {
     text-decoration: none;
     list-style-type: none;
     white-space: nowrap;
-    margin-left: 1.5rem;
-    margin-right: 1.5rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
 }
 
 li.menu-item a:hover {
