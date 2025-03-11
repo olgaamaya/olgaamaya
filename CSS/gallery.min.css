@@ -137,6 +137,10 @@ div.direction {
     max-width: 95% !important
 }
 
+.video {
+    display: none;
+}
+
 #layer {
     position: absolute;
     width: 100%;
