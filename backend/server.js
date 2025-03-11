@@ -142,14 +142,17 @@ setInterval(wakeUpServer, 15 * 60 * 1000); // Every 15 minutes
 // UptimeRobot API Ping Logic
 const sendUptimeRobotPing = async() => {
     try {
+        const payload = {
+            api_key: process.env.UPTIME_API_KEY, // API Key for UptimeRobot
+            monitor_identifier: process.env.UPTIME_MONITOR_ID // Monitor ID from UptimeRobot
+        };
+
+        console.log("Sending UptimeRobot Ping with payload:", payload); // Log the payload
+
         // UptimeRobot API URL to send the ping to your monitor
         const pingApiUrl = `https://api.uptimerobot.com/v2/push`;
 
-        // Send a POST request with your API key and monitor identifier
-        const response = await axios.post(pingApiUrl, {
-            api_key: process.env.UPTIME_API_KEY, // API Key for UptimeRobot
-            monitor_identifier: process.env.UPTIME_MONITOR_ID // Monitor ID from UptimeRobot
-        }, {
+        const response = await axios.post(pingApiUrl, payload, {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${process.env.UPTIME_API_KEY}` // Use API key in header
@@ -159,8 +162,13 @@ const sendUptimeRobotPing = async() => {
         console.log('UptimeRobot ping sent successfully:', response.data);
     } catch (error) {
         console.error('Error sending UptimeRobot ping:', error.message);
+        if (error.response) {
+            // If the error response is available, log the response for further debugging
+            console.error('Response from UptimeRobot:', error.response.data);
+        }
     }
 };
+
 
 // Send the first UptimeRobot ping right after 05:01 or when server starts
 sendFirstPingAfterFive();
