@@ -99,10 +99,14 @@ app.get("/api/get-cloudinary-media", async(req, res) => {
 
 // UptimeRobot API Ping Logic
 const sendUptimeRobotPing = async() => {
+    // Log environment variables to check if they are loaded correctly
+    console.log('Uptime API Key:', process.env.UPTIMEROBOT_API_KEY);
+    console.log('Uptime Monitor ID:', process.env.UPTIMEROBOT_MONITOR_ID);
+
     try {
         console.log('Sending UptimeRobot Ping with payload:', {
-            api_key: process.env.UPTIME_API_KEY,
-            monitor_identifier: process.env.UPTIME_MONITOR_ID
+            api_key: process.env.UPTIMEROBOT_API_KEY,
+            monitor_identifier: process.env.UPTIMEROBOT_MONITOR_ID
         });
 
         // UptimeRobot API URL to send the ping to your monitor
@@ -110,11 +114,12 @@ const sendUptimeRobotPing = async() => {
 
         // Send a POST request with your API key and monitor identifier
         const response = await axios.post(pingApiUrl, {
-            api_key: process.env.UPTIME_API_KEY, // Uptime API Key
+            api_key: process.env.UPTIMEROBOT_API_KEY, // Uptime API Key
+            monitors: process.env.UPTIMEROBOT_MONITOR_ID // Monitor ID
         }, {
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${process.env.UPTIME_API_KEY}`, // Use API key in header
+                'Authorization': `Bearer ${process.env.UPTIMEROBOT_API_KEY}`, // Use API key in header
             }
         });
 
