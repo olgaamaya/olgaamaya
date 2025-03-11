@@ -242,6 +242,9 @@ li.menu-item a {
     white-space: nowrap;
     margin-left: 1rem;
     margin-right: 1rem;
+    width: auto;
+    /* left: 0; */
+    /* position: absolute; */
 }
 
 li.menu-item a:hover {
@@ -390,7 +393,7 @@ address div p a {
     /* margin-top: 1.5rem; */
     position: absolute;
     width: 100%;
-    top: 43.3dvh;
+    top: 5dvh;
     height: 33.3vh;
 }
 
@@ -431,7 +434,7 @@ address div p a {
     /* margin-bottom: 5dvh; */
     bottom: top;
     position: absolute;
-    top: 10dvh;
+    top: 42.5dvh;
     height: 33.33dvh;
 }
 
@@ -1066,7 +1069,7 @@ li.menu-item {
 }
 
 #social_elements2.show {
-    height: 2rem;
+    height: 3rem;
     width: 100%;
     /* display: flex; */
     /* right: 0; */
@@ -1081,11 +1084,19 @@ li.menu-item {
     left: 0;
     right: 0;
     position: absolute;
-    top: 90dvh;
+    top: 80dvh;
 }
 
 .infoolga {
     font-family: VG5000, Arial, Helvetica, sans-serif;
+    /* width: 100%; */
+    /* left: 0; */
+    /* position: absolute; */
+    /* min-width: 100dvw; */
+    /* left: 0; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* align-self: center; */
 }
 
 
