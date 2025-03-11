@@ -116,6 +116,12 @@ p.webdesign {
     margin: 2rem;
 }
 
+@media screen and (max-width: 1000px) {
+    #social_elements {
+        display: none;
+    }
+}
+
 @media screen and (max-width: 750px) {
     #social_elements {
         margin: 2rem;
