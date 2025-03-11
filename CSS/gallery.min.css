@@ -138,7 +138,7 @@ div.direction {
 }
 
 .video {
-    display: none;
+    display: "";
 }
 
 #layer {
