@@ -42,6 +42,17 @@ menu.addEventListener('click', () => {
         logo.style.display = 'none'; // Hide it
     }
 
+    // Check if there is a hash in the URL and remove it
+    const currentHash = window.location.hash;
+
+    if (currentHash) {
+        // Remove any hash in the URL (i.e., anything after the #)
+        history.replaceState(null, null, window.location.pathname);
+    } else {
+        // If no hash is present, optionally add #menu or other hash if needed
+        history.replaceState(null, null, '#menu');
+    }
+
     // Select all grandchildren (child of child of child) of social_elements2
     const grandchildren = [...sociale2.children]
         .flatMap(child => [...child.children])
