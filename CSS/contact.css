@@ -194,6 +194,7 @@ p.aboutlist {
     .aboutcontainer {
         align-self: left;
         width: 65%;
+        padding-top: 5dvh;
     }
     .aboutcontainer_r {
         align-self: left;
