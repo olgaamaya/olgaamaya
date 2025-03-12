@@ -137,6 +137,13 @@ div.direction {
     max-width: 95% !important
 }
 
+@media screen and (max-width: 1000px) {
+    .videoclass {
+        height: 90dvw;
+        top: calc(50vh - 50vw);
+    }
+}
+
 .video {
     display: "";
 }
