@@ -1,0 +1,63 @@
+// Load environment variables from .env file
+require('dotenv').config();
+
+const cloudinary = require('cloudinary').v2;
+const fs = require('fs');
+const path = require('path');
+
+// Set up your Cloudinary credentials from .env
+cloudinary.config({
+    cloud_name: process.env.CLOUD_NAME, // Loaded from .env
+    api_key: process.env.API_KEY, // Loaded from .env
+    api_secret: process.env.API_SECRET // Loaded from .env
+});
+
+// The root directory from where to start reading files
+const rootDirectory = path.join(__dirname, 'videos'); // Assuming 'videos' is the folder with subfolders
+
+// Function to upload a video to Cloudinary
+const uploadVideo = async(filePath, cloudinaryFolder) => {
+    try {
+        const fileName = path.basename(filePath);
+        const cloudinaryPath = `${cloudinaryFolder}/${fileName}`;
+
+        console.log(`Uploading: ${filePath} to Cloudinary as ${cloudinaryPath}`);
+
+        const result = await cloudinary.uploader.upload(filePath, {
+            resource_type: 'video',
+            public_id: cloudinaryPath, // Keeps the same name as the file
+        });
+
+        console.log(`Successfully uploaded to Cloudinary: ${result.url}`);
+    } catch (error) {
+        console.error('Error uploading video:', error);
+    }
+};
+
+// Recursive function to go through subfolders and upload videos
+const uploadVideosFromDirectory = async(directory, cloudinaryFolder) => {
+    const files = fs.readdirSync(directory);
+
+    for (const file of files) {
+        const filePath = path.join(directory, file);
+        const stat = fs.statSync(filePath);
+
+        if (stat.isDirectory()) {
+            // If it's a subfolder, recursively go through it
+            const newCloudinaryFolder = path.join(cloudinaryFolder, file);
+            await uploadVideosFromDirectory(filePath, newCloudinaryFolder);
+        } else if (stat.isFile() && filePath.endsWith('.mp4')) {
+            // Only upload .mp4 videos (can add more video formats here)
+            await uploadVideo(filePath, cloudinaryFolder);
+        }
+    }
+};
+
+// Start uploading from the root directory
+uploadVideosFromDirectory(rootDirectory, '')
+    .then(() => {
+        console.log('Video upload complete!');
+    })
+    .catch((err) => {
+        console.error('Error during upload:', err);
+    });
