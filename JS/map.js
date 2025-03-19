@@ -294,7 +294,7 @@ const projectData = {
 };
 
 // Display the lightboxes to confirm randomization
-console.log(lightboxes);
+console.log(projectData);
 
 
 
