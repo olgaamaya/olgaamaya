@@ -1,28 +1,31 @@
+// Function to randomize case for each letter in a string, while preserving "mango", "MANGO", and "mangoteen"
+function randomizeCase(str) {
+    let result = '';
+
+    // Preserve "mango", "MANGO", and "mangoteen" as they are
+    str = str.replace(/\bmango\b|\bMANGO\b|\bmangoteen\b/g, (match) => {
+        return match; // Don't change the case of these words
+    });
+
+    // Now randomize the case for all other letters
+    for (let i = 0; i < str.length; i++) {
+        const char = str[i];
+        // Only change letters (ignore non-letters like <br>)
+        if (char.match(/[a-zA-Z]/)) {
+            result += Math.random() > 0.5 ? char.toUpperCase() : char.toLowerCase();
+        } else {
+            result += char; // If it's not a letter, keep it as is (like <br> tags)
+        }
+    }
+
+    return result;
+}
+
+// Define the projectData object with TITELINDEX values being processed by randomizeCase function
 const projectData = {
-
-    //check structure
-
-    //   Lightbox_(lightboxId): {
-
-    //     TITELINDEX: "Title that appears in index page",
-    //     ROLEINDEX: "what kind of work: art DIREDCTION/ fashion stylist",
-
-    //     TITEL: 'Titel Banner/ Banner2',
-    //     MODEL: 'Model Banner/ Banner2',
-    //     AGENCY: 'agency Banner/ Banner2',
-    //     MAKEUP: 'make up Banner/ Banner2',
-    //     PHOTOGRAPH_RETOUCH: ' photographer and retoucher Banner/ Banner2',
-    //     ROLE:    EXAMPLES:
-    //              Fashion Stylist Olga Lucia Amaya 
-    //              Costume designer Olga Lucia Amaya
-    //  	        Art Direction Olga Lucia Amaya
-    // },
-
     Lightbox_1: {
-
-        TITELINDEX: "sUmMeR pOstIsOlAtIoN/<br> fuckingyoung magazine",
-        ROLEINDEX: "art DIREDCTION/ fashion stylist",
-
+        TITELINDEX: randomizeCase("sUmMeR pOstIsOlAtIoN/<br> fuckingyoung magazine"),
+        ROLEINDEX: "art direction / fashion stylist",
         TITEL: 'sUmMeR pOstIsOlAtIoN  ',
         MODEL: 'Model Roland E  ',
         AGENCY: 'agency trend model ',
@@ -32,10 +35,8 @@ const projectData = {
     },
 
     Lightbox_2: {
-
-        TITELINDEX: "WinTeRBoY/<br> client magazine",
-        ROLEINDEX: "art direction/ fashion stylist",
-
+        TITELINDEX: randomizeCase("WinTeRBoY/<br> client magazine"),
+        ROLEINDEX: "art direction / fashion stylist",
         TITEL: 'WinTeRBoY  ',
         MODEL: 'Model Yonathan Exss ',
         AGENCY: 'agency 2M models ',
@@ -45,9 +46,8 @@ const projectData = {
     },
 
     Lightbox_3: {
-        TITELINDEX: "",
-        ROLEINDEX: "",
-
+        TITELINDEX: randomizeCase("ME dESamAsTE"),
+        ROLEINDEX: "Fashion Stylist",
         TITEL: 'ME dESamAsTE  ',
         ROLE: 'Fashion Stylist olga lucia amaya  ',
         MODEL: '',
@@ -57,8 +57,8 @@ const projectData = {
     },
 
     Lightbox_4: {
-        TITELINDEX: "",
-        ROLEINDEX: "",
+        TITELINDEX: randomizeCase("tE QuIEro UN pOCo"),
+        ROLEINDEX: "Costume Designer",
         TITEL: 'tE QuIEro UN pOCo  ',
         MODEL: '',
         AGENCY: 'Carlos Sadness / Directed by Lyona / Produced by Astrolabi Films / Sony Music Entertainment España, S.L. / Starring ida Domènech (Dulceida), Koko Ishizuka, Sophie Petterin, Irene Noren',
@@ -69,8 +69,8 @@ const projectData = {
     },
 
     Lightbox_5: {
-        TITELINDEX: "",
-        ROLEINDEX: "",
+        TITELINDEX: randomizeCase("sEUnGrI"),
+        ROLEINDEX: "Fashion Stylist",
         TITEL: 'sEUnGrI  ',
         MODEL: ' Model Seung ',
         AGENCY: ' agency two management ',
@@ -80,10 +80,10 @@ const projectData = {
     },
 
     Lightbox_6: {
-        TITELINDEX: "",
-        ROLEINDEX: "",
-        TITEL: ' mango  ',
-        MODEL: 'model matea brakus',
+        TITELINDEX: randomizeCase("matea brakus x MANGO"),
+        ROLEINDEX: "Fashion Stylist",
+        TITEL: 'matea brakus x mango',
+        MODEL: '',
         AGENCY: 'agency society management',
         MAKEUP: '',
         PHOTOGRAPH_RETOUCH: ' photographer alberto polo iañez ',
@@ -91,8 +91,8 @@ const projectData = {
     },
 
     Lightbox_7: {
-        TITELINDEX: "",
-        ROLEINDEX: "",
+        TITELINDEX: randomizeCase("Shadow/ Marc Salvador"),
+        ROLEINDEX: "Costume Designer",
         TITEL: 'Shadow/ Marc Salvador  ',
         ROLE: 'COSTUME DESIGNER olga lucia amaya ',
         MODEL: 'Starring Laia Manzanares  ',
@@ -103,8 +103,8 @@ const projectData = {
     },
 
     Lightbox_8: {
-        TITELINDEX: "",
-        ROLEINDEX: "",
+        TITELINDEX: randomizeCase("Adrenalina / Chica Sobresalto FEAT Zahara"),
+        ROLEINDEX: "Costume Designer",
         TITEL: 'Adrenalina / Chica Sobresalto FEAT Zahara ',
         MODEL: '',
         AGENCY: 'Directed by Lyona / Produced by Astrolabi Films / El Dromedario Records  ',
@@ -115,8 +115,8 @@ const projectData = {
     },
 
     Lightbox_9: {
-        TITELINDEX: "",
-        ROLEINDEX: "",
+        TITELINDEX: randomizeCase("Fusion de Nucleo / Chica Sobresalto"),
+        ROLEINDEX: "Costume Designer",
         TITEL: 'Fusion de Nucleo / Chica Sobresalto ',
         MODEL: '',
         AGENCY: 'Directed by Lyona / Produced by Astrolabi Films / El Dromedario Records ',
@@ -127,8 +127,8 @@ const projectData = {
     },
 
     Lightbox_10: {
-        TITELINDEX: "",
-        ROLEINDEX: "",
+        TITELINDEX: randomizeCase("What happens in PILMA stays in PILMA / Edició PRIDE!"),
+        ROLEINDEX: "Costume Designer",
         TITEL: 'What happens in PILMA stays in PILMA / Edició PRIDE! BCN 2019 ',
         ROLE: 'COSTUME DESIGNER  ',
         MODEL: '',
@@ -138,8 +138,8 @@ const projectData = {
     },
 
     Lightbox_11: {
-        TITELINDEX: "",
-        ROLEINDEX: "",
+        TITELINDEX: randomizeCase("Back To School <br> mangoteen"),
+        ROLEINDEX: "Fashion Stylist",
         TITEL: 'Back To School Teen x MANGO / mangoteen ',
         ROLE: 'Fashion Stylist olga lucia amaya  ',
         MODEL: '',
@@ -149,8 +149,8 @@ const projectData = {
     },
 
     Lightbox_12: {
-        TITELINDEX: "",
-        ROLEINDEX: "",
+        TITELINDEX: randomizeCase("NAGUISA"),
+        ROLEINDEX: "Fashion Stylist",
         TITEL: 'NAGUISA ',
         MODEL: 'Model Judit piñal  ',
         AGENCY: 'agency View mangement',
@@ -161,8 +161,8 @@ const projectData = {
     },
 
     Lightbox_13: {
-        TITELINDEX: "",
-        ROLEINDEX: "",
+        TITELINDEX: randomizeCase("Kids x Mango"),
+        ROLEINDEX: "Fashion Stylist",
         TITEL: 'Kids x Mango ',
         ROLE: 'Fashion Stylist olga lucia amaya  ',
         MODEL: '',
@@ -172,8 +172,8 @@ const projectData = {
     },
 
     Lightbox_14: {
-        TITELINDEX: "",
-        ROLEINDEX: "",
+        TITELINDEX: randomizeCase("Chiharu Okungi"),
+        ROLEINDEX: "Fashion Stylist",
         TITEL: 'Chiharu Okungi  ',
         MODEL: ' Model chiharu Okungi ',
         AGENCY: 'agency society management ',
@@ -183,8 +183,8 @@ const projectData = {
     },
 
     Lightbox_15: {
-        TITELINDEX: "",
-        ROLEINDEX: "",
+        TITELINDEX: randomizeCase("E-COMMERCE"),
+        ROLEINDEX: "Fashion Stylist",
         TITEL: 'E-COMMERCE / fashion stylist Olga lucia Amaya / E-COMMERCE / fashion stylist Olga lucia Amaya  ',
         MODEL: '',
         AGENCY: '',
@@ -194,8 +194,8 @@ const projectData = {
     },
 
     Lightbox_16: {
-        TITELINDEX: "",
-        ROLEINDEX: "",
+        TITELINDEX: randomizeCase("clara infante x MANGO home"),
+        ROLEINDEX: "Fashion Stylist",
         TITEL: 'clara infante x MANGO home / fashion stylist Olga lucia Amaya / clara infante x MANGO home / fashion stylist Olga lucia Amaya  ',
         MODEL: '',
         AGENCY: '',
@@ -205,8 +205,8 @@ const projectData = {
     },
 
     Lightbox_17: {
-        TITELINDEX: "",
-        ROLEINDEX: "",
+        TITELINDEX: randomizeCase("TEEN x MANGO / Mangoteen"),
+        ROLEINDEX: "Fashion Stylist",
         TITEL: 'TEEN x MANGO / Mangoteen / fashion stylist Olga lucia Amaya / TEEN x MANGOteen / fashion stylist Olga lucia Amaya  ',
         MODEL: '',
         AGENCY: '',
@@ -216,8 +216,8 @@ const projectData = {
     },
 
     Lightbox_18: {
-        TITELINDEX: "",
-        ROLEINDEX: "",
+        TITELINDEX: randomizeCase("cakemagazine / <br> mikaela oldenburg"),
+        ROLEINDEX: "Fashion Stylist",
         TITEL: 'cakemagazine ',
         MODEL: 'Model mikaela oldenburg ',
         AGENCY: 'agency two mangement  ',
@@ -227,8 +227,8 @@ const projectData = {
     },
 
     Lightbox_19: {
-        TITELINDEX: "",
-        ROLEINDEX: "",
+        TITELINDEX: randomizeCase("Vilet"),
+        ROLEINDEX: "Fashion Stylist",
         TITEL: 'Vilet  ',
         ROLE: 'Fashion Stylist olga lucia amaya  ',
         MODEL: '',
@@ -238,8 +238,8 @@ const projectData = {
     },
 
     Lightbox_20: {
-        TITELINDEX: "",
-        ROLEINDEX: "",
+        TITELINDEX: randomizeCase("PARISIAN FALL / TEEN x MANGO"),
+        ROLEINDEX: "Fashion Stylist",
         TITEL: ' PARISIAN FALL / TEEN x MANGO / Mangoteen / fashion stylist Olga lucia Amaya /  PARISIAN FALL / TEEN x MANGO / Mangoteen / fashion stylist Olga lucia Amaya  ',
         MODEL: '',
         AGENCY: '',
@@ -249,8 +249,8 @@ const projectData = {
     },
 
     Lightbox_21: {
-        TITELINDEX: "",
-        ROLEINDEX: "",
+        TITELINDEX: randomizeCase("julia brezgina "),
+        ROLEINDEX: "Fashion Stylist",
         TITEL: 'julia brezgina / fashion stylist Olga lucia Amaya / julia brezgina / fashion stylist Olga lucia Amaya  ',
         MODEL: '',
         AGENCY: '',
@@ -260,8 +260,8 @@ const projectData = {
     },
 
     Lightbox_22: {
-        TITELINDEX: "",
-        ROLEINDEX: "",
+        TITELINDEX: randomizeCase("AW24 RE-GEN <BR> CITY SHADES <BR>lightTHINKINGMU"),
+        ROLEINDEX: "Fashion Stylist",
         TITEL: 'AW24 RE-GEN CITY SHADES / thinkingmu ',
         ROLE: 'Fashion Stylist olga lucia amaya  ',
         MODEL: '',
@@ -271,8 +271,8 @@ const projectData = {
     },
 
     Lightbox_23: {
-        TITELINDEX: "",
-        ROLEINDEX: "",
+        TITELINDEX: randomizeCase("Maty Fall x MANGO"),
+        ROLEINDEX: "Fashion Stylist",
         TITEL: 'Maty Fall x MANGO  ',
         ROLE: 'Fashion Stylist olga lucia amaya  ',
         MODEL: '',
@@ -282,17 +282,21 @@ const projectData = {
     },
 
     Lightbox_24: {
-        TITELINDEX: "",
-        ROLEINDEX: "",
+        TITELINDEX: randomizeCase("Denim seams x @mangoteen"),
+        ROLEINDEX: "Fashion Stylist",
         TITEL: 'Denim seams x @mangoteen  ',
         ROLE: 'Fashion Stylist olga lucia amaya  ',
         MODEL: '',
         AGENCY: '',
         MAKEUP: '',
         PHOTOGRAPH_RETOUCH: ' '
-    },
-
+    }
 };
+
+// Display the lightboxes to confirm randomization
+console.log(lightboxes);
+
+
 
 // Function to Populate Lightboxes
 function populateLightboxes() {
