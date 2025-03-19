@@ -223,8 +223,7 @@ const projectData = {
     },
 
 };
-
-
+// Original Function to Populate Lightboxes
 function populateLightboxes() {
     if (window.innerWidth > 100) { // Check if the viewport width is greater than 100px
         for (let projectId in projectData) {
@@ -291,21 +290,71 @@ function populateLightboxes() {
     }
 }
 
-// Chunk array into smaller arrays of specific size (not needed for this version but kept for consistency)
-function chunkArray(array, size) {
-    const result = [];
-    for (let i = 0; i < array.length; i += size) {
-        result.push(array.slice(i, i + size));
-    }
-    return result;
+// New Function to Populate Figures with Lightbox Data
+function populateProjectInfo() {
+    const projectList = document.querySelector('.project-list-index');
+    const figures = projectList.querySelectorAll('.project-index'); // All figure elements
+
+    figures.forEach((figure) => {
+        const lightboxId = figure.querySelector('a').getAttribute('href');
+
+        if (lightboxId && lightboxId.startsWith("#lightbox")) {
+            const lightboxNumber = lightboxId.replace("#lightbox", "");
+            const project = projectData[`Lightbox_${lightboxNumber}`];
+
+            if (project) {
+                const figcaption = figure.querySelector('.project-info-index');
+                const existingBanner = figcaption.querySelector('.banner');
+                if (existingBanner) {
+                    return; // Skip if banner already exists
+                }
+
+                const credits = [];
+                for (let category in project) {
+                    if (project[category]) {
+                        credits.push(project[category]);
+                    }
+                }
+
+                const allCredits = credits.join(' / ');
+
+                const jobTitle = figcaption.querySelector('.jobtitle');
+                jobTitle.innerHTML = `${project.TITEL}<br>fuckingyoung magazine`;
+
+                const jobSub = figcaption.querySelector('.jobsub');
+                jobSub.innerHTML = 'art direction/ fashion stylist';
+
+                const banner = document.createElement('section');
+                banner.classList.add('banner');
+
+                const scrollDiv = document.createElement('div');
+                scrollDiv.classList.add('scroll');
+
+                let divWrapper = document.createElement('div');
+                const creditsSpan = document.createElement('span');
+                creditsSpan.textContent = allCredits;
+                divWrapper.appendChild(creditsSpan);
+
+                for (let i = 0; i < 2; i++) {
+                    const clonedDiv = divWrapper.cloneNode(true);
+                    scrollDiv.appendChild(clonedDiv);
+                }
+
+                banner.appendChild(scrollDiv);
+                figcaption.appendChild(banner);
+            }
+        }
+    });
 }
 
 // Initialize when the page loads
 window.onload = function() {
     populateLightboxes();
+    populateProjectInfo(); // Add this function call to populate the figure data
 };
 
 // Re-run the function if the window is resized (to handle changes in viewport size)
 window.onresize = function() {
     populateLightboxes();
+    populateProjectInfo(); // Re-run both functions on resize
 };
