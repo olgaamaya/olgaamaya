@@ -320,11 +320,11 @@ function populateProjectInfo() {
 
                 const allCredits = credits.join(' / ');
 
-                const jobTitle = figcaption.querySelector('.jobtitle');
-                jobTitle.innerHTML = `${project.TITEL}<br>fuckingyoung magazine`;
+                // const jobTitle = figcaption.querySelector('.jobtitle');
+                // jobTitle.innerHTML = `${project.TITEL}<br>fuckingyoung magazine`;
 
-                const jobSub = figcaption.querySelector('.jobsub');
-                jobSub.innerHTML = 'art direction/ fashion stylist';
+                // const jobSub = figcaption.querySelector('.jobsub');
+                // jobSub.innerHTML = 'art direction/ fashion stylist';
 
                 const banner = document.createElement('section');
                 banner.classList.add('banner');
