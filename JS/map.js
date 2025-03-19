@@ -1,105 +1,231 @@
-// THIS PART IS INDEX
+const projectData = {
 
-// Define media query to check screen width
-var sizer = window.matchMedia("(min-width: 950px)");
+    //check
+    Lightbox_1: {
+        TITEL: 'sUmMeR pOstIsOlAtIoN / ',
+        MODEL: 'Model Roland E / ',
+        AGENCY: 'agency trend model /',
+        MAKEUP: 'make up Andrea Trenado /',
+        PHOTOGRAPH_RETOUCH: ' photographer and retoucher mar docavo / ',
+        ROLE: 'Fashion Stylist Olga Lucia Amaya / '
+    },
+    //check
+    Lightbox_2: {
+        TITEL: 'WinTeRBoY / ',
+        MODEL: 'Model Yonathan Exss /',
+        AGENCY: 'agency 2M models /',
+        MAKEUP: 'make up Andrea Trenado /',
+        PHOTOGRAPH_RETOUCH: 'photographer and retoucher mar docavo /',
+        ROLE: 'Fashion Stylist olga lucia amaya / '
+    },
+    //check
+    Lightbox_3: {
+        TITEL: 'ME dESamAsTE / ',
+        ROLE: 'Fashion Stylist / ',
+        MODEL: '',
+        AGENCY: 'Directed by Lyona / Produced by Astrolabi Films / Sony Music Entertainment España, S.L. / Starring Claire Romain / 2020 /',
+        MAKEUP: '',
+        PHOTOGRAPH_RETOUCH: ' '
+    },
+    //check?
+    Lightbox_4: {
+        TITEL: 'Julia Brezgina / ',
+        ROLE: 'Fashion Stylist / ',
+        MODEL: '',
+        AGENCY: '',
+        MAKEUP: '',
+        PHOTOGRAPH_RETOUCH: ' '
+    },
+    Lightbox_5: {
+        TITEL: 'PARISIAN FALL/Teen x MANGO / ',
+        ROLE: 'Fashion Stylist / ',
+        MODEL: '',
+        AGENCY: '',
+        MAKEUP: '',
+        PHOTOGRAPH_RETOUCH: ' '
+    },
+    Lightbox_6: {
+        TITEL: 'Vilet / ',
+        ROLE: 'Fashion Stylist / ',
+        MODEL: '',
+        AGENCY: '',
+        MAKEUP: '',
+        PHOTOGRAPH_RETOUCH: ' '
+    },
+    //checked
+    Lightbox_4: {
+        TITEL: 'tE QuIEro UN pOCo / ',
+        MODEL: '',
+        AGENCY: 'Carlos Sadness / Directed by Lyona / Produced by Astrolabi Films / Sony Music Entertainment España, S.L. / Starring ida Domènech (Dulceida), Koko Ishizuka, Sophie Petterin, Irene Noren/',
+        MAKEUP: '',
+        PHOTOGRAPH_RETOUCH: ' ',
+        YEAR: '2018 / ',
+        ROLE: 'COSTUME DESIGNER olga lucia amaya / ',
+    },
 
-// Grab the element where mouse events will trigger style changes
-const titleeffect = document.getElementById("mouseTarget");
+    Lightbox_9: {
+        TITEL: 'Back To School Teen x MANGO / ',
+        ROLE: 'Fashion Stylist / ',
+        MODEL: '',
+        AGENCY: '',
+        MAKEUP: '',
+        PHOTOGRAPH_RETOUCH: ' '
+    },
+    Lightbox_10: {
+        TITEL: 'What happens in PILMA stays in PILMA / Edició PRIDE! BCN 2019 /',
+        ROLE: 'COSTUME DESIGNER / ',
+        MODEL: '',
+        AGENCY: 'Directed by Lyona / Produced by Astrolabi Films ',
+        MAKEUP: '',
+        PHOTOGRAPH_RETOUCH: ' '
+    },
+    Lightbox_12: {
+        TITEL: 'sEUnGrI / ',
+        ROLE: 'Fashion Stylist / ',
+        MODEL: '',
+        AGENCY: '',
+        MAKEUP: '',
+        PHOTOGRAPH_RETOUCH: ' '
+    },
+    Lightbox_13: {
+        TITEL: 'E-Commerce / ',
+        ROLE: 'Fashion Stylist / ',
+        MODEL: '',
+        AGENCY: '',
+        MAKEUP: '',
+        PHOTOGRAPH_RETOUCH: ' '
+    },
+    Lightbox_14: {
+        TITEL: 'ShAdOW / ',
+        ROLE: 'Fashion Stylist / ',
+        MODEL: '',
+        AGENCY: '',
+        MAKEUP: '',
+        PHOTOGRAPH_RETOUCH: ' '
+    },
+    Lightbox_15: {
+        TITEL: 'Chiharu Okungi x Mango / ',
+        ROLE: 'Fashion Stylist / ',
+        MODEL: '',
+        AGENCY: '',
+        MAKEUP: '',
+        PHOTOGRAPH_RETOUCH: ' '
+    },
+    Lightbox_16: {
+        TITEL: 'Fusión del Núcleo/Chica Sobresalto / ',
+        ROLE: 'Fashion Stylist / ',
+        MODEL: '',
+        AGENCY: '',
+        MAKEUP: '',
+        PHOTOGRAPH_RETOUCH: ' '
+    },
+    Lightbox_22: {
+        TITEL: 'AW24 RE-GEN CITY SHADES / ',
+        ROLE: 'Fashion Stylist / ',
+        MODEL: '',
+        AGENCY: '',
+        MAKEUP: '',
+        PHOTOGRAPH_RETOUCH: ' '
+    },
+    Lightbox_23: {
+        TITEL: 'Maty Fall x MANGO / ',
+        ROLE: 'Fashion Stylist / ',
+        MODEL: '',
+        AGENCY: '',
+        MAKEUP: '',
+        PHOTOGRAPH_RETOUCH: ' '
+    },
+    Lightbox_24: {
+        TITEL: 'Denim seams x @mangoteen / ',
+        ROLE: 'Fashion Stylist / ',
+        MODEL: '',
+        AGENCY: '',
+        MAKEUP: '',
+        PHOTOGRAPH_RETOUCH: ' '
+    }
+};
 
-// Get all elements with the class "figure.project-index"
-const collection = document.getElementsByClassName("figure.project-index");
+function populateLightboxes() {
+    if (window.innerWidth > 100) { // Check if the viewport width is greater than 100px
+        for (let projectId in projectData) {
+            const project = projectData[projectId];
+            const lightbox = document.getElementById(projectId); // Get the corresponding lightbox element by ID
 
-// Get the number of "project-index" elements (could be useful later)
-let numb = collection.length;
+            if (lightbox) {
+                // Check if the scroll2 div already exists, if so, skip
+                let existingScrollDiv = lightbox.querySelector('.scroll2');
+                if (existingScrollDiv) {
+                    continue; // Skip this lightbox if scroll2 already exists
+                }
 
-// Event listener for mouseenter on the titleeffect element (the title)
-titleeffect.addEventListener("mouseenter", function() {
-    // If the screen width is greater than or equal to 950px
-    if (sizer.matches) {
-        // Change the background color of the body to a random color from --randomcolor2
-        document.getElementById("bodyid").style.background = "var(--randomcolor2)";
+                // Create the section wrapper
+                const sectionWrapper = document.createElement('section');
+                sectionWrapper.classList.add('banner2'); // Add the 'banner2' class to the section
 
-        // Loop through all project-index elements and set their border to a random color
-        for (let e = 0; e < collection.length; e++) {
-            collection[e].style.border = "solid 2px var(--randomcolor2)";
-        }
-    } else {
-        // If the screen width is less than 950px, reset the body background color
-        document.getElementById("bodyid").style.background = "";
+                // Create the scroll2 div
+                const scrollDiv = document.createElement('div');
+                scrollDiv.classList.add('scroll2');
 
-        // Set the border color for all project-index elements
-        for (let t = 0; t < collection.length; t++) {
-            collection[t].style.border = "solid 2px var(--randomcolor2)";
+                let projectInfo = [];
+                for (let category in project) {
+                    if (project[category]) {
+                        projectInfo.push(project[category]); // Add only non-empty data
+                    }
+                }
+
+                // Join all the project data into a single string
+                const allCredits = projectInfo.join(' / '); // Join all data with a separator like " / "
+
+                // Create one span with all the credits inside
+                const creditsSpan = document.createElement('span');
+                creditsSpan.textContent = allCredits; // Set the text content to all credits
+                creditsSpan.style.marginBottom = '';
+                creditsSpan.style.fontSize = ''; // Font size in rem (you can adjust as needed)
+
+                // Wrap the span inside a div
+                const divWrapper = document.createElement('div');
+                divWrapper.appendChild(creditsSpan); // Append the span to the div
+
+                // Add the divWrapper (with the span) to the scrollDiv multiple times
+                for (let i = 0; i < 4; i++) { // Adjust the number of repetitions as needed
+                    const clonedDiv = divWrapper.cloneNode(true);
+                    scrollDiv.appendChild(clonedDiv); // Append each cloned div to the scrollDiv
+                }
+
+                // Apply styles to the scroll2 div
+                scrollDiv.style.position = '';
+                scrollDiv.style.textTransform = 'lowercase'; // Corrected 'texttransform' to 'textTransform'
+                scrollDiv.style.color = 'black';
+                scrollDiv.style.bottom = '0';
+                scrollDiv.style.left = '0';
+
+                // Append the scroll2 div to the section wrapper
+                sectionWrapper.appendChild(scrollDiv);
+
+                // Append the section wrapper to the lightbox
+                lightbox.appendChild(sectionWrapper);
+            } else {
+                console.warn(`Lightbox with ID ${projectId} not found.`);
+            }
         }
     }
-});
+}
 
-// Event listener for mouseleave on the titleeffect element (the title)
-titleeffect.addEventListener("mouseleave", function() {
-    // If the screen width is greater than or equal to 950px
-    if (sizer.matches) {
-        // Reset the background color of the body
-        document.getElementById("bodyid").style.background = "";
-
-        // Reset the border color for all project-index elements
-        for (let e = 0; e < collection.length; e++) {
-            collection[e].style.border = "solid 2px var(--randomcolor2)";
-        }
-    } else {
-        // If the screen width is less than 950px, reset the background color
-        document.getElementById("bodyid").style.background = "";
-
-        // Reset the border color for all project-index elements
-        for (let t = 0; t < collection.length; t++) {
-            collection[t].style.border = "solid 2px var(--randomcolor2)";
-        }
+// Chunk array into smaller arrays of specific size (not needed for this version but kept for consistency)
+function chunkArray(array, size) {
+    const result = [];
+    for (let i = 0; i < array.length; i += size) {
+        result.push(array.slice(i, i + size));
     }
-});
-
-// Function to change the value of the CSS variable --randomcolor
-function changeColor() {
-    // Define an array of allowed colors
-    const colors = ["yellow", "blue"];
-
-    // Select a random color from the array
-    const randomColor = colors[Math.floor(Math.random() * colors.length)];
-
-    // Set the selected color to the --randomcolor CSS variable
-    document.documentElement.style.setProperty("--randomcolor", randomColor);
+    return result;
 }
 
-// Change the color immediately and then every 5 seconds
-changeColor();
-setInterval(changeColor, 5000);
+// Initialize when the page loads
+window.onload = function() {
+    populateLightboxes();
+};
 
-// Function to change the value of the CSS variable --randomcolor2
-function changeColor2() {
-    // Define an array of allowed colors for the second color change
-    const colors2 = ["pink", "red"];
-
-    // Select a random color from the array
-    const randomColor2 = colors2[Math.floor(Math.random() * colors2.length)];
-
-    // Set the selected color to the --randomcolor2 CSS variable
-    document.documentElement.style.setProperty("--randomcolor2", randomColor2);
-}
-
-// Change the color immediately and then every 5 seconds
-changeColor2();
-setInterval(changeColor2, 5000);
-
-// If you want to apply this color change on hover specifically on titleeffect
-// Add event listener on titleeffect hover
-titleeffect.addEventListener("mouseenter", function() {
-    // Change the background color of the body to a random color from --randomcolor2
-    document.getElementById("bodyid").style.background = "var(--randomcolor2)";
-});
-
-// Add an event listener for mouseleave to reset the background color when the mouse leaves the title
-titleeffect.addEventListener("mouseleave", function() {
-    // Reset the background color of the body to its original state
-    document.getElementById("bodyid").style.background = "";
-});
-
-
-// THIS PART IS INDEX
+// Re-run the function if the window is resized (to handle changes in viewport size)
+window.onresize = function() {
+    populateLightboxes();
+};
