@@ -260,7 +260,7 @@ const projectData = {
     },
 
     Lightbox_22: {
-        TITELINDEX: randomizeCase("AW24 RE-GEN <BR> CITY SHADES <BR>lightTHINKINGMU"),
+        TITELINDEX: randomizeCase("AW24 RE-GEN <BR> CITY SHADES <BR> THINKINGMU"),
         ROLEINDEX: "Fashion Stylist",
         TITEL: 'AW24 RE-GEN CITY SHADES / thinkingmu ',
         ROLE: 'Fashion Stylist olga lucia amaya  ',
