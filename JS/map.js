@@ -1,6 +1,23 @@
 const projectData = {
 
-    //check
+    //check structure
+
+    //   Lightbox_(lightboxId): {
+
+    //     TITELINDEX: "Title that appears in index page",
+    //     ROLEINDEX: "what kind of work: art DIREDCTION/ fashion stylist",
+
+    //     TITEL: 'Titel Banner/ Banner2',
+    //     MODEL: 'Model Banner/ Banner2',
+    //     AGENCY: 'agency Banner/ Banner2',
+    //     MAKEUP: 'make up Banner/ Banner2',
+    //     PHOTOGRAPH_RETOUCH: ' photographer and retoucher Banner/ Banner2',
+    //     ROLE:    EXAMPLES:
+    //              Fashion Stylist Olga Lucia Amaya 
+    //              Costume designer Olga Lucia Amaya
+    //  	        Art Direction Olga Lucia Amaya
+    // },
+
     Lightbox_1: {
 
         TITELINDEX: "sUmMeR pOstIsOlAtIoN/<br> fuckingyoung magazine",
@@ -13,7 +30,7 @@ const projectData = {
         PHOTOGRAPH_RETOUCH: ' photographer and retoucher mar docavo ',
         ROLE: 'Fashion Stylist Olga Lucia Amaya '
     },
-    //check
+
     Lightbox_2: {
 
         TITELINDEX: "WinTeRBoY/<br> client magazine",
@@ -26,7 +43,7 @@ const projectData = {
         PHOTOGRAPH_RETOUCH: 'photographer and retoucher mar docavo ',
         ROLE: 'Fashion Stylist olga lucia amaya '
     },
-    //check
+
     Lightbox_3: {
         TITELINDEX: "",
         ROLEINDEX: "",
