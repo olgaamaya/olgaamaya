@@ -2,93 +2,118 @@ const projectData = {
 
     //check
     Lightbox_1: {
-        TITEL: 'sUmMeR pOstIsOlAtIoN / ',
-        MODEL: 'Model Roland E / ',
-        AGENCY: 'agency trend model /',
-        MAKEUP: 'make up Andrea Trenado /',
-        PHOTOGRAPH_RETOUCH: ' photographer and retoucher mar docavo / ',
-        ROLE: 'Fashion Stylist Olga Lucia Amaya / '
+
+        TITELINDEX: "sUmMeR pOstIsOlAtIoN/<br> fuckingyoung magazine",
+        ROLEINDEX: "art DIREDCTION/ fashion stylist",
+
+        TITEL: 'sUmMeR pOstIsOlAtIoN  ',
+        MODEL: 'Model Roland E  ',
+        AGENCY: 'agency trend model ',
+        MAKEUP: 'make up Andrea Trenado ',
+        PHOTOGRAPH_RETOUCH: ' photographer and retoucher mar docavo ',
+        ROLE: 'Fashion Stylist Olga Lucia Amaya '
     },
     //check
     Lightbox_2: {
-        TITEL: 'WinTeRBoY / ',
-        MODEL: 'Model Yonathan Exss /',
-        AGENCY: 'agency 2M models /',
-        MAKEUP: 'make up Andrea Trenado /',
-        PHOTOGRAPH_RETOUCH: 'photographer and retoucher mar docavo /',
-        ROLE: 'Fashion Stylist olga lucia amaya / '
+
+        TITELINDEX: "WinTeRBoY/<br> client magazine",
+        ROLEINDEX: "art direction/ fashion stylist",
+
+        TITEL: 'WinTeRBoY  ',
+        MODEL: 'Model Yonathan Exss ',
+        AGENCY: 'agency 2M models ',
+        MAKEUP: 'make up Andrea Trenado ',
+        PHOTOGRAPH_RETOUCH: 'photographer and retoucher mar docavo ',
+        ROLE: 'Fashion Stylist olga lucia amaya '
     },
     //check
     Lightbox_3: {
-        TITEL: 'ME dESamAsTE / ',
-        ROLE: 'Fashion Stylist olga lucia amaya / ',
+        TITELINDEX: "",
+        ROLEINDEX: "",
+
+        TITEL: 'ME dESamAsTE  ',
+        ROLE: 'Fashion Stylist olga lucia amaya  ',
         MODEL: '',
-        AGENCY: 'Directed by Lyona / Produced by Astrolabi Films / Sony Music Entertainment España, S.L. / Starring Claire Romain / 2020 /',
+        AGENCY: 'Directed by Lyona / Produced by Astrolabi Films / Sony Music Entertainment España, S.L. / Starring Claire Romain / 2020 ',
         MAKEUP: '',
         PHOTOGRAPH_RETOUCH: ' '
     },
 
     Lightbox_4: {
-        TITEL: 'tE QuIEro UN pOCo / ',
+        TITELINDEX: "",
+        ROLEINDEX: "",
+        TITEL: 'tE QuIEro UN pOCo  ',
         MODEL: '',
-        AGENCY: 'Carlos Sadness / Directed by Lyona / Produced by Astrolabi Films / Sony Music Entertainment España, S.L. / Starring ida Domènech (Dulceida), Koko Ishizuka, Sophie Petterin, Irene Noren/',
+        AGENCY: 'Carlos Sadness / Directed by Lyona / Produced by Astrolabi Films / Sony Music Entertainment España, S.L. / Starring ida Domènech (Dulceida), Koko Ishizuka, Sophie Petterin, Irene Noren',
         MAKEUP: '',
         PHOTOGRAPH_RETOUCH: ' ',
-        YEAR: '2018 / ',
-        ROLE: 'COSTUME DESIGNER olga lucia amaya / ',
+        YEAR: '2018  ',
+        ROLE: 'COSTUME DESIGNER olga lucia amaya  ',
     },
 
     Lightbox_5: {
-        TITEL: 'sEUnGrI / ',
-        MODEL: ' Model Seung /',
-        AGENCY: ' agency two management /',
+        TITELINDEX: "",
+        ROLEINDEX: "",
+        TITEL: 'sEUnGrI  ',
+        MODEL: ' Model Seung ',
+        AGENCY: ' agency two management ',
         MAKEUP: '',
-        PHOTOGRAPH_RETOUCH: ' photographer and retoucher mar docavo /',
-        ROLE: ' fashion stylist Olga Lucia Amaya /',
+        PHOTOGRAPH_RETOUCH: ' photographer and retoucher mar docavo ',
+        ROLE: ' fashion stylist Olga Lucia Amaya ',
     },
 
     Lightbox_6: {
-        TITEL: ' mango / ',
+        TITELINDEX: "",
+        ROLEINDEX: "",
+        TITEL: ' mango  ',
         MODEL: 'model matea brakus',
         AGENCY: 'agency society management',
         MAKEUP: '',
-        PHOTOGRAPH_RETOUCH: ' photographer alberto polo iañez /',
-        ROLE: 'fashion stylist Olga Lucia Amaya /',
+        PHOTOGRAPH_RETOUCH: ' photographer alberto polo iañez ',
+        ROLE: 'fashion stylist Olga Lucia Amaya ',
     },
 
     Lightbox_7: {
-        TITEL: 'Shadow/ Marc Salvador / ',
-        ROLE: 'COSTUME DESIGNER olga lucia amaya /',
-        MODEL: 'Starring Laia Manzanares / ',
-        AGENCY: 'Directed by Lyona/ Produced by Complot Productions / ',
+        TITELINDEX: "",
+        ROLEINDEX: "",
+        TITEL: 'Shadow/ Marc Salvador  ',
+        ROLE: 'COSTUME DESIGNER olga lucia amaya ',
+        MODEL: 'Starring Laia Manzanares  ',
+        AGENCY: 'Directed by Lyona/ Produced by Complot Productions  ',
         MAKEUP: '',
         PHOTOGRAPH_RETOUCH: ' ',
         Year: ' 2018 ',
     },
 
     Lightbox_8: {
-        TITEL: 'Adrenalina / Chica Sobresalto FEAT Zahara /',
+        TITELINDEX: "",
+        ROLEINDEX: "",
+        TITEL: 'Adrenalina / Chica Sobresalto FEAT Zahara ',
         MODEL: '',
-        AGENCY: 'Directed by Lyona / Produced by Astrolabi Films / El Dromedario Records / ',
+        AGENCY: 'Directed by Lyona / Produced by Astrolabi Films / El Dromedario Records  ',
         MAKEUP: '',
         PHOTOGRAPH_RETOUCH: ' ',
         Year: ' 2021 ',
-        ROLE: 'COSTUME DESIGNER olga lucia amaya /',
+        ROLE: 'COSTUME DESIGNER olga lucia amaya ',
     },
 
     Lightbox_9: {
-        TITEL: 'Fusion de Nucleo / Chica Sobresalto /',
+        TITELINDEX: "",
+        ROLEINDEX: "",
+        TITEL: 'Fusion de Nucleo / Chica Sobresalto ',
         MODEL: '',
-        AGENCY: 'Directed by Lyona / Produced by Astrolabi Films / El Dromedario Records /',
+        AGENCY: 'Directed by Lyona / Produced by Astrolabi Films / El Dromedario Records ',
         MAKEUP: '',
         PHOTOGRAPH_RETOUCH: ' ',
         Year: ' 2020 ',
-        ROLE: 'COSTUME DESIGNER olga lucia amaya /',
+        ROLE: 'COSTUME DESIGNER olga lucia amaya ',
     },
 
     Lightbox_10: {
-        TITEL: 'What happens in PILMA stays in PILMA / Edició PRIDE! BCN 2019 /',
-        ROLE: 'COSTUME DESIGNER / ',
+        TITELINDEX: "",
+        ROLEINDEX: "",
+        TITEL: 'What happens in PILMA stays in PILMA / Edició PRIDE! BCN 2019 ',
+        ROLE: 'COSTUME DESIGNER  ',
         MODEL: '',
         AGENCY: 'Directed by Lyona / Produced by Astrolabi Films ',
         MAKEUP: '',
@@ -96,8 +121,10 @@ const projectData = {
     },
 
     Lightbox_11: {
-        TITEL: 'Back To School Teen x MANGO / mangoteen /',
-        ROLE: 'Fashion Stylist olga lucia amaya / ',
+        TITELINDEX: "",
+        ROLEINDEX: "",
+        TITEL: 'Back To School Teen x MANGO / mangoteen ',
+        ROLE: 'Fashion Stylist olga lucia amaya  ',
         MODEL: '',
         AGENCY: '',
         MAKEUP: '',
@@ -105,18 +132,22 @@ const projectData = {
     },
 
     Lightbox_12: {
-        TITEL: 'NAGUISA /',
-        MODEL: 'Model Judit piñal / ',
-        AGENCY: 'agency View mangement/',
+        TITELINDEX: "",
+        ROLEINDEX: "",
+        TITEL: 'NAGUISA ',
+        MODEL: 'Model Judit piñal  ',
+        AGENCY: 'agency View mangement',
         MAKEUP: '',
-        PHOTOGRAPH_RETOUCH: ' photographer olga de la iglesia /',
+        PHOTOGRAPH_RETOUCH: ' photographer olga de la iglesia ',
         Year: ' 2020 ',
-        ROLE: 'fashion stylist Olga Lucia Amaya/',
+        ROLE: 'fashion stylist Olga Lucia Amaya',
     },
 
     Lightbox_13: {
-        TITEL: 'Kids x Mango /',
-        ROLE: 'Fashion Stylist olga lucia amaya / ',
+        TITELINDEX: "",
+        ROLEINDEX: "",
+        TITEL: 'Kids x Mango ',
+        ROLE: 'Fashion Stylist olga lucia amaya  ',
         MODEL: '',
         AGENCY: '',
         MAKEUP: '',
@@ -124,16 +155,20 @@ const projectData = {
     },
 
     Lightbox_14: {
-        TITEL: 'Chiharu Okungi / ',
-        MODEL: ' Model chiharu Okungi /',
-        AGENCY: 'agency society management /',
-        MAKEUP: 'make up paco garrigues /',
-        PHOTOGRAPH_RETOUCH: ' photographer ector tre / ',
-        ROLE: 'fashion stylist Olga lucia Amaya /',
+        TITELINDEX: "",
+        ROLEINDEX: "",
+        TITEL: 'Chiharu Okungi  ',
+        MODEL: ' Model chiharu Okungi ',
+        AGENCY: 'agency society management ',
+        MAKEUP: 'make up paco garrigues ',
+        PHOTOGRAPH_RETOUCH: ' photographer ector tre  ',
+        ROLE: 'fashion stylist Olga lucia Amaya ',
     },
 
     Lightbox_15: {
-        TITEL: 'E-COMMERCE / fashion stylist Olga lucia Amaya / E-COMMERCE / fashion stylist Olga lucia Amaya / ',
+        TITELINDEX: "",
+        ROLEINDEX: "",
+        TITEL: 'E-COMMERCE / fashion stylist Olga lucia Amaya / E-COMMERCE / fashion stylist Olga lucia Amaya  ',
         MODEL: '',
         AGENCY: '',
         MAKEUP: '',
@@ -142,7 +177,9 @@ const projectData = {
     },
 
     Lightbox_16: {
-        TITEL: 'clara infante x MANGO home / fashion stylist Olga lucia Amaya / clara infante x MANGO home / fashion stylist Olga lucia Amaya / ',
+        TITELINDEX: "",
+        ROLEINDEX: "",
+        TITEL: 'clara infante x MANGO home / fashion stylist Olga lucia Amaya / clara infante x MANGO home / fashion stylist Olga lucia Amaya  ',
         MODEL: '',
         AGENCY: '',
         MAKEUP: '',
@@ -151,7 +188,9 @@ const projectData = {
     },
 
     Lightbox_17: {
-        TITEL: 'TEEN x MANGO / Mangoteen / fashion stylist Olga lucia Amaya / TEEN x MANGOteen / fashion stylist Olga lucia Amaya / ',
+        TITELINDEX: "",
+        ROLEINDEX: "",
+        TITEL: 'TEEN x MANGO / Mangoteen / fashion stylist Olga lucia Amaya / TEEN x MANGOteen / fashion stylist Olga lucia Amaya  ',
         MODEL: '',
         AGENCY: '',
         MAKEUP: '',
@@ -160,17 +199,21 @@ const projectData = {
     },
 
     Lightbox_18: {
-        TITEL: 'cakemagazine /',
-        MODEL: 'Model mikaela oldenburg /',
-        AGENCY: 'agency two mangement / ',
-        MAKEUP: 'make up elizabeth vailo / ',
-        PHOTOGRAPH_RETOUCH: 'photographer and retoucher mar docavo /',
-        ROLE: ' fashion stylist Olga lucia Amaya /',
+        TITELINDEX: "",
+        ROLEINDEX: "",
+        TITEL: 'cakemagazine ',
+        MODEL: 'Model mikaela oldenburg ',
+        AGENCY: 'agency two mangement  ',
+        MAKEUP: 'make up elizabeth vailo  ',
+        PHOTOGRAPH_RETOUCH: 'photographer and retoucher mar docavo ',
+        ROLE: ' fashion stylist Olga lucia Amaya ',
     },
 
     Lightbox_19: {
-        TITEL: 'Vilet / ',
-        ROLE: 'Fashion Stylist olga lucia amaya / ',
+        TITELINDEX: "",
+        ROLEINDEX: "",
+        TITEL: 'Vilet  ',
+        ROLE: 'Fashion Stylist olga lucia amaya  ',
         MODEL: '',
         AGENCY: '',
         MAKEUP: '',
@@ -178,7 +221,9 @@ const projectData = {
     },
 
     Lightbox_20: {
-        TITEL: ' PARISIAN FALL / TEEN x MANGO / Mangoteen / fashion stylist Olga lucia Amaya /  PARISIAN FALL / TEEN x MANGO / Mangoteen / fashion stylist Olga lucia Amaya / ',
+        TITELINDEX: "",
+        ROLEINDEX: "",
+        TITEL: ' PARISIAN FALL / TEEN x MANGO / Mangoteen / fashion stylist Olga lucia Amaya /  PARISIAN FALL / TEEN x MANGO / Mangoteen / fashion stylist Olga lucia Amaya  ',
         MODEL: '',
         AGENCY: '',
         MAKEUP: '',
@@ -187,7 +232,9 @@ const projectData = {
     },
 
     Lightbox_21: {
-        TITEL: 'julia brezgina / fashion stylist Olga lucia Amaya / julia brezgina / fashion stylist Olga lucia Amaya / ',
+        TITELINDEX: "",
+        ROLEINDEX: "",
+        TITEL: 'julia brezgina / fashion stylist Olga lucia Amaya / julia brezgina / fashion stylist Olga lucia Amaya  ',
         MODEL: '',
         AGENCY: '',
         MAKEUP: '',
@@ -196,8 +243,10 @@ const projectData = {
     },
 
     Lightbox_22: {
+        TITELINDEX: "",
+        ROLEINDEX: "",
         TITEL: 'AW24 RE-GEN CITY SHADES / thinkingmu ',
-        ROLE: 'Fashion Stylist olga lucia amaya / ',
+        ROLE: 'Fashion Stylist olga lucia amaya  ',
         MODEL: '',
         AGENCY: '',
         MAKEUP: '',
@@ -205,8 +254,10 @@ const projectData = {
     },
 
     Lightbox_23: {
-        TITEL: 'Maty Fall x MANGO / ',
-        ROLE: 'Fashion Stylist olga lucia amaya / ',
+        TITELINDEX: "",
+        ROLEINDEX: "",
+        TITEL: 'Maty Fall x MANGO  ',
+        ROLE: 'Fashion Stylist olga lucia amaya  ',
         MODEL: '',
         AGENCY: '',
         MAKEUP: '',
@@ -214,8 +265,10 @@ const projectData = {
     },
 
     Lightbox_24: {
-        TITEL: 'Denim seams x @mangoteen / ',
-        ROLE: 'Fashion Stylist olga lucia amaya / ',
+        TITELINDEX: "",
+        ROLEINDEX: "",
+        TITEL: 'Denim seams x @mangoteen  ',
+        ROLE: 'Fashion Stylist olga lucia amaya  ',
         MODEL: '',
         AGENCY: '',
         MAKEUP: '',
@@ -223,7 +276,8 @@ const projectData = {
     },
 
 };
-// Original Function to Populate Lightboxes
+
+// Function to Populate Lightboxes
 function populateLightboxes() {
     if (window.innerWidth > 100) { // Check if the viewport width is greater than 100px
         for (let projectId in projectData) {
@@ -246,16 +300,20 @@ function populateLightboxes() {
                 scrollDiv.classList.add('scroll2');
                 scrollDiv.style.textTransform = 'lowercase'; // Apply lowercase text transformation here as well
 
-
                 let projectInfo = [];
                 for (let category in project) {
-                    if (project[category]) {
+                    if (project[category] && project[category].trim() !== '') { // Ensure no empty string or spaces
                         projectInfo.push(project[category]); // Add only non-empty data
                     }
                 }
 
-                // Join all the project data into a single string
-                const allCredits = projectInfo.join(' / '); // Join all data with a separator like " / "
+                // Join all the project data into a single string with " / " separator
+                let allCredits = projectInfo.join(' / ');
+
+                // Ensure the string ends with " / " (with a space before and after)
+                if (allCredits && !allCredits.endsWith(' / ')) {
+                    allCredits += ' / ';
+                }
 
                 // Create one span with all the credits inside
                 const creditsSpan = document.createElement('span');
@@ -292,6 +350,7 @@ function populateLightboxes() {
     }
 }
 
+// Function to Populate Figures with Lightbox Data
 // New Function to Populate Figures with Lightbox Data
 function populateProjectInfo() {
     const projectList = document.querySelector('.project-list-index');
@@ -313,26 +372,26 @@ function populateProjectInfo() {
 
                 const credits = [];
                 for (let category in project) {
-                    if (project[category]) {
+                    if (project[category] && category !== 'TITELINDEX' && category !== 'ROLEINDEX') {
                         credits.push(project[category]);
                     }
                 }
 
-                const allCredits = credits.join(' / ');
+                // Join all the credits with " / " separator and ensure proper spacing
+                let allCredits = credits.join(' / ');
 
-                // const jobTitle = figcaption.querySelector('.jobtitle');
-                // jobTitle.innerHTML = `${project.TITEL}<br>fuckingyoung magazine`;
+                // Ensure the string ends with " / " (with a space before and after)
+                if (allCredits && !allCredits.endsWith(' / ')) {
+                    allCredits += ' / ';
+                }
 
-                // const jobSub = figcaption.querySelector('.jobsub');
-                // jobSub.innerHTML = 'art direction/ fashion stylist';
-
+                // Add Banner Section
                 const banner = document.createElement('section');
                 banner.classList.add('banner');
 
                 const scrollDiv = document.createElement('div');
                 scrollDiv.classList.add('scroll');
                 scrollDiv.style.textTransform = 'lowercase'; // Apply lowercase text transformation here as well
-
 
                 let divWrapper = document.createElement('div');
                 const creditsSpan = document.createElement('span');
@@ -346,6 +405,21 @@ function populateProjectInfo() {
 
                 banner.appendChild(scrollDiv);
                 figcaption.appendChild(banner);
+
+                // Insert TITELINDEX and ROLEINDEX into jobtitle and jobsub, if they exist
+                if (project.TITELINDEX) {
+                    const jobTitle = figcaption.querySelector('.jobtitle');
+                    if (jobTitle) {
+                        jobTitle.innerHTML = project.TITELINDEX; // Replace content if exists
+                    }
+                }
+
+                if (project.ROLEINDEX) {
+                    const jobSub = figcaption.querySelector('.jobsub');
+                    if (jobSub) {
+                        jobSub.innerHTML = project.ROLEINDEX.toLowerCase(); // Ensure ROLEINDEX is lowercase
+                    }
+                }
             }
         }
     });
