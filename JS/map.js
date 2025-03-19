@@ -21,38 +21,13 @@ const projectData = {
     //check
     Lightbox_3: {
         TITEL: 'ME dESamAsTE / ',
-        ROLE: 'Fashion Stylist / ',
+        ROLE: 'Fashion Stylist olga lucia amaya / ',
         MODEL: '',
         AGENCY: 'Directed by Lyona / Produced by Astrolabi Films / Sony Music Entertainment España, S.L. / Starring Claire Romain / 2020 /',
         MAKEUP: '',
         PHOTOGRAPH_RETOUCH: ' '
     },
-    //check?
-    Lightbox_4: {
-        TITEL: 'Julia Brezgina / ',
-        ROLE: 'Fashion Stylist / ',
-        MODEL: '',
-        AGENCY: '',
-        MAKEUP: '',
-        PHOTOGRAPH_RETOUCH: ' '
-    },
-    Lightbox_5: {
-        TITEL: 'PARISIAN FALL/Teen x MANGO / ',
-        ROLE: 'Fashion Stylist / ',
-        MODEL: '',
-        AGENCY: '',
-        MAKEUP: '',
-        PHOTOGRAPH_RETOUCH: ' '
-    },
-    Lightbox_6: {
-        TITEL: 'Vilet / ',
-        ROLE: 'Fashion Stylist / ',
-        MODEL: '',
-        AGENCY: '',
-        MAKEUP: '',
-        PHOTOGRAPH_RETOUCH: ' '
-    },
-    //checked
+
     Lightbox_4: {
         TITEL: 'tE QuIEro UN pOCo / ',
         MODEL: '',
@@ -63,14 +38,54 @@ const projectData = {
         ROLE: 'COSTUME DESIGNER olga lucia amaya / ',
     },
 
-    Lightbox_9: {
-        TITEL: 'Back To School Teen x MANGO / ',
-        ROLE: 'Fashion Stylist / ',
-        MODEL: '',
-        AGENCY: '',
+    Lightbox_5: {
+        TITEL: 'sEUnGrI / ',
+        MODEL: ' Model Seung /',
+        AGENCY: ' agency two management /',
         MAKEUP: '',
-        PHOTOGRAPH_RETOUCH: ' '
+        PHOTOGRAPH_RETOUCH: ' photographer and retoucher mar docavo /',
+        ROLE: ' fashion stylist Olga Lucia Amaya /',
     },
+
+    Lightbox_6: {
+        TITEL: ' mango / ',
+        MODEL: 'model matea brakus',
+        AGENCY: 'agency society management',
+        MAKEUP: '',
+        PHOTOGRAPH_RETOUCH: ' photographer alberto polo iañez /',
+        ROLE: 'fashion stylist Olga Lucia Amaya /',
+    },
+
+    Lightbox_7: {
+        TITEL: 'Shadow/ Marc Salvador / ',
+        ROLE: 'COSTUME DESIGNER olga lucia amaya /',
+        MODEL: 'Starring Laia Manzanares / ',
+        AGENCY: 'Directed by Lyona/ Produced by Complot Productions / ',
+        MAKEUP: '',
+        PHOTOGRAPH_RETOUCH: ' ',
+        Year: ' 2018 ',
+    },
+
+    Lightbox_8: {
+        TITEL: 'Adrenalina / Chica Sobresalto FEAT Zahara /',
+        MODEL: '',
+        AGENCY: 'Directed by Lyona / Produced by Astrolabi Films / El Dromedario Records / ',
+        MAKEUP: '',
+        PHOTOGRAPH_RETOUCH: ' ',
+        Year: ' 2021 ',
+        ROLE: 'COSTUME DESIGNER olga lucia amaya /',
+    },
+
+    Lightbox_9: {
+        TITEL: 'Fusion de Nucleo / Chica Sobresalto /',
+        MODEL: '',
+        AGENCY: 'Directed by Lyona / Produced by Astrolabi Films / El Dromedario Records /',
+        MAKEUP: '',
+        PHOTOGRAPH_RETOUCH: ' ',
+        Year: ' 2020 ',
+        ROLE: 'COSTUME DESIGNER olga lucia amaya /',
+    },
+
     Lightbox_10: {
         TITEL: 'What happens in PILMA stays in PILMA / Edició PRIDE! BCN 2019 /',
         ROLE: 'COSTUME DESIGNER / ',
@@ -79,71 +94,136 @@ const projectData = {
         MAKEUP: '',
         PHOTOGRAPH_RETOUCH: ' '
     },
+
+    Lightbox_11: {
+        TITEL: 'Back To School Teen x MANGO / mangoteen /',
+        ROLE: 'Fashion Stylist olga lucia amaya / ',
+        MODEL: '',
+        AGENCY: '',
+        MAKEUP: '',
+        PHOTOGRAPH_RETOUCH: ' '
+    },
+
     Lightbox_12: {
-        TITEL: 'sEUnGrI / ',
-        ROLE: 'Fashion Stylist / ',
-        MODEL: '',
-        AGENCY: '',
+        TITEL: 'NAGUISA /',
+        MODEL: 'Model Judit piñal / ',
+        AGENCY: 'agency View mangement/',
         MAKEUP: '',
-        PHOTOGRAPH_RETOUCH: ' '
+        PHOTOGRAPH_RETOUCH: ' photographer olga de la iglesia /',
+        Year: ' 2020 ',
+        ROLE: 'fashion stylist Olga Lucia Amaya/',
     },
+
     Lightbox_13: {
-        TITEL: 'E-Commerce / ',
-        ROLE: 'Fashion Stylist / ',
+        TITEL: 'Kids x Mango /',
+        ROLE: 'Fashion Stylist olga lucia amaya / ',
         MODEL: '',
         AGENCY: '',
         MAKEUP: '',
         PHOTOGRAPH_RETOUCH: ' '
     },
+
     Lightbox_14: {
-        TITEL: 'ShAdOW / ',
-        ROLE: 'Fashion Stylist / ',
-        MODEL: '',
-        AGENCY: '',
-        MAKEUP: '',
-        PHOTOGRAPH_RETOUCH: ' '
+        TITEL: 'Chiharu Okungi / ',
+        MODEL: ' Model chiharu Okungi /',
+        AGENCY: 'agency society management /',
+        MAKEUP: 'make up paco garrigues /',
+        PHOTOGRAPH_RETOUCH: ' photographer ector tre / ',
+        ROLE: 'fashion stylist Olga lucia Amaya /',
     },
+
     Lightbox_15: {
-        TITEL: 'Chiharu Okungi x Mango / ',
-        ROLE: 'Fashion Stylist / ',
+        TITEL: 'E-COMMERCE / fashion stylist Olga lucia Amaya / E-COMMERCE / fashion stylist Olga lucia Amaya / ',
         MODEL: '',
         AGENCY: '',
         MAKEUP: '',
-        PHOTOGRAPH_RETOUCH: ' '
+        PHOTOGRAPH_RETOUCH: '',
+        ROLE: '',
     },
+
     Lightbox_16: {
-        TITEL: 'Fusión del Núcleo/Chica Sobresalto / ',
-        ROLE: 'Fashion Stylist / ',
+        TITEL: 'clara infante x MANGO home / fashion stylist Olga lucia Amaya / clara infante x MANGO home / fashion stylist Olga lucia Amaya / ',
+        MODEL: '',
+        AGENCY: '',
+        MAKEUP: '',
+        PHOTOGRAPH_RETOUCH: '',
+        ROLE: '',
+    },
+
+    Lightbox_17: {
+        TITEL: 'TEEN x MANGO / Mangoteen / fashion stylist Olga lucia Amaya / TEEN x MANGOteen / fashion stylist Olga lucia Amaya / ',
+        MODEL: '',
+        AGENCY: '',
+        MAKEUP: '',
+        PHOTOGRAPH_RETOUCH: '',
+        ROLE: '',
+    },
+
+    Lightbox_18: {
+        TITEL: 'cakemagazine /',
+        MODEL: 'Model mikaela oldenburg /',
+        AGENCY: 'agency two mangement / ',
+        MAKEUP: 'make up elizabeth vailo / ',
+        PHOTOGRAPH_RETOUCH: 'photographer and retoucher mar docavo /',
+        ROLE: ' fashion stylist Olga lucia Amaya /',
+    },
+
+    Lightbox_19: {
+        TITEL: 'Vilet / ',
+        ROLE: 'Fashion Stylist olga lucia amaya / ',
         MODEL: '',
         AGENCY: '',
         MAKEUP: '',
         PHOTOGRAPH_RETOUCH: ' '
     },
+
+    Lightbox_20: {
+        TITEL: ' PARISIAN FALL / TEEN x MANGO / Mangoteen / fashion stylist Olga lucia Amaya /  PARISIAN FALL / TEEN x MANGO / Mangoteen / fashion stylist Olga lucia Amaya / ',
+        MODEL: '',
+        AGENCY: '',
+        MAKEUP: '',
+        PHOTOGRAPH_RETOUCH: '',
+        ROLE: '',
+    },
+
+    Lightbox_21: {
+        TITEL: 'julia brezgina / fashion stylist Olga lucia Amaya / julia brezgina / fashion stylist Olga lucia Amaya / ',
+        MODEL: '',
+        AGENCY: '',
+        MAKEUP: '',
+        PHOTOGRAPH_RETOUCH: '',
+        ROLE: '',
+    },
+
     Lightbox_22: {
-        TITEL: 'AW24 RE-GEN CITY SHADES / ',
-        ROLE: 'Fashion Stylist / ',
+        TITEL: 'AW24 RE-GEN CITY SHADES / thinkingmu ',
+        ROLE: 'Fashion Stylist olga lucia amaya / ',
         MODEL: '',
         AGENCY: '',
         MAKEUP: '',
         PHOTOGRAPH_RETOUCH: ' '
     },
+
     Lightbox_23: {
         TITEL: 'Maty Fall x MANGO / ',
-        ROLE: 'Fashion Stylist / ',
+        ROLE: 'Fashion Stylist olga lucia amaya / ',
         MODEL: '',
         AGENCY: '',
         MAKEUP: '',
         PHOTOGRAPH_RETOUCH: ' '
     },
+
     Lightbox_24: {
         TITEL: 'Denim seams x @mangoteen / ',
-        ROLE: 'Fashion Stylist / ',
+        ROLE: 'Fashion Stylist olga lucia amaya / ',
         MODEL: '',
         AGENCY: '',
         MAKEUP: '',
         PHOTOGRAPH_RETOUCH: ' '
-    }
+    },
+
 };
+
 
 function populateLightboxes() {
     if (window.innerWidth > 100) { // Check if the viewport width is greater than 100px
