@@ -244,6 +244,8 @@ function populateLightboxes() {
                 // Create the scroll2 div
                 const scrollDiv = document.createElement('div');
                 scrollDiv.classList.add('scroll2');
+                scrollDiv.style.textTransform = 'lowercase'; // Apply lowercase text transformation here as well
+
 
                 let projectInfo = [];
                 for (let category in project) {
@@ -329,6 +331,8 @@ function populateProjectInfo() {
 
                 const scrollDiv = document.createElement('div');
                 scrollDiv.classList.add('scroll');
+                scrollDiv.style.textTransform = 'lowercase'; // Apply lowercase text transformation here as well
+
 
                 let divWrapper = document.createElement('div');
                 const creditsSpan = document.createElement('span');
