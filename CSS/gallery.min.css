@@ -127,6 +127,8 @@ div.direction {
     position: relative;
     z-index: 2147483647;
     display: flex;
+    height: 100%;
+    width: 100%;
 }
 
 .videoclass {
@@ -139,8 +141,10 @@ div.direction {
 
 @media screen and (max-width: 1000px) {
     .videoclass {
-        height: 90dvw;
-        top: calc(40vh - 50vw);
+        /* height: 90dvw; */
+        /* bottom: 100px; */
+        position: relative;
+        max-height: 50dvw;
     }
 }
 
