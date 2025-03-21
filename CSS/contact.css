@@ -15,6 +15,16 @@
     z-index: 9999999;
 }
 
+.wrap_info {
+    display: flex;
+    justify-content: center;
+    min-height: 80dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80dvh;
+}
+
 @media screen and (max-width:1250px) {
     #backhome {
         display: none;
@@ -49,7 +59,7 @@
 
 .wrap_info {
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
 }
 
 p.webdesign {
@@ -149,17 +159,19 @@ p.webdesign {
     /* margin-top: auto; */
     text-align: left;
     width: 40%;
-    margin: 5%;
+    margin: 2%;
     align-self: left;
-    margin-left: 15%;
+    margin-left: 10%;
+    /* height: 50dvh; */
+    font-size: auto !important;
 }
 
 .aboutcontainer_r {
     /* margin-top: auto; */
     text-align: left;
     width: 40%;
-    margin: 5%;
-    margin-left: 15%;
+    margin: 2%;
+    margin-left: 10%;
 }
 
 a.studiolist,
@@ -188,7 +200,7 @@ p.aboutlist {
         width: 100%;
     }
     .wrap_info {
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         flex-direction: column;
     }
     .aboutcontainer {

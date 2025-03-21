@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="CSS/index_layout.css" fetchpriority="high">
     <link rel="stylesheet" href="CSS/gallery.min.css" fetchpriority="high">
     <link rel="stylesheet" href="CSS/banner2.min.css" fetchpriority="high">
+    <link rel="stylesheet" href="CSS/contact.css" fetchpriority="high">
 
     <!-- Preloading Font -->
     <link rel="preload" href="fonts/VG5000-Regular_web.woff2" as="font" type="font/woff2" crossorigin="anonymous">
@@ -5896,23 +5897,24 @@
             <ul id="nav-ul">
 
                 <li id="item-contact" class="menu-item">
-                    <a id="less" class="less" rel="about" href="about.html" aria-label="Read more about Shortprofile, selected Clients and Magazines">
-                        <div id="mailback">I<br>n<br>F<br>0<br><br></div>
+                    <a id="less" class="less" rel="about" href="#wrap_info_id" aria-label="Read more about Shortprofile, selected Clients and Magazines">
+                        <div id="mailback">INFO</div>
                     </a>
                     <div id="more" class="more" style="flex-direction: column;">
 
-                        <a href="about.html#aboutme1" aria-label="Read more">
+                        <a href="#aboutme1" aria-label="Read more">
                             <h3 class="infoolga">SHORTPROFILE</h3>
                         </a>
                         <br>
-                        <a href="about.html#aboutme2" aria-label="Read more">
+                        <a href="#aboutme2" aria-label="Read more">
                             <h3 class="infoolga">SELECTED CLIENTS</h3>
                         </a>
                         <br>
-                        <a href="about.html#aboutme3" aria-label="Read more">
+                        <a href="#aboutme3" aria-label="Read more">
                             <h3 class="infoolga">SELECTED MAGAZINES</h3>
                         </a>
                     </div>
+
                 </li>
             </ul>
             <address id="address" class="on-mobile">
@@ -8335,6 +8337,32 @@
                 </svg></i>
         </div>
     </div>
+
+    <!-- info here -->
+
+    <div class="wrap_info" id="wrap_info_id">
+
+        <div class="aboutcontainer">
+            <h3 id="aboutme1"> <br> <br> I am a freelance fashion stylist and costume designer based in Barcelona.I am a freelance fashion stylist and costume designer based in Barcelona.I am a freelance fashion stylist and costume designer based in Barcelona.</h3>
+            <p class="aboutlist1">
+                After completing my art studies in Colombia, I pursued a master's degree in fashion in Barcelona, driven by a lifelong fascination with clothing and its role in character creation. Since 2015, I have gained extensive experience in advertising, e-commerce,
+                and costume design for music videos, as well as personal projects such as editorials. I have contributed to various projects for brands like Mango and collaborated with production companies including twentyfour seven and smile. I am committed
+                to bringing creativity and expertise to every project I work on.
+            </p>
+        </div>
+        <div class="aboutcontainer_r">
+            <h3 id="aboutme2"> <br> <br>SELECTED CLIENTS </h3>
+            <p class="aboutlist2">
+                twenty four seven, smile, greener, Albiñana films, Canada, astrolabi films, Carlos Sadness, Dulceida, Javiera Mena, Chicasobresalto, Marc Salvador, Missex, to name a few.
+                <br> In addition to this type of clients I do collaborations with magazines.
+            </p>
+            <h3 id="aboutme3">SELECTED MAGAZINES</h3>
+            <p class="aboutlist3">
+                Herdes, Cake Magazine, fucking young, Client Magazine, View Magazine
+            </p>
+        </div>
+    </div>
+
     <footer>
         <p class="instagram">
             <a href="https://instagram.com/oolgaamaya/" target="_blank">Instagram</a>
@@ -8398,6 +8426,65 @@
 
         // Initial call to adjust layout on load
         handleResize(); // This will shuffle or reset based on initial load size
+
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const mailbackButton = document.getElementById("mailback");
+            const wrapInfo = document.getElementById("wrap_info_id");
+            const infoolgaLinks = document.querySelectorAll('.infoolga'); // Select all elements with class 'infoolga'
+
+            // Initially set the wrap_info_id to display: none
+            wrapInfo.style.display = "none";
+
+            // Function to handle smooth scroll and show the wrap_info_id
+            function scrollToWrapInfo() {
+                // Scroll to #wrap_info_id smoothly
+                wrapInfo.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center"
+                });
+
+                // Make sure wrap_info_id is visible (display: flex)
+                wrapInfo.style.display = "flex";
+            }
+
+            // Function to check if #wrap_info_id is out of the viewport
+            function checkVisibility() {
+                const rect = wrapInfo.getBoundingClientRect();
+                const isOutOfView = rect.bottom < 0 || rect.top > window.innerHeight;
+
+                // If wrap_info_id is out of the view, hide it (display: none)
+                if (isOutOfView) {
+                    wrapInfo.style.display = "none";
+                }
+            }
+
+            // Add click event listener on the mailback button
+            mailbackButton.addEventListener("click", function() {
+                // Check if the wrap_info_id is already visible
+                if (wrapInfo.style.display === "none") {
+                    // If it's not visible, show it and scroll to it
+                    scrollToWrapInfo();
+                } else {
+                    // If it's visible, do nothing or toggle visibility
+                    // Optional: You can hide it again if desired
+                    wrapInfo.style.display = "none";
+                }
+            });
+
+            // Add click event listener to all elements with class 'infoolga'
+            infoolgaLinks.forEach(link => {
+                link.addEventListener("click", function() {
+                    // When any infoolga element is clicked, show wrap_info_id and scroll to it
+                    if (wrapInfo.style.display === "none") {
+                        scrollToWrapInfo();
+                    }
+                });
+            });
+
+            // Add scroll event listener to check when the #wrap_info_id goes out of view
+            window.addEventListener("scroll", checkVisibility);
+        });
     </script>
 
 

@@ -22,7 +22,9 @@ const morecontact = document.getElementById("more");
 const lesscontact = document.getElementById("less");
 const sociale2 = document.getElementById("social_elements2");
 const logo = document.getElementById("mouseTarget");
+const header = document.getElementById("header"); // Make sure to target the header if needed
 
+// Handle the menu toggle
 menu.addEventListener('click', () => {
     navMenu.classList.toggle('show');
     navUL.classList.toggle('show');
@@ -40,6 +42,15 @@ menu.addEventListener('click', () => {
         logo.style.display = ''; // Restore default display
     } else {
         logo.style.display = 'none'; // Hide it
+    }
+
+    // Toggle header display
+    if (header) {
+        if (header.style.display === 'none') {
+            header.style.display = ''; // Restore default display for header
+        } else {
+            header.style.display = 'none'; // Hide header if needed
+        }
     }
 
     // Check if there is a hash in the URL and remove it
@@ -80,28 +91,38 @@ menu.addEventListener('click', () => {
     });
 });
 
+// Handle clicks on infoolga elements (links with # href)
+document.querySelectorAll('.infoolga').forEach(link => {
+    link.addEventListener('click', (e) => {
+        // Reset the menu state when an infoolga element is clicked
+        navMenu.classList.remove('show');
+        navUL.classList.remove('show');
+        address.classList.remove('show');
+        body.classList.remove('show');
+        menu.classList.remove('show');
+        menupoint.classList.remove('show');
+        contact.classList.remove('contact');
+        morecontact.classList.remove('morecontact');
+        lesscontact.classList.remove('lesscontact');
+        sociale2.classList.remove('show');
 
-document.querySelectorAll('img').forEach(img => {
-    img.setAttribute('draggable', 'false');
+        // Ensure that the logo and header are visible again when an infoolga link is clicked
+        if (logo) {
+            logo.style.display = ''; // Ensure logo is visible
+        }
+
+        if (header) {
+            header.style.display = ''; // Ensure header is visible
+        }
+
+        // If the link is a hash, scroll smoothly to the target
+        const targetId = link.getAttribute('href').substring(1); // Get the target ID without the #
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    });
 });
-
-//TO TOP BUTTON
-// mybutton = document.getElementById("myBtn");
-// // [When the user scrolls down 20px from the top of the document, show the button]
-// window.onscroll = function() { scrollFunction() };
-
-// function scrollFunction() {
-//     if (document.body.scrollTop > 15 || document.documentElement.scrollTop > 15) {
-//         mybutton.style.display = "flex";
-//     } else {
-//         mybutton.style.display = "none";
-//     }
-// };
-// // [When the user clicks on the button, scroll to the top of the document]
-// function topFunction() {
-//     document.body.scrollTop = 0; // For Safari
-//     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-// };
 
 // TO TOP BUTTON
 mybutton = document.getElementById("myBtn");
