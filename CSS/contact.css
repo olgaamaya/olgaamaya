@@ -1,14 +1,14 @@
 .brand-name {
     font-weight: bold;
-    line-height: 1.5;
+    line-height: 1.15;
     font-size: 1.25rem;
     letter-spacing: .025rem;
 }
 
 .magazine-link {
     font-weight: bold;
-    line-height: 1.5;
-    font-size: 1.25rem;
+    line-height: 1.15;
+    font-size: 1.15rem;
     letter-spacing: .025rem;
     color: white;
     text-decoration: none;
@@ -16,8 +16,8 @@
 
 .magazine-link strong {
     font-weight: bold;
-    line-height: 1.5;
-    font-size: 1.25rem;
+    line-height: 1.15;
+    font-size: 1.15rem;
     letter-spacing: .025rem;
 }
 
