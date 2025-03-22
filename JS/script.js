@@ -222,3 +222,111 @@ document.addEventListener('DOMContentLoaded', function() {
         return rect.top >= 0 && rect.left >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && rect.right <= (window.innerWidth || document.documentElement.clientWidth);
     }
 });
+
+
+// -- NEW ORDER FOR FIGURES -- !
+const container = document.querySelector('.project-list-index');
+const figures = Array.from(container.getElementsByTagName('figure'));
+
+// Store the original order of figures in an array
+const originalOrder = [...figures];
+
+let hasShuffled = false; // Flag to track if the shuffle has been done
+
+function shuffleFigures() {
+    // Shuffle the figures randomly
+    for (let i = figures.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [figures[i], figures[j]] = [figures[j], figures[i]]; // Swap
+    }
+
+    // Clear the container and append the shuffled figures
+    container.innerHTML = '';
+    figures.forEach(figure => container.appendChild(figure));
+}
+
+function resetFigures() {
+    // Reset the figures to their original order
+    container.innerHTML = '';
+    originalOrder.forEach(figure => container.appendChild(figure));
+}
+
+// Handle resizing logic
+function handleResize() {
+    if (window.innerWidth < 1000) {
+        if (!hasShuffled) {
+            shuffleFigures();
+            hasShuffled = true; // Set the flag to indicate the shuffle has been done
+        }
+    } else {
+        if (hasShuffled) {
+            resetFigures();
+            hasShuffled = false; // Reset the flag since we're back to desktop size
+        }
+    }
+}
+
+// Listen to window resize events
+window.addEventListener('resize', handleResize);
+
+// Initial call to adjust layout on load
+handleResize(); // This will shuffle or reset based on initial load size
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    const mailbackButton = document.getElementById("mailback");
+    const wrapInfo = document.getElementById("wrap_info_id");
+    const infoolgaLinks = document.querySelectorAll('.infoolga'); // Select all elements with class 'infoolga'
+
+    // Initially set the wrap_info_id to display: none
+    wrapInfo.style.display = "none";
+
+    // Function to handle smooth scroll and show the wrap_info_id
+    function scrollToWrapInfo() {
+        // Scroll to #wrap_info_id smoothly
+        wrapInfo.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+
+        // Make sure wrap_info_id is visible (display: flex)
+        wrapInfo.style.display = "flex";
+    }
+
+    // Function to check if #wrap_info_id is out of the viewport
+    function checkVisibility() {
+        const rect = wrapInfo.getBoundingClientRect();
+        const isOutOfView = rect.bottom < 0 || rect.top > window.innerHeight;
+
+        // If wrap_info_id is out of the view, hide it (display: none)
+        if (isOutOfView) {
+            wrapInfo.style.display = "none";
+        }
+    }
+
+    // Add click event listener on the mailback button
+    mailbackButton.addEventListener("click", function() {
+        // Check if the wrap_info_id is already visible
+        if (wrapInfo.style.display === "none") {
+            // If it's not visible, show it and scroll to it
+            scrollToWrapInfo();
+        } else {
+            // If it's visible, do nothing or toggle visibility
+            // Optional: You can hide it again if desired
+            wrapInfo.style.display = "none";
+        }
+    });
+
+    // Add click event listener to all elements with class 'infoolga'
+    infoolgaLinks.forEach(link => {
+        link.addEventListener("click", function() {
+            // When any infoolga element is clicked, show wrap_info_id and scroll to it
+            if (wrapInfo.style.display === "none") {
+                scrollToWrapInfo();
+            }
+        });
+    });
+
+    // Add scroll event listener to check when the #wrap_info_id goes out of view
+    window.addEventListener("scroll", checkVisibility);
+});

@@ -8340,7 +8340,7 @@
 
     <!-- info here -->
 
-    <div class="wrap_info" id="wrap_info_id">
+    <!-- <div class="wrap_info" id="wrap_info_id">
 
         <div class="aboutcontainer">
             <h3 id="aboutme1"> <br> I am a freelance fashion stylist and costume designer based in Barcelona</h3>
@@ -8351,14 +8351,54 @@
         </div>
         <div class="aboutcontainer_r">
             <h3 id="aboutme2"> <br> SELECTED CLIENTS </h3>
-            <p class="aboutlist2"><br> twenty four seven, smile, greener, Albiñana films, Canada, astrolabi films, Carlos Sadness, Dulceida, Javiera Mena, Chicasobresalto, Marc Salvador, Missex, to name a few.
-                <br> In addition to this type of clients I do collaborations with magazines.
+            <p class="aboutlist2"><br>Throughout my career, I have had the privilege of working with some amazing clients across various industries. My portfolio includes collaborations with well-known brands and artists such as: Mango, Mango Teen, Twentyfour Seven, Smile,
+                Greener, Albiñana Films, Canada, Astrolabi Films, Carlos Sadness, Dulceida, Javiera Mena, Chicasobresalto, Marc Salvador, and Missex, among others.
             </p>
             <h3 id="aboutme3">SELECTED MAGAZINES</h3>
-            <p class="aboutlist3"><br> Herdes, Cake Magazine, fucking young, Client Magazine, View Magazine
+            <p class="aboutlist3"><br> In addition to working with these brands, I have also had the pleasure of contributing to renowned publications, collaborating with magazines such as: Herdes, Cake Magazine, fucking young, Client Magazine, View Magazine
+            </p>
+        </div>
+    </div> -->
+
+    <div class="wrap_info" id="wrap_info_id">
+
+        <div class="aboutcontainer">
+            <h3 id="aboutme1"> <br> I am a freelance fashion stylist and costume designer based in Barcelona</h3>
+            <p class="aboutlist1"><br> After completing my art studies in Colombia, I pursued a master's degree in fashion in Barcelona, driven by a lifelong fascination with clothing and its role in character creation. Since 2015, I have gained extensive experience in advertising,
+                e-commerce, and costume design for music videos, as well as personal projects such as editorials. I have contributed to various projects for brands like <span class="brand-name">Mango</span> and collaborated with production companies including
+                <span class="brand-name">Twentyfour Seven</span> and <span class="brand-name">Smile</span>. I am committed to bringing creativity and expertise to every project I work on.
+            </p>
+        </div>
+
+        <div class="aboutcontainer_r">
+            <h3 id="aboutme2"> <br> SELECTED CLIENTS </h3>
+            <p class="aboutlist2"><br>Throughout my career, I have had the privilege of working with some amazing clients across various industries. My portfolio includes collaborations with well-known brands and artists such as:
+                <span class="brand-name">Mango</span>,
+                <span class="brand-name">Mango Teen</span>,
+                <span class="brand-name">Twentyfour Seven</span>,
+                <span class="brand-name">Smile</span>,
+                <span class="brand-name">Greener</span>,
+                <span class="brand-name">Albiñana Films</span>,
+                <span class="brand-name">Canada</span>,
+                <span class="brand-name">Astrolabi Films</span>,
+                <span class="brand-name">Carlos Sadness</span>,
+                <span class="brand-name">Dulceida</span>,
+                <span class="brand-name">Javiera Mena</span>,
+                <span class="brand-name">Chicasobresalto</span>,
+                <span class="brand-name">Marc Salvador</span>, and
+                <span class="brand-name">Missex</span>, among others.
+            </p>
+            <h3 id="aboutme3">SELECTED MAGAZINES</h3>
+            <p class="aboutlist3"><br> In addition to working with these brands, I have also had the pleasure of contributing to renowned publications, collaborating with magazines such as:
+                <strong class="brand-name">Herdes</strong>,
+                <a href="https://www.cake-mag.com/when-saturday-comes" class="magazine-link"><strong>Cake Magazine</strong></a>,
+                <a href="https://fuckingyoung.es/summer-post-isolation/" class="magazine-link"><strong>Fucking Young</strong></a>,
+                <a href="https://www.clientmagazine.co.uk/winter-boy-by-mar-docavo-casani-for-client-editorial/" class="magazine-link"><strong>Client Magazine</strong></a>, and
+                <strong class="brand-name">View Magazine</strong>.
             </p>
         </div>
     </div>
+
 
     <footer>
         <p class="instagram">
@@ -8373,116 +8413,6 @@
     <script src="JS/gallery_1.min.js"></script>
     <script src="JS/map.js"></script>
     <script src="JS/script.js"></script>
-
-
-
-    <script>
-        const container = document.querySelector('.project-list-index');
-        const figures = Array.from(container.getElementsByTagName('figure'));
-
-        // Store the original order of figures in an array
-        const originalOrder = [...figures];
-
-        let hasShuffled = false; // Flag to track if the shuffle has been done
-
-        function shuffleFigures() {
-            // Shuffle the figures randomly
-            for (let i = figures.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [figures[i], figures[j]] = [figures[j], figures[i]]; // Swap
-            }
-
-            // Clear the container and append the shuffled figures
-            container.innerHTML = '';
-            figures.forEach(figure => container.appendChild(figure));
-        }
-
-        function resetFigures() {
-            // Reset the figures to their original order
-            container.innerHTML = '';
-            originalOrder.forEach(figure => container.appendChild(figure));
-        }
-
-        // Handle resizing logic
-        function handleResize() {
-            if (window.innerWidth < 1000) {
-                if (!hasShuffled) {
-                    shuffleFigures();
-                    hasShuffled = true; // Set the flag to indicate the shuffle has been done
-                }
-            } else {
-                if (hasShuffled) {
-                    resetFigures();
-                    hasShuffled = false; // Reset the flag since we're back to desktop size
-                }
-            }
-        }
-
-        // Listen to window resize events
-        window.addEventListener('resize', handleResize);
-
-        // Initial call to adjust layout on load
-        handleResize(); // This will shuffle or reset based on initial load size
-
-
-        document.addEventListener("DOMContentLoaded", function() {
-            const mailbackButton = document.getElementById("mailback");
-            const wrapInfo = document.getElementById("wrap_info_id");
-            const infoolgaLinks = document.querySelectorAll('.infoolga'); // Select all elements with class 'infoolga'
-
-            // Initially set the wrap_info_id to display: none
-            wrapInfo.style.display = "none";
-
-            // Function to handle smooth scroll and show the wrap_info_id
-            function scrollToWrapInfo() {
-                // Scroll to #wrap_info_id smoothly
-                wrapInfo.scrollIntoView({
-                    behavior: "smooth",
-                    block: "center"
-                });
-
-                // Make sure wrap_info_id is visible (display: flex)
-                wrapInfo.style.display = "flex";
-            }
-
-            // Function to check if #wrap_info_id is out of the viewport
-            function checkVisibility() {
-                const rect = wrapInfo.getBoundingClientRect();
-                const isOutOfView = rect.bottom < 0 || rect.top > window.innerHeight;
-
-                // If wrap_info_id is out of the view, hide it (display: none)
-                if (isOutOfView) {
-                    wrapInfo.style.display = "none";
-                }
-            }
-
-            // Add click event listener on the mailback button
-            mailbackButton.addEventListener("click", function() {
-                // Check if the wrap_info_id is already visible
-                if (wrapInfo.style.display === "none") {
-                    // If it's not visible, show it and scroll to it
-                    scrollToWrapInfo();
-                } else {
-                    // If it's visible, do nothing or toggle visibility
-                    // Optional: You can hide it again if desired
-                    wrapInfo.style.display = "none";
-                }
-            });
-
-            // Add click event listener to all elements with class 'infoolga'
-            infoolgaLinks.forEach(link => {
-                link.addEventListener("click", function() {
-                    // When any infoolga element is clicked, show wrap_info_id and scroll to it
-                    if (wrapInfo.style.display === "none") {
-                        scrollToWrapInfo();
-                    }
-                });
-            });
-
-            // Add scroll event listener to check when the #wrap_info_id goes out of view
-            window.addEventListener("scroll", checkVisibility);
-        });
-    </script>
 
 
 </body>

@@ -1,3 +1,26 @@
+.brand-name {
+    font-weight: bold;
+    line-height: 1.5;
+    font-size: 1.25rem;
+    letter-spacing: .025rem;
+}
+
+.magazine-link {
+    font-weight: bold;
+    line-height: 1.5;
+    font-size: 1.25rem;
+    letter-spacing: .025rem;
+    color: white;
+    text-decoration: none;
+}
+
+.magazine-link strong {
+    font-weight: bold;
+    line-height: 1.5;
+    font-size: 1.25rem;
+    letter-spacing: .025rem;
+}
+
 #backhome {
     top: 5vh;
     right: 4rem;
@@ -18,11 +41,9 @@
 .wrap_info {
     display: flex;
     justify-content: center;
-    min-height: 80dvh;
-    display: flex;
-    justify-content: center;
     align-items: center;
-    min-height: 80dvh;
+    min-height: 75dvh;
+    letter-spacing: 0.075rem;
 }
 
 @media screen and (max-width:1250px) {
