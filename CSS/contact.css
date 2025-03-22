@@ -43,7 +43,7 @@
     justify-content: center;
     align-items: center;
     min-height: 75dvh;
-    letter-spacing: 0.075rem;
+    letter-spacing: 0.025rem;
 }
 
 @media screen and (max-width:1250px) {
