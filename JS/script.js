@@ -330,3 +330,18 @@ document.addEventListener("DOMContentLoaded", function() {
     // Add scroll event listener to check when the #wrap_info_id goes out of view
     window.addEventListener("scroll", checkVisibility);
 });
+
+
+// Select the #mailback element
+const mailbackElement = document.getElementById('mailback');
+
+// Set up hover event listeners to change color dynamically
+mailbackElement.addEventListener('mouseenter', () => {
+    // Change color on hover (assuming --randomcolor2 is defined)
+    mailbackElement.style.color = getComputedStyle(document.documentElement).getPropertyValue('--randomcolor2').trim();
+});
+
+mailbackElement.addEventListener('mouseleave', () => {
+    // Reset the color back to the original one (assuming --randomcolor is defined)
+    mailbackElement.style.color = getComputedStyle(document.documentElement).getPropertyValue('--randomcolor').trim();
+});
