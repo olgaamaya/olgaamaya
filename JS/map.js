@@ -273,6 +273,7 @@ const projectData = {
     Lightbox_23: {
         TITELINDEX: randomizeCase("Maty Fall x MANGO"),
         ROLEINDEX: "Fashion Stylist",
+
         TITEL: 'Maty Fall x MANGO  ',
         ROLE: 'Fashion Stylist olga lucia amaya  ',
         MODEL: '',
@@ -323,8 +324,9 @@ function populateLightboxes() {
 
                 let projectInfo = [];
                 for (let category in project) {
-                    if (project[category] && project[category].trim() !== '') { // Ensure no empty string or spaces
-                        projectInfo.push(project[category]); // Add only non-empty data
+                    // Skip ROLEINDEX
+                    if (project[category] && project[category].trim() !== '' && category !== 'ROLEINDEX') {
+                        projectInfo.push(project[category]); // Add only non-empty data, excluding ROLEINDEX
                     }
                 }
 
@@ -371,6 +373,7 @@ function populateLightboxes() {
     }
 }
 
+
 // Function to Populate Figures with Lightbox Data
 // New Function to Populate Figures with Lightbox Data
 function populateProjectInfo() {
@@ -393,6 +396,7 @@ function populateProjectInfo() {
 
                 const credits = [];
                 for (let category in project) {
+                    // Skip ROLEINDEX
                     if (project[category] && category !== 'TITELINDEX' && category !== 'ROLEINDEX') {
                         credits.push(project[category]);
                     }
@@ -427,7 +431,7 @@ function populateProjectInfo() {
                 banner.appendChild(scrollDiv);
                 figcaption.appendChild(banner);
 
-                // Insert TITELINDEX and ROLEINDEX into jobtitle and jobsub, if they exist
+                // Insert TITELINDEX into jobtitle, if it exists
                 if (project.TITELINDEX) {
                     const jobTitle = figcaption.querySelector('.jobtitle');
                     if (jobTitle) {
@@ -435,16 +439,12 @@ function populateProjectInfo() {
                     }
                 }
 
-                if (project.ROLEINDEX) {
-                    const jobSub = figcaption.querySelector('.jobsub');
-                    if (jobSub) {
-                        jobSub.innerHTML = project.ROLEINDEX.toLowerCase(); // Ensure ROLEINDEX is lowercase
-                    }
-                }
+                // ROLEINDEX is no longer added here
             }
         }
     });
 }
+
 
 // Initialize when the page loads
 window.onload = function() {
