@@ -347,21 +347,29 @@ mailbackElement.addEventListener('mouseleave', () => {
 });
 
 
-
-// Function to check if an element is in the viewport
-function isElementInViewport(el) {
+// Function to check if an element is partially or fully in the viewport
+function isElementInViewport(el, offset = 0) {
     const rect = el.getBoundingClientRect();
-    return rect.top >= 0 && rect.left >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && rect.right <= (window.innerWidth || document.documentElement.clientWidth);
+    return rect.top + offset <= window.innerHeight && rect.bottom - offset >= 0;
 }
 
-// Function to update the URL hash (remove it if the element is not in the viewport)
+// Function to update the URL hash (remove it if the element is outside the viewport by some margin)
 function updateHashOnScroll() {
     const targetElement = document.getElementById('wrap_info_id');
 
-    // Check if the element is in the viewport
-    if (targetElement && !isElementInViewport(targetElement)) {
-        // Remove the hash from the URL if the element is not in the viewport
-        history.replaceState(null, null, window.location.pathname);
+    if (targetElement) {
+        // Check if the element is in the viewport with a small offset
+        if (isElementInViewport(targetElement, 50)) {
+            // If element is in viewport, ensure the hash is in the URL
+            if (window.location.hash !== '#wrap_info_id') {
+                history.replaceState(null, null, window.location.pathname + "#wrap_info_id");
+            }
+        } else {
+            // If element is fully out of the viewport (with margin), remove the hash
+            if (window.location.hash === '#wrap_info_id') {
+                history.replaceState(null, null, window.location.pathname);
+            }
+        }
     }
 }
 
