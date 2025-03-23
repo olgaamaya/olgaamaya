@@ -16,7 +16,7 @@
 
 figcaption.project-info-index {
     position: absolute!important;
-    cursor: pointer
+    cursor: url('/icons/crosshair_1.png'), crosshair;
 }
 
 .link-to-project {
