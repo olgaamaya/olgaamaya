@@ -139,8 +139,6 @@ div.direction {
     max-width: 90dvw;
     align-items: center;
     justify-content: center;
-    !i;
-    !;
 }
 
 .videoclass {
@@ -150,8 +148,6 @@ div.direction {
     /* margin-bottom: auto; */
     max-width: 90dvw !important;
     height: 80%;
-    !i;
-    !;
 }
 
 @media screen and (max-width: 1000px) {
@@ -435,9 +431,10 @@ img.hover-shadow {
     .projecttitle {
         top: .75em
     }
-    .laptop-menu:hover #before-pointer {
+    .laptop-menu:hover #before-pointer,
+    .laptop-menu:hover #before-pointer-xmax {
         color: black !important;
-        display: flex
+        display: flex;
     }
     .modal-content {
         max-height: ''
