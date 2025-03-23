@@ -164,19 +164,23 @@ nav .menu {
 }
 
 #mailback {
-    height: 2rem;
-    width: 5rem;
+    height: 100%;
+    width: fit-content;
     position: absolute;
-    top: 2.5rem;
+    top: 0;
+    left: 1.25rem;
     z-index: 99999999999;
-    font-size: 1.5rem;
-    /* line-height: 2rem; */
-    display: flex;
-    /* justify-content: center; */
-    /* align-items: center; */
-    color: var(--randomcolor);
-    left: 3rem;
+    font-size: 1.25rem;
     font-family: Helvetica Neue, Helvetica, Arial, sans-serif, VG5000;
+    text-align: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--randomcolor);
+}
+
+#mailback:hover {
+    color: var(--randomcolor2);
 }
 
 @media screen and (min-width: 1000px) {
