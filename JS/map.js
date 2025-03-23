@@ -273,7 +273,6 @@ const projectData = {
     Lightbox_23: {
         TITELINDEX: randomizeCase("Maty Fall x MANGO"),
         ROLEINDEX: "Fashion Stylist",
-
         TITEL: 'Maty Fall x MANGO  ',
         ROLE: 'Fashion Stylist olga lucia amaya  ',
         MODEL: '',
@@ -324,15 +323,9 @@ function populateLightboxes() {
 
                 let projectInfo = [];
                 for (let category in project) {
-                    // Skip ROLEINDEX and TITELINDEX
-                    if (project[category] && project[category].trim() !== '' && category !== 'ROLEINDEX' && category !== 'TITELINDEX') {
-                        projectInfo.push(project[category]); // Add only non-empty data, excluding ROLEINDEX and TITELINDEX
+                    if (project[category] && project[category].trim() !== '') { // Ensure no empty string or spaces
+                        projectInfo.push(project[category]); // Add only non-empty data
                     }
-                }
-
-                // Include TITEL in the projectInfo if available
-                if (project.TITEL && project.TITEL.trim() !== '') {
-                    projectInfo.unshift(project.TITEL); // Ensure TITEL comes first
                 }
 
                 // Join all the project data into a single string with " / " separator
@@ -378,8 +371,6 @@ function populateLightboxes() {
     }
 }
 
-
-
 // Function to Populate Figures with Lightbox Data
 // New Function to Populate Figures with Lightbox Data
 function populateProjectInfo() {
@@ -402,15 +393,9 @@ function populateProjectInfo() {
 
                 const credits = [];
                 for (let category in project) {
-                    // Skip TITELINDEX and ROLEINDEX
                     if (project[category] && category !== 'TITELINDEX' && category !== 'ROLEINDEX') {
                         credits.push(project[category]);
                     }
-                }
-
-                // Include TITEL in the credits if available
-                if (project.TITEL && project.TITEL.trim() !== '') {
-                    credits.unshift(project.TITEL); // Add TITEL to the start
                 }
 
                 // Join all the credits with " / " separator and ensure proper spacing
@@ -442,21 +427,24 @@ function populateProjectInfo() {
                 banner.appendChild(scrollDiv);
                 figcaption.appendChild(banner);
 
-                // Insert TITEL into jobtitle, if it exists
-                if (project.TITEL) {
+                // Insert TITELINDEX and ROLEINDEX into jobtitle and jobsub, if they exist
+                if (project.TITELINDEX) {
                     const jobTitle = figcaption.querySelector('.jobtitle');
                     if (jobTitle) {
-                        jobTitle.innerHTML = project.TITEL; // Replace content if exists
+                        jobTitle.innerHTML = project.TITELINDEX; // Replace content if exists
                     }
                 }
 
-                // Skip inserting ROLEINDEX
+                if (project.ROLEINDEX) {
+                    const jobSub = figcaption.querySelector('.jobsub');
+                    if (jobSub) {
+                        jobSub.innerHTML = project.ROLEINDEX.toLowerCase(); // Ensure ROLEINDEX is lowercase
+                    }
+                }
             }
         }
     });
 }
-
-
 
 // Initialize when the page loads
 window.onload = function() {
