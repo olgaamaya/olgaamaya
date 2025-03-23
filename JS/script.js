@@ -345,3 +345,28 @@ mailbackElement.addEventListener('mouseleave', () => {
     // Reset the color back to the original one (assuming --randomcolor is defined)
     mailbackElement.style.color = getComputedStyle(document.documentElement).getPropertyValue('--randomcolor').trim();
 });
+
+
+
+// Function to check if an element is in the viewport
+function isElementInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return rect.top >= 0 && rect.left >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && rect.right <= (window.innerWidth || document.documentElement.clientWidth);
+}
+
+// Function to update the URL hash (remove it if the element is not in the viewport)
+function updateHashOnScroll() {
+    const targetElement = document.getElementById('wrap_info_id');
+
+    // Check if the element is in the viewport
+    if (targetElement && !isElementInViewport(targetElement)) {
+        // Remove the hash from the URL if the element is not in the viewport
+        history.replaceState(null, null, window.location.pathname);
+    }
+}
+
+// Add event listener to scroll event to check if the element is in view or not
+window.addEventListener('scroll', updateHashOnScroll);
+
+// Add event listener to resize event to check when the window is resized (for responsiveness)
+window.addEventListener('resize', updateHashOnScroll);
