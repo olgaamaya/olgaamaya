@@ -324,10 +324,15 @@ function populateLightboxes() {
 
                 let projectInfo = [];
                 for (let category in project) {
-                    // Skip ROLEINDEX
-                    if (project[category] && project[category].trim() !== '' && category !== 'ROLEINDEX') {
-                        projectInfo.push(project[category]); // Add only non-empty data, excluding ROLEINDEX
+                    // Skip ROLEINDEX and TITELINDEX
+                    if (project[category] && project[category].trim() !== '' && category !== 'ROLEINDEX' && category !== 'TITELINDEX') {
+                        projectInfo.push(project[category]); // Add only non-empty data, excluding ROLEINDEX and TITELINDEX
                     }
+                }
+
+                // Include TITEL in the projectInfo if available
+                if (project.TITEL && project.TITEL.trim() !== '') {
+                    projectInfo.unshift(project.TITEL); // Ensure TITEL comes first
                 }
 
                 // Join all the project data into a single string with " / " separator
@@ -374,6 +379,7 @@ function populateLightboxes() {
 }
 
 
+
 // Function to Populate Figures with Lightbox Data
 // New Function to Populate Figures with Lightbox Data
 function populateProjectInfo() {
@@ -396,10 +402,15 @@ function populateProjectInfo() {
 
                 const credits = [];
                 for (let category in project) {
-                    // Skip ROLEINDEX
+                    // Skip TITELINDEX and ROLEINDEX
                     if (project[category] && category !== 'TITELINDEX' && category !== 'ROLEINDEX') {
                         credits.push(project[category]);
                     }
+                }
+
+                // Include TITEL in the credits if available
+                if (project.TITEL && project.TITEL.trim() !== '') {
+                    credits.unshift(project.TITEL); // Add TITEL to the start
                 }
 
                 // Join all the credits with " / " separator and ensure proper spacing
@@ -431,19 +442,20 @@ function populateProjectInfo() {
                 banner.appendChild(scrollDiv);
                 figcaption.appendChild(banner);
 
-                // Insert TITELINDEX into jobtitle, if it exists
-                if (project.TITELINDEX) {
+                // Insert TITEL into jobtitle, if it exists
+                if (project.TITEL) {
                     const jobTitle = figcaption.querySelector('.jobtitle');
                     if (jobTitle) {
-                        jobTitle.innerHTML = project.TITELINDEX; // Replace content if exists
+                        jobTitle.innerHTML = project.TITEL; // Replace content if exists
                     }
                 }
 
-                // ROLEINDEX is no longer added here
+                // Skip inserting ROLEINDEX
             }
         }
     });
 }
+
 
 
 // Initialize when the page loads
