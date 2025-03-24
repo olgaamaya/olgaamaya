@@ -378,3 +378,16 @@ window.addEventListener('scroll', updateHashOnScroll);
 
 // Add event listener to resize event to check when the window is resized (for responsiveness)
 window.addEventListener('resize', updateHashOnScroll);
+
+
+// Function to check the hash and display #wrap_info_id as flex if the URL contains it
+window.onload = function() {
+    // Check if the URL contains #wrap_info_id in the hash
+    if (window.location.hash === "#wrap_info_id") {
+        var wrapInfo = document.getElementById('wrap_info_id');
+        if (wrapInfo) {
+            // Set display to flex to make the section visible
+            wrapInfo.style.display = 'flex';
+        }
+    }
+}
