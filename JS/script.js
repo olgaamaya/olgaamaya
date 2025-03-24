@@ -380,7 +380,6 @@ window.addEventListener('scroll', updateHashOnScroll);
 window.addEventListener('resize', updateHashOnScroll);
 
 
-// Function to check the hash and display #wrap_info_id as flex if the URL contains it
 window.onload = function() {
     // Check if the URL contains #wrap_info_id in the hash
     if (window.location.hash === "#wrap_info_id") {
@@ -388,6 +387,9 @@ window.onload = function() {
         if (wrapInfo) {
             // Set display to flex to make the section visible
             wrapInfo.style.display = 'flex';
+
+            // Jump directly to the element without smooth scrolling
+            wrapInfo.scrollIntoView({ behavior: 'auto' });
         }
     }
 }
