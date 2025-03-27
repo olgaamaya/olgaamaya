@@ -222,8 +222,6 @@ document.addEventListener('DOMContentLoaded', function() {
         return rect.top >= 0 && rect.left >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && rect.right <= (window.innerWidth || document.documentElement.clientWidth);
     }
 });
-
-
 // -- NEW ORDER FOR FIGURES -- !
 const container = document.querySelector('.project-list-index');
 const figures = Array.from(container.getElementsByTagName('figure'));
@@ -254,11 +252,18 @@ function resetFigures() {
 // Handle resizing logic
 function handleResize() {
     if (window.innerWidth < 1000) {
+        // Ensure the menuToggle is visible on mobile and small screens
+        if (wrapInfo.style.display !== "flex") {
+            menuToggle.style.display = "flex"; // Ensure this is "flex" or "block" on mobile devices (0-1000px)
+        }
+
         if (!hasShuffled) {
             shuffleFigures();
             hasShuffled = true; // Set the flag to indicate the shuffle has been done
         }
     } else {
+        // If the screen is larger than 1000px, hide the menuToggle
+        menuToggle.style.display = "none"; // Hide the menu-toggle on desktop and larger screens
         if (hasShuffled) {
             resetFigures();
             hasShuffled = false; // Reset the flag since we're back to desktop size
@@ -272,14 +277,18 @@ window.addEventListener('resize', handleResize);
 // Initial call to adjust layout on load
 handleResize(); // This will shuffle or reset based on initial load size
 
-
 document.addEventListener("DOMContentLoaded", function() {
     const mailbackButton = document.getElementById("mailback");
     const wrapInfo = document.getElementById("wrap_info_id");
     const infoolgaLinks = document.querySelectorAll('.infoolga'); // Select all elements with class 'infoolga'
+    const rowid = document.getElementById("rowid"); // The div containing your figures
+    const closeBtn = document.getElementById("close-btn"); // The close button
+    const menuToggle = document.getElementById("menu-toggle"); // Menu toggle button
 
-    // Initially set the wrap_info_id to display: none
+    // Initially set the wrap_info_id to display: none and close button to hidden
     wrapInfo.style.display = "none";
+    closeBtn.style.display = "none"; // Close button is hidden initially
+    rowid.style.display = ""; // Ensure rowid is visible by default on small screens
 
     // Function to handle smooth scroll and show the wrap_info_id
     function scrollToWrapInfo() {
@@ -291,18 +300,36 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Make sure wrap_info_id is visible (display: flex)
         wrapInfo.style.display = "flex";
+        closeBtn.style.display = "flex"; // Show close button when wrap_info_id is visible
+        mailbackButton.style.display = "none"; // Hide the mailback button when wrap_info_id is visible
+        rowid.style.display = "none"; // Hide rowid container when wrap_info_id is visible
+        menuToggle.style.display = "none"; // Hide the menu-toggle when wrap_info_id is visible
     }
 
-    // Function to check if #wrap_info_id is out of the viewport
-    function checkVisibility() {
-        const rect = wrapInfo.getBoundingClientRect();
-        const isOutOfView = rect.bottom < 0 || rect.top > window.innerHeight;
+    // Function to handle the close button click
+    closeBtn.addEventListener("click", function() {
+        // Hide the wrap_info_id
+        wrapInfo.style.display = "none";
 
-        // If wrap_info_id is out of the view, hide it (display: none)
-        if (isOutOfView) {
-            wrapInfo.style.display = "none";
+        // Scroll to the top of the page
+        window.scrollTo(0, 0);
+
+        // Show the rowid container again (default display)
+        rowid.style.display = "";
+
+        // Show the mailback button again
+        mailbackButton.style.display = "";
+
+        // Hide the close button
+        closeBtn.style.display = "none";
+
+        // Ensure that menu-toggle remains visible when wrap_info_id is hidden
+        if (window.innerWidth < 1000) {
+            menuToggle.style.display = "flex"; // Show the menu-toggle on mobile view when close button is clicked
+        } else {
+            menuToggle.style.display = "none"; // Hide the menu-toggle on desktop view
         }
-    }
+    });
 
     // Add click event listener on the mailback button
     mailbackButton.addEventListener("click", function() {
@@ -311,26 +338,87 @@ document.addEventListener("DOMContentLoaded", function() {
             // If it's not visible, show it and scroll to it
             scrollToWrapInfo();
         } else {
-            // If it's visible, do nothing or toggle visibility
-            // Optional: You can hide it again if desired
+            // If it's visible, show the rowid container again
             wrapInfo.style.display = "none";
+            rowid.style.display = ""; // Show the project list container again
+            mailbackButton.style.display = ""; // Show the mailback button again
+            closeBtn.style.display = "none"; // Hide the close button
+            menuToggle.style.display = "flex"; // Ensure menu-toggle is shown when wrap_info_id is hidden
         }
     });
 
     // Add click event listener to all elements with class 'infoolga'
     infoolgaLinks.forEach(link => {
         link.addEventListener("click", function() {
-            // When any infoolga element is clicked, show wrap_info_id and scroll to it
-            if (wrapInfo.style.display === "none") {
-                scrollToWrapInfo();
+            // Keep wrap_info_id visible
+            wrapInfo.style.display = "flex";
+
+            // If screen is less than 1000px, hide close button and show rowid (default visibility)
+            if (window.innerWidth < 1000) {
+                closeBtn.style.display = "flex"; // Show close button in mobile view
+                closeBtn.style.position = "absolute";
+                closeBtn.style.left = "2rem";
+                closeBtn.style.top = "2.5rem";
+                closeBtn.style.width = "1rem";
+                closeBtn.style.height = "1rem"; // Set the correct size for mobile
+
+                rowid.style.display = "none"; // Hide the rowid container on mobile
+                menuToggle.style.display = "none"; // Hide the menu toggle on mobile
             }
+
+            // Hide the menu toggle when wrap_info_id is visible
+            menuToggle.style.display = "none"; // Hide the menu-toggle when wrap_info_id is displayed
         });
     });
 
+    // Function to handle screen resizing
+    function handleResize() {
+        // If the screen width is greater than 1000px, show the close button
+        if (window.innerWidth > 1000) {
+            if (wrapInfo.style.display === "flex") {
+                closeBtn.style.display = "block"; // Show the close button if wrap_info_id is visible
+            }
+            // Ensure that menu-toggle remains in its correct default state for larger screens
+            menuToggle.style.display = "none"; // Hide the menu-toggle on desktop view
+        } else {
+            closeBtn.style.display = "none"; // Hide the close button on small screens
+            rowid.style.display = ""; // Show the rowid (figures) again if width is small
+            // Reset other visibility based on wrap_info_id state
+            if (wrapInfo.style.display === "flex") {
+                mailbackButton.style.display = "none"; // Hide mailback button if wrap_info_id is visible
+                rowid.style.display = "none"; // Hide rowid container if wrap_info_id is visible
+                menuToggle.style.display = "none"; // Hide the menu-toggle on mobile
+            }
+
+            // Ensure menu-toggle remains visible on mobile (0-1000px) when wrap_info_id is not displayed
+            if (wrapInfo.style.display !== "flex") {
+                menuToggle.style.display = "flex"; // Ensure it remains visible on mobile view
+            }
+        }
+    }
+
+    // Add event listener for window resize
+    window.addEventListener('resize', handleResize);
+
+    // Initial resize check to set correct state on page load
+    handleResize();
+
+    // Function to check when the #wrap_info_id goes out of view
+    function checkVisibility() {
+        const rect = wrapInfo.getBoundingClientRect();
+        const isOutOfView = rect.bottom < 0 || rect.top > window.innerHeight;
+
+        // If wrap_info_id is out of the view, hide it (display: none)
+        if (isOutOfView) {
+            wrapInfo.style.display = "none";
+            menuToggle.style.display = "flex"; // Show menu-toggle again when wrap_info_id is hidden
+        }
+    }
+
     // Add scroll event listener to check when the #wrap_info_id goes out of view
     window.addEventListener("scroll", checkVisibility);
-});
 
+});
 
 // Select the #mailback element
 const mailbackElement = document.getElementById('mailback');
@@ -345,7 +433,6 @@ mailbackElement.addEventListener('mouseleave', () => {
     // Reset the color back to the original one (assuming --randomcolor is defined)
     mailbackElement.style.color = getComputedStyle(document.documentElement).getPropertyValue('--randomcolor').trim();
 });
-
 
 // Function to check if an element is partially or fully in the viewport
 function isElementInViewport(el, offset = 0) {
@@ -378,7 +465,6 @@ window.addEventListener('scroll', updateHashOnScroll);
 
 // Add event listener to resize event to check when the window is resized (for responsiveness)
 window.addEventListener('resize', updateHashOnScroll);
-
 
 window.onload = function() {
     // Check if the URL contains #wrap_info_id in the hash

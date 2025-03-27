@@ -1,15 +1,55 @@
+/* CONTACT/ABOUT/WRAP_INFO_ID CSS */
+
+#close-btn {
+    display: block;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    z-index: 1000;
+}
+
+#close-btn:before,
+#close-btn:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 2px;
+    background-color: white;
+    transform: translate(-50%, -50%);
+}
+
+#close-btn:before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+#close-btn:after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.hidden {
+    display: none !important;
+    /* Forcefully hide the elements */
+}
+
 .brand-name {
     font-weight: bold;
     line-height: 1.15;
     font-size: 1.25rem;
-    letter-spacing: .025rem;
+    letter-spacing: 0.025rem;
 }
 
 .magazine-link {
     font-weight: bold;
     line-height: 1.15;
     font-size: 1.15rem;
-    letter-spacing: .025rem;
+    letter-spacing: 0.025rem;
     color: white;
     text-decoration: none;
 }
@@ -18,7 +58,7 @@
     font-weight: bold;
     line-height: 1.15;
     font-size: 1.15rem;
-    letter-spacing: .025rem;
+    letter-spacing: 0.025rem;
 }
 
 #backhome {
@@ -32,8 +72,6 @@
     justify-content: center;
     align-items: center;
     background-color: transparent;
-    /* border: 1.6px solid #000; 
-    border: 1.5px solid transparent; */
     cursor: pointer;
     z-index: 9999999;
 }
@@ -42,14 +80,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 75dvh;
+    min-height: 100dvh;
     letter-spacing: 0.025rem;
-}
-
-@media screen and (max-width:1250px) {
-    #backhome {
-        display: none;
-    }
 }
 
 #abackhome {
@@ -62,7 +94,7 @@
 #abackhome:after {
     position: absolute;
     left: 0;
-    content: '';
+    content: "";
     width: 100%;
     height: 2px;
     /* cross thickness */
@@ -80,7 +112,6 @@
 
 .wrap_info {
     display: flex;
-    /* justify-content: center; */
 }
 
 p.webdesign {
@@ -93,7 +124,7 @@ p.webdesign {
     background-size: 2rem;
     width: 2rem;
     height: 2rem;
-    margin: 0 0 0 .5rem;
+    margin: 0 0 0 0.5rem;
 }
 
 .social-svg_1 {
@@ -101,7 +132,7 @@ p.webdesign {
     background-size: 2rem;
     width: 2rem;
     height: 2rem;
-    margin: 0 0 0 .5rem;
+    margin: 0 0 0 0.5rem;
 }
 
 .social-svg_2 {
@@ -109,7 +140,7 @@ p.webdesign {
     background-size: 2rem;
     width: 2rem;
     height: 2rem;
-    margin: 0 0 0 .5rem;
+    margin: 0 0 0 0.5rem;
 }
 
 .social-svg_3 {
@@ -117,7 +148,7 @@ p.webdesign {
     background-size: 2rem;
     width: 2rem;
     height: 2rem;
-    margin: 0 0 0 .5rem;
+    margin: 0 0 0 0.5rem;
 }
 
 .social-svg_4 {
@@ -125,7 +156,7 @@ p.webdesign {
     background-size: 2rem;
     width: 2rem;
     height: 2rem;
-    margin: 0 0 0 .5rem;
+    margin: 0 0 0 0.5rem;
 }
 
 .social-svg_0:hover,
@@ -133,7 +164,7 @@ p.webdesign {
 .social-svg_2:hover,
 .social-svg_3:hover,
 .social-svg_4:hover {
-    filter: invert(55%) sepia(20%) saturate(1799%) hue-rotate(299deg) brightness(205%) contrast(100%)
+    filter: invert(55%) sepia(20%) saturate(1799%) hue-rotate(299deg) brightness(205%) contrast(100%);
 }
 
 #social_elements {
@@ -145,6 +176,43 @@ p.webdesign {
     justify-content: center;
     align-self: center;
     margin: 2rem;
+}
+
+.headlineaboutcontainer {
+    text-align: center;
+    margin-bottom: auto;
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
+    padding-bottom: 5vw;
+}
+
+.aboutcontainer {
+    text-align: left;
+    width: 40%;
+    margin: 0 .5em .5em .5em;
+    align-self: left;
+    margin-left: 10%;
+    font-size: auto !important;
+}
+
+.aboutcontainer_r {
+    text-align: left;
+    width: 40%;
+    margin: 0 .5em .5em .5em;
+    margin-left: 10%;
+}
+
+a.studiolist,
+p.aboutlist {
+    color: var(--firstcolor);
+}
+
+#aboutme3 {
+    margin-top: 2.5rem;
+}
+
+.copyright {
+    margin-right: auto !important;
 }
 
 @media screen and (max-width: 1000px) {
@@ -168,48 +236,10 @@ p.webdesign {
     }
 }
 
-.headlineaboutcontainer {
-    text-align: center;
-    margin-bottom: auto;
-    margin-left: 2.5rem;
-    margin-right: 2.5rem;
-    padding-bottom: 5vw;
-}
-
-.aboutcontainer {
-    /* margin-top: auto; */
-    text-align: left;
-    width: 40%;
-    margin: 2%;
-    align-self: left;
-    margin-left: 10%;
-    /* height: 50dvh; */
-    font-size: auto !important;
-}
-
-.aboutcontainer_r {
-    /* margin-top: auto; */
-    text-align: left;
-    width: 40%;
-    margin: 2%;
-    margin-left: 10%;
-}
-
-a.studiolist,
-p.aboutlist {
-    color: var(--firstcolor);
-}
-
-#aboutme1 {
-    /* margin-left:2.5rem; */
-}
-
-#aboutme2 {
-    /* margin-left:2.5rem; */
-}
-
-#aboutme3 {
-    margin-top: 2.5rem;
+@media screen and (max-width: 1250px) {
+    #backhome {
+        display: none;
+    }
 }
 
 @media screen and (max-width: 1000px) {
@@ -246,222 +276,24 @@ p.aboutlist {
     .wrap_info {
         flex-wrap: nowrap;
         flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
     }
     .aboutcontainer {
-        margin-left: 5%;
         padding: 2%;
         width: 40%;
-        align-self: baseline;
+        align-self: start;
     }
     .aboutcontainer_r {
         margin-left: 5%;
         padding: 2%;
         width: 40%;
-        align-self: baseline;
+        align-self: start;
+        align-items: start;
+        justify-content: flex-start;
+        align-content: baseline;
+        align-items: baseline;
+        display: flex;
+        flex-direction: column;
     }
-}
-
-
-/* animation contact start*/
-
-#headline {
-    animation: fadeIn 20s;
-    -webkit-animation: fadeIn 20s;
-    -moz-animation: fadeIn 20s;
-    -o-animation: fadeIn 20s;
-    -ms-animation: fadeIn 20s;
-    font-size: 15vw;
-    margin: 2rem 0 0 0;
-}
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    35% {
-        opacity: .75;
-    }
-    50% {
-        opacity: 1;
-    }
-    65% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-@-moz-keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    35% {
-        opacity: .75;
-    }
-    50% {
-        opacity: 1;
-    }
-    65% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-@-webkit-keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    35% {
-        opacity: .75;
-    }
-    50% {
-        opacity: 1;
-    }
-    65% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-@-o-keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    35% {
-        opacity: .75;
-    }
-    50% {
-        opacity: 1;
-    }
-    65% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-@-ms-keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    35% {
-        opacity: .75;
-    }
-    50% {
-        opacity: 1;
-    }
-    65% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-#headline2 {
-    animation: fadeIn2 20s;
-    -webkit-animation: fadeIn2 20s;
-    -moz-animation: fadeIn2 20s;
-    -o-animation: fadeIn2 20s;
-    -ms-animation: fadeIn2 20s;
-}
-
-@keyframes fadeIn2 {
-    0% {
-        opacity: 0;
-    }
-    35% {
-        opacity: 0;
-    }
-    50% {
-        opacity: 0.75;
-    }
-    70% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-@-moz-keyframes fadeIn2 {
-    0% {
-        opacity: 0;
-    }
-    35% {
-        opacity: 0;
-    }
-    50% {
-        opacity: 0.75;
-    }
-    70% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-@-webkit-keyframes fadeIn2 {
-    0% {
-        opacity: 0;
-    }
-    35% {
-        opacity: 0;
-    }
-    50% {
-        opacity: 0.75;
-    }
-    70% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-@-o-keyframes fadeIn2 {
-    0% {
-        opacity: 0;
-    }
-    35% {
-        opacity: 0;
-    }
-    50% {
-        opacity: 0.75;
-    }
-    70% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-@-ms-keyframes fadeIn2 {
-    0% {
-        opacity: 0;
-    }
-    35% {
-        opacity: 0;
-    }
-    50% {
-        opacity: 0.75;
-    }
-    70% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-.copyright {
-    margin-right: auto !important;
 }
