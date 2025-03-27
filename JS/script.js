@@ -311,6 +311,7 @@ function handleResize() {
     const menuToggle = document.getElementById('menu-toggle');
     const closeBtn = document.getElementById('close-btn');
     const rowid = document.getElementById('rowid');
+    const mailback = document.getElementById('mailback'); // Get the mailback button
 
     // Always hide menu toggle if any lightbox is visible
     if (isLightboxVisible()) {
@@ -320,15 +321,47 @@ function handleResize() {
 
     // Check for screen width
     if (window.innerWidth < 1000) {
-        // Show menu toggle on smaller screens
-        if (wrapInfo.style.display !== "flex") {
-            menuToggle.style.display = "flex";
+        // Show menu toggle only if wrap_info_id is not visible
+        if (wrapInfo.style.display === "none") {
+            menuToggle.style.display = "flex"; // Show menu toggle if wrap_info_id is hidden
+        } else {
+            menuToggle.style.display = "none"; // Hide menu toggle if wrap_info_id is visible
         }
+
+        // Adjust rowid visibility based on wrap_info_id visibility
+        if (wrapInfo.style.display === "none") {
+            rowid.style.display = "flex"; // Show rowid if wrap_info_id is hidden
+        } else {
+            rowid.style.display = "none"; // Hide rowid if wrap_info_id is visible
+        }
+
+        // Ensure mailback is visible if wrap_info_id is hidden (on mobile)
+        if (wrapInfo.style.display === "none") {
+            mailback.style.display = "flex"; // Show mailback if wrap_info_id is hidden
+        } else {
+            mailback.style.display = "none"; // Hide mailback if wrap_info_id is visible
+        }
+
     } else {
-        // Hide menu toggle on larger screens
+        // On larger screens, hide menu toggle
         menuToggle.style.display = "none";
-        closeBtn.style.display = wrapInfo.style.display === "flex" ? "block" : "none"; // Show close button if wrap_info_id is visible
-        rowid.style.display = ""; // Default display for rowid on larger screens
+
+        // Show or hide close button based on wrap_info_id visibility
+        closeBtn.style.display = wrapInfo.style.display === "flex" ? "block" : "none";
+
+        // Adjust rowid visibility based on wrap_info_id visibility
+        if (wrapInfo.style.display === "none") {
+            rowid.style.display = "flex"; // Show rowid if wrap_info_id is hidden
+        } else {
+            rowid.style.display = "none"; // Hide rowid if wrap_info_id is visible
+        }
+
+        // Only show mailback if wrap_info_id is hidden on larger screens
+        if (wrapInfo.style.display === "none") {
+            mailback.style.display = "flex"; // Show mailback if wrap_info_id is hidden
+        } else {
+            mailback.style.display = "none"; // Hide mailback if wrap_info_id is visible
+        }
     }
 }
 
