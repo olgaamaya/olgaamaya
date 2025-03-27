@@ -251,6 +251,7 @@ function resetFigures() {
 
 // Handle resizing logic
 function handleResize() {
+    const wrapInfo = document.getElementById("wrap_info_id");
     if (window.innerWidth < 1000) {
         // Ensure the menuToggle is visible on mobile and small screens
         if (wrapInfo.style.display !== "flex") {
@@ -347,29 +348,65 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    // Add click event listener to all elements with class 'infoolga'
-    infoolgaLinks.forEach(link => {
-        link.addEventListener("click", function() {
-            // Keep wrap_info_id visible
-            wrapInfo.style.display = "flex";
+    // // Add click event listener to all elements with class 'infoolga'
+    // infoolgaLinks.forEach(link => {
+    //     link.addEventListener("click", function() {
+    //         // Keep wrap_info_id visible
+    //         wrapInfo.style.display = "flex";
 
-            // If screen is less than 1000px, hide close button and show rowid (default visibility)
-            if (window.innerWidth < 1000) {
-                closeBtn.style.display = "flex"; // Show close button in mobile view
-                closeBtn.style.position = "absolute";
-                closeBtn.style.left = "2rem";
-                closeBtn.style.top = "2.5rem";
-                closeBtn.style.width = "1rem";
-                closeBtn.style.height = "1rem"; // Set the correct size for mobile
+    //         // If screen is less than 1000px, hide close button and show rowid (default visibility)
+    //         if (window.innerWidth < 1000) {
+    //             closeBtn.style.display = "flex"; // Show close button in mobile view
+    //             closeBtn.style.position = "absolute";
+    //             closeBtn.style.left = "2rem";
+    //             closeBtn.style.top = "2.5rem";
+    //             closeBtn.style.width = "1rem";
+    //             closeBtn.style.height = "1rem"; // Set the correct size for mobile
 
-                rowid.style.display = "none"; // Hide the rowid container on mobile
-                menuToggle.style.display = "none"; // Hide the menu toggle on mobile
+    //             rowid.style.display = "none"; // Hide the rowid container on mobile
+    //             menuToggle.style.display = "none"; // Hide the menu toggle on mobile
+    //         }
+
+    //         // Hide the menu toggle when wrap_info_id is visible
+    //         menuToggle.style.display = "none"; // Hide the menu-toggle when wrap_info_id is displayed
+    //     });
+    // });
+
+    // Handle clicks on infoolga elements (links with # href)
+    document.querySelectorAll('.infoolga').forEach(link => {
+        link.addEventListener('click', (e) => {
+            // Reset the menu state when an infoolga element is clicked
+            navMenu.classList.remove('show');
+            navUL.classList.remove('show');
+            address.classList.remove('show');
+            body.classList.remove('show');
+            menu.classList.remove('show');
+            menupoint.classList.remove('show');
+            contact.classList.remove('contact');
+            morecontact.classList.remove('morecontact');
+            lesscontact.classList.remove('lesscontact');
+            sociale2.classList.remove('show');
+
+            // Ensure that the logo and header are visible again when an infoolga link is clicked
+            if (logo) {
+                logo.style.display = ''; // Ensure logo is visible
             }
 
-            // Hide the menu toggle when wrap_info_id is visible
-            menuToggle.style.display = "none"; // Hide the menu-toggle when wrap_info_id is displayed
+            if (header) {
+                header.style.display = ''; // Ensure header is visible
+            }
+
+            // If the link is a hash, scroll smoothly to the target
+            const targetId = link.getAttribute('href').substring(1); // Get the target ID without the #
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } else {
+                console.warn(`Target element with id ${targetId} not found.`);
+            }
         });
     });
+
 
     // Function to handle screen resizing
     function handleResize() {
