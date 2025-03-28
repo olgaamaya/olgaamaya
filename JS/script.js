@@ -26,17 +26,19 @@ const header = document.getElementById("header"); // Make sure to target the hea
 const rowid = document.getElementById('rowid'); // Added rowid element
 
 menu.addEventListener('click', () => {
-    // Toggle the menu visibility (open/close)
-    navMenu.classList.toggle('show');
-    navUL.classList.toggle('show');
-    address.classList.toggle('show');
-    body.classList.toggle('show');
-    menu.classList.toggle('show');
-    menupoint.classList.toggle('show');
+    // Create an array of elements to toggle the class
+    const elementsToToggle = [
+        navMenu, navUL, address, body, menu, menupoint,
+        contact, morecontact, lesscontact, sociale2
+    ];
+
+    // Loop through each element and toggle the "show" or respective class
+    elementsToToggle.forEach(element => element.classList.toggle('show'));
+
+    // Toggle specific classes for contact-related elements
     contact.classList.toggle('contact');
     morecontact.classList.toggle('morecontact');
     lesscontact.classList.toggle('lesscontact');
-    sociale2.classList.toggle('show');
 
     // Toggle logo display
     if (logo.style.display === 'none') {
@@ -90,19 +92,13 @@ menu.addEventListener('click', () => {
         if (grandchild.style.height === '4rem') {
             // Reset styles
             grandchild.style.display = '';
-            grandchild.style.flexWrap = '';
             grandchild.style.justifyContent = '';
             grandchild.style.alignItems = '';
-            grandchild.style.flex = '';
-            grandchild.style.margin = '';
         } else {
             // Apply new styles
             grandchild.style.display = 'flex';
-            grandchild.style.flexWrap = 'wrap';
             grandchild.style.justifyContent = 'center';
             grandchild.style.alignItems = 'center';
-            grandchild.style.flex = '0 1 50%';
-            grandchild.style.margin = '0.5rem';
         }
     });
 });
@@ -159,20 +155,13 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-
 document.querySelectorAll('.infoolga').forEach(link => {
     link.addEventListener('click', function(e) {
-        // Reset all menu toggle mechanisms by removing the "show" class from all elements toggled by the first function
-        navMenu.classList.remove('show');
-        navUL.classList.remove('show');
-        address.classList.remove('show');
-        body.classList.remove('show');
-        menu.classList.remove('show');
-        menupoint.classList.remove('show');
-        contact.classList.remove('contact');
-        morecontact.classList.remove('morecontact');
-        lesscontact.classList.remove('lesscontact');
-        sociale2.classList.remove('show');
+        // Create an array of elements to remove the "show" class from
+        const elementsToHide = [navMenu, navUL, address, body, menu, menupoint, contact, morecontact, lesscontact, sociale2];
+
+        // Loop through each element and remove the "show" class
+        elementsToHide.forEach(element => element.classList.remove('show'));
 
         // Toggle logo back to default display (restore visibility)
         logo.style.display = ''; // Restore default display (could be block, inline, etc.)
@@ -197,11 +186,8 @@ document.querySelectorAll('.infoolga').forEach(link => {
         grandchildren.forEach((grandchild) => {
             // Reset styles applied to grandchildren
             grandchild.style.display = '';
-            grandchild.style.flexWrap = '';
             grandchild.style.justifyContent = '';
             grandchild.style.alignItems = '';
-            grandchild.style.flex = '';
-            grandchild.style.margin = '';
         });
 
         // Reset any other specific elements or styles
@@ -475,11 +461,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
         grandchildren.forEach((grandchild) => {
             grandchild.style.display = ''; // Reset display
-            grandchild.style.flexWrap = '';
             grandchild.style.justifyContent = '';
             grandchild.style.alignItems = '';
-            grandchild.style.flex = '';
-            grandchild.style.margin = '';
         });
     });
 
