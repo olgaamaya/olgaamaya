@@ -565,7 +565,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
             // Adjust rowid visibility based on wrap_info_id visibility
             if (wrapInfo.style.display === "none") {
-                rowid.style.display = "flex"; // Show rowid if wrap_info_id is hidden
+                rowid.style.display = ""; // Show rowid if wrap_info_id is hidden
             } else {
                 rowid.style.display = "none"; // Hide rowid if wrap_info_id is visible
             }
@@ -589,7 +589,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
             // Adjust rowid visibility based on wrap_info_id visibility
             if (wrapInfo.style.display === "none") {
-                rowid.style.display = "flex"; // Show rowid if wrap_info_id is hidden
+                rowid.style.display = ""; // Show rowid if wrap_info_id is hidden
             } else {
                 rowid.style.display = "none"; // Hide rowid if wrap_info_id is visible
             }
