@@ -1,6 +1,40 @@
 /* CONTACT/ABOUT/WRAP_INFO_ID CSS */
 
-#close-btn {
+
+/* 
+#menupointid.show {
+    height: 2rem;
+    width: 2rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    /* border: 1.6px solid #000; 
+    border: 1.5px solid white;
+}
+
+#menupointid.show:before,
+#menupointid.show:after {
+    position: absolute;
+    content: '';
+    width: 85%;
+    height: 2px;
+    /* cross thickness 
+    background-color: white;
+}
+
+#menupointid.show:before {
+    transform: rotate(45deg);
+}
+
+#menupointid.show:after {
+    transform: rotate(-45deg);
+} */
+
+#close-btn,
+#menupointid.show {
     display: flex;
     position: absolute;
     top: 2rem;
@@ -14,7 +48,9 @@
 }
 
 #close-btn:before,
-#close-btn:after {
+#close-btn:after,
+#menupointid.show:before,
+#menupointid.show:after {
     content: '';
     position: absolute;
     top: 50%;
@@ -25,11 +61,13 @@
     transform: translate(-50%, -50%);
 }
 
-#close-btn:before {
+#close-btn:before,
+#menupointid.show:before {
     transform: translate(-50%, -50%) rotate(45deg);
 }
 
-#close-btn:after {
+#close-btn:after,
+#menupointid.show:after {
     transform: translate(-50%, -50%) rotate(-45deg);
 }
 

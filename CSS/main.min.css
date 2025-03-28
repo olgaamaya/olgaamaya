@@ -332,37 +332,6 @@ address div p a {
     font-size: .6rem
 }
 
-#menupointid.show {
-    height: 2rem;
-    width: 2rem;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: transparent;
-    /* border: 1.6px solid #000; */
-    border: 1.5px solid white;
-}
-
-#menupointid.show:before,
-#menupointid.show:after {
-    position: absolute;
-    content: '';
-    width: 85%;
-    height: 2px;
-    /* cross thickness */
-    background-color: white;
-}
-
-#menupointid.show:before {
-    transform: rotate(45deg);
-}
-
-#menupointid.show:after {
-    transform: rotate(-45deg);
-}
-
 #menu.show {
     display: none
 }
@@ -403,8 +372,8 @@ address div p a {
     width: 100%;
     top: 10dvh;
     height: 33.3vh;
-    text-family: inherit;
     font-family: Helvetica, sans-serif;
+    justify-content: center;
 }
 
 #nav-ul.show li.activePage a {
@@ -566,11 +535,11 @@ footer p a {
 
 @media screen and (max-width: 1000px) {
     #social_elements2 {
-        display: none
+        display: none;
     }
     .more {
         display: flex;
-        padding: 2rem
+        padding: 2rem;
     }
     .morecontact {
         display: flex;
@@ -580,7 +549,7 @@ footer p a {
     }
     .less,
     .lesscontact {
-        display: none
+        display: none;
     }
 }
 
@@ -592,6 +561,15 @@ footer p a {
     #myBtn:hover {
         border-bottom: 1rem solid var(--firstcolor)
     }
+}
+
+
+/* Override for .show class on nav-ul */
+
+#nav-ul.show .more,
+#nav-ul.show .morecontact {
+    display: flex !important;
+    /* Force display flex regardless of screen size */
 }
 
 .wrapper {
