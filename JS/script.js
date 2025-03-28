@@ -95,17 +95,12 @@ menu.addEventListener('click', () => {
             grandchild.style.justifyContent = '';
             grandchild.style.alignItems = '';
             grandchild.style.color = ''; // Reset color
-            grandchild.style.stroke = ''; // Reset stroke
-            grandchild.style.strokeWidth = ''; // Reset stroke width
         } else {
             // Apply new styles if color is not black
             grandchild.style.display = 'flex';
             grandchild.style.justifyContent = 'center';
             grandchild.style.alignItems = 'center';
             grandchild.style.color = 'black'; // Set color to black
-            // Set stroke and strokeWidth if the element is an SVG
-            grandchild.style.stroke = 'black'; // Set stroke to black
-            grandchild.style.strokeWidth = '1'; // Set stroke width to 1
         }
     });
 
@@ -198,8 +193,6 @@ document.querySelectorAll('.infoolga').forEach(link => {
             grandchild.style.alignItems = '';
             grandchild.style.color = ''; // Reset color
 
-            grandchild.style.stroke = ''; // Reset stroke
-            grandchild.style.strokeWidth = ''; // Reset stroke width
         });
 
         // Reset any other specific elements or styles
@@ -476,9 +469,6 @@ document.addEventListener("DOMContentLoaded", function() {
             grandchild.style.justifyContent = '';
             grandchild.style.alignItems = '';
             grandchild.style.color = ''; // Reset color
-
-            grandchild.style.stroke = ''; // Reset stroke
-            grandchild.style.strokeWidth = ''; // Reset stroke width
         });
     });
 
