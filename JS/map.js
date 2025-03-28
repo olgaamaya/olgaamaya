@@ -323,8 +323,9 @@ function populateLightboxes() {
 
                 let projectInfo = [];
                 for (let category in project) {
-                    if (project[category] && project[category].trim() !== '') { // Ensure no empty string or spaces
-                        projectInfo.push(project[category]); // Add only non-empty data
+                    // Skip "roleindex" and "titleindex"
+                    if (category !== 'roleindex' && category !== 'titleindex' && project[category] && project[category].trim() !== '') {
+                        projectInfo.push(project[category]); // Add only non-empty data, excluding "roleindex" and "titleindex"
                     }
                 }
 
@@ -370,6 +371,7 @@ function populateLightboxes() {
         }
     }
 }
+
 
 // Function to Populate Figures with Lightbox Data
 // New Function to Populate Figures with Lightbox Data
