@@ -323,9 +323,9 @@ function populateLightboxes() {
 
                 let projectInfo = [];
                 for (let category in project) {
-                    // Skip "roleindex" and "titleindex"
-                    if (category !== 'roleindex' && category !== 'titleindex' && project[category] && project[category].trim() !== '') {
-                        projectInfo.push(project[category]); // Add only non-empty data, excluding "roleindex" and "titleindex"
+                    // Check if the category is not "TITELINDEX" or "ROLEINDEX" and is not an empty string
+                    if (category !== 'TITELINDEX' && category !== 'ROLEINDEX' && project[category] && project[category].trim() !== '') {
+                        projectInfo.push(project[category]); // Add only non-empty data, excluding "TITELINDEX" and "ROLEINDEX"
                     }
                 }
 
