@@ -34,16 +34,19 @@ h1 {
 h2 {
     font-size: 4rem;
     letter-spacing: 2px;
+    font-family: 'Squeid Gameis', VG5000, Arial, sans-serif;
 }
 
 h3 {
     font-size: 2rem;
     letter-spacing: 2px;
+    font-family: 'Squeid Gameis', VG5000, Arial, sans-serif;
 }
 
 h4 {
     font-size: 1.5rem;
-    letter-spacing: .1rem
+    letter-spacing: .1rem;
+    font-family: 'doboto', 'Squeid Gameis', VG5000, Arial, sans-serif;
 }
 
 figure {
@@ -57,10 +60,6 @@ figure {
 @font-face {
     font-family: "VG5000";
     src: url(../fonts/VG5000-Regular_web.woff2) format("woff2"), url(../fonts/VG5000-Regular_web.woff) format("woff")
-}
-
-h3 {
-    font-family: 'Squeid Gameis', VG5000, Arial, sans-serif;
 }
 
 p {

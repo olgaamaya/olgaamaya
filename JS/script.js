@@ -475,16 +475,24 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-
     // Add click event listener on the mailback button
     mailbackButton.addEventListener("click", function() {
+        // Show the mailback button again
+        mailbackButton.style.display = "flex";
 
-        mailbackButton.style.display = "flex"; // Show the mailback button again
+        // Get the button (myBtn)
+        const myBtn = document.querySelector("#myBtn");
+
         // Check if the wrap_info_id is already visible
         if (wrapInfo.style.display === "none") {
             // If it's not visible, show it and scroll to it
             scrollToWrapInfo();
             body.style.background = "red";
+
+
+            myBtn.style.borderTop = ".2rem solid red";
+            myBtn.style.borderRight = ".5rem solid red";
+            myBtn.style.borderLeft = ".5rem solid red";
         } else {
             // If it's visible, show the rowid container again
             wrapInfo.style.display = "none";
@@ -492,6 +500,10 @@ document.addEventListener("DOMContentLoaded", function() {
             closeBtn.style.display = "none"; // Hide the close button
             menuToggle.style.display = ""; // Ensure menu-toggle is shown when wrap_info_id is hidden
             body.style.background = "";
+
+            myBtn.style.borderTop = "";
+            myBtn.style.borderRight = "";
+            myBtn.style.borderLeft = "";
         }
     });
 
