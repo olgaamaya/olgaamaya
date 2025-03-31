@@ -472,6 +472,85 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
+    // Select the #mailback and #myBtn elements
+    const mailbackElement = document.getElementById('mailback');
+    const myBtn = document.querySelector('#myBtn');
+
+    // Function to check the conditions (screen size > 1150px)
+    function shouldApplyHoverEffects() {
+        return window.innerWidth > 1150 && !isWrapInfoHash();
+    }
+
+    // Function to check if the hash is exactly "/#wrap_info_id"
+    function isWrapInfoHash() {
+        return window.location.hash === "#wrap_info_id";
+    }
+
+    // Function to add hover event listeners
+    function addHoverEffects() {
+        // Set up hover event listeners to change color dynamically for #mailback
+        mailbackElement.addEventListener('mouseenter', () => {
+            if (shouldApplyHoverEffects()) {
+                mailbackElement.style.color = getComputedStyle(document.documentElement).getPropertyValue('--randomcolor2').trim();
+            }
+        });
+
+        mailbackElement.addEventListener('mouseleave', () => {
+            if (shouldApplyHoverEffects()) {
+                mailbackElement.style.color = "";
+            }
+        });
+
+        // Set up hover event listeners to change border color dynamically for #myBtn
+        myBtn.addEventListener('mouseenter', () => {
+            if (shouldApplyHoverEffects()) {
+                myBtn.style.borderTop = ".2rem solid red";
+                myBtn.style.borderRight = ".5rem solid red";
+                myBtn.style.borderLeft = ".5rem solid red";
+            }
+        });
+
+        myBtn.addEventListener('mouseleave', () => {
+            if (shouldApplyHoverEffects()) {
+                // If the hash is "#wrap_info_id", keep the border red, otherwise reset to default (empty)
+                if (isWrapInfoHash()) {
+                    myBtn.style.borderTop = ".2rem solid red";
+                    myBtn.style.borderRight = ".5rem solid red";
+                    myBtn.style.borderLeft = ".5rem solid red";
+                } else {
+                    myBtn.style.borderTop = "";
+                    myBtn.style.borderRight = "";
+                    myBtn.style.borderLeft = "";
+                }
+            }
+        });
+    }
+
+    // Function to remove hover event listeners
+    function removeHoverEffects() {
+        mailbackElement.removeEventListener('mouseenter', () => {});
+        mailbackElement.removeEventListener('mouseleave', () => {});
+        myBtn.removeEventListener('mouseenter', () => {});
+        myBtn.removeEventListener('mouseleave', () => {});
+    }
+
+    // Add hover effects when conditions are met (screen width > 1150px and no "#wrap_info_id" in URL hash)
+    function checkAndApplyHoverEffects() {
+        if (shouldApplyHoverEffects()) {
+            addHoverEffects(); // Add hover effects
+        } else {
+            removeHoverEffects(); // Remove hover effects
+        }
+    }
+
+    // Initial check when the page loads
+    checkAndApplyHoverEffects();
+
+    // Recheck and update when the window is resized
+    window.addEventListener('resize', checkAndApplyHoverEffects);
+
+    // Recheck and update when the URL hash changes (to account for dynamic hash navigation)
+    window.addEventListener('hashchange', checkAndApplyHoverEffects);
 
 
 
@@ -479,9 +558,6 @@ document.addEventListener("DOMContentLoaded", function() {
     mailbackButton.addEventListener("click", function() {
         // Show the mailback button again
         mailbackButton.style.display = "flex";
-
-        // Get the button (myBtn)
-        const myBtn = document.querySelector("#myBtn");
 
         // Check if the wrap_info_id is already visible
         if (wrapInfo.style.display === "none") {
@@ -510,8 +586,31 @@ document.addEventListener("DOMContentLoaded", function() {
 
     document.querySelectorAll('.infoolga').forEach(link => {
         link.addEventListener('click', function(e) {
+
+
             // Make sure wrap_info_id is set to 'flex' before anything else
             const wrapInfo = document.getElementById('wrap_info_id');
+
+
+            // Check if the wrap_info_id is already visible
+            if (wrapInfo.style.display === "none") {
+                body.style.background = "red";
+                myBtn.style.borderTop = ".2rem solid red";
+                myBtn.style.borderRight = ".5rem solid red";
+                myBtn.style.borderLeft = ".5rem solid red";
+            } else {
+                // If it's visible, show the rowid container again
+                wrapInfo.style.display = "none";
+                rowid.style.display = ""; // Show the project list container again
+                closeBtn.style.display = "none"; // Hide the close button
+                menuToggle.style.display = ""; // Ensure menu-toggle is shown when wrap_info_id is hidden
+                body.style.background = "";
+                myBtn.style.borderTop = "";
+                myBtn.style.borderRight = "";
+                myBtn.style.borderLeft = "";
+            }
+
+
             if (wrapInfo) {
                 wrapInfo.style.display = 'flex';
             }
