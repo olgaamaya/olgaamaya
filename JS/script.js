@@ -315,31 +315,31 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-const container = document.querySelector('.project-list-index');
-const figures = Array.from(container.getElementsByTagName('figure'));
+// const container = document.querySelector('.project-list-index');
+// const figures = Array.from(container.getElementsByTagName('figure'));
 
-// Store the original order of figures in an array
-const originalOrder = [...figures];
+// // Store the original order of figures in an array
+// const originalOrder = [...figures];
 
-let hasShuffled = false; // Flag to track if the shuffle has been done
+// let hasShuffled = false; // Flag to track if the shuffle has been done
 
-function shuffleFigures() {
-    // Shuffle the figures randomly
-    for (let i = figures.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [figures[i], figures[j]] = [figures[j], figures[i]]; // Swap
-    }
+// function shuffleFigures() {
+//     // Shuffle the figures randomly
+//     for (let i = figures.length - 1; i > 0; i--) {
+//         const j = Math.floor(Math.random() * (i + 1));
+//         [figures[i], figures[j]] = [figures[j], figures[i]]; // Swap
+//     }
 
-    // Clear the container and append the shuffled figures
-    container.innerHTML = '';
-    figures.forEach(figure => container.appendChild(figure));
-}
+//     // Clear the container and append the shuffled figures
+//     container.innerHTML = '';
+//     figures.forEach(figure => container.appendChild(figure));
+// }
 
-function resetFigures() {
-    // Reset the figures to their original order
-    container.innerHTML = '';
-    originalOrder.forEach(figure => container.appendChild(figure));
-}
+// function resetFigures() {
+//     // Reset the figures to their original order
+//     container.innerHTML = '';
+//     originalOrder.forEach(figure => container.appendChild(figure));
+// }
 
 function isLightboxVisible() {
     // Get all elements in the document
@@ -484,12 +484,14 @@ document.addEventListener("DOMContentLoaded", function() {
         if (wrapInfo.style.display === "none") {
             // If it's not visible, show it and scroll to it
             scrollToWrapInfo();
+            body.style.background = "red";
         } else {
             // If it's visible, show the rowid container again
             wrapInfo.style.display = "none";
             rowid.style.display = ""; // Show the project list container again
             closeBtn.style.display = "none"; // Hide the close button
             menuToggle.style.display = ""; // Ensure menu-toggle is shown when wrap_info_id is hidden
+            body.style.background = "";
         }
     });
 
