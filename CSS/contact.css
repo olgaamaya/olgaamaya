@@ -79,8 +79,9 @@
 .brand-name {
     font-weight: bold;
     line-height: 1.15;
-    font-size: 1.25rem;
-    letter-spacing: 0.025rem;
+    font-size: 1rem;
+    font-family: 'Squeid Gameis';
+    letter-spacing: 0.15rem;
 }
 
 .magazine-link {
@@ -97,6 +98,9 @@
     line-height: 1.15;
     font-size: 1.15rem;
     letter-spacing: 0.025rem;
+    font-family: 'Squeid Gameis';
+    !i;
+    !;
 }
 
 #backhome {

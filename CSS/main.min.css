@@ -12,7 +12,7 @@ html {
 * {
     margin: 0%;
     padding: 0%;
-    box-sizing: border-box
+    box-sizing: border-box;
 }
 
 figure,
@@ -37,8 +37,8 @@ h2 {
 }
 
 h3 {
-    font-size: 25px;
-    letter-spacing: .1rem
+    font-size: 4rem;
+    letter-spacing: 2px;
 }
 
 h4 {
@@ -50,29 +50,33 @@ figure {
     position: relative
 }
 
+@import url('https://fonts.cdnfonts.com/css/farray');
+@import url('https://fonts.cdnfonts.com/css/bauhaus-lace-rnd-display');
+@import url('https://fonts.cdnfonts.com/css/squeid-gameis');
+@import url('https://fonts.cdnfonts.com/css/doboto');
 @font-face {
     font-family: "VG5000";
     src: url(../fonts/VG5000-Regular_web.woff2) format("woff2"), url(../fonts/VG5000-Regular_web.woff) format("woff")
 }
 
-h,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-a,
-p,
-p1,
-p2,
-p3,
-p4,
-p5,
-p6,
-a.projecttitellink {
-    font-family: VG5000, Arial, sans-serif;
-    /* font-family: futura bt; */
+h3 {
+    font-family: 'Squeid Gameis', VG5000, Arial, sans-serif;
+}
+
+p {
+    font-family: 'doboto', 'Squeid Gameis', VG5000, Arial, sans-serif;
+}
+
+.jobtitle {
+    font-family: 'Squeid Gameis', 'Doboto', VG5000, Arial, sans-serif;
+}
+
+.jobsub {
+    font-family: 'Doboto', 'Squeid Gameis', VG5000, Arial, sans-serif;
+}
+
+footer p {
+    font-family: 'Squeid Gameis', VG5000;
 }
 
 body#bodyid.bodyclass.show {
@@ -88,17 +92,11 @@ body {
     color: #fff;
     display: flex;
     flex-direction: column;
-    font-family: VG5000, happy-times, futura, Trebuchet MS, Arial, sans-serif;
-    font-size: 1rem
+    font-size: 1rem;
 }
 
 .projecttitle {
-    font-family: VG5000
-}
-
-footer,
-header a {
-    font-family: VG5000
+    font-family: VG5000;
 }
 
 main ul li a {
@@ -171,7 +169,7 @@ nav .menu {
     left: 1.25rem;
     z-index: 99999999999;
     font-size: 1.25rem;
-    font-family: Helvetica Neue, Helvetica, Arial, sans-serif, VG5000;
+    font-family: 'Squeid Gameis', Helvetica Neue, Helvetica, Arial, sans-serif, VG5000;
     text-align: left;
     display: flex;
     justify-content: center;
@@ -372,7 +370,7 @@ address div p a {
     width: 100%;
     top: 10dvh;
     height: 33.3vh;
-    font-family: Helvetica, sans-serif;
+    font-family: 'Squeid Gameis', Helvetica, sans-serif;
     justify-content: center;
 }
 
@@ -545,7 +543,7 @@ footer p a {
         display: flex;
         padding: 2rem;
         width: 100%;
-        font-family: Helvetica, sans-serif;
+        font-family: 'Squeid Gameis', Helvetica, sans-serif;
     }
     .less,
     .lesscontact {
@@ -1076,7 +1074,7 @@ li.menu-item {
 }
 
 .infoolga {
-    font-family: VG5000, Arial, Helvetica, sans-serif;
+    font-family: 'Squeid Gameis', VG5000, Arial, Helvetica, sans-serif;
 }
 
 
