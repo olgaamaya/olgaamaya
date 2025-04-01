@@ -166,13 +166,34 @@ document.querySelectorAll('.infoolga').forEach(link => {
         // Loop through each element and remove the "show" class
         elementsToHide.forEach(element => element.classList.remove('show'));
 
-        // Toggle logo back to default display (restore visibility)
-        logo.style.display = ''; // Restore default display (could be block, inline, etc.)
+        // // Toggle logo back to default display (restore visibility)
+        // logo.style.display = ''; // Restore default display (could be block, inline, etc.)
 
-        // Toggle header back to default display
-        if (header) {
-            header.style.display = ''; // Restore default display for header
+        // // Toggle header back to default display
+        // if (header) {
+        //     header.style.display = ''; // Restore default display for header
+        // }
+
+
+        // Toggle logo display
+        if (logo.style.display === 'none') {
+            logo.style.display = 'none'; // Restore default display
+        } else {
+            logo.style.display = ''; // Hide it
         }
+
+        // Toggle header display
+        if (header) {
+            if (header.style.display === 'none') {
+                header.style.display = 'none'; // Restore default display for header
+            } else {
+                header.style.display = ''; // Hide header if needed
+            }
+        }
+
+
+
+
 
         // Reset hash in URL if it was modified in the first function
         const currentHash = window.location.hash;
@@ -422,6 +443,23 @@ document.addEventListener("DOMContentLoaded", function() {
         // Hide the close button
         closeBtn.style.display = "none";
 
+        body.style.background = "";
+
+        // // Toggle logo back to default display (restore visibility)
+        logo.style.display = ''; // Restore default display (could be block, inline, etc.)
+
+        // Get the button (myBtn)
+        const myBtn = document.querySelector("#myBtn");
+
+        myBtn.style.borderTop = "";
+        myBtn.style.borderRight = "";
+        myBtn.style.borderLeft = "";
+
+        // Toggle header back to default display
+        if (header) {
+            header.style.display = ''; // Restore default display for header
+        }
+
         // Ensure that menu-toggle and menupoint are handled based on screen width
         const menuToggle = document.getElementById('menu-toggle');
         const menupoint = document.getElementById('menupoint');
@@ -470,94 +508,32 @@ document.addEventListener("DOMContentLoaded", function() {
             grandchild.style.alignItems = '';
             grandchild.style.color = ''; // Reset color
         });
+
+        // Remove the hash from the URL
+        if (window.location.hash) {
+            history.replaceState(null, null, window.location.pathname); // Removes the hash from the URL
+        }
     });
 
-    // Select the #mailback and #myBtn elements
-    const mailbackElement = document.getElementById('mailback');
-    const myBtn = document.querySelector('#myBtn');
-
-    // Function to check the conditions (screen size > 1150px)
-    function shouldApplyHoverEffects() {
-        return window.innerWidth > 1150 && !isWrapInfoHash();
-    }
-
-    // Function to check if the hash is exactly "/#wrap_info_id"
-    function isWrapInfoHash() {
-        return window.location.hash === "#wrap_info_id";
-    }
-
-    // Function to add hover event listeners
-    function addHoverEffects() {
-        // Set up hover event listeners to change color dynamically for #mailback
-        mailbackElement.addEventListener('mouseenter', () => {
-            if (shouldApplyHoverEffects()) {
-                mailbackElement.style.color = getComputedStyle(document.documentElement).getPropertyValue('--randomcolor2').trim();
-            }
-        });
-
-        mailbackElement.addEventListener('mouseleave', () => {
-            if (shouldApplyHoverEffects()) {
-                mailbackElement.style.color = "";
-            }
-        });
-
-        // Set up hover event listeners to change border color dynamically for #myBtn
-        myBtn.addEventListener('mouseenter', () => {
-            if (shouldApplyHoverEffects()) {
-                myBtn.style.borderTop = ".2rem solid red";
-                myBtn.style.borderRight = ".5rem solid red";
-                myBtn.style.borderLeft = ".5rem solid red";
-            }
-        });
-
-        myBtn.addEventListener('mouseleave', () => {
-            if (shouldApplyHoverEffects()) {
-                // If the hash is "#wrap_info_id", keep the border red, otherwise reset to default (empty)
-                if (isWrapInfoHash()) {
-                    myBtn.style.borderTop = ".2rem solid red";
-                    myBtn.style.borderRight = ".5rem solid red";
-                    myBtn.style.borderLeft = ".5rem solid red";
-                } else {
-                    myBtn.style.borderTop = "";
-                    myBtn.style.borderRight = "";
-                    myBtn.style.borderLeft = "";
-                }
-            }
-        });
-    }
-
-    // Function to remove hover event listeners
-    function removeHoverEffects() {
-        mailbackElement.removeEventListener('mouseenter', () => {});
-        mailbackElement.removeEventListener('mouseleave', () => {});
-        myBtn.removeEventListener('mouseenter', () => {});
-        myBtn.removeEventListener('mouseleave', () => {});
-    }
-
-    // Add hover effects when conditions are met (screen width > 1150px and no "#wrap_info_id" in URL hash)
-    function checkAndApplyHoverEffects() {
-        if (shouldApplyHoverEffects()) {
-            addHoverEffects(); // Add hover effects
-        } else {
-            removeHoverEffects(); // Remove hover effects
-        }
-    }
-
-    // Initial check when the page loads
-    checkAndApplyHoverEffects();
-
-    // Recheck and update when the window is resized
-    window.addEventListener('resize', checkAndApplyHoverEffects);
-
-    // Recheck and update when the URL hash changes (to account for dynamic hash navigation)
-    window.addEventListener('hashchange', checkAndApplyHoverEffects);
 
 
+
+
+    // Get the button (myBtn)
+    const myBtn = document.querySelector("#myBtn");
 
     // Add click event listener on the mailback button
     mailbackButton.addEventListener("click", function() {
         // Show the mailback button again
         mailbackButton.style.display = "flex";
+
+        // Toggle logo display
+        if (logo.style.display === 'none') {
+            logo.style.display = ''; // Restore default display
+        } else {
+            logo.style.display = 'none'; // Hide it
+        }
+
 
         // Check if the wrap_info_id is already visible
         if (wrapInfo.style.display === "none") {
@@ -569,6 +545,8 @@ document.addEventListener("DOMContentLoaded", function() {
             myBtn.style.borderTop = ".2rem solid red";
             myBtn.style.borderRight = ".5rem solid red";
             myBtn.style.borderLeft = ".5rem solid red";
+
+
         } else {
             // If it's visible, show the rowid container again
             wrapInfo.style.display = "none";
@@ -582,6 +560,41 @@ document.addEventListener("DOMContentLoaded", function() {
             myBtn.style.borderLeft = "";
         }
     });
+    window.onload = function() {
+        // Check if the URL contains #wrap_info_id in the hash
+        if (window.location.hash === "#wrap_info_id") {
+            var wrapInfo = document.getElementById('wrap_info_id');
+            if (wrapInfo) {
+                // Set display to flex to make the section visible
+                wrapInfo.style.display = 'flex';
+
+                // Jump directly to the element without smooth scrolling
+                wrapInfo.scrollIntoView({ behavior: 'auto' });
+            }
+
+            // Hide the mailback button if #wrap_info_id is in the URL
+            if (mailback) {
+                mailback.style.display = "none"; // Hide mailback button
+            }
+
+            // Show the close button if #wrap_info_id is in the URL
+            if (closeBtn) {
+                closeBtn.style.display = "flex"; // Show close button
+            }
+
+            // Hide the header if #wrap_info_id is in the URL
+            if (header) {
+                header.style.display = "none"; // Hide the header
+            }
+
+            // Hide the logo if #wrap_info_id is in the URL
+            if (logo) {
+                logo.style.display = "none"; // Hide the logo
+            }
+        }
+    };
+
+
 
 
     document.querySelectorAll('.infoolga').forEach(link => {
@@ -591,23 +604,26 @@ document.addEventListener("DOMContentLoaded", function() {
             // Make sure wrap_info_id is set to 'flex' before anything else
             const wrapInfo = document.getElementById('wrap_info_id');
 
-
             // Check if the wrap_info_id is already visible
             if (wrapInfo.style.display === "none") {
                 body.style.background = "red";
                 myBtn.style.borderTop = ".2rem solid red";
                 myBtn.style.borderRight = ".5rem solid red";
                 myBtn.style.borderLeft = ".5rem solid red";
+
+
             } else {
                 // If it's visible, show the rowid container again
                 wrapInfo.style.display = "none";
                 rowid.style.display = ""; // Show the project list container again
                 closeBtn.style.display = "none"; // Hide the close button
                 menuToggle.style.display = ""; // Ensure menu-toggle is shown when wrap_info_id is hidden
+
                 body.style.background = "";
                 myBtn.style.borderTop = "";
                 myBtn.style.borderRight = "";
                 myBtn.style.borderLeft = "";
+
             }
 
 
@@ -641,8 +657,21 @@ document.addEventListener("DOMContentLoaded", function() {
         const menuToggle = document.getElementById('menu-toggle');
         const closeBtn = document.getElementById('close-btn');
         const rowid = document.getElementById('rowid');
-        const mailback = document.getElementById('mailback'); // Get the mailback button
+        const mailback = document.getElementById('mailback');
         const navUl = document.getElementById('nav-ul'); // Get the nav-ul element
+        const menupoint = document.getElementById('menupoint'); // Get the menupoint element
+
+        // Check if the URL contains the hash (#wrap_info_id) and hide menuToggle and menupoint
+        if (window.location.hash === '#wrap_info_id') {
+            // Hide menuToggle and menupoint if the hash is present
+            if (menuToggle) {
+                menuToggle.style.display = "none";
+            }
+            if (menupoint) {
+                menupoint.style.display = "none";
+            }
+            return; // Skip changes if the hash is present
+        }
 
         // Always hide menu toggle if any lightbox is visible
         if (isLightboxVisible()) {
@@ -707,6 +736,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
+
     // Add event listener for window resize
     window.addEventListener('resize', handleResize);
 
@@ -732,6 +762,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
 });
 
+
+
+
 // Select the #mailback element
 const mailbackElement = document.getElementById('mailback');
 
@@ -739,12 +772,121 @@ const mailbackElement = document.getElementById('mailback');
 mailbackElement.addEventListener('mouseenter', () => {
     // Change color on hover (assuming --randomcolor2 is defined)
     mailbackElement.style.color = getComputedStyle(document.documentElement).getPropertyValue('--randomcolor2').trim();
+
 });
 
 mailbackElement.addEventListener('mouseleave', () => {
     // Reset the color back to the original one (assuming --randomcolor is defined)
     mailbackElement.style.color = getComputedStyle(document.documentElement).getPropertyValue('--randomcolor').trim();
 });
+
+
+
+
+// Grab the element where mouse events will trigger style changes
+const titleeffect = document.getElementById("mouseTarget");
+
+// Get all elements with the class "figure.project-index"
+const collection = document.getElementsByClassName("figure.project-index");
+
+// Get the number of "project-index" elements (could be useful later)
+let numb = collection.length;
+
+var sizer = window.matchMedia("(min-width: 1000px)");
+
+// Function to handle mouseenter event
+function handleMouseEnter() {
+    if (!sizer.matches) { // If screen width is less than 1000px, do nothing
+        return; // Exit early if the condition is not met
+    }
+
+    // If screen width is >= 1000px, execute the following
+    document.getElementById("bodyid").style.background = "red";
+    for (let e = 0; e < collection.length; e++) {
+        collection[e].style.border = "solid 2px red";
+    }
+}
+// Function to handle mouseleave event
+function handleMouseLeave() {
+    // Check if the screen width is less than 1000px and exit early if true
+    if (!sizer.matches) {
+        return; // Exit early if the screen width is less than 1000px
+    }
+
+    // Check if there is a hash in the URL (e.g., #wrap_info_id) and exit early if true
+    if (window.location.hash) {
+        return; // Exit early if the hash is present in the URL (e.g., #wrap_info_id)
+    }
+
+    // If the screen width is >= 1000px and no hash is present, execute the following
+    document.getElementById("bodyid").style.background = "";
+    for (let e = 0; e < collection.length; e++) {
+        collection[e].style.border = "";
+    }
+}
+
+
+// Event listener for mouseenter on the titleeffect element (the title)
+titleeffect.addEventListener("mouseenter", handleMouseEnter);
+
+// Event listener for mouseleave on the titleeffect element (the title)
+titleeffect.addEventListener("mouseleave", handleMouseLeave);
+
+
+
+
+// Optional: If you want to update the behavior when the screen size changes dynamically (e.g., resizing the window), 
+// you can listen to the `resize` event like so:
+window.addEventListener('resize', function() {
+    // Re-check if the media query matches when the window resizes
+    if (!sizer.matches) {
+        // Reset any styles if the window is resized below 1000px
+        document.getElementById("bodyid").style.background = "";
+        for (let e = 0; e < collection.length; e++) {
+            collection[e].style.border = "";
+        }
+    }
+});
+
+
+
+// Function to change the value of the CSS variable --randomcolor
+function changeColor() {
+    // Define an array of allowed colors
+    const colors = ["yellow", "yellow"];
+
+    // Select a random color from the array
+    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+
+    // Set the selected color to the --randomcolor CSS variable
+    document.documentElement.style.setProperty("--randomcolor", randomColor);
+}
+
+
+
+// Change the color immediately and then every 5 seconds
+changeColor();
+setInterval(changeColor, 5000);
+
+// Function to change the value of the CSS variable --randomcolor2
+function changeColor2() {
+    // Define an array of allowed colors for the second color change
+    const colors2 = ["pink", "red"];
+
+    // Select a random color from the array
+    const randomColor2 = colors2[Math.floor(Math.random() * colors2.length)];
+
+    // Set the selected color to the --randomcolor2 CSS variable
+    document.documentElement.style.setProperty("--randomcolor2", randomColor2);
+}
+
+// Change the color immediately and then every 5 seconds
+changeColor2();
+setInterval(changeColor2, 50000);
+
+
+// THIS PART IS INDEX
+
 
 // Function to check if an element is partially or fully in the viewport
 function isElementInViewport(el, offset = 0) {

@@ -299,7 +299,7 @@ p.aboutlist {
     .aboutcontainer {
         align-self: left;
         width: 75%;
-        padding-top: 5dvh;
+        margin-top: 1.25rem;
     }
     .aboutcontainer_r {
         align-self: left;
@@ -320,6 +320,8 @@ p.aboutlist {
         flex-direction: row;
         justify-content: center;
         align-items: flex-start;
+        top: 5rem;
+        position: relative;
     }
     .aboutcontainer {
         padding: 2%;
