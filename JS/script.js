@@ -401,11 +401,6 @@ document.addEventListener("DOMContentLoaded", function() {
         const mailbackButton = document.getElementById('mailback');
         const rowid = document.getElementById('rowid');
 
-        wrapInfo.scrollIntoView({
-            behavior: "smooth",
-            block: "center"
-        });
-
         // Set the visibility of wrap_info_id and related elements
         wrapInfo.style.display = "flex";
         closeBtn.style.display = "flex"; // Show close button
@@ -416,7 +411,9 @@ document.addEventListener("DOMContentLoaded", function() {
         // Scroll to the specific element if needed
         if (targetElement) {
             targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            window.scrollBy(0, -50); // Apply the -20px offset
         }
+
     }
 
     closeBtn.addEventListener("click", function() {
@@ -638,21 +635,18 @@ document.addEventListener("DOMContentLoaded", function() {
             if (targetId) {
                 const targetElement = document.getElementById(targetId);
                 if (targetElement) {
-                    // Scroll to the element with smooth behavior
-                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-                    // Calculate the scroll position to add an offset (15px)
-                    const targetOffsetTop = targetElement.offsetTop;
-                    window.scrollTo({
-                        top: targetOffsetTop - 15, // Offset by 15px from the top
-                        behavior: 'smooth'
-                    });
+                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    // Additional logic if needed (e.g., if wrap_info_id is not already flex)
+                    if (wrapInfo.style.display !== 'flex') {
+                        scrollToWrapInfo(targetElement);
+                    }
                 } else {
                     console.warn(`Target element with id ${targetId} not found.`);
                 }
             }
         });
     });
+
 
 
 

@@ -164,7 +164,7 @@ p.webdesign {
     background-size: 2rem;
     width: 2rem;
     height: 2rem;
-    margin: 0 0 0 0.5rem;
+    padding: 0 0 0 0.5rem;
 }
 
 .social-svg_1 {
@@ -172,7 +172,7 @@ p.webdesign {
     background-size: 2rem;
     width: 2rem;
     height: 2rem;
-    /* margin: 0 0 0 0.5rem; */
+    /* padding: 0 0 0 0.5rem; */
 }
 
 .social-svg_2 {
@@ -180,7 +180,7 @@ p.webdesign {
     background-size: 2rem;
     width: 2rem;
     height: 2rem;
-    margin: 0 0 0 0.5rem;
+    padding: 0 0 0 0.5rem;
 }
 
 .social-svg_3 {
@@ -188,7 +188,7 @@ p.webdesign {
     background-size: 2rem;
     width: 2rem;
     height: 2rem;
-    margin: 0 0 0 0.5rem;
+    padding: 0 0 0 0.5rem;
 }
 
 .social-svg_4 {
@@ -196,7 +196,7 @@ p.webdesign {
     background-size: 2rem;
     width: 2rem;
     height: 2rem;
-    margin: 0 0 0 0.5rem;
+    padding: 0 0 0 0.5rem;
 }
 
 .social-svg_0:hover,
@@ -215,31 +215,31 @@ p.webdesign {
     flex-wrap: nowrap;
     justify-content: center;
     align-self: center;
-    margin: 2rem;
+    padding: 2rem;
 }
 
 .headlineaboutcontainer {
     text-align: center;
-    margin-bottom: auto;
-    margin-left: 2.5rem;
-    margin-right: 2.5rem;
+    padding-bottom: auto;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
     padding-bottom: 5vw;
 }
 
 .aboutcontainer {
     text-align: left;
     width: 40%;
-    margin: 0 .5em .5em .5em;
+    padding: 0 .5em .5em .5em;
     align-self: left;
-    margin-left: 10%;
+    padding-left: 10%;
     font-size: auto !important;
 }
 
 .aboutcontainer_r {
     text-align: left;
     width: 40%;
-    margin: 0 .5em .5em .5em;
-    margin-left: 10%;
+    padding: 0 .5em .5em .5em;
+    padding-left: 10%;
 }
 
 a.studiolist,
@@ -247,12 +247,14 @@ p.aboutlist {
     color: var(--firstcolor);
 }
 
-#aboutme3 {
-    margin-top: 2.5rem;
+#aboutme3,
+#aboutme2,
+#aboutme1 {
+    padding-top: 1.25rem;
 }
 
 .copyright {
-    margin-right: auto !important;
+    padding-right: auto !important;
 }
 
 @media screen and (max-width: 1000px) {
@@ -263,16 +265,16 @@ p.aboutlist {
 
 @media screen and (max-width: 750px) {
     #social_elements {
-        margin: 2rem;
+        padding: 2rem;
     }
 }
 
 @media (min-width: 640px) {
     .copyright {
-        margin-left: 0;
+        padding-left: 0;
     }
     .privacy {
-        margin-left: auto;
+        padding-left: auto;
     }
 }
 
@@ -297,7 +299,6 @@ p.aboutlist {
     .aboutcontainer {
         align-self: left;
         width: 65%;
-        margin-top: 1.25rem;
     }
     .aboutcontainer_r {
         align-self: left;
@@ -328,7 +329,7 @@ p.aboutlist {
         align-self: start;
     }
     .aboutcontainer_r {
-        margin-left: 5%;
+        padding-left: 5%;
         padding: 2%;
         width: 40%;
         align-self: start;
@@ -340,6 +341,6 @@ p.aboutlist {
         flex-direction: column;
     }
     #close-btn {
-        margin-top: .5rem;
+        padding-top: .5rem;
     }
 }
