@@ -440,6 +440,15 @@ document.addEventListener("DOMContentLoaded", function() {
             mailbackButton.style.display = ""; // Reset display for mailback (default display)
         }
 
+        if (sociale2.style.display === 'none') {
+            sociale2.style.display = ''; // Restore default display
+        } else {
+            sociale2.style.display = 'none'; // Hide it
+        }
+
+        footer.style.display = "flex";
+
+
         // Hide the close button
         closeBtn.style.display = "none";
 
@@ -533,7 +542,13 @@ document.addEventListener("DOMContentLoaded", function() {
         } else {
             logo.style.display = 'none'; // Hide it
         }
+        if (sociale2.style.display === 'none') {
+            sociale2.style.display = ''; // Restore default display
+        } else {
+            sociale2.style.display = 'none'; // Hide it
+        }
 
+        footer.style.display = "none";
 
         // Check if the wrap_info_id is already visible
         if (wrapInfo.style.display === "none") {
@@ -547,6 +562,7 @@ document.addEventListener("DOMContentLoaded", function() {
             myBtn.style.borderLeft = ".5rem solid red";
 
 
+
         } else {
             // If it's visible, show the rowid container again
             wrapInfo.style.display = "none";
@@ -558,8 +574,10 @@ document.addEventListener("DOMContentLoaded", function() {
             myBtn.style.borderTop = "";
             myBtn.style.borderRight = "";
             myBtn.style.borderLeft = "";
+
         }
     });
+
     window.onload = function() {
         // Check if the URL contains #wrap_info_id in the hash
         if (window.location.hash === "#wrap_info_id") {
@@ -650,8 +668,6 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-
-
     function handleResize() {
         const wrapInfo = document.getElementById('wrap_info_id');
         const menuToggle = document.getElementById('menu-toggle');
@@ -670,6 +686,25 @@ document.addEventListener("DOMContentLoaded", function() {
             if (menupoint) {
                 menupoint.style.display = "none";
             }
+            if (logo) {
+                logo.style.display = "none";
+            }
+            if (sociale2) {
+                sociale2.style.display = "none";
+            }
+            if (body) {
+                body.style.background = "red";
+            }
+
+            // Adjust footer display based on screen width
+            if (footer) {
+                if (window.innerWidth <= 1000) {
+                    footer.style.display = "flex";
+                } else {
+                    footer.style.display = "none";
+                }
+            }
+
             return; // Skip changes if the hash is present
         }
 
@@ -733,9 +768,6 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         }
     }
-
-
-
 
     // Add event listener for window resize
     window.addEventListener('resize', handleResize);

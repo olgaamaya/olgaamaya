@@ -320,7 +320,6 @@ p.aboutlist {
         flex-direction: row;
         justify-content: center;
         align-items: flex-start;
-        top: 5rem;
         position: relative;
     }
     .aboutcontainer {
