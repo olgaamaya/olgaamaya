@@ -58,6 +58,7 @@
     width: calc(100% + 400px);
     left: -400px;
     display: flex;
+    font-family: 'VG5000', Arial, Helvetica, sans-serif;
 }
 
 .scroll div,
