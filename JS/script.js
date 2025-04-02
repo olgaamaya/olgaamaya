@@ -440,22 +440,24 @@ document.addEventListener("DOMContentLoaded", function() {
             mailbackButton.style.display = ""; // Reset display for mailback (default display)
         }
 
-        if (sociale2.style.display === 'none') {
-            sociale2.style.display = ''; // Restore default display
-        } else {
-            sociale2.style.display = 'none'; // Hide it
-        }
+        sociale2.style.display = ''; // Hide it
 
-        footer.style.display = "flex";
 
+        footer.style.display = "";
 
         // Hide the close button
         closeBtn.style.display = "none";
 
         body.style.background = "";
+        logo.style.display = "";
 
-        // // Toggle logo back to default display (restore visibility)
-        logo.style.display = ''; // Restore default display (could be block, inline, etc.)
+        if (window.innerWidth > 1000) {
+            sociale2.style.display = "flex"; // Show the mailback button on mobile view
+        } else {
+            sociale2.style.display = "none"; // Reset display for mailback (default display)
+        }
+
+
 
         // Get the button (myBtn)
         const myBtn = document.querySelector("#myBtn");
@@ -526,6 +528,27 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
+    // Function to update the visibility of menupoint based on the hash and window size
+    function updateVisibility() {
+        if (window.location.hash === '#wrap_info_id') {
+            // Hide menuToggle, menupoint, and other elements if the hash is present
+            if (menuToggle) {
+                menuToggle.style.display = "none";
+            }
+            // Ensure menupoint is hidden if the hash is active and screen width is greater than 1000px
+            if (footer) {
+                if (window.innerWidth <= 1000) {
+                    footer.style.display = "flex";
+                } else {
+                    footer.style.display = "none";
+                }
+            }
+        }
+    }
+
+    // Call the function when the page loads or the window is resized
+    window.addEventListener('load', updateVisibility);
+    window.addEventListener('resize', updateVisibility);
 
 
     // Get the button (myBtn)
@@ -536,17 +559,10 @@ document.addEventListener("DOMContentLoaded", function() {
         // Show the mailback button again
         mailbackButton.style.display = "flex";
 
-        // Toggle logo display
-        if (logo.style.display === 'none') {
-            logo.style.display = ''; // Restore default display
-        } else {
-            logo.style.display = 'none'; // Hide it
-        }
-        if (sociale2.style.display === 'none') {
-            sociale2.style.display = ''; // Restore default display
-        } else {
-            sociale2.style.display = 'none'; // Hide it
-        }
+
+        logo.style.display = 'none'; // Hide it
+
+        sociale2.style.display = 'none'; // Hide it
 
         footer.style.display = "none";
 
@@ -619,6 +635,11 @@ document.addEventListener("DOMContentLoaded", function() {
         link.addEventListener('click', function(e) {
 
 
+
+            logo.style.display = 'none'; // Hide it
+
+            sociale2.style.display = 'none'; // Hide it
+
             // Make sure wrap_info_id is set to 'flex' before anything else
             const wrapInfo = document.getElementById('wrap_info_id');
 
@@ -667,6 +688,11 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     });
+
+
+
+
+
 
     function handleResize() {
         const wrapInfo = document.getElementById('wrap_info_id');
