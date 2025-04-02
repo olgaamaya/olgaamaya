@@ -99,8 +99,6 @@
     font-size: 1.15rem;
     letter-spacing: 0.025rem;
     font-family: 'Squeid Gameis';
-    !i;
-    !;
 }
 
 #backhome {
@@ -122,7 +120,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100dvh;
+    min-height: auto;
     letter-spacing: 0.025rem;
 }
 
@@ -321,6 +319,8 @@ p.aboutlist {
         justify-content: center;
         align-items: flex-start;
         position: relative;
+        margin-top: auto;
+        margin-bottom: auto;
     }
     .aboutcontainer {
         padding: 2%;
@@ -338,5 +338,8 @@ p.aboutlist {
         align-items: baseline;
         display: flex;
         flex-direction: column;
+    }
+    #close-btn {
+        margin-top: .5rem;
     }
 }
