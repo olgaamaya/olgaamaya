@@ -988,5 +988,9 @@ document.addEventListener('DOMContentLoaded', function() {
             rowid.style.display = "none"; // Hide the rowid
             console.log("Rowid hidden");
         }
+        if (menu) {
+            menu.style.display = "none"; // Hide the rowid
+            console.log("menu hidden");
+        }
     }
 });

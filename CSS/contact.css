@@ -341,6 +341,6 @@ p.aboutlist {
         flex-direction: column;
     }
     #close-btn {
-        padding-top: .5rem;
+        margin-top: 1.75rem;
     }
 }
