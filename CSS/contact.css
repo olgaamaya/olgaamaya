@@ -159,43 +159,22 @@ p.webdesign {
     text-decoration: none;
 }
 
-.social-svg_0 {
-    background-repeat: no-repeat;
-    background-size: 2rem;
-    width: 2rem;
-    height: 2rem;
-    padding: 0 0 0 0.5rem;
-}
-
 .social-svg_1 {
     background-repeat: no-repeat;
     background-size: 2rem;
-    width: 2rem;
-    height: 2rem;
+    width: 2.5rem;
+    height: 2.5rem;
     /* padding: 0 0 0 0.5rem; */
 }
 
-.social-svg_2 {
-    background-repeat: no-repeat;
-    background-size: 2rem;
-    width: 2rem;
-    height: 2rem;
-    padding: 0 0 0 0.5rem;
-}
-
-.social-svg_3 {
-    background-repeat: no-repeat;
-    background-size: 2rem;
-    width: 2rem;
-    height: 2rem;
-    padding: 0 0 0 0.5rem;
-}
-
+.social-svg_0,
+.social-svg_2,
+.social-svg_3,
 .social-svg_4 {
     background-repeat: no-repeat;
     background-size: 2rem;
-    width: 2rem;
-    height: 2rem;
+    width: 3rem;
+    height: 2.5rem;
     padding: 0 0 0 0.5rem;
 }
 
