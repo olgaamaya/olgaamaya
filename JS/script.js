@@ -451,11 +451,7 @@ document.addEventListener("DOMContentLoaded", function() {
         body.style.background = "";
         logo.style.display = "";
 
-        if (window.innerWidth > 1000) {
-            sociale2.style.display = "flex"; // Show the mailback button on mobile view
-        } else {
-            sociale2.style.display = "none"; // Reset display for mailback (default display)
-        }
+        sociale2.style.display = ""; // Reset display for mailback (default display)
 
 
 
@@ -593,41 +589,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
         }
     });
-
-    window.onload = function() {
-        // Check if the URL contains #wrap_info_id in the hash
-        if (window.location.hash === "#wrap_info_id") {
-            var wrapInfo = document.getElementById('wrap_info_id');
-            if (wrapInfo) {
-                // Set display to flex to make the section visible
-                wrapInfo.style.display = 'flex';
-
-                // Jump directly to the element without smooth scrolling
-                wrapInfo.scrollIntoView({ behavior: 'auto' });
-            }
-
-            // Hide the mailback button if #wrap_info_id is in the URL
-            if (mailback) {
-                mailback.style.display = "none"; // Hide mailback button
-            }
-
-            // Show the close button if #wrap_info_id is in the URL
-            if (closeBtn) {
-                closeBtn.style.display = "flex"; // Show close button
-            }
-
-            // Hide the header if #wrap_info_id is in the URL
-            if (header) {
-                header.style.display = "none"; // Hide the header
-            }
-
-            // Hide the logo if #wrap_info_id is in the URL
-            if (logo) {
-                logo.style.display = "none"; // Hide the logo
-            }
-        }
-    };
-
 
 
 
@@ -978,16 +939,57 @@ window.addEventListener('scroll', updateHashOnScroll);
 // Add event listener to resize event to check when the window is resized (for responsiveness)
 window.addEventListener('resize', updateHashOnScroll);
 
-window.onload = function() {
-    // Check if the URL contains #wrap_info_id in the hash
+document.addEventListener('DOMContentLoaded', function() {
+    console.log("DOM fully loaded and parsed");
+
     if (window.location.hash === "#wrap_info_id") {
         var wrapInfo = document.getElementById('wrap_info_id');
+        var mailback = document.getElementById('mailback');
+        var closeBtn = document.getElementById('close-btn');
+        var header = document.getElementById('header');
+        var logo = document.getElementById('logo');
+        var figures = document.getElementById('figures');
+        var rowid = document.getElementById('rowid');
+
+        // Debugging: Check if the elements are found
+        console.log(wrapInfo, mailback, closeBtn, header, logo, figures, rowid);
+
         if (wrapInfo) {
             // Set display to flex to make the section visible
             wrapInfo.style.display = 'flex';
-
             // Jump directly to the element without smooth scrolling
             wrapInfo.scrollIntoView({ behavior: 'auto' });
         }
+
+        // Debugging: Log the display changes
+        if (mailback) {
+            mailback.style.display = "none"; // Hide mailback button
+            console.log("Mailback hidden");
+        }
+
+        if (closeBtn) {
+            closeBtn.style.display = "flex"; // Show close button
+            console.log("Close button visible");
+        }
+
+        if (header) {
+            header.style.display = "none"; // Hide the header
+            console.log("Header hidden");
+        }
+
+        if (logo) {
+            logo.style.display = "none"; // Hide the logo
+            console.log("Logo hidden");
+        }
+
+        if (figures) {
+            figures.style.display = "none"; // Hide the figures
+            console.log("Figures hidden");
+        }
+
+        if (rowid) {
+            rowid.style.display = "none"; // Hide the rowid
+            console.log("Rowid hidden");
+        }
     }
-}
+});
