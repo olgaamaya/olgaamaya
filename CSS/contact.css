@@ -418,12 +418,17 @@ p.aboutlist {
     z-index: 9;
 }
 
+.filter-toggle {
+    font-size: 1.25rem;
+    color: red;
+}
+
 
 /* Filter toggle for screens less than 1000px */
 
 @media (max-width: 1000px) {
     .filter-toggle {
-        left: 85%;
+        left: 88dvw;
         top: 1.5rem;
     }
 }
