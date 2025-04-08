@@ -427,7 +427,7 @@ p.aboutlist {
 
 @media (max-width: 1000px) {
     .filter-toggle {
-        left: 88dvw;
+        left: 85dvw;
         top: 1.5rem;
     }
 }

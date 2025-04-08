@@ -617,39 +617,46 @@ window.addEventListener('load', function() {
     filterContainer.style.display = 'none'; // Hide filter container on initial load
 });
 
+window.addEventListener('scroll', updateFilterPosition);
 
-window.addEventListener('scroll', function() {
-    const firstHeaderHeight = document.querySelector('.header').offsetHeight - 15; // Get the height of the first header minus 20px
+window.addEventListener('DOMContentLoaded', () => {
+    // Initial check on page load to set the correct filter position
+    updateFilterPosition();
+});
 
+function updateFilterPosition() {
+    const firstHeaderHeight = document.querySelector('.header').offsetHeight; // Get the height of the first header
     const filterToggleButton = document.getElementById('filter-toggle');
     const filterContainer = document.getElementById('filter-container');
 
-    // Check if the page has been scrolled past the height of the first header
-    if (window.scrollY > firstHeaderHeight) {
-        // Apply position fixed to the filter toggle button with 10% width
+    // Check if we're scrolled to the very top of the page
+    if (window.scrollY === 0) {
+        // If we're at the top, apply absolute positioning for the filter container
+        filterToggleButton.style.position = 'absolute';
+        filterToggleButton.style.top = ''; // Add some space from the top of the page (adjust this as needed)
+        filterToggleButton.style.left = '';
+        filterToggleButton.style.width = '3rem'; // Or adjust the width of the filter button
+
+        filterContainer.style.position = 'absolute'; // Position the filter container absolutely
+        filterContainer.style.top = '6rem'; // Apply top margin (or adjust this value)
+        filterContainer.style.left = '0';
+        filterContainer.style.width = '100%'; // Full width for the filter container
+    } else if (window.scrollY >= firstHeaderHeight) {
+        // If we've scrolled down past the header, make the filter container fixed
         filterToggleButton.style.position = 'fixed';
         filterToggleButton.style.top = '0'; // Stick to the top of the viewport
         filterToggleButton.style.left = '0'; // Stick to the left of the viewport
-        filterToggleButton.style.width = '3rem'; // Button takes up 10% width of the viewport
+        filterToggleButton.style.width = '3rem'; // Set button width
 
-        // Apply position fixed to the filter container with 90% width
         filterContainer.style.position = 'fixed'; // Position the filter container as fixed
-        filterContainer.style.top = '0'; // Stick to the top of the viewport (right below the filter toggle button)
-        filterContainer.style.left = '0'; // Position it to the right of the filter toggle button (left 10% from the viewport)
-        filterContainer.style.width = '100%'; // Filter container takes up 90% width of the viewport
-    } else {
-        // Reset position to normal flow when scrollY is less than the height of the first header
-        filterToggleButton.style.position = 'absolute';
-        filterToggleButton.style.top = '';
-        filterToggleButton.style.left = '';
-        filterToggleButton.style.width = '';
-
-        filterContainer.style.position = 'absolute';
-        filterContainer.style.top = '';
-        filterContainer.style.left = '';
-        filterContainer.style.width = '';
+        filterContainer.style.top = '0'; // Stick to the top of the viewport (below the button)
+        filterContainer.style.left = '0'; // Position to the left of the viewport
+        filterContainer.style.width = '100%'; // Filter container takes up full width of the viewport
     }
-});
+}
+
+
+
 
 
 
