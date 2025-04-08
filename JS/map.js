@@ -882,7 +882,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Ensure the figures themselves follow the new grid layout
         activeFigures.forEach((figure, index) => {
-            const spans = [2, 4]; // Original spans values (4, 8, 12)
+            const spans = [4]; // Original spans values (4, 8, 12)
 
             // To track the current row sum of spans
             let rowSpanSum = 0;
