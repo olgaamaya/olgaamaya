@@ -387,26 +387,25 @@ p.aboutlist {
     padding: 0.5rem;
 }
 
-
-/* Filter checkboxes */
-
 .filter-options {
     display: flex;
     justify-content: right;
-    gap: 0;
+    gap: 1%;
     width: 90%;
+    right: 0;
+    position: absolute;
+    padding-right: 0.5rem;
 }
 
 .filter-options label {
-    font-size: 0.75rem;
-    margin: 1rem 0 1rem 0.1rem;
+    margin: 1rem 0 1rem 0;
     font-family: 'Squeid Gameis';
     display: inline-flex;
     align-items: center;
     font-size: 0.9rem;
-    padding-left: .5rem;
+    padding-left: 0.05rem;
     cursor: pointer;
-    padding-right: .25rem;
+    padding-right: 0.05rem;
 }
 
 
