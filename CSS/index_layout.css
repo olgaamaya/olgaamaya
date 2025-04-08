@@ -106,7 +106,7 @@ figcaption.project-info-index {
     }
     figure.project-index:nth-child(20) {
         grid-column: 1/4;
-        grid-row: 36/40
+        grid-row: 36/39
     }
     figure.project-index:nth-child(21) {
         grid-column: 8/11;
