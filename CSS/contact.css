@@ -322,3 +322,192 @@ p.aboutlist {
         margin-top: 1.75rem;
     }
 }
+
+
+/* FILTER */
+
+
+/* Filter button */
+
+.filter-toggle {
+    height: 3rem;
+    width: 3rem;
+    position: fixed;
+    top: 6rem;
+    left: 20px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    border: none;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: top 0.3s ease;
+}
+
+.filter-toggle:hover {
+    /* Slightly lighter grey when hovered */
+    transform: scale(1.025);
+    /* Slightly enlarge the button */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
+    /* Enhance the shadow on hover */
+}
+
+
+/* Filter icon rotation */
+
+.filter-icon {
+    transition: transform 0.3s ease;
+}
+
+
+/* Filter container */
+
+.filter-container {
+    display: none;
+    position: fixed;
+    top: 6rem;
+    left: 0;
+    width: 100%;
+    background-color: red;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    height: 3rem;
+    justify-content: center;
+}
+
+
+/* Show filter when active */
+
+.filter-container.show {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    padding: 0.5rem;
+}
+
+
+/* Filter checkboxes */
+
+.filter-options {
+    display: flex;
+    justify-content: right;
+    gap: 0;
+    width: 90%;
+}
+
+.filter-options label {
+    font-size: 0.75rem;
+    margin: 1rem 0 1rem 0.1rem;
+    font-family: 'Squeid Gameis';
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.9rem;
+    padding-left: .5rem;
+    cursor: pointer;
+    padding-right: .25rem;
+}
+
+
+/* Second header sticky */
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9;
+}
+
+
+/* Filter toggle for screens less than 1000px */
+
+@media (max-width: 1000px) {
+    .filter-toggle {
+        left: 90%;
+        top: 1.5rem;
+    }
+}
+
+
+/* Filter toggle for screens larger than 1000px */
+
+@media (min-width: 1000px) {
+    .filter-toggle {
+        left: 0;
+        top: 6rem;
+        width: 3rem;
+    }
+}
+
+
+/* Hide the default checkbox */
+
+input[type="checkbox"] {
+    /* Hide default checkbox */
+}
+
+
+/* Style the custom checkbox container */
+
+
+/* Custom checkbox appearance */
+
+input[type="checkbox"]+label {
+    position: relative;
+    width: 25px;
+    /* Width of the checkbox */
+    height: 25px;
+    /* Height of the checkbox */
+    background-color: #fff;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+    /* Space between the checkbox and the text */
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+
+/* Styling for the custom checkbox when it's checked */
+
+input[type="checkbox"]:checked+label {
+    background-color: #fff;
+    border-color: #f3c200;
+    /* Yellow border for checked state */
+}
+
+
+/* Styling for the fat yellow cross using :before and :after */
+
+input[type="checkbox"]:checked+label:before,
+input[type="checkbox"]:checked+label:after {
+    content: '';
+    position: absolute;
+    background-color: #f3c200;
+    /* Yellow cross */
+    width: 18px;
+    /* Width of each line in the cross */
+    height: 4px;
+    /* Thickness of the lines in the cross */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    /* Position it in the middle and rotate */
+}
+
+
+/* Second line of the cross */
+
+input[type="checkbox"]:checked+label:after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+    /* Create a cross with a second rotated line */
+}
+
+
+/* Optional: Hover effect to change the appearance */
+
+input[type="checkbox"]+label:hover {
+    border-color: #f3c200;
+    /* Yellow border on hover */
+}

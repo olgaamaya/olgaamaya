@@ -26,6 +26,7 @@ const header = document.getElementById("header"); // Make sure to target the hea
 const rowid = document.getElementById('rowid'); // Added rowid element
 
 menu.addEventListener('click', () => {
+
     // Create an array of elements to toggle the class
     const elementsToToggle = [
         navMenu, navUL, address, body, menu, menupoint,
@@ -79,8 +80,27 @@ menu.addEventListener('click', () => {
         history.replaceState(null, null, window.location.pathname);
     } else {
         // If no hash is present, optionally add #menu or other hash if needed
-        history.replaceState(null, null, '#menu');
+        history.replaceState(null, null, '#menu2');
     }
+
+    // Select the menu link with the class '.menu-toggle'
+
+    // Check if the menu link exists
+    if (menuToggle) {
+        // Add an event listener to the menu link to toggle its href on click
+        menuToggle.addEventListener('click', function(event) {
+            // Prevent the default link behavior
+            event.preventDefault();
+
+            // Toggle the href attribute between empty string and '#menu2'
+            if (menuToggle.getAttribute('href') === '#menu') {
+                menuToggle.setAttribute('href', ''); // Change to empty href
+            } else {
+                menuToggle.setAttribute('href', '#menu'); // Change to '#menu2'
+            }
+        });
+    }
+
 
     // Select all grandchildren (child of child of child) of social_elements2
     const grandchildren = [...sociale2.children]

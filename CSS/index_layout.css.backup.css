@@ -20,7 +20,7 @@ figcaption.project-info-index {
 }
 
 .link-to-project {
-    position: relative;
+    position: relative
 }
 
 @media (min-width:1000px) {
@@ -128,19 +128,4 @@ figcaption.project-info-index {
         grid-column: 8/11;
         grid-row: 32/35
     }
-}
-
-
-/* Apply to figure images to ensure proper cropping and fitting */
-
-.project-index .project-image img,
-.project-index .project-image video {
-    object-fit: cover;
-    /* Ensure the image/video covers the entire container */
-    object-position: center;
-    /* Center the image/video in the container */
-    width: 100%;
-    /* Make sure the image/video takes up the full width of the container */
-    height: 100%;
-    /* Ensure the image/video fills the height of the container */
 }

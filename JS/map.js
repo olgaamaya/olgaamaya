@@ -1,9 +1,9 @@
-// Function to randomize case for each letter in a string, while preserving "mango", "MANGO", and "mangoteen"
+// Function to randomize case for each letter in a string, while preserving "", "", and "teen"
 function randomizeCase(str) {
     let result = '';
 
-    // Preserve "mango", "MANGO", and "mangoteen" as they are
-    str = str.replace(/\bmango\b|\bMANGO\b|\bmangoteen\b/g, (match) => {
+    // Preserve "", "", and "teen" as they are
+    str = str.replace(/\b\b|\b\b|\bteen\b/g, (match) => {
         return match; // Don't change the case of these words
     });
 
@@ -31,7 +31,7 @@ const projectData = {
         AGENCY: 'agency trend model ',
         MAKEUP: 'make up Andrea Trenado ',
         PHOTOGRAPH_RETOUCH: ' photographer and retoucher mar docavo ',
-        ROLE: 'Fashion Stylist Olga Lucia Amaya '
+        ROLE: 'Fashion Stylist Olga Lucia Amaya ',
     },
 
     Lightbox_2: {
@@ -42,7 +42,7 @@ const projectData = {
         AGENCY: 'agency 2M models ',
         MAKEUP: 'make up Andrea Trenado ',
         PHOTOGRAPH_RETOUCH: 'photographer and retoucher mar docavo ',
-        ROLE: 'Fashion Stylist olga lucia amaya '
+        ROLE: 'Fashion Stylist olga lucia amaya ',
     },
 
     Lightbox_3: {
@@ -53,7 +53,7 @@ const projectData = {
         MODEL: '',
         AGENCY: 'Directed by Lyona / Produced by Astrolabi Films / Sony Music Entertainment España, S.L. / Starring Claire Romain / 2020 ',
         MAKEUP: '',
-        PHOTOGRAPH_RETOUCH: ' '
+        PHOTOGRAPH_RETOUCH: ' ',
     },
 
     Lightbox_4: {
@@ -65,7 +65,7 @@ const projectData = {
         MAKEUP: '',
         PHOTOGRAPH_RETOUCH: ' ',
         YEAR: '2018  ',
-        ROLE: 'COSTUME DESIGNER olga lucia amaya  ',
+        ROLE: 'COSTUME DESIGNER olga lucia amaya  '
     },
 
     Lightbox_5: {
@@ -76,13 +76,13 @@ const projectData = {
         AGENCY: ' agency two management ',
         MAKEUP: '',
         PHOTOGRAPH_RETOUCH: ' photographer and retoucher mar docavo ',
-        ROLE: ' fashion stylist Olga Lucia Amaya ',
+        ROLE: ' fashion stylist Olga Lucia Amaya '
     },
 
     Lightbox_6: {
-        TITELINDEX: randomizeCase("matea brakus x MANGO"),
+        TITELINDEX: randomizeCase("matea brakus x "),
         ROLEINDEX: "Fashion Stylist",
-        TITEL: 'matea brakus x mango',
+        TITEL: 'matea brakus x ',
         MODEL: '',
         AGENCY: 'agency society management',
         MAKEUP: '',
@@ -138,9 +138,9 @@ const projectData = {
     },
 
     Lightbox_11: {
-        TITELINDEX: randomizeCase("Back To School <br> mangoteen"),
+        TITELINDEX: randomizeCase("Back To School <br> teen"),
         ROLEINDEX: "Fashion Stylist",
-        TITEL: 'Back To School Teen x MANGO / mangoteen ',
+        TITEL: 'Back To School Teen x  / teen ',
         ROLE: 'Fashion Stylist olga lucia amaya  ',
         MODEL: '',
         AGENCY: '',
@@ -161,9 +161,9 @@ const projectData = {
     },
 
     Lightbox_13: {
-        TITELINDEX: randomizeCase("Kids x Mango"),
+        TITELINDEX: randomizeCase("Kids x "),
         ROLEINDEX: "Fashion Stylist",
-        TITEL: 'Kids x Mango ',
+        TITEL: 'Kids x  ',
         ROLE: 'Fashion Stylist olga lucia amaya  ',
         MODEL: '',
         AGENCY: '',
@@ -194,9 +194,9 @@ const projectData = {
     },
 
     Lightbox_16: {
-        TITELINDEX: randomizeCase("clara infante x MANGO home"),
+        TITELINDEX: randomizeCase("clara infante x  home"),
         ROLEINDEX: "Fashion Stylist",
-        TITEL: 'clara infante x MANGO home / fashion stylist Olga lucia Amaya / clara infante x MANGO home / fashion stylist Olga lucia Amaya  ',
+        TITEL: 'clara infante x  home / fashion stylist Olga lucia Amaya / clara infante x  home / fashion stylist Olga lucia Amaya  ',
         MODEL: '',
         AGENCY: '',
         MAKEUP: '',
@@ -205,9 +205,9 @@ const projectData = {
     },
 
     Lightbox_17: {
-        TITELINDEX: randomizeCase("TEEN x MANGO / Mangoteen"),
+        TITELINDEX: randomizeCase("TEEN x  / teen"),
         ROLEINDEX: "Fashion Stylist",
-        TITEL: 'TEEN x MANGO / Mangoteen / fashion stylist Olga lucia Amaya / TEEN x MANGOteen / fashion stylist Olga lucia Amaya  ',
+        TITEL: 'TEEN x  / teen / fashion stylist Olga lucia Amaya / TEEN x teen / fashion stylist Olga lucia Amaya  ',
         MODEL: '',
         AGENCY: '',
         MAKEUP: '',
@@ -238,9 +238,9 @@ const projectData = {
     },
 
     Lightbox_20: {
-        TITELINDEX: randomizeCase("PARISIAN FALL / TEEN x MANGO"),
+        TITELINDEX: randomizeCase("PARISIAN FALL / TEEN x "),
         ROLEINDEX: "Fashion Stylist",
-        TITEL: ' PARISIAN FALL / TEEN x MANGO / Mangoteen / fashion stylist Olga lucia Amaya /  PARISIAN FALL / TEEN x MANGO / Mangoteen / fashion stylist Olga lucia Amaya  ',
+        TITEL: ' PARISIAN FALL / TEEN x  / teen / fashion stylist Olga lucia Amaya /  PARISIAN FALL / TEEN x  / teen / fashion stylist Olga lucia Amaya  ',
         MODEL: '',
         AGENCY: '',
         MAKEUP: '',
@@ -271,9 +271,9 @@ const projectData = {
     },
 
     Lightbox_23: {
-        TITELINDEX: randomizeCase("Maty Fall x MANGO"),
+        TITELINDEX: randomizeCase("Maty Fall x "),
         ROLEINDEX: "Fashion Stylist",
-        TITEL: 'Maty Fall x MANGO  ',
+        TITEL: 'Maty Fall x   ',
         ROLE: 'Fashion Stylist olga lucia amaya  ',
         MODEL: '',
         AGENCY: '',
@@ -282,9 +282,9 @@ const projectData = {
     },
 
     Lightbox_24: {
-        TITELINDEX: randomizeCase("Denim seams x @mangoteen"),
+        TITELINDEX: randomizeCase("Denim seams x @teen"),
         ROLEINDEX: "Fashion Stylist",
-        TITEL: 'Denim seams x @mangoteen  ',
+        TITEL: 'Denim seams x @teen  ',
         ROLE: 'Fashion Stylist olga lucia amaya  ',
         MODEL: '',
         AGENCY: '',
@@ -459,3 +459,507 @@ window.onresize = function() {
     populateLightboxes();
     populateProjectInfo(); // Re-run both functions on resize
 };
+
+
+
+
+
+
+
+const figures = {
+    figure1: {
+        CATEGORIES: ['']
+    },
+    figure2: {
+        CATEGORIES: ['']
+    },
+    figure3: {
+        CATEGORIES: ['']
+    },
+    figure4: {
+        CATEGORIES: ['']
+    },
+    figure5: {
+        CATEGORIES: ['']
+    },
+    figure6: {
+        CATEGORIES: ['']
+    },
+    figure7: {
+        CATEGORIES: ['']
+    },
+    figure8: {
+        CATEGORIES: ['']
+    },
+    figure9: {
+        CATEGORIES: ['']
+    },
+    figure10: {
+        CATEGORIES: ['']
+    },
+    figure11: {
+        CATEGORIES: ['']
+    },
+    figure12: {
+        CATEGORIES: ['']
+    },
+    figure13: {
+        CATEGORIES: ['']
+    },
+    figure14: {
+        CATEGORIES: ['']
+    },
+    figure15: {
+        CATEGORIES: ['']
+    },
+    figure16: {
+        CATEGORIES: ['']
+    },
+    figure17: {
+        CATEGORIES: ['']
+    },
+    figure18: {
+        CATEGORIES: ['']
+    },
+    figure19: {
+        CATEGORIES: ['']
+    },
+    figure20: {
+        CATEGORIES: ['']
+    },
+    figure21: {
+        CATEGORIES: ['']
+    },
+    figure22: {
+        CATEGORIES: ['']
+    },
+    figure23: {
+        CATEGORIES: ['']
+    },
+    figure24: {
+        CATEGORIES: ['']
+    },
+    figure25: {
+        CATEGORIES: ['']
+    }
+};
+
+// Function to toggle the visibility of the filter container
+document.getElementById("filter-toggle").addEventListener("click", function() {
+    const filterContainer = document.getElementById("filter-container");
+    const filterIcon = document.querySelector(".filter-icon");
+
+    // Toggle the display of the filter container
+    filterContainer.classList.toggle("show");
+
+    // Rotate the icon when the filter is displayed
+    if (filterContainer.classList.contains("show")) {
+        filterIcon.style.transform = "rotate(0deg)";
+    } else {
+        filterIcon.style.transform = "rotate(0deg)";
+    }
+});
+
+// Function to apply filters based on the selected checkboxes
+function filterProjects() {
+    const selectedCategories = [];
+    const checkboxes = document.querySelectorAll('.filter-checkbox');
+
+    // Get all selected categories from the checkboxes
+    checkboxes.forEach(checkbox => {
+        if (checkbox.checked) {
+            selectedCategories.push(checkbox.value);
+        }
+    });
+
+    // Get all figure elements
+    const figures = document.querySelectorAll('.project-index');
+
+    // Loop through each figure and show/hide based on categories
+    figures.forEach(figure => {
+        const figureCategory = figure.classList[1]; // The second class is the category (e.g., "special", "", etc.)
+
+        // If the category matches any of the selected ones, display the figure
+        if (selectedCategories.length === 0 || selectedCategories.includes(figureCategory)) {
+            figure.style.display = 'flex';
+        } else {
+            figure.style.display = 'none';
+        }
+    });
+
+    // Update the URL with the selected filters (similar to Baunetz.de)
+    updateURL(selectedCategories);
+}
+
+// Add event listeners to checkboxes to trigger filtering
+document.querySelectorAll('.filter-checkbox').forEach(checkbox => {
+    checkbox.addEventListener('change', filterProjects); // Apply filter when checkbox state changes
+});
+
+// Function to update the URL with the selected filter categories
+function updateURL(selectedCategories) {
+    let url = new URL(window.location.href);
+    let params = new URLSearchParams();
+
+    if (selectedCategories.length > 0) {
+        selectedCategories.forEach(category => params.append('category', category));
+    }
+
+    // Update the URL with the new search parameters
+    url.search = params.toString();
+    history.pushState(null, '', url); // Update the URL in the browser without reloading the page
+}
+
+window.addEventListener('load', function() {
+    filterProjects(); // Call filterProjects on page load to show all figures
+    // Ensure the filter container is not shown initially
+    const filterContainer = document.getElementById('filter-container');
+    filterContainer.style.display = 'none'; // Hide filter container on initial load
+});
+
+
+window.addEventListener('scroll', function() {
+    const firstHeaderHeight = document.querySelector('.header').offsetHeight - 15; // Get the height of the first header minus 20px
+
+    const filterToggleButton = document.getElementById('filter-toggle');
+    const filterContainer = document.getElementById('filter-container');
+
+    // Check if the page has been scrolled past the height of the first header
+    if (window.scrollY > firstHeaderHeight) {
+        // Apply position fixed to the filter toggle button with 10% width
+        filterToggleButton.style.position = 'fixed';
+        filterToggleButton.style.top = '0'; // Stick to the top of the viewport
+        filterToggleButton.style.left = '0'; // Stick to the left of the viewport
+        filterToggleButton.style.width = '3rem'; // Button takes up 10% width of the viewport
+
+        // Apply position fixed to the filter container with 90% width
+        filterContainer.style.position = 'fixed'; // Position the filter container as fixed
+        filterContainer.style.top = '0'; // Stick to the top of the viewport (right below the filter toggle button)
+        filterContainer.style.left = '0'; // Position it to the right of the filter toggle button (left 10% from the viewport)
+        filterContainer.style.width = '100%'; // Filter container takes up 90% width of the viewport
+    } else {
+        // Reset position to normal flow when scrollY is less than the height of the first header
+        filterToggleButton.style.position = 'absolute';
+        filterToggleButton.style.top = '';
+        filterToggleButton.style.left = '';
+        filterToggleButton.style.width = '';
+
+        filterContainer.style.position = 'absolute';
+        filterContainer.style.top = '';
+        filterContainer.style.left = '';
+        filterContainer.style.width = '';
+    }
+});
+
+
+
+// Toggle the filter visibility when the filter button is clicked
+const filterToggleButton = document.getElementById('filter-toggle');
+const filterContainer = document.getElementById('filter-container');
+
+filterToggleButton.addEventListener('click', function() {
+    // Toggle the visibility of the filter container
+    if (filterContainer.style.display === 'none' || filterContainer.style.display === '') {
+        filterContainer.style.display = 'flex'; // Show filters
+        filterToggleButton.innerHTML = '<span class="filter-icon">▲</span>'; // Change button text
+    } else {
+        filterContainer.style.display = 'none'; // Hide filters
+        filterToggleButton.innerHTML = '<span class="filter-icon">▼</span>'; // Change button text
+    }
+});
+
+
+
+
+
+
+// Assuming your existing figures are in a container with class "project-list-index"
+const projectListIndex = document.querySelector('.project-list-index');
+
+// Iterate over each figure and add the appropriate categories as class names
+Object.keys(figures).forEach((figureKey, index) => {
+    const figure = figures[figureKey];
+    const categories = figure.CATEGORIES; // Get categories (e.g. ['', ''])
+
+    // If categories are empty or contain only empty strings, skip the current iteration
+    if (!categories || categories.length === 0 || categories.every(category => category === '')) {
+        return;
+    }
+
+    // Select the corresponding figure element in the DOM
+    const figureElement = document.querySelector(`#rowid figure:nth-child(${index + 1})`);
+
+    if (figureElement) {
+        // Remove empty strings from categories before adding them as class names
+        const filteredCategories = categories.filter(category => category !== '');
+        // Add the filtered categories as class names
+        figureElement.classList.add(...filteredCategories);
+    }
+});
+
+
+
+
+// Remove '#menu' from the URL when <p class="menupoint show"></p> is clicked
+const menuPoint = document.querySelector('.menupoint.show');
+if (menuPoint) {
+    menuPoint.addEventListener('click', function() {
+        // Check if the current href is '#menu'
+        if (menuPoint.getAttribute('href') === '#menu') {
+            // If it is, remove the hash (set it to empty)
+            menuPoint.setAttribute('href', '');
+            // Remove '#menu' from the URL without reloading the page
+            history.replaceState(null, '', window.location.href.split('#')[0]);
+        } else {
+            // If it's empty, set it back to '#menu'
+            menuPoint.setAttribute('href', '#menu');
+            // Update the URL with '#menu'
+            history.replaceState(null, '', window.location.href.split('#')[0] + '#menu');
+        }
+    });
+}
+
+// Function to check and update filter visibility
+function checkFilterVisibility() {
+    const filterToggle = document.getElementById('filter-toggle');
+    const filterContainer = document.getElementById('filter-container');
+
+    // Check if the URL has a hash (and it's not an empty hash like #)
+    if (window.location.hash && window.location.hash !== "#") {
+        // Hide the filter toggle and container if a hash is present
+        filterToggle.style.display = 'none';
+        filterContainer.style.display = 'none';
+    } else {
+        // Show the filter toggle and container if there's no hash in the URL
+        filterToggle.style.display = 'flex';
+        filterContainer.style.display = 'flex';
+    }
+}
+
+// Listen to popstate events (when the history state changes)
+window.addEventListener('popstate', checkFilterVisibility);
+
+// Overriding pushState and replaceState to ensure we listen to changes in the URL (without a full page reload)
+const originalPushState = history.pushState;
+const originalReplaceState = history.replaceState;
+
+history.pushState = function(state, title, url) {
+    originalPushState.apply(history, arguments);
+    checkFilterVisibility(); // Check the filter visibility when the URL changes
+};
+
+history.replaceState = function(state, title, url) {
+    originalReplaceState.apply(history, arguments);
+    checkFilterVisibility(); // Check the filter visibility when the URL changes
+};
+
+// Call the function once on initial load to set the correct visibility
+checkFilterVisibility();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Get all filter checkboxes
+    const filterCheckboxes = document.querySelectorAll('.filter-checkbox');
+
+    // Listen for changes in the filter checkboxes
+    filterCheckboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', updateLayout);
+    });
+
+    // Listen for window resize to adjust layout based on screen size
+    window.addEventListener('resize', updateLayout);
+
+    // Function to update the grid layout based on active filters and window size
+    function updateLayout() {
+        // Get the active category from the checked checkbox
+        const activeCategories = [];
+        filterCheckboxes.forEach(checkbox => {
+            if (checkbox.checked) {
+                activeCategories.push(checkbox.value);
+            }
+        });
+
+        // Get all figure elements
+        const figures = document.querySelectorAll('.project-index');
+        const projectList = document.querySelector('.project-list-index');
+
+        const image = document.querySelector('img');
+        const caption = document.querySelectorAll('.link-to-project');
+
+        // Check screen width for mobile
+        if (window.innerWidth < 1000) {
+            // If mobile, use flex layout and show filtered figures in a column
+            if (activeCategories.length === 0) {
+                figures.forEach(figure => {
+                    resetFigureStyles(figure); // Reset figure styles to default
+                });
+
+                projectList.style.display = 'flex'; // Use flex layout for project list
+                projectList.style.flexDirection = 'column'; // Stack figures vertically
+            } else {
+                // Filter figures based on the active categories
+                figures.forEach(figure => {
+                    const figureCategories = Array.from(figure.classList);
+                    const isActive = activeCategories.some(category => figureCategories.includes(category));
+
+                    if (isActive) {
+                        figure.style.display = 'flex'; // Show the figure if it matches the active filter
+                        figure.style.flexDirection = 'column'; // Stack the filtered figures vertically
+                    } else {
+                        figure.style.display = 'none'; // Hide the figure if it doesn't match the filter
+                    }
+                });
+
+                projectList.style.display = 'flex'; // Use flex layout for project list
+                projectList.style.flexDirection = 'column'; // Stack figures vertically
+            }
+
+            return; // Exit early to avoid grid-related changes on mobile
+        }
+
+        // For larger screens, apply the grid layout and row height logic
+        // If no filters are checked, reset to default layout
+        if (activeCategories.length === 0) {
+            resetGridLayout(); // Reset grid layout and figures styles
+
+            return; // Exit early to avoid further changes when no filters are selected
+        }
+
+        // Filter figures based on the active categories (only one category allowed)
+        figures.forEach(figure => {
+            const figureCategories = Array.from(figure.classList); // Get the categories of each figure
+
+            // Check if the figure's categories match the active filter
+            const isActive = activeCategories.some(category => figureCategories.includes(category));
+
+            if (isActive) {
+                figure.style.display = 'grid'; // Show the figure if it matches the active filter
+            } else {
+                figure.style.display = 'none'; // Hide the figure if it doesn't match the filter
+            }
+        });
+
+        // Recalculate the grid layout for the filtered figures
+        const activeFigures = Array.from(document.querySelectorAll('.project-list-index .project-index:not([style*="display: none"])'));
+
+        // Ensure the grid always has 16 columns when any filters are applied
+        projectList.style.gridTemplateColumns = 'repeat(16, 1fr)'; // Always 16 columns
+        projectList.style.justifyItems = 'start'; // Ensure the figures are left-aligned, even in the last row
+        projectList.style.setProperty('--row-height', '500px'); // Set row height to 500px when a filter is active
+
+        let currentIndex = 0; // This will track the current position in the grid
+
+        // Ensure the figures themselves follow the new grid layout
+        activeFigures.forEach((figure, index) => {
+            const spans = [4]; // Original spans values (4, 8, 12)
+
+            // To track the current row sum of spans
+            let rowSpanSum = 0;
+            const rowFigures = [];
+
+            // Calculate how to fill the row with spans of 4, 8, and 12, while the total span of each row must add up to 16
+            while (rowSpanSum < 16 && rowFigures.length < 16) {
+                const randomSpan = spans[Math.floor(Math.random() * spans.length)];
+
+                // Only add the span if it won't exceed 16 for the row
+                if (rowSpanSum + randomSpan <= 16) {
+                    rowFigures.push(randomSpan);
+                    rowSpanSum += randomSpan;
+                }
+            }
+
+            // Apply the span values to the figures in this row
+            rowFigures.forEach((span, i) => {
+                const figure = activeFigures[currentIndex + i];
+
+                // Ensure that the figure exists
+                if (figure) {
+                    figure.style.gridColumn = `span ${span}`;
+                    figure.style.gridRow = 'span 1'; // 50% chance for span 1 or span 2
+                }
+            });
+
+            // Move the index by the number of figures used for this row
+            currentIndex += rowFigures.length;
+
+            // Reset for the next row if needed
+            if (currentIndex >= activeFigures.length) return; // No more figures
+        });
+
+        // Iterate over each figure
+        activeFigures.forEach(figure => {
+            const image = figure.querySelector("img"); // Select the image element within the figure
+            const links = figure.querySelectorAll('.link-to-project'); // Select all links to project inside the figure
+
+            // Apply aspect ratio to the image to make sure it resizes based on row height
+            if (image) {
+                image.style.width = '100%'; // Make sure the image fills its container's width
+                image.style.height = 'auto'; // Maintain the aspect ratio of the image
+                image.style.maxHeight = '100%'; // Ensure the image height doesn't overflow its container
+            }
+
+            // Ensure that all figures are positioned relative
+            figure.style.position = 'relative'; // Set position relative for all figures
+
+            // Set all `a` tags with class "link-to-project" to position absolute and height 100%
+            links.forEach(link => {
+                link.style.position = 'absolute'; // Set position absolute for the link
+                link.style.height = '100%'; // Set height 100% for the link
+            });
+        });
+    }
+
+    // Reset the figure styles to their default state
+    function resetFigureStyles(figure) {
+        figure.style.display = ''; // Remove inline display style
+        figure.style.position = ''; // Reset position style
+        figure.style.gridColumn = ''; // Reset grid column span
+        figure.style.gridRow = ''; // Reset grid row span
+        figure.style.height = ''; // Reset height for figures
+        const links = figure.querySelectorAll('.link-to-project');
+        links.forEach(link => {
+            link.style.position = ''; // Reset position style for links
+            link.style.height = ''; // Reset height for links
+        });
+    }
+
+    // Reset the grid layout to its default state
+    function resetGridLayout() {
+        const figures = document.querySelectorAll('.project-index');
+        const projectList = document.querySelector('.project-list-index');
+
+        figures.forEach(figure => {
+            resetFigureStyles(figure); // Reset all figures' styles
+        });
+
+        projectList.style.display = ''; // Reset display style
+        projectList.style.gridTemplateColumns = ''; // Clear grid layout
+        projectList.style.gridTemplateRows = ''; // Clear grid layout
+        projectList.style.justifyItems = ''; // Reset justifyItems
+        projectList.style.setProperty('--num-cols', ''); // Reset custom num-cols property
+        projectList.style.setProperty('--row-height', ''); // Reset custom row height
+
+        // Apply default layout for screens
+        if (window.innerWidth < 1000) {
+            projectList.style.display = 'flex'; // Use flex layout for screens smaller than 1000px
+            projectList.style.flexWrap = 'wrap'; // Ensure items wrap
+            projectList.style.justifyContent = 'flex-start'; // Align items to the left
+        } else {
+            projectList.style.display = 'grid'; // Use grid layout for larger screens
+            projectList.style.gridTemplateColumns = ''; // Clear grid layout
+            projectList.style.gridTemplateRows = ''; // Clear grid layout
+        }
+    }
+});
