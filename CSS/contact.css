@@ -444,6 +444,15 @@ p.aboutlist {
 }
 
 
+/* Filter toggle for screens larger than 1000px */
+
+@media (min-width: 500px) {
+    .filter-options {
+        margin-right: 0.5rem;
+    }
+}
+
+
 /* Hide the default checkbox */
 
 input[type="checkbox"] {
@@ -470,14 +479,15 @@ label {
 
 .custom-checkbox {
     position: relative;
-    width: 2dvh;
-    height: 2dvh;
+    height: 1em;
+    width: 1em;
     background-color: #fff;
     border: 2px solid #ddd;
     margin-right: 0.35dvh;
     display: inline-block;
     transition: all 0.3s ease;
     margin-left: 1dvh;
+    margin: 0 .1em .1em .25em;
 }
 
 
