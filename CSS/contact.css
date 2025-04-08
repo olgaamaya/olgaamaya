@@ -394,7 +394,7 @@ p.aboutlist {
     width: 90%;
     right: 0;
     position: absolute;
-    padding-right: 0.5rem;
+    padding-right: 0.25rem;
 }
 
 .filter-options label {
@@ -402,10 +402,10 @@ p.aboutlist {
     font-family: 'Squeid Gameis';
     display: inline-flex;
     align-items: center;
-    font-size: 0.9rem;
-    padding-left: 0.05rem;
+    font-size: 0.85rem;
+    padding-left: 0.015rem;
     cursor: pointer;
-    padding-right: 0.05rem;
+    padding-right: 0.015rem;
 }
 
 
