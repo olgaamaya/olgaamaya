@@ -420,7 +420,6 @@ p.aboutlist {
 
 .filter-toggle {
     font-size: 1.25rem;
-    color: red;
 }
 
 
@@ -441,6 +440,7 @@ p.aboutlist {
         left: 0;
         top: 6rem;
         width: 3rem;
+        color: red;
     }
 }
 
