@@ -36,6 +36,7 @@ menu.addEventListener('click', () => {
     // Loop through each element and toggle the "show" or respective class
     elementsToToggle.forEach(element => element.classList.toggle('show'));
 
+
     // Toggle specific classes for contact-related elements
     contact.classList.toggle('contact');
     morecontact.classList.toggle('morecontact');

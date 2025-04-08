@@ -365,7 +365,6 @@ p.aboutlist {
 /* Filter container */
 
 .filter-container {
-    display: none;
     position: fixed;
     top: 6rem;
     left: 0;
@@ -381,7 +380,6 @@ p.aboutlist {
 /* Show filter when active */
 
 .filter-container.show {
-    display: flex;
     align-items: center;
     justify-content: end;
     padding: 0.5rem;

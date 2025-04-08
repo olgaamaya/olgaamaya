@@ -629,11 +629,14 @@ function updateFilterPosition() {
     const filterToggleButton = document.getElementById('filter-toggle');
     const filterContainer = document.getElementById('filter-container');
 
-    // Check if we're scrolled to the very top of the page
-    if (window.scrollY === 0) {
-        // If we're at the top, apply absolute positioning for the filter container
+    // Get the scroll position relative to the top of the page
+    const scrollY = window.scrollY;
+
+    // Check if we're within 6rem from the top (or less)
+    if (scrollY <= firstHeaderHeight) {
+        // If we're within the first 6rem of the page, apply absolute positioning for the filter container
         filterToggleButton.style.position = 'absolute';
-        filterToggleButton.style.top = ''; // Add some space from the top of the page (adjust this as needed)
+        filterToggleButton.style.top = ''; // Reset top (or adjust as needed)
         filterToggleButton.style.left = '';
         filterToggleButton.style.width = '3rem'; // Or adjust the width of the filter button
 
@@ -641,8 +644,8 @@ function updateFilterPosition() {
         filterContainer.style.top = '6rem'; // Apply top margin (or adjust this value)
         filterContainer.style.left = '0';
         filterContainer.style.width = '100%'; // Full width for the filter container
-    } else if (window.scrollY >= firstHeaderHeight) {
-        // If we've scrolled down past the header, make the filter container fixed
+    } else if (scrollY > firstHeaderHeight) {
+        // If we've scrolled down past the header (or close to it), make the filter container fixed
         filterToggleButton.style.position = 'fixed';
         filterToggleButton.style.top = '0'; // Stick to the top of the viewport
         filterToggleButton.style.left = '0'; // Stick to the left of the viewport
@@ -737,11 +740,20 @@ function checkFilterVisibility() {
         filterToggle.style.display = 'none';
         filterContainer.style.display = 'none';
     } else {
-        // Show the filter toggle and container if there's no hash in the URL
-        filterToggle.style.display = 'flex';
-        filterContainer.style.display = 'flex';
+        // Show the filter toggle if there's no hash in the URL
+        filterToggle.style.display = '';
+
+        // Check the current state of the filter icon (based on its content)
+        if (filterToggle.innerHTML.includes('▲')) {
+            // If the icon is '▲', the filter container should be displayed (flex)
+            filterContainer.style.display = 'flex';
+        } else {
+            // If the icon is '▼', the filter container should be hidden (none)
+            filterContainer.style.display = 'none';
+        }
     }
 }
+
 
 // Listen to popstate events (when the history state changes)
 window.addEventListener('popstate', checkFilterVisibility);
@@ -870,7 +882,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Ensure the figures themselves follow the new grid layout
         activeFigures.forEach((figure, index) => {
-            const spans = [4]; // Original spans values (4, 8, 12)
+            const spans = [2, 4]; // Original spans values (4, 8, 12)
 
             // To track the current row sum of spans
             let rowSpanSum = 0;
@@ -894,7 +906,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Ensure that the figure exists
                 if (figure) {
                     figure.style.gridColumn = `span ${span}`;
-                    figure.style.gridRow = 'span 1'; // 50% chance for span 1 or span 2
+                    figure.style.gridRow = 'span 1';
                 }
             });
 
