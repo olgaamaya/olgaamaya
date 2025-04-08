@@ -138,7 +138,7 @@ const projectData = {
     },
 
     Lightbox_11: {
-        TITELINDEX: randomizeCase("Back To School <br> teen"),
+        TITELINDEX: randomizeCase("Back To School <br> @mangoteen"),
         ROLEINDEX: "Fashion Stylist",
         TITEL: 'Back To School Teen x  / teen ',
         ROLE: 'Fashion Stylist olga lucia amaya  ',
@@ -161,7 +161,7 @@ const projectData = {
     },
 
     Lightbox_13: {
-        TITELINDEX: randomizeCase("Kids x "),
+        TITELINDEX: randomizeCase("Kids x MANGO"),
         ROLEINDEX: "Fashion Stylist",
         TITEL: 'Kids x  ',
         ROLE: 'Fashion Stylist olga lucia amaya  ',
@@ -194,7 +194,7 @@ const projectData = {
     },
 
     Lightbox_16: {
-        TITELINDEX: randomizeCase("clara infante x  home"),
+        TITELINDEX: randomizeCase("clara infante x MANGO home"),
         ROLEINDEX: "Fashion Stylist",
         TITEL: 'clara infante x  home / fashion stylist Olga lucia Amaya / clara infante x  home / fashion stylist Olga lucia Amaya  ',
         MODEL: '',
@@ -205,7 +205,7 @@ const projectData = {
     },
 
     Lightbox_17: {
-        TITELINDEX: randomizeCase("TEEN x  / teen"),
+        TITELINDEX: randomizeCase("TEEN x MANGO  / @mangoteen"),
         ROLEINDEX: "Fashion Stylist",
         TITEL: 'TEEN x  / teen / fashion stylist Olga lucia Amaya / TEEN x teen / fashion stylist Olga lucia Amaya  ',
         MODEL: '',
@@ -238,7 +238,7 @@ const projectData = {
     },
 
     Lightbox_20: {
-        TITELINDEX: randomizeCase("PARISIAN FALL / TEEN x "),
+        TITELINDEX: randomizeCase("PARISIAN FALL / TEEN x MANGO"),
         ROLEINDEX: "Fashion Stylist",
         TITEL: ' PARISIAN FALL / TEEN x  / teen / fashion stylist Olga lucia Amaya /  PARISIAN FALL / TEEN x  / teen / fashion stylist Olga lucia Amaya  ',
         MODEL: '',
@@ -249,7 +249,7 @@ const projectData = {
     },
 
     Lightbox_21: {
-        TITELINDEX: randomizeCase("julia brezgina "),
+        TITELINDEX: randomizeCase("julia brezgina"),
         ROLEINDEX: "Fashion Stylist",
         TITEL: 'julia brezgina / fashion stylist Olga lucia Amaya / julia brezgina / fashion stylist Olga lucia Amaya  ',
         MODEL: '',
@@ -271,7 +271,7 @@ const projectData = {
     },
 
     Lightbox_23: {
-        TITELINDEX: randomizeCase("Maty Fall x "),
+        TITELINDEX: randomizeCase("Maty Fall x MANGO"),
         ROLEINDEX: "Fashion Stylist",
         TITEL: 'Maty Fall x   ',
         ROLE: 'Fashion Stylist olga lucia amaya  ',
@@ -282,7 +282,7 @@ const projectData = {
     },
 
     Lightbox_24: {
-        TITELINDEX: randomizeCase("Denim seams x @teen"),
+        TITELINDEX: randomizeCase("Denim seams x @mangoteen"),
         ROLEINDEX: "Fashion Stylist",
         TITEL: 'Denim seams x @teen  ',
         ROLE: 'Fashion Stylist olga lucia amaya  ',
