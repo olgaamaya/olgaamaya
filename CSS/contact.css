@@ -394,7 +394,7 @@ p.aboutlist {
     width: 90%;
     right: 0;
     position: absolute;
-    padding-right: 0.25rem;
+    padding-right: 0.5rem;
 }
 
 .filter-options label {
@@ -403,9 +403,9 @@ p.aboutlist {
     display: inline-flex;
     align-items: center;
     font-size: 0.85rem;
-    padding-left: 0.015rem;
+    padding-left: 0.025rem;
     cursor: pointer;
-    padding-right: 0.015rem;
+    padding-right: 0.025rem;
 }
 
 
