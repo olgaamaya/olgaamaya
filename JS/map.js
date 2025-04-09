@@ -824,9 +824,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 figures.forEach(figure => {
                     resetFigureStyles(figure); // Reset figure styles to default
                 });
-
-                projectList.style.display = 'flex'; // Use flex layout for project list
-                projectList.style.flexDirection = 'column'; // Stack figures vertically
             } else {
                 // Filter figures based on the active categories
                 figures.forEach(figure => {
@@ -840,10 +837,15 @@ document.addEventListener('DOMContentLoaded', () => {
                         figure.style.display = 'none'; // Hide the figure if it doesn't match the filter
                     }
                 });
-
-                projectList.style.display = 'flex'; // Use flex layout for project list
-                projectList.style.flexDirection = 'column'; // Stack figures vertically
             }
+
+            // Reset position of links in figures when screen is resized to mobile size
+            figures.forEach(figure => {
+                const links = figure.querySelectorAll('.link-to-project');
+                links.forEach(link => {
+                    link.style.position = ''; // Reset position style to default
+                });
+            });
 
             return; // Exit early to avoid grid-related changes on mobile
         }
@@ -975,6 +977,9 @@ document.addEventListener('DOMContentLoaded', () => {
             projectList.style.display = 'flex'; // Use flex layout for screens smaller than 1000px
             projectList.style.flexWrap = 'wrap'; // Ensure items wrap
             projectList.style.justifyContent = 'flex-start'; // Align items to the left
+
+
+
         } else {
             projectList.style.display = 'grid'; // Use grid layout for larger screens
             projectList.style.gridTemplateColumns = ''; // Clear grid layout
