@@ -77,39 +77,12 @@ app.get("/api/get-cloudinary-media", async(req, res) => {
             });
 
             if (result.resources && result.resources.length > 0) {
-                const folderMedia = result.resources.map((file) => {
-                    let media = {
-                        type: file.resource_type, // 'video', 'image', etc.
-                        alt: file.public_id, // Alternative text (could be improved)
-                        folder: folder, // Folder the file belongs to
-                    };
-
-                    // Check if the resource is a video (e.g., MP4)
-                    if (file.resource_type === 'video') {
-                        media.src = cloudinary.url(file.public_id, {
-                            resource_type: 'video',
-                            quality: 'auto', // Quality auto-select
-                            secure: true // Use HTTPS (secure URLs)
-                        });
-                    }
-                    // Check if the resource is a GIF
-                    else if (file.resource_type === 'image' && file.format === 'gif') {
-                        media.src = cloudinary.url(file.public_id, {
-                            resource_type: 'image',
-                            format: 'gif',
-                            secure: true
-                        });
-                    }
-                    // Handle regular image types (e.g., jpg, png, etc.)
-                    else {
-                        media.src = cloudinary.url(file.public_id, {
-                            quality: 'auto',
-                            secure: true
-                        });
-                    }
-
-                    return media;
-                });
+                const folderMedia = result.resources.map((file) => ({
+                    type: file.resource_type,
+                    src: cloudinary.url(file.public_id, { quality: 'auto', secure: true }),
+                    alt: file.public_id,
+                    folder: folder,
+                }));
 
                 mediaFiles = [...mediaFiles, ...folderMedia];
             } else {
@@ -117,14 +90,12 @@ app.get("/api/get-cloudinary-media", async(req, res) => {
             }
         }
 
-        // Send the final JSON response with media files
         res.json(mediaFiles);
     } catch (error) {
         console.error("Error fetching Cloudinary media:", error);
         res.status(500).json({ error: "Failed to fetch media", details: error.message });
     }
 });
-
 
 // UptimeRobot API Ping Logic
 const sendUptimeRobotPing = async() => {
